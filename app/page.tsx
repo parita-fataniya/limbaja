@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Hero } from "@/components/home/Hero";
 import { ImageSlider } from "@/components/home/ImageSlider";
 import { ClientMarquee } from "@/components/home/ClientMarquee";
+import { ImpactStats } from "@/components/home/ImpactStats";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -105,6 +106,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Impact Statistics Section */}
+      <ImpactStats />
 
       {/* Client Marquee Section */}
       <ClientMarquee />

@@ -3,24 +3,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone, Mail } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
+    const { scrollY } = useScroll();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 20) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        };
+    // Transform scrollY into height and opacity values for smooth animation
+    // 0-20px scroll: Full height/opacity
+    // 20-50px scroll: Fading out/Shrinking
+    const topBarHeight = useTransform(scrollY, [0, 50], ["48px", "0px"]);
+    const topBarOpacity = useTransform(scrollY, [0, 30], [1, 0]);
+    const navPadding = useTransform(scrollY, [0, 50], ["16px", "8px"]);
+    const logoWidth = useTransform(scrollY, [0, 50], ["200px", "150px"]);
+    const logoHeight = useTransform(scrollY, [0, 50], ["70px", "50px"]);
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    // For background blur/transparency
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        setIsScrolled(latest > 20);
+    });
 
     const navLinks = [
         { name: "Home", href: "/" },
@@ -33,18 +37,21 @@ export function Navbar() {
     ];
 
     return (
-        <header
-            className={`sticky top-0 z-50 font-sans transition-all duration-300 ${scrolled
+        <motion.header
+            className={`sticky top-0 z-50 font-sans transition-colors duration-300 ${isScrolled
                 ? "bg-white/90 backdrop-blur-md shadow-lg"
                 : "bg-white shadow-md"
                 }`}
         >
             {/* Top Bar - Contact Info */}
-            <div
-                className={`bg-[#3154a5] text-white transition-all duration-300 overflow-hidden ${scrolled ? "max-h-0 opacity-0" : "max-h-12 py-2"
-                    } text-xs md:text-sm`}
+            <motion.div
+                className="bg-[#3154a5] text-white overflow-hidden"
+                style={{
+                    height: topBarHeight,
+                    opacity: topBarOpacity
+                }}
             >
-                <div className="container mx-auto px-4 flex justify-between items-center">
+                <div className="container mx-auto px-4 flex justify-between items-center h-full text-xs md:text-sm">
                     <div className="flex flex-col md:flex-row gap-2 md:gap-6">
                         <span className="flex items-center gap-2"><Phone size={14} /> 9714253756</span>
                         <span className="flex items-center gap-2"><Mail size={14} /> limbajaenergy@gmail.com</span>
@@ -53,13 +60,19 @@ export function Navbar() {
                         Sustainable Energy Solutions
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
-            <nav className={`container mx-auto px-4 transition-all duration-300 ${scrolled ? "py-2" : "py-4"}`}>
+            <motion.nav
+                className="container mx-auto px-4"
+                style={{ paddingTop: navPadding, paddingBottom: navPadding }}
+            >
                 <div className="flex justify-between items-center">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 group">
-                        <div className={`relative transition-all duration-300 ${scrolled ? "w-[150px] h-[50px]" : "w-[200px] h-[70px]"}`}>
+                        <motion.div
+                            className="relative"
+                            style={{ width: logoWidth, height: logoHeight }}
+                        >
                             <Image
                                 src="/logo.png"
                                 alt="Limbaja Energy"
@@ -67,7 +80,7 @@ export function Navbar() {
                                 className="object-contain object-left"
                                 priority
                             />
-                        </div>
+                        </motion.div>
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -107,7 +120,7 @@ export function Navbar() {
                         ))}
                     </div>
                 )}
-            </nav>
-        </header>
+            </motion.nav>
+        </motion.header>
     );
 }

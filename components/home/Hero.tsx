@@ -1,33 +1,11 @@
 "use client"
 
-import { motion, useScroll, useTransform, animate, useInView } from "framer-motion"
+import { motion, useInView, animate } from "framer-motion"
 import Link from "next/link"
-import { ArrowRight, Zap, Leaf, TrendingUp } from "lucide-react"
+import { ArrowRight, Zap, Leaf, Settings, Cog, Gauge, CircuitBoard, Boxes, Wrench } from "lucide-react"
 import { useRef, useEffect } from "react"
 
-const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) => {
-    const nodeRef = useRef<HTMLSpanElement>(null);
-    const inView = useInView(nodeRef, { once: true });
 
-    useEffect(() => {
-        if (!inView) return;
-
-        const node = nodeRef.current;
-        const controls = animate(0, to, {
-            duration: 2.5,
-            ease: "easeOut",
-            onUpdate(value: number) {
-                if (node) {
-                    node.textContent = `${prefix}${Math.round(value)}${suffix}`;
-                }
-            },
-        });
-
-        return () => controls.stop();
-    }, [to, inView, prefix, suffix]);
-
-    return <span ref={nodeRef} className="tabular-nums">{prefix}0{suffix}</span>;
-};
 
 export const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -37,13 +15,16 @@ export const Hero = () => {
             ref={containerRef}
             className="relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
         >
+            {/* --- Background Animations Start --- */}
+
+            {/* Radial Gradient Pulse */}
             <div className="absolute inset-0 z-0">
                 <motion.div
                     className="absolute inset-0 opacity-20"
                     style={{
-                        backgroundImage: `radial-gradient(circle at 20% 50%, rgba(117, 183, 69, 0.3) 0%, transparent 50%),
-                             radial-gradient(circle at 80% 80%, rgba(252, 192, 23, 0.2) 0%, transparent 50%),
-                             radial-gradient(circle at 40% 20%, rgba(117, 183, 69, 0.2) 0%, transparent 50%)`,
+                        backgroundImage: `radial-gradient(circle at 20% 50%, rgba(49, 84, 165, 0.3) 0%, transparent 50%),
+                             radial-gradient(circle at 80% 80%, rgba(117, 183, 69, 0.2) 0%, transparent 50%),
+                             radial-gradient(circle at 40% 20%, rgba(252, 192, 23, 0.1) 0%, transparent 50%)`,
                     }}
                     animate={{
                         opacity: [0.2, 0.3, 0.2],
@@ -56,7 +37,8 @@ export const Hero = () => {
                 />
             </div>
 
-            <div className="absolute inset-0 z-0 opacity-40">
+            {/* Grid Overlay */}
+            <div className="absolute inset-0 z-0 opacity-30">
                 <div
                     className="absolute inset-0"
                     style={{
@@ -66,6 +48,7 @@ export const Hero = () => {
                 />
             </div>
 
+            {/* Matrix/Digital Rain Effect Lines */}
             <div className="absolute inset-0 z-0 overflow-hidden">
                 {[...Array(5)].map((_, i) => (
                     <motion.div
@@ -89,10 +72,11 @@ export const Hero = () => {
                 ))}
             </div>
 
+            {/* Center Glow */}
             <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none z-0"
                 style={{
-                    background: "radial-gradient(circle, rgba(117, 183, 69, 0.08) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, rgba(49, 84, 165, 0.08) 0%, transparent 70%)",
                     filter: "blur(60px)",
                 }}
                 animate={{
@@ -106,7 +90,7 @@ export const Hero = () => {
                 }}
             />
 
-            {/* Glowing Orbs */}
+            {/* Floating Orbs */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <motion.div
                     className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full"
@@ -127,7 +111,7 @@ export const Hero = () => {
                 <motion.div
                     className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full"
                     style={{
-                        background: "radial-gradient(circle, rgba(252, 192, 23, 0.12) 0%, transparent 70%)",
+                        background: "radial-gradient(circle, rgba(49, 84, 165, 0.12) 0%, transparent 70%)",
                         filter: "blur(40px)",
                     }}
                     animate={{
@@ -142,7 +126,85 @@ export const Hero = () => {
                 />
             </div>
 
-            {/* Floating Particles */}
+            {/* Technical Elements (Gears, Circuits, etc) */}
+            <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+                {/* Large rotating gear - top left */}
+                <motion.div
+                    className="absolute top-[12%] left-[8%]"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                >
+                    <Settings className="w-24 h-24 stroke-[1] text-[#3154a5]/20" />
+                </motion.div>
+
+                {/* Small cog - top left nested */}
+                <motion.div
+                    className="absolute top-[18%] left-[14%]"
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                >
+                    <Cog className="w-12 h-12 stroke-[1] text-[#75b745]/25" />
+                </motion.div>
+
+                {/* Circuit board - top right pulsing */}
+                <motion.div
+                    className="absolute top-[15%] right-[10%]"
+                    animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
+                    transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                >
+                    <CircuitBoard className="w-20 h-20 stroke-[1] text-[#fcc017]/30" />
+                </motion.div>
+
+                {/* Gauge - left side oscillating */}
+                <motion.div
+                    className="absolute top-[45%] left-[6%]"
+                    animate={{ rotate: [-15, 15, -15] }}
+                    transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                >
+                    <Gauge className="w-16 h-16 stroke-[1] text-[#3154a5]/25" />
+                </motion.div>
+
+                {/* Boxes - bottom left floating */}
+                <motion.div
+                    className="absolute bottom-[20%] left-[12%]"
+                    animate={{ y: [-10, 10, -10], x: [-5, 5, -5] }}
+                    transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                >
+                    <Boxes className="w-18 h-18 stroke-[1] text-[#75b745]/20" />
+                </motion.div>
+
+                {/* Wrench - right side pulsing */}
+                <motion.div
+                    className="absolute top-[50%] right-[8%]"
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.25, 0.45, 0.25] }}
+                    transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                >
+                    <Wrench className="w-16 h-16 stroke-[1.5] text-[#fcc017]/35" />
+                </motion.div>
+
+                {/* Large gear - bottom right rotating */}
+                <motion.div
+                    className="absolute bottom-[25%] right-[12%]"
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 30, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                >
+                    <Settings className="w-20 h-20 stroke-[1] text-[#3154a5]/18" />
+                </motion.div>
+
+                {/* Small cog - bottom right with dual animation */}
+                <motion.div
+                    className="absolute bottom-[18%] right-[18%]"
+                    animate={{ rotate: 360, y: [-8, 8, -8] }}
+                    transition={{
+                        rotate: { duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                        y: { duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }
+                    }}
+                >
+                    <Cog className="w-10 h-10 stroke-[1] text-[#75b745]/22" />
+                </motion.div>
+            </div>
+
+            {/* Random Particles */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 {[...Array(8)].map((_, i) => (
                     <motion.div
@@ -167,6 +229,9 @@ export const Hero = () => {
                     />
                 ))}
             </div>
+
+            {/* --- Background Animations End --- */}
+
 
             <motion.div className="relative z-20 container mx-auto px-6 py-20">
                 {/* Stats Badge */}
@@ -260,38 +325,6 @@ export const Hero = () => {
                         </motion.div>
                     </motion.div>
 
-                    {/* Impact Stats with Counter */}
-                    <motion.div
-                        className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mt-12 border-t border-white/10 pt-8"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.7 }}
-                    >
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-white mb-1 tracking-tight">
-                                <CountUp to={500} suffix="+" />
-                            </div>
-                            <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">Projects Completed</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-white mb-1 tracking-tight">
-                                <CountUp to={30} suffix="%" />
-                            </div>
-                            <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">Average Savings</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-white mb-1 tracking-tight">
-                                <CountUp to={100} suffix="%" />
-                            </div>
-                            <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">Client Satisfaction</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-white mb-1 tracking-tight">
-                                24/7
-                            </div>
-                            <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">Expert Support</div>
-                        </div>
-                    </motion.div>
                 </div>
             </motion.div>
 
