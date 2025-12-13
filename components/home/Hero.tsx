@@ -7,12 +7,7 @@ import { useRef } from "react"
 
 export const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null)
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end start"],
-    })
 
-    const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
 
     return (
         <section
@@ -126,7 +121,7 @@ export const Hero = () => {
 
             {/* Floating Particles */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                {[...Array(20)].map((_, i) => (
+                {[...Array(8)].map((_, i) => (
                     <motion.div
                         key={i}
                         className="absolute w-1 h-1 bg-[#75b745] rounded-full"
@@ -150,7 +145,7 @@ export const Hero = () => {
                 ))}
             </div>
 
-            <motion.div style={{ y }} className="relative z-20 container mx-auto px-6 py-20">
+            <motion.div className="relative z-20 container mx-auto px-6 py-20">
                 {/* Stats Badge */}
                 <motion.div
                     className="flex justify-center mb-8"

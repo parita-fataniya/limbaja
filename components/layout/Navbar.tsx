@@ -3,10 +3,24 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone, Mail } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const navLinks = [
         { name: "Home", href: "/" },
@@ -19,9 +33,17 @@ export function Navbar() {
     ];
 
     return (
-        <header className="bg-white shadow-md sticky top-0 z-50 font-sans">
+        <header
+            className={`sticky top-0 z-50 font-sans transition-all duration-300 ${scrolled
+                ? "bg-white/90 backdrop-blur-md shadow-lg"
+                : "bg-white shadow-md"
+                }`}
+        >
             {/* Top Bar - Contact Info */}
-            <div className="bg-[#3154a5] text-white py-2 text-xs md:text-sm">
+            <div
+                className={`bg-[#3154a5] text-white transition-all duration-300 overflow-hidden ${scrolled ? "max-h-0 opacity-0" : "max-h-12 py-2"
+                    } text-xs md:text-sm`}
+            >
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     <div className="flex flex-col md:flex-row gap-2 md:gap-6">
                         <span className="flex items-center gap-2"><Phone size={14} /> 9714253756</span>
@@ -33,11 +55,11 @@ export function Navbar() {
                 </div>
             </div>
 
-            <nav className="container mx-auto px-4 py-4">
+            <nav className={`container mx-auto px-4 transition-all duration-300 ${scrolled ? "py-2" : "py-4"}`}>
                 <div className="flex justify-between items-center">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 group">
-                        <div className="relative w-[200px] h-[70px]">
+                        <div className={`relative transition-all duration-300 ${scrolled ? "w-[150px] h-[50px]" : "w-[200px] h-[70px]"}`}>
                             <Image
                                 src="/logo.png"
                                 alt="Limbaja Energy"
