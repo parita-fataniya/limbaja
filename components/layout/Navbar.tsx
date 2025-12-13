@@ -17,7 +17,7 @@ export function Navbar() {
         const handleScroll = () => {
             if (!ticking) {
                 window.requestAnimationFrame(() => {
-                    setIsScrolled(window.scrollY > 20);
+                    setIsScrolled(window.scrollY > 40);
                     ticking = false;
                 });
                 ticking = true;
@@ -46,18 +46,10 @@ export function Navbar() {
     };
 
     return (
-        <header
-            className={`sticky top-0 z-50 font-sans transition-all duration-500 will-change-transform ${isScrolled
-                ? "bg-white/95 backdrop-blur-md shadow-md"
-                : "bg-white shadow-sm"
-                }`}
-        >
-            {/* Top Bar - Contact Info */}
-            <div
-                className={`bg-[#3154a5] text-white overflow-hidden transition-all duration-500 ease-in-out ${isScrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
-                    }`}
-            >
-                <div className="container mx-auto px-4 flex justify-between items-center h-12 text-xs md:text-sm">
+        <>
+            {/* Top Bar - Standard Flow (Scrolls away naturally) */}
+            <div className="bg-[#3154a5] text-white">
+                <div className="container mx-auto px-4 flex justify-between items-center h-10 text-xs md:text-sm">
                     <div className="flex flex-col md:flex-row gap-2 md:gap-6">
                         <span className="flex items-center gap-2"><Phone size={14} /> 9714253756</span>
                         <span className="flex items-center gap-2"><Mail size={14} /> limbajaenergy@gmail.com</span>
@@ -68,71 +60,77 @@ export function Navbar() {
                 </div>
             </div>
 
-            <nav
-                className={`container mx-auto px-4 transition-all duration-500 ${isScrolled ? "py-2" : "py-4"
+            {/* Main Navigation - Sticky */}
+            <header
+                className={`sticky top-0 z-50 font-sans transition-all duration-300 ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white shadow-sm"
                     }`}
             >
-                <div className="flex justify-between items-center">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2 group">
-                        <div
-                            className={`relative transition-all duration-500 ease-in-out ${isScrolled ? "w-[140px] h-[45px]" : "w-[200px] h-[70px]"
-                                }`}
-                        >
-                            <Image
-                                src="/logo.png"
-                                alt="Limbaja Energy"
-                                fill
-                                className="object-contain object-left"
-                                priority
-                            />
+                <nav
+                    className={`container mx-auto px-4 transition-all duration-300 ${isScrolled ? "py-2" : "py-3"
+                        }`}
+                >
+                    <div className="flex justify-between items-center">
+                        {/* Logo */}
+                        <Link href="/" className="flex items-center gap-2 group">
+                            <div
+                                className={`relative transition-all duration-500 ease-in-out ${isScrolled ? "w-[140px] h-[45px]" : "w-[200px] h-[65px]"
+                                    }`}
+                            >
+                                <Image
+                                    src="/logo.png"
+                                    alt="Limbaja Energy"
+                                    fill
+                                    className="object-contain object-left"
+                                    priority
+                                />
+                            </div>
+                        </Link>
+
+                        {/* Desktop Navigation */}
+                        <div className="hidden lg:flex items-center gap-1">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className={`px-4 py-2 text-[15px] font-bold uppercase tracking-wide transition-colors ${isActive(link.href)
+                                            ? "text-[#0ea5e9]"
+                                            : "text-slate-700 hover:text-[#0ea5e9]"
+                                        }`}
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
                         </div>
-                    </Link>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center gap-1">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className={`px-4 py-2 text-[15px] font-bold uppercase tracking-wide transition-colors ${isActive(link.href)
-                                        ? "text-[#0ea5e9]"
-                                        : "text-slate-700 hover:text-[#0ea5e9]"
-                                    }`}
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
+                        {/* Mobile Menu Button */}
+                        <button
+                            className="lg:hidden text-slate-700 p-2"
+                            onClick={() => setIsOpen(!isOpen)}
+                        >
+                            {isOpen ? <X size={32} /> : <Menu size={32} />}
+                        </button>
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="lg:hidden text-slate-700 p-2"
-                        onClick={() => setIsOpen(!isOpen)}
-                    >
-                        {isOpen ? <X size={32} /> : <Menu size={32} />}
-                    </button>
-                </div>
-
-                {/* Mobile Navigation */}
-                {isOpen && (
-                    <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 flex flex-col animate-in slide-in-from-top-2 duration-200">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className={`block px-6 py-4 font-bold uppercase border-b border-slate-100 last:border-0 ${isActive(link.href)
-                                        ? "text-[#0ea5e9] bg-slate-50"
-                                        : "text-slate-700 hover:bg-slate-50 hover:text-[#0ea5e9]"
-                                    }`}
-                                onClick={() => setIsOpen(false)}
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                    </div>
-                )}
-            </nav>
-        </header>
+                    {/* Mobile Navigation */}
+                    {isOpen && (
+                        <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 flex flex-col animate-in slide-in-from-top-2 duration-200">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className={`block px-6 py-4 font-bold uppercase border-b border-slate-100 last:border-0 ${isActive(link.href)
+                                            ? "text-[#0ea5e9] bg-slate-50"
+                                            : "text-slate-700 hover:bg-slate-50 hover:text-[#0ea5e9]"
+                                        }`}
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
+                        </div>
+                    )}
+                </nav>
+            </header>
+        </>
     );
 }
