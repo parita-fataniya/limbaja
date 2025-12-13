@@ -2,6 +2,7 @@ import { ArrowRight, Zap, Leaf, BarChart3, Settings } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/home/Hero";
+import { ImageSlider } from "@/components/home/ImageSlider";
 
 export default function Home() {
   return (
@@ -9,6 +10,9 @@ export default function Home() {
 
       {/* Animated Hero Section */}
       <Hero />
+
+      {/* Image Slider Section */}
+      <ImageSlider />
 
       {/* Highlights Section */}
       <section className="py-20 bg-white">
