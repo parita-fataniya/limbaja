@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/home/Hero";
 import { ImageSlider } from "@/components/home/ImageSlider";
+import { ClientMarquee } from "@/components/home/ClientMarquee";
 
 export default function Home() {
   return (
@@ -75,6 +76,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Client Marquee Section */}
+      <ClientMarquee />
 
       {/* Call to Action */}
       <section className="py-16 bg-[#0f172a] text-center text-white">
