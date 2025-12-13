@@ -1,7 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter, ArrowRight } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export function Footer() {
+    const pathname = usePathname();
+
+    const isActive = (path: string) => {
+        if (path === "/") {
+            return pathname === "/";
+        }
+        return pathname.startsWith(path);
+    };
+
     return (
         <footer className="bg-[#1e293b] text-white pt-16 pb-8 border-t-4 border-[#75b745]">
             <div className="container mx-auto px-6">
@@ -32,8 +44,14 @@ export function Footer() {
                                 { name: "Contact Us", href: "/contact-us" },
                             ].map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-slate-300 hover:text-[#75b745] hover:pl-2 transition-all flex items-center gap-2 text-sm">
-                                        <ArrowRight size={14} className="text-[#3154a5]" /> {link.name}
+                                    <Link
+                                        href={link.href}
+                                        className={`flex items-center gap-2 text-sm transition-all ${isActive(link.href)
+                                                ? "text-[#75b745] pl-2 font-bold"
+                                                : "text-slate-300 hover:text-[#75b745] hover:pl-2"
+                                            }`}
+                                    >
+                                        <ArrowRight size={14} className={isActive(link.href) ? "text-[#75b745]" : "text-[#3154a5]"} /> {link.name}
                                     </Link>
                                 </li>
                             ))}
