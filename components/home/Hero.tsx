@@ -1,13 +1,36 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform, animate, useInView } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, Zap, Leaf, TrendingUp } from "lucide-react"
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
+
+const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) => {
+    const nodeRef = useRef<HTMLSpanElement>(null);
+    const inView = useInView(nodeRef, { once: true });
+
+    useEffect(() => {
+        if (!inView) return;
+
+        const node = nodeRef.current;
+        const controls = animate(0, to, {
+            duration: 2.5,
+            ease: "easeOut",
+            onUpdate(value: number) {
+                if (node) {
+                    node.textContent = `${prefix}${Math.round(value)}${suffix}`;
+                }
+            },
+        });
+
+        return () => controls.stop();
+    }, [to, inView, prefix, suffix]);
+
+    return <span ref={nodeRef} className="tabular-nums">{prefix}0{suffix}</span>;
+};
 
 export const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null)
-
 
     return (
         <section
@@ -165,17 +188,32 @@ export const Hero = () => {
                 {/* Main Heading */}
                 <div className="text-center max-w-5xl mx-auto">
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.1 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8 }}
                     >
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-[1.1] text-balance">
-                            <span className="block text-white">Power Your Future</span>
-                            <span className="block mt-2">
+                            {/* "Power Your Future" - Slow smooth fade in */}
+                            <motion.span
+                                className="block text-white"
+                                initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                                transition={{ duration: 1.5, ease: "easeOut" }}
+                            >
+                                Power Your Future
+                            </motion.span>
+
+                            {/* "With Sustainable Energy" - Staggered slow fade in */}
+                            <motion.span
+                                className="block mt-2"
+                                initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                                transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+                            >
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#75b745] via-[#8bc956] to-[#fcc017] animate-[shimmer_3s_ease-in-out_infinite]">
                                     With Sustainable Energy
                                 </span>
-                            </span>
+                            </motion.span>
                         </h1>
                     </motion.div>
 
@@ -222,24 +260,37 @@ export const Hero = () => {
                         </motion.div>
                     </motion.div>
 
-                    {/* Impact Stats */}
+                    {/* Impact Stats with Counter */}
                     <motion.div
                         className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mt-12 border-t border-white/10 pt-8"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.7 }}
                     >
-                        {[
-                            { value: "500+", label: "Projects Completed" },
-                            { value: "30%", label: "Average Savings" },
-                            { value: "100%", label: "Client Satisfaction" },
-                            { value: "24/7", label: "Expert Support" },
-                        ].map((stat, index) => (
-                            <div key={index} className="text-center">
-                                <div className="text-3xl font-bold text-white mb-1 tracking-tight">{stat.value}</div>
-                                <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">{stat.label}</div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-white mb-1 tracking-tight">
+                                <CountUp to={500} suffix="+" />
                             </div>
-                        ))}
+                            <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">Projects Completed</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-white mb-1 tracking-tight">
+                                <CountUp to={30} suffix="%" />
+                            </div>
+                            <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">Average Savings</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-white mb-1 tracking-tight">
+                                <CountUp to={100} suffix="%" />
+                            </div>
+                            <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">Client Satisfaction</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-white mb-1 tracking-tight">
+                                24/7
+                            </div>
+                            <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">Expert Support</div>
+                        </div>
                     </motion.div>
                 </div>
             </motion.div>
