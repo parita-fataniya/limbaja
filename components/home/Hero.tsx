@@ -428,39 +428,25 @@ export const Hero = () => {
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
                         <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-[1.1] text-balance">
                             {/* Mobile: Single line, Desktop: Two lines */}
-                            {isMobile ? (
-                                <motion.span
-                                    className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-500 to-green-500"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 1.2, ease: "easeOut" }}
-                                >
-                                    Power Your Future
-                                </motion.span>
-                            ) : (
-                                <>
-                                    <motion.span
-                                        className="block text-white"
-                                        initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-                                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                                        transition={{ duration: 1.5, ease: "easeOut" }}
-                                    >
-                                        Power Your Future
-                                    </motion.span>
+                            <motion.span
+                                className="block text-white"
+                                initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                                transition={{ duration: 1.5, ease: "easeOut" }}
+                            >
+                                Power Your Future
+                            </motion.span>
 
-                                    <motion.span
-                                        className="block mt-2"
-                                        initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-                                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                                        transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-                                    >
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-500 to-green-500 animate-[shimmer_3s_ease-in-out_infinite]">
-                                            With Sustainable Energy
-
-                                        </span>
-                                    </motion.span>
-                                </>
-                            )}
+                            <motion.span
+                                className="block mt-2"
+                                initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                                transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+                            >
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-500 to-green-500 animate-[shimmer_3s_ease-in-out_infinite]">
+                                    With Sustainable Energy
+                                </span>
+                            </motion.span>
                         </h1>
                     </motion.div>
 
