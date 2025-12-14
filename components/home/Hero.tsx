@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform, useSpring } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, Factory, Settings, Cog, Gauge, CircuitBoard, Boxes, Wrench, TrendingUp } from "lucide-react"
 import { useRef, useEffect, useState } from "react"
@@ -8,6 +8,33 @@ import { useRef, useEffect, useState } from "react"
 export const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null)
     const [isMobile, setIsMobile] = useState(false)
+
+    // Scrollytelling Hooks
+    const { scrollY } = useScroll()
+
+    // Parallax effects
+    const backgroundY = useTransform(scrollY, [0, 1000], ["0%", "30%"])
+    const backgroundOpacity = useTransform(scrollY, [0, 500], [1, 0.2])
+
+    // Differentiated Parallax Layers for Icons
+    const ySlow = useTransform(scrollY, [0, 1000], [0, 150])
+    const yFast = useTransform(scrollY, [0, 1000], [0, 300])
+    const yReverse = useTransform(scrollY, [0, 1000], [0, -200])
+
+    // Scroll-linked rotation
+    const rotateScroll = useTransform(scrollY, [0, 1000], [0, 360])
+    const rotateScrollReverse = useTransform(scrollY, [0, 1000], [0, -360])
+
+    // Content fade/exit effects
+    const contentY = useTransform(scrollY, [0, 500], [0, 100])
+    const contentOpacity = useTransform(scrollY, [0, 400], [1, 0])
+    const contentScale = useTransform(scrollY, [0, 400], [1, 0.9])
+    const contentBlur = useTransform(scrollY, [0, 300], ["0px", "10px"])
+
+    const smoothY = useSpring(backgroundY, { stiffness: 50, damping: 20 })
+    const smoothYSlow = useSpring(ySlow, { stiffness: 50, damping: 20 })
+    const smoothYFast = useSpring(yFast, { stiffness: 50, damping: 20 })
+    const smoothYReverse = useSpring(yReverse, { stiffness: 50, damping: 20 })
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 768)
@@ -23,312 +50,338 @@ export const Hero = () => {
         >
             {/* --- Background Animations Start --- */}
 
-            {/* Radial Gradient Pulse - Optimized */}
-            <div className="absolute inset-0 z-0">
-                <motion.div
-                    className="absolute inset-0 opacity-20"
-                    style={{
-                        backgroundImage: isMobile
-                            ? `radial-gradient(circle at 50% 50%, rgba(234, 88, 12, 0.3) 0%, transparent 50%),
+            {/* Parallax Container for Background Elements */}
+            <motion.div
+                className="absolute inset-0 z-0"
+                style={{ opacity: backgroundOpacity }}
+            >
+
+                {/* Radial Gradient Pulse - Optimized */}
+                <div className="absolute inset-0 z-0">
+                    <motion.div
+                        className="absolute inset-0 opacity-20"
+                        style={{
+                            backgroundImage: isMobile
+                                ? `radial-gradient(circle at 50% 50%, rgba(234, 88, 12, 0.3) 0%, transparent 50%),
                                radial-gradient(circle at 80% 80%, rgba(22, 163, 74, 0.2) 0%, transparent 50%)`
-                            : `radial-gradient(circle at 20% 50%, rgba(234, 88, 12, 0.3) 0%, transparent 50%),
+                                : `radial-gradient(circle at 20% 50%, rgba(234, 88, 12, 0.3) 0%, transparent 50%),
                                radial-gradient(circle at 80% 80%, rgba(22, 163, 74, 0.2) 0%, transparent 50%),
                                radial-gradient(circle at 40% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)`,
-                        willChange: "opacity",
+                            willChange: "opacity",
+                        }}
+                        animate={{
+                            opacity: [0.2, 0.35, 0.2],
+                        }}
+                        transition={{
+                            duration: isMobile ? 6 : 8,
+                            repeat: Number.POSITIVE_INFINITY,
+                            ease: "easeInOut",
+                        }}
+                    />
+                </div>
+
+                {/* Grid Overlay - Animated on Desktop, Static on Mobile */}
+                <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
+                    <motion.div
+                        className="absolute inset-0"
+                        style={{
+                            backgroundImage: `radial-gradient(circle, rgba(234, 88, 12, 0.15) 1px, transparent 1px)`,
+                            backgroundSize: isMobile ? "30px 30px" : "50px 50px",
+                            y: smoothY // Apply general parallax to grid
+                        }}
+                        animate={
+                            !isMobile
+                                ? {
+                                    backgroundPosition: ["0px 0px", "50px 50px", "0px 0px"],
+                                }
+                                : {}
+                        }
+                        transition={{
+                            duration: 20,
+                            repeat: Number.POSITIVE_INFINITY,
+                            ease: "linear",
+                        }}
+                    />
+                </div>
+
+                {/* Conveyor Belt Effect Lines */}
+                <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                    {isMobile
+                        ? [...Array(4)].map((_, i) => (
+                            <motion.div
+                                key={i}
+                                className="absolute h-px bg-gradient-to-r from-transparent via-orange-600/40 to-transparent"
+                                style={{
+                                    top: `${25 + i * 20}%`,
+                                    width: "100%",
+                                    willChange: "transform, opacity",
+                                }}
+                                animate={{ x: ["-100%", "100%"], opacity: [0, 0.8, 0] }}
+                                transition={{ duration: 3 + i * 0.5, repeat: Number.POSITIVE_INFINITY, delay: i * 0.6, ease: "linear" }}
+                            />
+                        ))
+                        : [...Array(6)].map((_, i) => (
+                            <motion.div
+                                key={i}
+                                className="absolute w-px bg-gradient-to-b from-transparent via-orange-600/40 to-transparent"
+                                style={{
+                                    left: `${15 + i * 15}%`,
+                                    height: "100%",
+                                    willChange: "transform, opacity",
+                                    y: smoothYFast // Lines move fast
+                                }}
+                                animate={{ opacity: [0, 0.7, 0], scaleY: [0.5, 1, 0.5] }}
+                                transition={{ duration: 4 + i * 0.5, repeat: Number.POSITIVE_INFINITY, delay: i * 0.8, ease: "easeInOut" }}
+                            />
+                        ))}
+                </div>
+
+                {/* Center Glow - Factory themed */}
+                <motion.div
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full pointer-events-none z-0"
+                    style={{
+                        background: "radial-gradient(circle, rgba(234, 88, 12, 0.15) 0%, transparent 60%)",
+                        willChange: "transform, opacity",
+                        y: smoothY // Standard parallax
                     }}
                     animate={{
-                        opacity: [0.2, 0.35, 0.2],
+                        scale: isMobile ? [1, 1.15, 1] : [1, 1.1, 1],
+                        opacity: [0.4, 0.6, 0.4],
+                        rotate: [0, 180, 360],
                     }}
                     transition={{
-                        duration: isMobile ? 6 : 8,
+                        duration: isMobile ? 8 : 12,
                         repeat: Number.POSITIVE_INFINITY,
                         ease: "easeInOut",
                     }}
                 />
-            </div>
 
-            {/* Grid Overlay - Animated on Desktop, Static on Mobile */}
-            <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
-                <motion.div
-                    className="absolute inset-0"
-                    style={{
-                        backgroundImage: `radial-gradient(circle, rgba(234, 88, 12, 0.15) 1px, transparent 1px)`,
-                        backgroundSize: isMobile ? "30px 30px" : "50px 50px",
-                    }}
-                    animate={
-                        !isMobile
-                            ? {
-                                backgroundPosition: ["0px 0px", "50px 50px", "0px 0px"],
-                            }
-                            : {}
-                    }
-                    transition={{
-                        duration: 20,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "linear",
-                    }}
-                />
-            </div>
+                {/* Floating Orbs - Different positions on mobile */}
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <motion.div
+                        className="absolute w-64 h-64 md:w-96 md:h-96 rounded-full"
+                        style={{
+                            top: isMobile ? "15%" : "25%",
+                            left: isMobile ? "10%" : "20%",
+                            background: "radial-gradient(circle, rgba(22, 163, 74, 0.18) 0%, transparent 60%)",
+                            willChange: "transform, opacity",
+                            y: smoothYReverse // Moves opposite to scroll for depth
+                        }}
+                        animate={{
+                            scale: [1, 1.3, 1],
+                            opacity: [0.3, 0.7, 0.3],
+                            x: isMobile ? [0, 20, 0] : [0, 30, 0],
+                        }}
+                        transition={{
+                            duration: 8,
+                            repeat: Number.POSITIVE_INFINITY,
+                            ease: "easeInOut",
+                        }}
+                    />
+                    <motion.div
+                        className="absolute w-64 h-64 md:w-96 md:h-96 rounded-full"
+                        style={{
+                            bottom: isMobile ? "20%" : "25%",
+                            right: isMobile ? "10%" : "20%",
+                            background: "radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 60%)",
+                            willChange: "transform, opacity",
+                            y: smoothYFast // Moves faster than scroll
+                        }}
+                        animate={{
+                            scale: [1.2, 1, 1.2],
+                            opacity: [0.4, 0.8, 0.4],
+                            x: isMobile ? [0, -20, 0] : [0, -30, 0],
+                        }}
+                        transition={{
+                            duration: 10,
+                            repeat: Number.POSITIVE_INFINITY,
+                            ease: "easeInOut",
+                        }}
+                    />
+                </div>
 
-            {/* Conveyor Belt Effect Lines - Mobile: Horizontal, Desktop: Vertical */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                {isMobile
-                    ? // Horizontal conveyor lines for mobile
-                    [...Array(4)].map((_, i) => (
+                {/* Factory Technical Elements - Hidden most on mobile, prominent on desktop */}
+                {!isMobile && (
+                    <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+                        {/* Large rotating gear - top left */}
                         <motion.div
-                            key={i}
-                            className="absolute h-px bg-gradient-to-r from-transparent via-orange-600/40 to-transparent"
+                            className="absolute top-[12%] left-[8%]"
                             style={{
-                                top: `${25 + i * 20}%`,
-                                width: "100%",
+                                willChange: "transform",
+                                y: smoothYFast,
+                                rotate: rotateScroll
+                            }}
+                            // Remove animate: rotate here, let scroll drive it, or combine? 
+                            // Combining creates complex motion. Let's keep constant rotation + scroll rotation via style
+                            // animate={{ rotate: 360 }} // Removed to allow scroll-driven rotation
+                            transition={{ duration: 1, ease: "linear" }}
+                        >
+                            <Settings className="w-24 h-24 stroke-[1] text-orange-600/25" />
+                        </motion.div>
+
+                        {/* Small cog - top left nested */}
+                        <motion.div
+                            className="absolute top-[18%] left-[14%]"
+                            style={{
+                                willChange: "transform",
+                                y: smoothYSlow,
+                                rotate: rotateScrollReverse
+                            }}
+                            animate={{ rotate: -360 }}
+                            transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                        >
+                            <Cog className="w-12 h-12 stroke-[1] text-green-600/30" />
+                        </motion.div>
+
+                        {/* Circuit board - top right pulsing */}
+                        <motion.div
+                            className="absolute top-[15%] right-[10%]"
+                            style={{
                                 willChange: "transform, opacity",
+                                y: smoothYReverse
+                            }}
+                            animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.5, 0.2] }}
+                            transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                        >
+                            <CircuitBoard className="w-20 h-20 stroke-[1] text-amber-500/35" />
+                        </motion.div>
+
+                        {/* Gauge - left side oscillating */}
+                        <motion.div
+                            className="absolute top-[45%] left-[6%]"
+                            style={{
+                                willChange: "transform",
+                                y: smoothY
+                            }}
+                            animate={{ rotate: [-20, 20, -20] }}
+                            transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                        >
+                            <Gauge className="w-16 h-16 stroke-[1.5] text-orange-600/30" />
+                        </motion.div>
+
+                        {/* Boxes - bottom left floating */}
+                        <motion.div
+                            className="absolute bottom-[20%] left-[12%]"
+                            style={{
+                                willChange: "transform",
+                                y: smoothYFast
+                            }}
+                            animate={{ y: [-15, 15, -15], x: [-8, 8, -8], rotate: [0, 5, 0, -5, 0] }}
+                            transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                        >
+                            <Boxes className="w-20 h-20 stroke-[1.5] text-green-600/25" />
+                        </motion.div>
+
+                        {/* Wrench - right side pulsing */}
+                        <motion.div
+                            className="absolute top-[50%] right-[8%]"
+                            style={{
+                                willChange: "transform, opacity",
+                                y: smoothYSlow
                             }}
                             animate={{
-                                x: ["-100%", "100%"],
-                                opacity: [0, 0.8, 0],
+                                scale: [1, 1.25, 1],
+                                opacity: [0.25, 0.5, 0.25],
+                                rotate: [0, 15, 0, -15, 0],
                             }}
+                            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                        >
+                            <Wrench className="w-16 h-16 stroke-[1.5] text-amber-500/40" />
+                        </motion.div>
+
+                        {/* Large gear - bottom right rotating */}
+                        <motion.div
+                            className="absolute bottom-[25%] right-[12%]"
+                            style={{
+                                willChange: "transform",
+                                y: smoothYReverse,
+                                rotate: rotateScrollReverse
+                            }}
+                            animate={{ rotate: -360 }}
+                            transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                        >
+                            <Settings className="w-20 h-20 stroke-[1] text-orange-600/22" />
+                        </motion.div>
+
+                        {/* Small cog - bottom right with dual animation */}
+                        <motion.div
+                            className="absolute bottom-[18%] right-[18%]"
+                            style={{
+                                willChange: "transform",
+                                y: smoothY,
+                                rotate: rotateScroll
+                            }}
+                            animate={{ rotate: 360, y: [-10, 10, -10] }}
                             transition={{
-                                duration: 3 + i * 0.5,
-                                repeat: Number.POSITIVE_INFINITY,
-                                delay: i * 0.6,
-                                ease: "linear",
+                                rotate: { duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                                y: { duration: 3.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
                             }}
-                        />
-                    ))
-                    : // Vertical lines for desktop
-                    [...Array(6)].map((_, i) => (
+                        >
+                            <Cog className="w-10 h-10 stroke-[1.5] text-green-600/28" />
+                        </motion.div>
+                    </div>
+                )}
+
+                {/* Mobile-only simplified factory icons */}
+                {isMobile && (
+                    <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+                        {/* Top factory icon */}
+                        <motion.div
+                            className="absolute top-[15%] right-[10%]"
+                            animate={{
+                                y: [-8, 8, -8],
+                                opacity: [0.3, 0.6, 0.3],
+                            }}
+                            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                        >
+                            <Factory className="w-12 h-12 stroke-[1] text-orange-600/40" />
+                        </motion.div>
+
+                        {/* Rotating gear */}
+                        <motion.div
+                            className="absolute bottom-[25%] left-[12%]"
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                        >
+                            <Settings className="w-14 h-14 stroke-[1] text-green-600/35" />
+                        </motion.div>
+                    </div>
+                )}
+
+                {/* Production Line Particles - More on desktop, fewer on mobile */}
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    {[...Array(isMobile ? 4 : 8)].map((_, i) => (
                         <motion.div
                             key={i}
-                            className="absolute w-px bg-gradient-to-b from-transparent via-orange-600/40 to-transparent"
+                            className="absolute w-1.5 h-1.5 md:w-2 md:h-2 bg-orange-500 rounded-full"
                             style={{
-                                left: `${15 + i * 15}%`,
-                                height: "100%",
+                                top: `${Math.random() * 100}%`,
+                                left: isMobile ? `${Math.random() * 100}%` : `${10 + Math.random() * 80}%`,
                                 willChange: "transform, opacity",
+                                boxShadow: "0 0 8px rgba(234, 88, 12, 0.5)",
                             }}
                             animate={{
-                                opacity: [0, 0.7, 0],
-                                scaleY: [0.5, 1, 0.5],
+                                y: isMobile ? [0, -60, 0] : [0, -120, 0],
+                                x: [0, Math.random() * 60 - 30, 0],
+                                opacity: [0, 1, 0],
+                                scale: [0, 1.5, 0],
                             }}
                             transition={{
-                                duration: 4 + i * 0.5,
+                                duration: Math.random() * 4 + 4,
                                 repeat: Number.POSITIVE_INFINITY,
-                                delay: i * 0.8,
+                                delay: Math.random() * 5,
                                 ease: "easeInOut",
                             }}
                         />
                     ))}
-            </div>
-
-            {/* Center Glow - Factory themed */}
-            <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full pointer-events-none z-0"
-                style={{
-                    background: "radial-gradient(circle, rgba(234, 88, 12, 0.15) 0%, transparent 60%)",
-                    willChange: "transform, opacity",
-                }}
-                animate={{
-                    scale: isMobile ? [1, 1.15, 1] : [1, 1.1, 1],
-                    opacity: [0.4, 0.6, 0.4],
-                    rotate: [0, 180, 360],
-                }}
-                transition={{
-                    duration: isMobile ? 8 : 12,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                }}
-            />
-
-            {/* Floating Orbs - Different positions on mobile */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-                <motion.div
-                    className="absolute w-64 h-64 md:w-96 md:h-96 rounded-full"
-                    style={{
-                        top: isMobile ? "15%" : "25%",
-                        left: isMobile ? "10%" : "20%",
-                        background: "radial-gradient(circle, rgba(22, 163, 74, 0.18) 0%, transparent 60%)",
-                        willChange: "transform, opacity",
-                    }}
-                    animate={{
-                        scale: [1, 1.3, 1],
-                        opacity: [0.3, 0.7, 0.3],
-                        x: isMobile ? [0, 20, 0] : [0, 30, 0],
-                    }}
-                    transition={{
-                        duration: 8,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "easeInOut",
-                    }}
-                />
-                <motion.div
-                    className="absolute w-64 h-64 md:w-96 md:h-96 rounded-full"
-                    style={{
-                        bottom: isMobile ? "20%" : "25%",
-                        right: isMobile ? "10%" : "20%",
-                        background: "radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 60%)",
-                        willChange: "transform, opacity",
-                    }}
-                    animate={{
-                        scale: [1.2, 1, 1.2],
-                        opacity: [0.4, 0.8, 0.4],
-                        x: isMobile ? [0, -20, 0] : [0, -30, 0],
-                    }}
-                    transition={{
-                        duration: 10,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "easeInOut",
-                    }}
-                />
-            </div>
-
-            {/* Factory Technical Elements - Hidden most on mobile, prominent on desktop */}
-            {!isMobile && (
-                <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
-                    {/* Large rotating gear - top left */}
-                    <motion.div
-                        className="absolute top-[12%] left-[8%]"
-                        style={{ willChange: "transform" }}
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                    >
-                        <Settings className="w-24 h-24 stroke-[1] text-orange-600/25" />
-                    </motion.div>
-
-                    {/* Small cog - top left nested */}
-                    <motion.div
-                        className="absolute top-[18%] left-[14%]"
-                        style={{ willChange: "transform" }}
-                        animate={{ rotate: -360 }}
-                        transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                    >
-                        <Cog className="w-12 h-12 stroke-[1] text-green-600/30" />
-                    </motion.div>
-
-                    {/* Circuit board - top right pulsing */}
-                    <motion.div
-                        className="absolute top-[15%] right-[10%]"
-                        style={{ willChange: "transform, opacity" }}
-                        animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.5, 0.2] }}
-                        transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                    >
-                        <CircuitBoard className="w-20 h-20 stroke-[1] text-amber-500/35" />
-                    </motion.div>
-
-                    {/* Gauge - left side oscillating */}
-                    <motion.div
-                        className="absolute top-[45%] left-[6%]"
-                        style={{ willChange: "transform" }}
-                        animate={{ rotate: [-20, 20, -20] }}
-                        transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                    >
-                        <Gauge className="w-16 h-16 stroke-[1.5] text-orange-600/30" />
-                    </motion.div>
-
-                    {/* Boxes - bottom left floating */}
-                    <motion.div
-                        className="absolute bottom-[20%] left-[12%]"
-                        style={{ willChange: "transform" }}
-                        animate={{ y: [-15, 15, -15], x: [-8, 8, -8], rotate: [0, 5, 0, -5, 0] }}
-                        transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                    >
-                        <Boxes className="w-20 h-20 stroke-[1.5] text-green-600/25" />
-                    </motion.div>
-
-                    {/* Wrench - right side pulsing */}
-                    <motion.div
-                        className="absolute top-[50%] right-[8%]"
-                        style={{ willChange: "transform, opacity" }}
-                        animate={{
-                            scale: [1, 1.25, 1],
-                            opacity: [0.25, 0.5, 0.25],
-                            rotate: [0, 15, 0, -15, 0],
-                        }}
-                        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                    >
-                        <Wrench className="w-16 h-16 stroke-[1.5] text-amber-500/40" />
-                    </motion.div>
-
-                    {/* Large gear - bottom right rotating */}
-                    <motion.div
-                        className="absolute bottom-[25%] right-[12%]"
-                        style={{ willChange: "transform" }}
-                        animate={{ rotate: -360 }}
-                        transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                    >
-                        <Settings className="w-20 h-20 stroke-[1] text-orange-600/22" />
-                    </motion.div>
-
-                    {/* Small cog - bottom right with dual animation */}
-                    <motion.div
-                        className="absolute bottom-[18%] right-[18%]"
-                        style={{ willChange: "transform" }}
-                        animate={{ rotate: 360, y: [-10, 10, -10] }}
-                        transition={{
-                            rotate: { duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
-                            y: { duration: 3.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
-                        }}
-                    >
-                        <Cog className="w-10 h-10 stroke-[1.5] text-green-600/28" />
-                    </motion.div>
                 </div>
-            )}
-
-            {/* Mobile-only simplified factory icons */}
-            {isMobile && (
-                <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
-                    {/* Top factory icon */}
-                    <motion.div
-                        className="absolute top-[15%] right-[10%]"
-                        animate={{
-                            y: [-8, 8, -8],
-                            opacity: [0.3, 0.6, 0.3],
-                        }}
-                        transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                    >
-                        <Factory className="w-12 h-12 stroke-[1] text-orange-600/40" />
-                    </motion.div>
-
-                    {/* Rotating gear */}
-                    <motion.div
-                        className="absolute bottom-[25%] left-[12%]"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                    >
-                        <Settings className="w-14 h-14 stroke-[1] text-green-600/35" />
-                    </motion.div>
-                </div>
-            )}
-
-            {/* Production Line Particles - More on desktop, fewer on mobile */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-                {[...Array(isMobile ? 4 : 8)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute w-1.5 h-1.5 md:w-2 md:h-2 bg-orange-500 rounded-full"
-                        style={{
-                            top: `${Math.random() * 100}%`,
-                            left: isMobile ? `${Math.random() * 100}%` : `${10 + Math.random() * 80}%`,
-                            willChange: "transform, opacity",
-                            boxShadow: "0 0 8px rgba(234, 88, 12, 0.5)",
-                        }}
-                        animate={{
-                            y: isMobile ? [0, -60, 0] : [0, -120, 0],
-                            x: [0, Math.random() * 60 - 30, 0],
-                            opacity: [0, 1, 0],
-                            scale: [0, 1.5, 0],
-                        }}
-                        transition={{
-                            duration: Math.random() * 4 + 4,
-                            repeat: Number.POSITIVE_INFINITY,
-                            delay: Math.random() * 5,
-                            ease: "easeInOut",
-                        }}
-                    />
-                ))}
-            </div>
-
+            </motion.div>
             {/* --- Background Animations End --- */}
 
-            <motion.div className="relative z-20 container mx-auto px-6 pt-32 pb-20">
+            <motion.div
+                className="relative z-20 container mx-auto px-6 pt-32 pb-20"
+                style={{ y: contentY, opacity: contentOpacity, scale: contentScale, filter: `blur(${contentBlur})` }}
+            >
                 {/* Stats Badge */}
                 <motion.div
                     className="flex justify-center mb-8"
