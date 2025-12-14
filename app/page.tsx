@@ -31,11 +31,11 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="bg-slate-100 p-8 rounded-2xl border-l-4 border-[#0ea5e9]">
+              <div className="bg-slate-100 p-6 md:p-8 rounded-2xl border-l-4 border-[#0ea5e9]">
                 <h2 className="text-3xl font-bold text-slate-800 mb-6">
                   Highlights Of <span className="text-[#0ea5e9]">Limbaja Energy</span>
                 </h2>
-                <p className="text-slate-600 mb-6 leading-loose text-lg text-justify">
+                <p className="text-slate-600 mb-6 leading-loose text-lg text-left">
                   With gradually increasing energy costs and depletion of natural resources of fossil fuels,
                   prudent energy efficient usage of Electrical energy and thermal energy is essential.
                   <strong>Limbaja Energy</strong> is committed to help clients achieve energy savings and provides

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
@@ -47,22 +47,11 @@ export function Navbar() {
 
     return (
         <>
-            {/* Top Bar - Standard Flow (Scrolls away naturally) */}
-            <div className="bg-[#3154a5] text-white">
-                <div className="container mx-auto px-4 flex justify-between items-center h-10 text-xs md:text-sm">
-                    <div className="flex flex-col md:flex-row gap-2 md:gap-6">
-                        <span className="flex items-center gap-2"><Phone size={14} /> 9714253756</span>
-                        <span className="flex items-center gap-2"><Mail size={14} /> limbajaenergy@gmail.com</span>
-                    </div>
-                    <div className="hidden md:block opacity-90">
-                        Sustainable Energy Solutions
-                    </div>
-                </div>
-            </div>
 
-            {/* Main Navigation - Sticky */}
+
+            {/* Main Navigation - Fixed */}
             <header
-                className={`sticky top-0 z-50 font-sans transition-all duration-300 ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white shadow-sm"
+                className={`fixed w-full top-0 z-50 font-sans transition-all duration-300 ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white shadow-sm"
                     }`}
             >
                 <nav
@@ -93,8 +82,8 @@ export function Navbar() {
                                     key={link.name}
                                     href={link.href}
                                     className={`px-4 py-2 text-[15px] font-bold uppercase tracking-wide transition-colors ${isActive(link.href)
-                                            ? "text-[#0ea5e9]"
-                                            : "text-slate-700 hover:text-[#0ea5e9]"
+                                        ? "text-[#0ea5e9]"
+                                        : "text-slate-700 hover:text-[#0ea5e9]"
                                         }`}
                                 >
                                     {link.name}
@@ -119,8 +108,8 @@ export function Navbar() {
                                     key={link.name}
                                     href={link.href}
                                     className={`block px-6 py-4 font-bold uppercase border-b border-slate-100 last:border-0 ${isActive(link.href)
-                                            ? "text-[#0ea5e9] bg-slate-50"
-                                            : "text-slate-700 hover:bg-slate-50 hover:text-[#0ea5e9]"
+                                        ? "text-[#0ea5e9] bg-slate-50"
+                                        : "text-slate-700 hover:bg-slate-50 hover:text-[#0ea5e9]"
                                         }`}
                                     onClick={() => setIsOpen(false)}
                                 >
