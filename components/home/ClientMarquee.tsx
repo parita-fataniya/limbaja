@@ -43,7 +43,7 @@ export const ClientMarquee = () => {
 };
 
 const CarouselTrack = () => {
-    const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState(clients.length); // Start in the middle of first duplicate set
     const [isSnapping, setIsSnapping] = useState(false);
 
     useEffect(() => {
@@ -56,17 +56,16 @@ const CarouselTrack = () => {
 
     // Handle seamless loop
     useEffect(() => {
-        if (index === clients.length) {
-            // We reached the duplicate set (visually same as index 0)
-            // Wait for the spring animation to complete (approx 600ms), then snap back instantly
+        // When we reach the end of the second duplicate set
+        if (index === clients.length * 2) {
+            // Wait for spring animation, then snap back to middle
             const timeout = setTimeout(() => {
-                setIsSnapping(true); // Disable transition
-                setIndex(0);         // Snap to actual 0
+                setIsSnapping(true);
+                setIndex(clients.length); // Snap back to middle of first duplicate set
             }, 600);
             return () => clearTimeout(timeout);
-        } else if (index === 0 && isSnapping) {
-            // We just snapped to 0. Re-enable transition for next move.
-            // Small delay to ensure the snap frame rendered.
+        } else if (index === clients.length && isSnapping) {
+            // Re-enable transition after snapping
             const timeout = setTimeout(() => {
                 setIsSnapping(false);
             }, 50);
@@ -75,41 +74,38 @@ const CarouselTrack = () => {
     }, [index, isSnapping]);
 
     const CARD_WIDTH = 200;
-    const GAP = 48; // 3rem
+    const GAP = 48;
     const STRIDE = CARD_WIDTH + GAP;
 
-    // Render 3 sets to ensure buffer on both sides if needed.
-    // clients.length is 6. We render 18 items.
-    // Index goes 0...6. 
-    // At 0: Center is Item 0 (1st set). Left is Item -1 (from prev set? No, we don't have prev set here easily unless we shift everything).
-    // Actually, simpler: Just render enough duplicates.
-    // If we duplicate 3 times: [Set1, Set2, Set3]
-    // Index 0 targets Set1[0]. 
-    // Index 6 targets Set2[0].
-
+    // Create 3 duplicate sets for seamless looping
     const displayClients = [...clients, ...clients, ...clients];
 
     return (
         <motion.div
             className="flex gap-12 items-center"
             animate={{
+                // Center the carousel on the current index
                 x: `calc(50% - ${(index * STRIDE) + (CARD_WIDTH / 2)}px)`
             }}
-            transition={isSnapping ? { duration: 0 } : { type: "spring", stiffness: 200, damping: 25 }}
+            transition={isSnapping ? { duration: 0 } : {
+                type: "spring",
+                stiffness: 200,
+                damping: 25
+            }}
             style={{ width: "fit-content" }}
         >
             {displayClients.map((client, i) => {
-                // Determine active state based on modulo index to highlight correct duplicates too
-                // We want to highlight the item that visually corresponds to 'index'.
-                // If index is 0, item 0 is active. Identify duplicates: 0, 6, 12...
-                const isActive = (i % clients.length) === (index % clients.length);
+                // Calculate visual index (0-5) for highlighting
+                const visualIndex = i % clients.length;
+                const currentVisualIndex = index % clients.length;
+                const isActive = visualIndex === currentVisualIndex;
 
                 return (
                     <div
                         key={i}
                         className={`bg-white p-6 rounded-xl shadow-sm border border-slate-100 w-[200px] h-[120px] flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isActive
-                                ? "opacity-100 scale-110 shadow-md border-blue-200 ring-2 ring-blue-100"
-                                : "opacity-60 scale-95 grayscale"
+                            ? "opacity-100 scale-110 shadow-md border-blue-200 ring-2 ring-blue-100"
+                            : "opacity-60 scale-95 grayscale"
                             }`}
                     >
                         <div className="relative w-full h-full">
