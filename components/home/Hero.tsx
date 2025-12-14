@@ -80,7 +80,7 @@ export const Hero = () => {
                     />
                 </div>
 
-                {/* Grid Overlay - Animated on Desktop, Static on Mobile */}
+                {/*S Grid Overlay - Animated on Desktop, Static on Mobile */}
                 <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
                     <motion.div
                         className="absolute inset-0"
