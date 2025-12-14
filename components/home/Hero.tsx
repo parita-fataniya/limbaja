@@ -112,11 +112,11 @@ export const Hero = () => {
                         Inefficiency isn't just waste.<br /> It's a missed opportunity for growth.
                     </p>
                     <motion.div
-                        className="mt-12 opacity-50"
+                        className="mt-12 text-white"
                         animate={{ y: [0, 10, 0] }}
                         transition={{ duration: 2, repeat: Infinity }}
                     >
-                        <p className="text-sm uppercase tracking-widest mb-2">Scroll</p>
+                        <p className="text-sm uppercase tracking-widest mb-2 font-semibold">Scroll</p>
                         <ArrowRight className="w-6 h-6 rotate-90 mx-auto" />
                     </motion.div>
                 </motion.div>
