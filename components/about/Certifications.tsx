@@ -16,15 +16,15 @@ export default function Certifications() {
                     {[
                         {
                             icon: Award,
-                            text: "Qualified Energy Auditors & Energy Managers certified by Bureau of Energy Efficiency (BEE), Ministry of Power, Govt. of India"
+                            text: "Having Qualified Energy Auditors and Energy Managers certified by Bureau of Energy Efficiency, Ministry of power, Govt. Of India."
                         },
                         {
                             icon: ShieldCheck,
-                            text: "Authorized Energy Auditor – Chief Electrical Inspector (CEI), Govt. of Gujarat"
+                            text: "Authorized Energy Auditor of chief Electrical Inspector (CEI) Government of Gujarat"
                         },
                         {
                             icon: BadgeCheck,
-                            text: "Authorized Energy Auditor – Gujarat Energy Development Agency (GEDA)"
+                            text: "Authorized Energy Auditor of Gujarat Energy Development Agency (GEDA) Government of Gujarat"
                         }
                     ].map((item, index) => (
                         <motion.div

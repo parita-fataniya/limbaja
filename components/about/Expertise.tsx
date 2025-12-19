@@ -47,8 +47,8 @@ export default function Expertise() {
                         </div>
                         <div className="relative z-10">
                             <h3 className="text-2xl font-bold mb-6 text-[#22c55e]">Why It Matters</h3>
-                            <p className="text-xl leading-relaxed font-light">
-                                "In many industries, energy offers the <span className="text-[#0ea5e9] font-bold">highest potential for cost reduction</span>—when managed correctly."
+                            <p className="text-lg leading-relaxed font-light text-balance">
+                                "Conservation and efficient utilization of energy resources like Pumping, Compressor, Boiler, Heat Exchanger and process study play a vital role in boosting the profitability of an industry."
                             </p>
                         </div>
                     </motion.div>

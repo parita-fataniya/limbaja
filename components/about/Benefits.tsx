@@ -25,7 +25,7 @@ export default function Benefits() {
                             <h3 className="text-2xl font-bold text-slate-800">Industry</h3>
                         </div>
                         <ul className="space-y-4">
-                            {["Reduce Energy Bills", "Increased Competitiveness", "Improved Productivity", "Better Quality & Profitability"].map((item, i) => (
+                            {["Reduce Energy Bills", "Increased Competitiveness", "Increased Productivity", "Improved Quality", "Improved Profit"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-slate-600">
                                     <span className="w-2 h-2 rounded-full bg-[#0ea5e9]"></span>
                                     {item}
@@ -48,7 +48,7 @@ export default function Benefits() {
                             <h3 className="text-2xl font-bold text-slate-800">Nation</h3>
                         </div>
                         <ul className="space-y-4">
-                            {["Reduced Energy Imports", "Savings redirected to development", "Conservation of limited resources", "Improved Energy Security"].map((item, i) => (
+                            {["Reduced Energy Imports", "Avoided Cost Can be used for Poverty Reduction ", "Conservation of Limited Resources", "Improved Energy Security"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-slate-600">
                                     <span className="w-2 h-2 rounded-full bg-[#f59e0b]"></span>
                                     {item}
@@ -71,7 +71,7 @@ export default function Benefits() {
                             <h3 className="text-2xl font-bold text-slate-800">Globe</h3>
                         </div>
                         <ul className="space-y-4">
-                            {["Reduced GHG & emissions", "Sustainable environment", "Long-term ecological balance"].map((item, i) => (
+                            {["Reduced GHG and Other Emissions", "Maintain the Sustainable Environment"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-slate-600">
                                     <span className="w-2 h-2 rounded-full bg-[#22c55e]"></span>
                                     {item}
