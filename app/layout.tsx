@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google"; // Changed to Nunito for rounded look matching logo
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 const font = Nunito({
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={font.className}>
         <Navbar />
-        <main className="min-h-screen">
+        <main className="min-h-screen pt-32 md:pt-36">
           {children}
         </main>
         <Footer />
