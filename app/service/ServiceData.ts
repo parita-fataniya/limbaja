@@ -5,17 +5,9 @@ export const services = [
         id: "detailed-energy-audit",
         title: "Detailed Energy Audit",
         icon: FileText,
-        description: "Comprehensive verification, monitoring and analysis of energy use.",
-        image: "/services/1/1.jpeg",
+        description: "Energy Audit is defined as “the verification, monitoring and analysis of use of energy including submission of technical report containing recommendations for improving energy efficiency with cost benefit analysis and an action plan to reduce energy consumption”. It builds on the principle \"you can't manage what you don't measure\". It essentially combines the principles of energy use and statistics.",
+        image: "/services/1.png",
         sections: [
-            {
-                type: "text",
-                title: "Introduction",
-                content: [
-                    "Energy Audit is defined as “the verification, monitoring and analysis of use of energy including submission of technical report containing recommendations for improving energy efficiency with cost benefit analysis and an action plan to reduce energy consumption”.",
-                    "It builds on the principle \"you can't manage what you don't measure\". It essentially combines the principles of energy use and statistics."
-                ]
-            },
             {
                 type: "list",
                 title: "Type of Detailed Energy Audit",
@@ -30,20 +22,10 @@ export const services = [
                 ]
             },
             {
-                type: "diagram-center",
+                type: "image",
                 title: "Which Parameter Monitoring in Energy Audit?",
-                centerText: "Energy Audit",
-                items: [
-                    "Water",
-                    "Electricity",
-                    "Coal",
-                    "Air Compressor",
-                    "Fan & Blower",
-                    "Cooling Tower",
-                    "Pumping system",
-                    "Chiller Auxiliary",
-                    "Boiler Auxiliary"
-                ]
+                image: "/services/detail1sub1.jpeg",
+                alt: "Parameter Monitoring Diagram"
             },
             {
                 type: "key-value",
@@ -121,7 +103,7 @@ export const services = [
         title: "Energy Conservation",
         icon: Zap,
         description: "Strategic reduction of energy consumption and carbon footprint.",
-        image: "/services/2/1.jpeg", // Using load meter as relevant image
+        image: "/services/2.png", // Using load meter as relevant image
         sections: [
             {
                 type: "text",
@@ -161,7 +143,7 @@ export const services = [
         title: "Harmonic Analysis",
         icon: Activity,
         description: "Study and mitigation of harmonic distortions in power systems.",
-        image: "/services/3/1.png", // Power Analyzer is perfect here
+        image: "/services/3.png", // Power Analyzer is perfect here
         content: [
             "Measurement of Total Harmonic Distortion (Voltage & Current).",
             "Analysis up to 50th order harmonics compliant with IEEE 519 standards.",
@@ -173,7 +155,7 @@ export const services = [
         title: "Compressor Air Flow Audit",
         icon: Wind,
         description: "Optimization of compressed air generation and usage.",
-        image: "/services/4/1.png", // Compressed air flow meter
+        image: "/services/4.png", // Compressed air flow meter
         content: [
             "Measurement of specific energy consumption (kW/CFM).",
             "Pressure profile analysis of the entire network.",
@@ -185,7 +167,7 @@ export const services = [
         title: "Ultrasonic Air Leakage Audit",
         icon: Search,
         description: "Detection and quantification of costly air leaks.",
-        image: "/instrument/4Ultrasonic.png", // Ultrasonic device
+        image: "/services/5.png", // Ultrasonic device
         content: [
             "Online identification of leaks using advanced ultrasonic detectors.",
             "Quantification of leakage in CFM and financial loss estimation.",
@@ -197,7 +179,7 @@ export const services = [
         title: "Power Plant Audit",
         icon: Settings,
         description: "Performance testing of Captive, Cogen, and Waste Heat plants.",
-        image: "/instrument/9Flue.jpg", // Flue gas relevant for power plant
+        image: "/services/6.png", // Flue gas relevant for power plant
         content: [
             "Boiler Efficiency testing as per ASME PTC 4.",
             "Turbine Heat Rate and Cylinder Efficiency analysis (ASME PTC 6).",
@@ -209,7 +191,7 @@ export const services = [
         title: "Boiler & Furnace Study",
         icon: Thermometer,
         description: "Efficiency analysis of thermal energy generation.",
-        image: "/instrument/9Flue.jpg",
+        image: "/services/7.png",
         content: [
             "Flue gas analysis for Excess Air and Stack Losses.",
             "Heat and Mass balance calculation.",
@@ -221,7 +203,7 @@ export const services = [
         title: "Flow Measurement",
         icon: Droplets,
         description: "Non-invasive ultrasonic flow measurement for various fluids.",
-        image: "/instrument/5.jpeg", // Flexim meter
+        image: "/services/8.png", // Flexim meter
         hasSubTabs: true,
         subTabs: [
             { id: "steam", label: "Steam Flow", content: "Measurement up to 180°C. Essential for balancing steam distribution and calculating boiler efficiency.", image: "/instrument/7.jpeg" },
@@ -235,7 +217,7 @@ export const services = [
         title: "Process Heat Mass Balance",
         icon: Activity,
         description: "Optimization of process streams and energy flows.",
-        image: "/instrument/10Thermography.JPG", // Thermography relates to heat
+        image: "/services/9.png", // Thermography relates to heat
         content: [
             "Detailed mapping of Mass and Energy inputs and outputs.",
             "Identification of waste heat recovery potential.",
@@ -247,7 +229,7 @@ export const services = [
         title: "Cooling Tower Study",
         icon: Wind,
         description: "Performance assessment of cooling systems.",
-        image: "/instrument/12 Lutron Anemometer.jpg", // Anemometer relates to air flow in CT
+        image: "/services/10.png", // Anemometer relates to air flow in CT
         content: [
             "Calculation of Range, Approach, and Effectiveness.",
             "L/G Ratio analysis.",
@@ -259,7 +241,7 @@ export const services = [
         title: "Chiller Performance",
         icon: Thermometer,
         description: "Evaluation of specific power consumption (kW/TR).",
-        image: "/instrument/11 Temperature meter.png",
+        image: "/services/11.png",
         content: [
             "Estimation of actual tonnage delivered vs design.",
             "Calculation of COP and EER.",
@@ -271,7 +253,7 @@ export const services = [
         title: "Lighting System",
         icon: Zap,
         description: "Efficiency improvement of industrial lighting.",
-        image: "/instrument/17 HTC Lux meter.jpg",
+        image: "/services/12.png",
         content: [
             "Lux level measurement in various work zones.",
             "Optimization of lighting layout.",
@@ -283,7 +265,7 @@ export const services = [
         title: "Thermography Study",
         icon: Thermometer,
         description: "Non-contact hotspot detection.",
-        image: "/instrument/10Thermography.JPG",
+        image: "/services/13.png",
         content: [
             "Inspection of Electrical Panels for loose connections.",
             "Insulation survey of Boilers, Steam lines, and Chillers.",
@@ -295,7 +277,7 @@ export const services = [
         title: "Steam Trap Audit",
         icon: Droplets,
         description: "Identification of leaking or plugged traps.",
-        image: "/instrument/10Thermography.JPG", // Thermography is used for traps
+        image: "/services/14.png", // Thermography is used for traps
         content: [
             "Ultrasonic and Thermal inspection of steam traps.",
             "Quantification of steam loss.",
@@ -307,7 +289,7 @@ export const services = [
         title: "Pumping System Study",
         icon: Activity,
         description: "Hydraulic and electrical efficiency analysis.",
-        image: "/instrument/1alm31.jpg", // Power measurement is key
+        image: "/services/15.png", // Power measurement is key
         content: [
             "Simultaneous measurement of Flow, Head, and Power.",
             "Operating point analysis on Pump Curve.",
@@ -319,7 +301,7 @@ export const services = [
         title: "Fan Study",
         icon: Wind,
         description: "Air handling system optimization.",
-        image: "/instrument/12 Lutron Anemometer.jpg",
+        image: "/services/16.png",
         content: [
             "Performance assessment of ID/FD/PA fans and Blowers.",
             "Efficiency comparison against design.",
@@ -331,7 +313,7 @@ export const services = [
         title: "Carbon Verification",
         icon: Globe,
         description: "Validation of carbon credits (UCR).",
-        image: "/clients/Adani_logo_2012.svg.png", // Placeholder or use generic green image
+        image: "/services/17.png", // Placeholder or use generic green image
         content: [
             "Verification for Renewable Energy projects (Solar, Wind).",
             "Energy Efficiency project validation.",
@@ -343,7 +325,7 @@ export const services = [
         title: "Electrical Arc Flash Study",
         icon: AlertTriangle,
         description: "Safety assessment and boundary determination.",
-        image: "/instrument/24 5kV Insulation Testor.JPG", // Safety/Electrical related
+        image: "/services/18.png", // Safety/Electrical related
         content: [
             "Calculation of Incident Energy and Flash Boundary.",
             "Determination of required PPE (Hazard Risk Category).",
@@ -355,7 +337,7 @@ export const services = [
         title: "Motor Efficiency Study",
         icon: Settings,
         description: "Analysis of motor loading and losses.",
-        image: "/instrument/16 stroboscope-500x500.png",
+        image: "/services/19.png",
         content: [
             "Evaluation of loading pattern.",
             "Loss separation analysis (Copper, Iron, Friction).",
@@ -367,7 +349,7 @@ export const services = [
         title: "Energy Meter Calibration",
         icon: PieChart,
         description: "Onsite calibration with Class 0.2S analyzer.",
-        image: "/instrument/1alm31.jpg", // Calibration uses reference meter
+        image: "/services/20.png", // Calibration uses reference meter
         content: [
             "Verification of Voltage, Current, kW, and Energy readings.",
             "Accuracy check against calibrated reference standard.",

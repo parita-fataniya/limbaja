@@ -8,12 +8,12 @@ import { ArrowRight } from "lucide-react";
 
 export default function ServiceGrid() {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
                 <Link href={`/service/${service.id}`} key={service.id} className="block group h-full">
                     <motion.div
                         layoutId={`card-${service.id}`}
-                        className="bg-slate-900 rounded-none overflow-hidden border border-slate-800 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col group-hover:-translate-y-1 h-full"
+                        className="bg-white rounded-none overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col group-hover:-translate-y-1 h-full"
                     >
                         {/* Banner Image Section */}
                         <div className="relative w-full aspect-video z-0">
@@ -21,6 +21,8 @@ export default function ServiceGrid() {
                                 src={service.image}
                                 alt={service.title}
                                 fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                quality={100}
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                             />
                             {/* Texture Overlay */}
@@ -30,16 +32,16 @@ export default function ServiceGrid() {
                         {/* Content Section (Downside/Below Image) */}
                         <div className="p-6 flex flex-col flex-grow relative z-10">
                             <div className="flex items-start justify-between mb-4">
-                                <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-[var(--primary)] transition-colors">
+                                <h3 className="text-xl font-bold text-slate-900 tracking-tight group-hover:text-[var(--primary)] transition-colors">
                                     {service.title}
                                 </h3>
-                                <div className="p-2 bg-white/5 border border-white/10 flex items-center justify-center text-white rounded-none shrink-0 ml-4">
+                                <div className="p-2 bg-slate-50 border border-slate-100 flex items-center justify-center text-[var(--primary)] rounded-none shrink-0 ml-4 group-hover:bg-[var(--primary)] group-hover:text-white transition-colors">
                                     <service.icon className="w-5 h-5" />
                                 </div>
                             </div>
 
 
-                            <p className="text-slate-400 text-sm line-clamp-3 mb-6 leading-relaxed flex-grow">
+                            <p className="text-slate-600 text-sm line-clamp-3 mb-6 leading-relaxed flex-grow">
                                 {service.description}
                             </p>
 
