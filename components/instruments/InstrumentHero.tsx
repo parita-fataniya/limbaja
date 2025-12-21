@@ -27,17 +27,17 @@ export default function InstrumentHero() {
                     <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
                         Our Instruments
                     </h1>
-                    <p className="text-xl md:text-2xl text-slate-200 font-light max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-xl md:text-2xl text-slate-200 font-light max-w-3xl mx-auto leading-relaxed tracking-wide">
                         Precision Tools for Accurate Energy Audit & Performance Measurement
                     </p>
                     <div className="w-24 h-1 bg-[#0ea5e9] mx-auto mt-8 rounded-full shadow-[0_0_20px_rgba(14,165,233,0.5)]" />
                 </motion.div>
-                
+
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="mt-8 text-slate-300 max-w-2xl mx-auto"
+                    className="mt-8 text-slate-300 max-w-2xl mx-auto leading-relaxed tracking-wide"
                 >
                     We are a leading Service provider in the field of "Energy Audit & Efficiency Measurement".
                 </motion.p>
