@@ -52,18 +52,17 @@ export default function InstrumentTabs() {
     return (
         <section className="py-24 bg-slate-50 min-h-screen">
             <div className="container mx-auto px-6">
-                
+
                 {/* Tabs Header */}
                 <div className="flex flex-wrap justify-center gap-4 mb-16">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id as any)}
-                            className={`flex items-center gap-3 px-8 py-4 rounded-xl text-sm md:text-base font-bold transition-all duration-300 border-2 ${
-                                activeTab === tab.id
-                                    ? "bg-[#0ea5e9] text-white border-[#0ea5e9] shadow-lg scale-105"
-                                    : "bg-white text-slate-600 border-transparent hover:border-slate-200 shadow-sm"
-                            }`}
+                            className={`flex items-center gap-3 px-8 py-4 rounded-xl text-sm md:text-base font-bold transition-all duration-300 border-2 ${activeTab === tab.id
+                                ? "bg-[#0ea5e9] text-white border-[#0ea5e9] shadow-lg scale-105"
+                                : "bg-white text-slate-600 border-transparent hover:border-slate-200 shadow-sm"
+                                }`}
                         >
                             <tab.icon size={20} />
                             {tab.label}
@@ -87,44 +86,46 @@ export default function InstrumentTabs() {
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: index * 0.05 }}
-                                whileHover={{ y: -8 }}
-                                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col"
+                                whileHover={{ y: -5 }}
+                                className="group relative bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 aspect-[16/9]"
                             >
                                 {/* Image Container */}
-                                <div className="relative aspect-[4/3] bg-slate-200 overflow-hidden">
+                                <div className="absolute inset-0 bg-slate-800">
                                     {/* Placeholder for Real Image - Use this logic when images are available */}
                                     {/* 
                                     <Image 
                                        src={`/instruments/${item.name.toLowerCase().replace(/ /g, '-')}.jpg`}
                                        alt={item.name}
                                        fill
-                                       className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                       className="object-cover opacity-80 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700"
                                     />
                                     */}
-                                    
+
                                     {/* Fallback Display */}
-                                    <div className="absolute inset-0 flex items-center justify-center bg-slate-100 text-slate-400 group-hover:bg-slate-200 transition-colors duration-500">
+                                    <div className="absolute inset-0 flex items-center justify-center bg-slate-800 text-slate-600 group-hover:bg-slate-700 transition-colors duration-500">
                                         <div className="text-center group-hover:scale-110 transition-transform duration-700">
-                                            <Camera size={48} className="mx-auto mb-2 opacity-50" />
-                                            <span className="text-xs font-semibold uppercase tracking-widest opacity-70">Image Coming Soon</span>
+                                            <Camera size={48} className="mx-auto mb-2 opacity-30" />
                                         </div>
                                     </div>
-
-                                    {/* Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </div>
 
-                                {/* Content */}
-                                <div className="p-6 flex flex-col grow">
-                                    <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-[#0ea5e9] transition-colors line-clamp-2">
+                                {/* Gradient Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
+
+                                {/* Content Overlay */}
+                                <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    <div className="mb-1">
+                                        <span className="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2 block">
+                                            {item.make ? item.make : "Limbaja Energy"}
+                                        </span>
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-blue-400 transition-colors">
                                         {item.name}
                                     </h3>
-                                    
-                                    <div className="mt-auto">
-                                        <div className="inline-block bg-slate-50 border border-slate-100 rounded-lg px-3 py-2">
-                                            <span className="text-slate-400 text-xs font-bold uppercase tracking-wider block mb-1">Make / Model</span>
-                                            <span className="text-slate-700 font-semibold text-sm">{item.make ? item.make : "N/A"}</span>
-                                        </div>
+                                    <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-300 opacity-0 group-hover:opacity-100">
+                                        <p className="text-slate-300 text-sm mt-2">
+                                            Premium quality instrument for accurate measurements.
+                                        </p>
                                     </div>
                                 </div>
                             </motion.div>

@@ -17,27 +17,18 @@ export default function WhoWeAre() {
                             transition={{ duration: 0.7, ease: "easeOut" }}
                         >
                             <div className="inline-block mb-4">
-                                <span className="text-sm font-semibold text-[#0ea5e9] uppercase tracking-wider">About Us</span>
+                                <span className="text-sm font-bold text-[#0ea5e9] uppercase tracking-[0.2em]">About Us</span>
                             </div>
-                            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">Who We Are</h2>
+                            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight tracking-tight">Who We Are</h2>
                             <div className="w-20 h-1 bg-[#0ea5e9] rounded-full mb-8"></div>
 
-                            <div className="space-y-6 text-slate-600 text-base md:text-lg leading-relaxed text-justify">
-                                <p className="text-justify">
+                            <div className="space-y-6 text-slate-600 text-base md:text-lg leading-loose tracking-wide text-justify">
+                                <p className="text-justify font-medium">
                                     With gradually increasing energy costs and depletion of natural resources of fossil fuels, prudent energy efficient usage of Electrical energy and thermal energy. Limbaja Energy is committed to help clients achieve energy savings and provides complete end to end solution from conceptualization, measurement, feasibility analysis and implementation support for energy saving.
                                 </p>
                                 <p className="text-justify">
                                     We have a very qualified team of certified Energy Auditors and Energy Engineers who have wide experience in various types of industries, processes and facilities. In many industries and facilities, energy generally has the highest potential for cost reduction.
                                 </p>
-                                <p className="text-justify">
-                                    LIMBAJA ENERGY has specialization in energy audit and energy implementation.
-                                </p>
-                                <ul className="list-disc pl-5 space-y-2 text-slate-700 font-medium">
-                                    <li>LIMBAJA ENERGY is a fast-growing company in energy conservation field.</li>
-                                    <li>Having Qualified Energy Auditors and Energy Managers certified by Bureau of Energy Efficiency, Ministry of power, Govt. Of India.</li>
-                                    <li>Authorized Energy Auditor of chief Electrical Inspector (CEI) Government of Gujarat</li>
-                                    <li>Authorized Energy Auditor of Gujarat Energy Development Agency (GEDA) Government of Gujarat</li>
-                                </ul>
                             </div>
                         </motion.div>
                     </div>

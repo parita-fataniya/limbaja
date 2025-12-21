@@ -1,5 +1,6 @@
 import AboutHero from "@/components/about/AboutHero";
 import WhoWeAre from "@/components/about/WhoWeAre";
+import CompanyProfile from "@/components/about/CompanyProfile";
 import Expertise from "@/components/about/Expertise";
 import Specializations from "@/components/about/Specializations";
 import Certifications from "@/components/about/Certifications";
@@ -11,6 +12,7 @@ export default function AboutUs() {
         <main className="min-h-screen">
             <AboutHero />
             <WhoWeAre />
+            <CompanyProfile />
             <Expertise />
             <Specializations />
             <Certifications />

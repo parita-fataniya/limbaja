@@ -18,13 +18,13 @@ export default function AboutHero() {
                     transition={{ duration: 0.8 }}
                     className="max-w-4xl mx-auto"
                 >
-                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
                         About <span className="text-[#0ea5e9]">Limbaja Energy</span>
                     </h1>
-                    <h2 className="text-xl md:text-3xl text-[#22c55e] font-medium mb-6">
+                    <h2 className="text-xl md:text-3xl text-[#22c55e] font-medium mb-8 tracking-wide leading-snug">
                         Driving Energy Efficiency. Powering Sustainable Growth.
                     </h2>
-                    <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto text-balance">
+                    <p className="text-lg md:text-xl text-slate-300 leading-loose tracking-wide max-w-3xl mx-auto text-balance">
                         Limbaja Energy is committed to helping industries reduce energy costs and optimize electrical and thermal energy usage through expert audits and implementation support.
                     </p>
                 </motion.div>

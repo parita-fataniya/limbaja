@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google"; // Changed to Nunito for rounded look matching logo
+import { Inter } from "next/font/google"; // Changed to Inter for a professional look
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-const font = Nunito({
+const font = Inter({
   subsets: ["latin"],
-  weight: ['400', '600', '700', '800'],
-  variable: '--font-nunito',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
