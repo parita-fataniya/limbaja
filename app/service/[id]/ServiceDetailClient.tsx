@@ -68,6 +68,7 @@ export default function ServiceDetailClient({ id }: { id: string }) {
                                     className="object-cover"
                                     quality={100}
                                     priority
+                                    unoptimized
                                 />
                             </div>
 
