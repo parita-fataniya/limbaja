@@ -102,20 +102,17 @@ export const services = [
         id: "energy-conservation",
         title: "Energy Conservation",
         icon: Zap,
-        description: "Strategic reduction of energy consumption and carbon footprint.",
+        description: "Energy conservation is the effort made to reduce the consumption of energy by using less of an energy service. This can be achieved either by using energy more efficiently (using less energy for a constant service) or by reducing the amount of service used (for example, by driving less).",
         image: "/services/2.png", // Using load meter as relevant image
         sections: [
             {
                 type: "text",
-                title: "What is Energy Conservation?",
                 content: [
-                    "Energy conservation is the effort made to reduce the consumption of energy by using less of an energy service. This can be achieved either by using energy more efficiently (using less energy for a constant service) or by reducing the amount of service used (for example, by driving less).",
                     "Energy conservation is a part of the concept of Eco-sufficiency. Energy conservation measures (ECMs) in industry reduce the need for energy services and can result in increased environmental quality, national security, personal financial security and higher savings."
                 ]
             },
             {
                 type: "list",
-                title: "Energy Saving Projects",
                 items: [
                     "Guaranteed Energy Saving Project",
                     "Percentage Basis Energy Saving Project",
@@ -128,7 +125,6 @@ export const services = [
             },
             {
                 type: "text",
-                title: "Benchmarking",
                 content: [
                     "Benchmarking of energy consumption internally (historical / trend analysis) and externally (across similar industries) are two powerful tools for performance assessment and logical evolution of avenues for improvement.",
                     "Historical data well documented helps to bring out energy consumption and cost trends month-wise / day-wise.",

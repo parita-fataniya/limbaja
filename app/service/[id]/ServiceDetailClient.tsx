@@ -58,9 +58,9 @@ export default function ServiceDetailClient({ id }: { id: string }) {
 
                     {/* Main Content Area */}
                     <div className="p-8 md:p-12">
-                        <div className="flex flex-col md:flex-row gap-8 items-start mb-10">
+                        <div className="flex flex-col md:flex-row gap-8 items-stretch mb-10">
                             {/* Service Image (Left Side) */}
-                            <div className="relative w-full md:w-[450px] h-[220px] rounded-2xl overflow-hidden shadow-lg border border-slate-200 shrink-0">
+                            <div className="relative w-full md:w-[450px] h-[220px] md:h-auto min-h-[220px] rounded-2xl overflow-hidden shadow-lg border border-slate-200 shrink-0">
                                 <Image
                                     src={service.image}
                                     alt={service.title}
@@ -73,7 +73,7 @@ export default function ServiceDetailClient({ id }: { id: string }) {
                             </div>
 
                             <div className="flex-1">
-                                <p className="text-lg text-slate-600 leading-relaxed font-medium text-left">
+                                <p className="text-lg text-slate-600 leading-relaxed font-medium text-left whitespace-pre-line">
                                     {service.description}
                                 </p>
                             </div>
