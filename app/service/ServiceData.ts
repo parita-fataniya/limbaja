@@ -371,18 +371,14 @@ export const services: Service[] = [
         content: []
     },
     {
+
         id: "leakage-audit",
-        title: "Ultrasonic Air Leakage Audit",
+        title: "Compressor Ultrasonic Air Leakage Audit",
         icon: Search,
-        description: "We provide the Compressed Air Leakage Audit service and Compressed Flow Audit Service using advanced ultrasonic detectors. Annually significant financial loss occurs due to air leakages.",
+        description: "We provide the Compressed Air Leakage Audit service and Compressed Flow Audit Service. Have a look!",
         image: "/services/5.png",
         sections: [
-            {
-                type: "image",
-                title: "Ultrasonic Leak Detector",
-                image: "/instrument/4Ultrasonic.png",
-                alt: "Ultrasonic Leak Detection Instrument"
-            },
+
             {
                 type: "list",
                 title: "Scope of Work",
@@ -392,31 +388,70 @@ export const services: Service[] = [
                     "Measures the compressed air/gas leakage based on the decibel",
                     "Converts it to the quantitate cfm and has provision of tagging",
                     "Generation of report with leaks location identified",
+                    "Compressor operating parameter",
+                    "Compressed air SLD study",
+                    "Pressure profile assessment from supply and demand side",
+                    "Suggestions on Latest technologies and Compressed air leakage techniques",
                     "Energy savings in the compressed air network and through continuous leakage monitoring and tagging report"
                 ]
             },
             {
+                type: "list",
+                title: "Problem",
+                items: [
+                    "Is Compressed Air leakage more than machine usage?",
+                    "Are Existing Air Compressors not sufficient to cater plant pneumatic load?",
+                    "Have Pressure Drop at Generation to plant level?",
+                    "Is Pressure Not sufficient at the end of the machine?",
+                    "Compressed Air Generation Cost is higher than other Equipment of your company?"
+                ]
+            },
+            {
+                type: "text",
+                title: "Problem Identification: Why do you worry?",
+                content: [
+                    "We have the best solution for you.",
+                    "Ultrasonic Leakage Detections Instrument for Identification of compressed Air leakage without any machine stoppage.",
+                    "Identification of leakage and tagging of Compressed Air leakage.",
+                    "Stop the Compressed Air leakages whenever your Free time."
+                ]
+            },
+            {
                 type: "table",
-                title: "Calculation & Loss Estimation",
+                title: "Calculation",
                 headers: ["SN", "Parameter", "Unit", "Value"],
                 rows: [
                     ["1", "Air leakage from valve", "CFM", "12"],
                     ["2", "Wastage of Power Due to Air leakage", "kW", "2.16"],
                     ["3", "Daily Power Wastage", "kWh", "51.84"],
                     ["4", "Annual Power Waste", "kWh", "18,921.6"],
-                    ["5", "Excess Power Consumption Cost", "Rs", "1,60,834"]
+                    ["5", "Excess Power Consumption Cost due to Air leakage", "Rs", "1,60,834"]
                 ]
             },
             {
                 type: "text",
+                title: "Annually 1.6 Lakh Rs Waste !",
                 content: [
-                    "Problem Solution:",
-                    "• Measurement of Compressed Air Leakage in CFM with Photo identification",
-                    "• Measurement of Compressed Air Flow",
-                    "• Measurement of Internal Leakage",
-                    "• Base Line Compressed Air Study",
-                    "• Achieve the Air leakage below 5 to 6 %"
+                    "Can we Reduce?",
+                    "How To Reduce?",
+                    "Can We Save the money?"
                 ]
+            },
+            {
+                type: "list",
+                title: "Problem Solution",
+                items: [
+                    "Measurement of Compressed Air Leakage in CFM with Photo identification",
+                    "Measurement of Compressed Air Flow",
+                    "Measurement of Internal Leakage",
+                    "Base Line Compressed Air Study",
+                    "Achieve the Air leakage below 5 to 6 %"
+                ]
+            },
+            {
+                type: "text",
+                title: "Conclusion",
+                content: ["Want to Do a Compressed Air Leakage Audit at your company Premises?"]
             }
         ],
         content: []
@@ -436,60 +471,148 @@ export const services: Service[] = [
             },
             {
                 type: "list",
-                title: "Scope of Work",
+                title: "Type of Plant",
                 items: [
+                    "Captive Power Plant",
+                    "Cogeneration Power Plant",
+                    "Waste Heat Recovery power plant",
+                    "Gas Power Plant"
+                ]
+            },
+            {
+                type: "list",
+                title: "Scope of Work for Power Plant Audit",
+                items: [
+                    "Performance testing of the following system of power plant in accordance with respective PTC Code",
                     "Steam Generator Boiler Efficiency evaluation by indirect Method by (ASME PTC 4)",
                     "Effectiveness of air pre-heater and air ingress identification (ASME PTC 4.3)",
                     "Turbine (ASME PTC 6 -2004)",
                     "HP-LP Feed Water Heater (ASME PTC 12.1)",
-                    "Condenser (ASME PTC 12.2)",
+                    "Condenser (ASME PC 12.2)",
                     "Cooling Tower (ASME PTC 23)"
                 ]
             },
             {
+                type: "list",
+                title: "Methodology",
+                items: [
+                    "Measurement of Collecting Data",
+                    "Analysis Data",
+                    "Presenting Data",
+                    "Recommendations"
+                ]
+            },
+            {
                 type: "nested-content",
-                title: "Detailed Methodology",
+                title: "Steam Generator Boiler Efficiency Evaluation by indirect method by (ASME PTC 4 -2008)",
                 sections: [
                     {
-                        subtitle: "1. Steam Generator Boiler Efficiency (ASME PTC 4 -2008)",
+                        subtitle: "Objective: Determine major loss Covered Are:",
                         items: [
-                            "Heat Loss Due to dry flue gas, moisture in fuel/air, hydrogen in fuel.",
-                            "Heat loss due to un-burnt carbon, radiation, and unaccounted losses.",
-                            "Coal Analysis report."
+                            "Heat Loss Due to dry flue gas losses",
+                            "Heat Loss due to moisture in fuel",
+                            "Heat loss due to moisture in air",
+                            "Heat loss due to hydrogen in fuel",
+                            "Heat loss due to un-burnt carbon in fly ash and bottom ash",
+                            "Heat loss due to radiation based on ABMA Curve",
+                            "Unaccounted losses",
+                            "All required parameter measurement and flue gas measurement shall be carried out by your entity using portable gas analyzer across APH for O2, CO and other instruments.",
+                            "Coal Analysis report and other report"
                         ]
                     },
                     {
-                        subtitle: "2. Effectiveness of Air Pre heater (PTC 4.3)",
+                        subtitle: "Effectiveness of Air Pre heater & Ingress identification (PTC 4.3)",
                         items: [
-                            "Gas Side Efficiency (GSE), Air Side Efficiency (ASE), Overall efficiency.",
-                            "APH Air Leakage Calculation."
+                            "Gas Side Efficiency (GSE)",
+                            "Pre heater Air Side Efficiency (ASE)",
+                            "Pre heater Primary Air Side Efficiency (PASE)",
+                            "Overall efficiency",
+                            "APH Air Leakage Calculation",
+                            "Flue gas O2 CO CO2 and Air temperature shall be measure using portable gas analyzer which shall be in scope of Limbaja Energy",
+                            "All required parameter and data shall be measured/Calculate by Limbaja Energy"
                         ]
                     },
                     {
-                        subtitle: "3. Turbine (ASME PTC 6 -2004)",
-                        items: ["Turbine Cylinder Efficiency", "Pressure Survey", "Performance of turbine gland sealing system"]
+                        subtitle: "Turbine (ASME PTC 6 -2004)",
+                        items: [
+                            "Turbine Cylinder Efficiency",
+                            "Pressure Survey",
+                            "Performance of turbine gland sealing system",
+                            "HMBD Diagram provided by company scope."
+                        ]
                     },
                     {
-                        subtitle: "5. Condenser (ASME PTC 12.2)",
-                        items: ["Condenser performance with reference to Cooling Water flow", "Cooling water pressure loss", "Condenser back pressure, CW inlet/outlet temps"]
+                        subtitle: "HP – LP Feed Water heater (ASME PTC 12.1)",
+                        items: ["Performance Study of HP-LP Heaters"]
+                    },
+                    {
+                        subtitle: "Condenser (ASME PTC 12.2)",
+                        items: [
+                            "Condenser performance with reference to Cooling Water flow and temperature of circulating water",
+                            "Study of Deviation/Deterioration in the performance of condenser",
+                            "Deviation in performance due to circulation water flow",
+                            "Deviating due to scale formation",
+                            "Cooling water pressure loss across condenser",
+                            "Required Parameter Condensate Flow to deaerator",
+                            "Condenser back pressure, CW inlet and outlet temperature, CW Flow will be measured using portable flow meter."
+                        ]
+                    },
+                    {
+                        subtitle: "Cooling Tower (PTC 23)",
+                        items: [
+                            "Assessment of cooling tower capacity and efficiency/effectiveness",
+                            "Assessment of condenser heat load",
+                            "DBT, WBT air velocity and humidity CW Temperature shall be measured"
+                        ]
+                    },
+                    {
+                        subtitle: "Coal Analysis",
+                        items: [
+                            "Ultimate and Proximate Analysis of Coal",
+                            "GCV Test of APH Ash, ESP Ash Economizer Ash and Bed Bottom Ash"
+                        ]
                     }
                 ]
             },
             {
-                type: "text",
-                title: "Case Study: LP Heater Steam Line",
-                content: ["Energy Conservation Measure: Use LP Heater Steam Line for Heating the Boiler Feed Water and Increase the Turbine Power."]
+                type: "table",
+                title: "Energy Conservation Measure : Use LP Heater Steam Line for Heating the Boiler Feed Water and Increase the Turbine Power",
+                headers: ["SN", "Parameter", "Unit", "Value"],
+                rows: [
+                    ["1", "Power Generation Per day Without LP Heater Running", "MWD", "347.86"],
+                    ["2", "Power Generation Per day With LP Heater Running", "MWD", "351.05"],
+                    ["3", "Power Saving Per day", "MWD", "3.20"],
+                    ["4", "Annual Operation Hours", "Day", "300.00"],
+                    ["5", "Annual Power Saving", "MW", "959.11"],
+                    ["6", "Electricity Unit Cost", "Rs/kWh", "4.35"],
+                    ["7", "Annual Saving in Monetary Terms", "Rs/-", "41,72,422"],
+                    ["8", "Investment", "Rs/-", "5,00,000"],
+                    ["9", "Simple Payback Period", "Month", "1.44"]
+                ]
             },
             {
                 type: "table",
-                title: "Case Study Data",
-                headers: ["SN", "Parameter", "Unit", "Value"],
+                title: "Comparison of LP Heater Steam Line Off Condition and On Condition",
+                headers: ["SN", "Parameter", "Unit", "LP Heater Steam Line Not Working Condition", "LP Heater Steam line Working Condition"],
                 rows: [
-                    ["1", "Power Generation Without LP Heater", "MWD", "347.86"],
-                    ["2", "Power Generation With LP Heater", "MWD", "351.05"],
-                    ["3", "Power Saving Per day", "MWD", "3.20"],
-                    ["7", "Annual Saving in Monetary Terms", "Rs", "41,72,422"],
-                    ["9", "Simple Payback Period", "Month", "1.44"]
+                    ["1", "Extraction 1st stage flow Turbine Inlet", "TPD", "1397", "1397"],
+                    ["2", "Extraction 1st stage flow Turbine Outlet", "TPD", "44.88", "0"],
+                    ["3", "Extraction 2nd stage flow Turbine Outlet", "", "0", "57.6"],
+                    ["4", "Condensing Stage flow", "TPD", "1352.12", "1339.4"],
+                    ["5", "Extraction 1st stage Enthalpy inlet", "kcal/kg", "805.4", "805.4"],
+                    ["6", "Extraction 1st stage Enthalpy outlet", "kcal/kg", "717.010", "717.01"],
+                    ["7", "Extraction 2nd stage Enthalpy inlet", "kcal/kg", "0", "717.01"],
+                    ["8", "Extraction 2nd stage Enthalpy outlet", "kcal/kg", "0.000", "633.13"],
+                    ["9", "Extraction Condensing stage Enthalpy inlet", "kcal/kg", "717.01", "633.13"],
+                    ["10", "Extraction Condensing stage Enthalpy outlet", "kcal/kg", "570.000", "570"],
+                    ["11", "Extraction 1st stage Power Generation", "MWD", "143.5", "0"],
+                    ["12", "Extraction 2nd Stage Power Generation", "MWD", "0.0", "279.84"],
+                    ["13", "Extraction Condensing Stage Power Generation", "MWD", "231.13", "98.32"],
+                    ["14", "Total Power Generation", "MWD", "374.72", "378.16"],
+                    ["15", "Turbine Generator Efficiency", "%", "96", "96"],
+                    ["16", "Gear Box Efficiency", "%", "97", "97"],
+                    ["17", "Calculated Power Output Power Generation", "MWD", "347.86", "351.05"],
+                    ["18", "More Power Generation", "MWD", "", "3.20"]
                 ]
             }
         ],
@@ -513,12 +636,17 @@ export const services: Service[] = [
                 title: "Scope of Work",
                 items: [
                     "Flue gas analysis to find out excess air, oxygen profile to analyses air ingress & stack losses",
-                    "Measurement of the surface temperatures in the various sections to calculate radiation & convection losses.",
-                    "Complete heat and mass balance of the boiler.",
-                    "Analysis of air ingress in the flue gas path.",
-                    "Evaluation of boiler blow down losses.",
-                    "Performance analysis of super heater, Air preheater, and economizer.",
-                    "Draft system evaluation (FD, ID & PA fan efficiency)."
+                    "Measurement of the surface temperatures in the various sections of the boiler to calculate the radiation & convection losses.",
+                    "Complete heat and mass balance of the boiler shall be carried out to find the losses and to establish the efficiency.",
+                    "Boiler Indirect efficiency calculation",
+                    "Analysis of air ingress in the flue gas path by carrying out oxygen measurement at various locations",
+                    "Analysis of air ingress at different levels of furnace",
+                    "Evaluation of the boiler blow down losses and suggestion to reduce the same.",
+                    "Evaluate & study of boiler loading pattern and study of peak load behavior.",
+                    "Analysis of de-aerator temp., feed water heater, extraction steam quantity to optimize the feed water temp considering the feed water",
+                    "Performance analysis of super heater performance, Air preheater with respect to heat transfer.",
+                    "Measurement and analysis of effectiveness of air #preheater and economizer.",
+                    "Measurement and analysis of flow rate, static pressure, power consumption, pressure drop across element in the air / flue gas line, oxygen profile along with draft system to evaluate FD, ID & PA fan efficiency and suggestion to improve the same. Combined efficiency of Fans and Motors."
                 ]
             }
         ],
