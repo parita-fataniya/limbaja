@@ -98,15 +98,20 @@ export default function ServiceDetailClient({ id }: { id: string }) {
 
                                         {/* IMAGE TYPE */}
                                         {section.type === "image" && (
-                                            <div className="w-full max-w-lg mx-auto rounded-2xl overflow-hidden shadow-lg border border-slate-200 my-6">
-                                                <Image
-                                                    src={section.image}
-                                                    alt={section.title || section.alt || "Service Image"}
-                                                    width={1200}
-                                                    height={800}
-                                                    className="w-full h-auto object-cover"
-                                                    quality={100}
-                                                />
+                                            <div className="w-full max-w-4xl mx-auto my-8">
+                                                <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+                                                    <Image
+                                                        src={section.image}
+                                                        alt={section.alt || section.title || "Service Image"}
+                                                        fill
+                                                        className="object-contain"
+                                                    />
+                                                </div>
+                                                {section.title && (
+                                                    <div className="mt-2 text-center">
+                                                        <p className="text-sm font-medium text-slate-600">{section.title}</p>
+                                                    </div>
+                                                )}
                                             </div>
                                         )}
 
@@ -204,6 +209,34 @@ export default function ServiceDetailClient({ id }: { id: string }) {
                                             </div>
                                         )}
 
+                                        {/* TABLE TYPE */}
+                                        {section.type === "table" && (
+                                            <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm my-6">
+                                                <table className="w-full text-left text-sm text-slate-600">
+                                                    <thead className="bg-slate-50 text-slate-900 font-bold uppercase tracking-wider">
+                                                        <tr>
+                                                            {section.headers.map((header: string, i: number) => (
+                                                                <th key={i} className="px-6 py-4 border-b border-slate-200 whitespace-nowrap">
+                                                                    {header}
+                                                                </th>
+                                                            ))}
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="divide-y divide-slate-100 bg-white">
+                                                        {section.rows.map((row: string[], i: number) => (
+                                                            <tr key={i} className="hover:bg-slate-50/50 transition-colors">
+                                                                {row.map((cell: string, j: number) => (
+                                                                    <td key={j} className="px-6 py-4 font-medium whitespace-pre-wrap">
+                                                                        {cell}
+                                                                    </td>
+                                                                ))}
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        )}
+
                                         {/* NESTED CONTENT TYPE */}
                                         {section.type === "nested-content" && (
                                             <div className="space-y-8">
@@ -221,6 +254,17 @@ export default function ServiceDetailClient({ id }: { id: string }) {
                                                                 </li>
                                                             ))}
                                                         </ul>
+                                                        {sub.image && (
+                                                            <div className="mt-6 rounded-xl overflow-hidden">
+                                                                <Image
+                                                                    src={sub.image}
+                                                                    alt={sub.subtitle}
+                                                                    width={800}
+                                                                    height={500}
+                                                                    className="w-full h-auto object-contain"
+                                                                />
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 ))}
                                             </div>
