@@ -497,22 +497,88 @@ export const services: Service[] = [
         id: "flow-measurement",
         title: "Flow Measurement",
         icon: Droplets,
-        description: "Accurate flow measurements are critical to the calculation of Utility or process control applications. Clamp-on ultrasonic systems determine the volumetric flow rate according to the transit-time difference method.",
+        description: "Accurate flow measurements are critical to the calculation of Utility or process control applications.\n\nFlow Measurement is also useful for monitoring & troubleshooting internal processes at various points.\n\nmeasures the flow of virtually any fluid, be it liquid, gas or steam, regardless of the flow direction (bi-directional) and over an extremely wide measuring range. Due to its practical advantages, external flow measurement with clamp-on ultrasonic transducers has become a standard measuring technique in a broad range of industries and applications.\n\nThis flowmeter can be installed in just minutes without needing to shut down, thus avoiding costly downtime. This ultrasonic technology works with gases at high or low pressure in pipes made of metal and most other materials.",
         image: "/services/8.png",
-        hasSubTabs: true,
-        subTabs: [
-            { id: "steam", label: "Steam Flow", content: "Measurement of saturated steam up to 180°C. Pipe Size: 30mm to 360 mm.", image: "/services/1.png" },
-            { id: "thermic", label: "Thermic Fluid", content: "Measurement up to 240°C. Pipe Size: 15mm to 1000 mm.", image: "/services/8.png" },
-            { id: "water", label: "Boiler Feed Water", content: "Measurement up to 240°C. Pipe Size: 15mm to 1000 mm.", image: "/services/8.png" },
-            { id: "brine", label: "Brine Chiller", content: "Measurement down to -30°C. Pipe Size: 15mm to 6500 mm.", image: "/services/11.png" },
-            { id: "process", label: "Process Flow", content: "Measurement up to 130°C for various chemicals and process fluids. Pipe Size: 15mm to 6500 mm.", image: "/services/8.png" }
-        ],
         sections: [
             {
-                type: "image",
-                title: "Water Flow Meter",
-                image: "/instrument/14%20Water%20Flow%20Meter%201.jpg",
-                alt: "Ultrasonic Water Flow Meter"
+                type: "text",
+                title: "Principle",
+                content: [
+                    "In general, ultrasonic flow meters work by transmitting ultrasonic waves and tracking how long it takes that sound to return to the unit. Clamp-on ultrasonic systems determine the volumetric flow rate according to the transit-time difference method. Since the ultrasonic signal that is irradiated into the pipe is carried by the fluid flowing inside, a time delay occurs between the acoustic transit time both with and against the flow of direction. This time delay can be measured very accurately. The transmitter calculates the volumetric flow rate based on the parameters input for the pipe geometry and the physical properties of the fluid stored in the internal database."
+                ]
+            },
+            {
+                type: "nested-content",
+                title: "Type of Flow Measuring Service Provide",
+                sections: [
+                    {
+                        subtitle: "Steam Flow Measurement",
+                        items: ["Temperature Range: Flow measurement of saturated steam up to max. 180 °C", "Pipe Size: 30mm to 360 mm"]
+                    },
+                    {
+                        subtitle: "Thermic Fluid Heater Flow Measurement",
+                        items: ["Temperature Range: up to 240 °C", "Pipe Size: 15mm to 1000 mm"]
+                    },
+                    {
+                        subtitle: "Boiler Feed Water Flow Measurement",
+                        items: ["Temperature Range: up to 240 °C", "Pipe Size: 15mm to 1000 mm"]
+                    },
+                    {
+                        subtitle: "Process Condensate Water Flow Measurement",
+                        items: ["Temperature Range: up to 240 °C", "Pipe Size: 15mm to 1000 mm"]
+                    },
+                    {
+                        subtitle: "Brine chiller Flow Measurement",
+                        items: ["Temperature Range: up to -30 °C", "Pipe Size: 15mm to 6500 mm"]
+                    },
+                    {
+                        subtitle: "Fire Fighting Line Flow Measurement",
+                        items: ["Temperature Range: up to 130 °C", "Pipe Size: 15mm to 6500 mm"]
+                    },
+                    {
+                        subtitle: "ETP Line Flow Measurement",
+                        items: ["Temperature Range: up to 130 °C", "Pipe Size: 15mm to 6500 mm."]
+                    },
+                    {
+                        subtitle: "Water Pumping Station Flow Measurement",
+                        items: ["Temperature Range: up to 130 °C", "Pipe Size: 15mm to 6500 mm."]
+                    },
+                    {
+                        subtitle: "Borewell Flow Measurement",
+                        items: ["Temperature Range: up to 130 °C", "Pipe Size: 15mm to 6500 mm."]
+                    },
+                    {
+                        subtitle: "Chemical Flow Measurement",
+                        items: ["Temperature Range: up to 130 °C", "Pipe Size: 15mm to 6500 mm."]
+                    },
+                    {
+                        subtitle: "Process Flow Measurement",
+                        items: ["Temperature Range: up to 130 °C", "Pipe Size: 15mm to 6500 mm."]
+                    },
+                    {
+                        subtitle: "Cooling Tower Flow Measurement",
+                        items: ["Temperature Range: up to 130 °C", "Pipe Size: 15mm to 6500 mm."]
+                    },
+                    {
+                        subtitle: "Condenser Flow Measurement",
+                        items: ["Temperature Range: up to 130 °C", "Pipe Size: 15mm to 6500 mm."]
+                    },
+                    {
+                        subtitle: "Chiller Flow Measurement",
+                        items: ["Temperature Range: up to 130 °C", "Pipe Size: 15mm to 6500 mm."]
+                    }
+                ]
+            },
+            {
+                type: "list",
+                title: "Features",
+                items: [
+                    "Explosion protection: ATEX/IECEx zone 2",
+                    "Configurable as multifunctional measuring system: Flow and thermal energy measurement of Steam",
+                    "Precise bidirectional and highly dynamic flow measurement with the non-invasive clamp-on technology",
+                    "Automatic loading of calibration data and transducer detection for a fast and easy set-up (less than 5 min), providing precise and long-term stable results",
+                    "High precision at fast and slow flow rates, high temperature and zero point stability serial interface"
+                ]
             },
             {
                 type: "list",
