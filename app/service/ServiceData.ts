@@ -61,7 +61,12 @@ export const services = [
                             "Performance evaluation of the transformers.",
                             "Studies of rationalization of transformers if more than two are present.",
                             "Carrying out 24 hr load survey for the electrical network and remarks on the quality of the power supply.",
-                            "Cables:",
+
+                        ]
+                    },
+                    {
+                        subtitle: "Cables",
+                        items: [
                             "Calculation of the cable losses for the major loads.",
                             "Suggesting methods to reduce the losses and optimizing their use."
                         ]
