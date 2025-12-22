@@ -288,12 +288,7 @@ export const services: Service[] = [
         description: "A compressed air audit effectively identifies inefficiencies, reduces energy costs, and improves system performance. Many industrial air compressors operate inefficiently due to leaks, artificial demand, and incorrect air pressure requirements, unnecessarily increasing cost per kWh.",
         image: "/services/4.png",
         sections: [
-            {
-                type: "image",
-                title: "Inserted Type Air Flow Meter",
-                image: "/instrument/3Inserted.jpg",
-                alt: "Inserted Compressed Air Flow Meter"
-            },
+
             {
                 type: "list",
                 title: "Scope of Work",
@@ -319,7 +314,7 @@ export const services: Service[] = [
             {
                 type: "table",
                 title: "Compressor Performance Measurement",
-                headers: ["SN", "Compressor", "Pressure (Bar)", "Actual CFM", "KW/CFM", "Rated CFM", "Volumetric eff."],
+                headers: ["S N", "Compressor", "Pressure (Bar)", "Actual CFM", "KW/CFM", "Rated CFM", "Volumetric efficiency"],
                 rows: [
                     ["1", "Compressor 4", "6.9", "109.9", "0.298", "174.0", "63.15"],
                     ["2", "Compressor 5", "6.5", "166.3", "0.214", "174.0", "95.58"],
@@ -329,12 +324,48 @@ export const services: Service[] = [
             },
             {
                 type: "list",
-                title: "Observations",
+                title: "Observation",
                 items: [
                     "From the above table, Compressor 5 run efficiently and the KW/CFM ratio is satisfactorily.",
                     "During field study we observe that Only compressor 4, Compressor 6 and compressor 3 efficiency is Not good.",
+                    "From the above table, Compressor 4,6 and 3 run Not efficiently and the KW/CFM ratio is not satisfactorily.",
                     "Compressor No. 6 Suction Actuator valve is not working properly"
                 ]
+            },
+            {
+                type: "text",
+                title: "Compressed Air Generation Side Air Flow Measurement and Compressor Power Measurement(kW)",
+                content: []
+            },
+            {
+                type: "image",
+                image: "/services/detail6sub1.jpeg",
+                alt: "Compressed Air Generation Side Analysis"
+            },
+            {
+                type: "text",
+                title: "Compressed Air Generation m3 and Power Consumption (kWh) Cycle",
+                content: []
+            },
+            {
+                type: "image",
+                image: "/services/detail6sub2.jpeg",
+                alt: "Generation and Power Consumption Cycle"
+            },
+            {
+                type: "text",
+                title: "Compressed Air Consumption side or Distribution Side Measurement",
+                content: []
+            },
+            {
+                type: "image",
+                image: "/services/detail6sub3.jpeg",
+                alt: "Distribution Side Measurement"
+            },
+            {
+                type: "image",
+                image: "/services/detail6sub4.jpeg",
+                alt: "Additional Measurement Detail"
             }
         ],
         content: []
