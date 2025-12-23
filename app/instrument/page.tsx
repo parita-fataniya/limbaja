@@ -1,8 +1,15 @@
+import InstrumentHero from "@/components/instruments/InstrumentHero";
+import InstrumentOverview from "@/components/instruments/InstrumentOverview";
+import InstrumentTabs from "@/components/instruments/InstrumentTabs";
+import InstrumentCTA from "@/components/instruments/InstrumentCTA";
+
 export default function InstrumentPage() {
     return (
-        <div className="container mx-auto px-6 py-20">
-            <h1 className="text-4xl font-bold mb-6 text-slate-800">Our Instruments</h1>
-            <p className="text-slate-600">We use high-precision, certified instruments for all our energy audits.</p>
-        </div>
+        <main className="min-h-screen bg-white">
+            <InstrumentHero />
+            <InstrumentOverview />
+            <InstrumentTabs />
+            <InstrumentCTA />
+        </main>
     );
 }
