@@ -65,7 +65,7 @@ export default function ServiceDetailClient({ id }: { id: string }) {
                                     src={service.image}
                                     alt={service.title}
                                     fill
-                                    className="object-cover"
+                                    className="object-contain"
                                     quality={100}
                                     priority
                                     unoptimized
@@ -112,6 +112,29 @@ export default function ServiceDetailClient({ id }: { id: string }) {
                                                         <p className="text-sm font-medium text-slate-600">{section.title}</p>
                                                     </div>
                                                 )}
+                                            </div>
+                                        )}
+
+                                        {/* IMAGE ROW TYPE */}
+                                        {section.type === "image-row" && section.images && (
+                                            <div className="grid md:grid-cols-2 gap-8 my-8">
+                                                {section.images.map((img: any, i: number) => (
+                                                    <div key={i} className="flex flex-col items-center">
+                                                        <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
+                                                            <Image
+                                                                src={img.url}
+                                                                alt={img.alt || img.title || "Service Image"}
+                                                                fill
+                                                                className="object-contain"
+                                                            />
+                                                        </div>
+                                                        {img.title && (
+                                                            <div className="mt-3 text-center">
+                                                                <p className="text-sm font-bold text-slate-700">{img.title}</p>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                ))}
                                             </div>
                                         )}
 
