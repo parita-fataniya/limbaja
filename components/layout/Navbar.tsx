@@ -7,6 +7,7 @@ import { Phone, Mail, Clock, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
+    { name: "Home", href: "/" },
     { name: "About Us", href: "/about-us" },
     { name: "Our Services", href: "/service" },
     { name: "Our Instruments", href: "/instrument" },
@@ -37,7 +38,7 @@ export default function Navbar() {
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm gap-2">
                     <div className="flex md:hidden items-center gap-4">
                         {/* Mobile View: Contact Info */}
-                        <a href="tel:+919274421388" className="flex items-center gap-2 hover:text-[#22c55e] transition-colors"><Phone size={14} /> +91 92744 21388</a>
+                        <a href="tel:+919274421388" className="flex items-center gap-2 hover:text-[#22c55e] transition-colors"><Phone size={14} /> +91 97142 53756</a>
                     </div>
                     <div className="hidden md:flex items-center gap-6">
                         <a href="mailto:limbajaenergy@gmail.com" className="flex items-center gap-2 hover:text-[#22c55e] transition-colors">
@@ -46,7 +47,7 @@ export default function Navbar() {
                         </a>
                         <a href="tel:+919274421388" className="flex items-center gap-2 hover:text-[#22c55e] transition-colors">
                             <Phone size={14} />
-                            <span>+91 92744 21388</span>
+                            <span>+91 97142 53756</span>
                         </a>
                     </div>
                 </div>
