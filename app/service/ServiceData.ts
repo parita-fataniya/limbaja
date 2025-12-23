@@ -8,11 +8,12 @@ export interface SubTab {
 }
 
 export interface Section {
-    type: "text" | "list" | "image" | "table" | "nested-content" | "key-value";
+    type: "text" | "list" | "image" | "table" | "nested-content" | "key-value" | "image-row";
     title?: string;
     content?: string[];
     items?: string[] | { key: string; value: string }[];
     image?: string;
+    images?: { url: string; title: string; alt: string }[];
     alt?: string;
     headers?: string[];
     rows?: string[][];
@@ -139,12 +140,6 @@ export const services: Service[] = [
         description: "Energy conservation is the effort made to reduce the consumption of energy by using less of an energy service. This can be achieved either by using energy more efficiently (using less energy for a constant service) or by reducing the amount of service used (for example, by driving less).",
         image: "/services/2.png",
         sections: [
-            {
-                type: "image",
-                title: "Power Quality Analyzer",
-                image: "/instrument/1alm31.jpg",
-                alt: "Power Analyzer for Motor Efficiency"
-            },
             {
                 type: "text",
                 content: [
@@ -464,12 +459,6 @@ export const services: Service[] = [
         image: "/services/6.png",
         sections: [
             {
-                type: "image",
-                title: "Flue Gas Analyzer",
-                image: "/instrument/9Flue.jpg",
-                alt: "Flue Gas Analyzer for Boiler Efficiency"
-            },
-            {
                 type: "list",
                 title: "Type of Plant",
                 items: [
@@ -626,12 +615,6 @@ export const services: Service[] = [
         image: "/services/7.png",
         sections: [
             {
-                type: "image",
-                title: "Flue Gas Analyzer",
-                image: "/instrument/9Flue.jpg",
-                alt: "Flue Gas Analyzer"
-            },
-            {
                 type: "list",
                 title: "Scope of Work",
                 items: [
@@ -757,389 +740,24 @@ export const services: Service[] = [
         id: "process-heat",
         title: "Process Heat Mass Balance",
         icon: Activity,
-        description: "Heat and mass balance is a critical aspect of process engineering. These calculations ensure that the energy and material inputs and outputs in a system are accurately accounted for, helping to optimise efficiency.",
+        description: "Heat and mass balance is a critical aspect of process engineering, used extensively in the design and analysis of process plants. These calculations ensure that the energy and material inputs and outputs in a system are accurately accounted for, helping to optimise efficiency, safety, and cost-effectiveness in industrial operations.",
         image: "/services/9.png",
         sections: [
             {
-                type: "key-value",
-                title: "Key Components",
-                items: [
-                    { key: "Process Streams", value: "Includes flows of materials (liquids, gases, solids) characterised by temp, pressure, density, etc." },
-                    { key: "Energy Balance", value: "Determine heat transfer rates, specific heat capacities, and temp changes." },
-                    { key: "Mass Balance", value: "Ensure mass entering a process equals mass exiting." }
-                ]
-            },
-            {
-                type: "text",
-                title: "Benefits",
-                content: [
-                    "In existing industrial processes, these calculations help identify inefficiencies, energy losses, and areas for improvement. For new processes, they guide equipment design and material selection."
-                ]
-            }
-        ],
-        content: []
-    },
-    {
-        id: "cooling-tower",
-        title: "Cooling Tower Study",
-        icon: Wind,
-        description: "Cooling towers represent largest reuse of water in industrial applications. Optimizing operation and effective maintenance can offer significant savings (20-25%).",
-        image: "/services/10.png",
-        sections: [
-            {
-                type: "image",
-                title: "Anemometer",
-                image: "/instrument/12%20Lutron%20Anemometer.jpg",
-                alt: "Anemometer for Air Flow Measurement"
-            },
-            {
-                type: "image",
-                title: "Hygrometer",
-                image: "/instrument/19%20Hygrometer.JPG",
-                alt: "Hygrometer for DBT/WBT Measurement"
-            },
-            {
-                type: "list",
-                title: "Scope of Work",
-                items: [
-                    "Measurement of power parameters, water flow rate, air flow rate, DBT, WBT.",
-                    "Heat Load Calculation.",
-                    "Estimation of cooling tower performance (range, approach and effectiveness).",
-                    "Calculations of Evaporation loss, Blowdown loss and Cycles of Concentration.",
-                    "L/G Ratio analysis."
-                ]
-            },
-            {
-                type: "table",
-                title: "Case Study: Stop Hotwell Circulation Pump",
-                headers: ["SN", "Description", "Value"],
-                rows: [
-                    ["1", "Total Power Consumption", "15.709 kW"],
-                    ["2", "Annual Power Saving Possible", "1,13,105 kWh"],
-                    ["3", "Annual Saving in Monetary Terms", "Rs 9,38,776"],
-                    ["4", "Investment", "Rs 1,00,000"],
-                    ["5", "Payback Period", "1.28 Months"]
-                ]
-            },
-            {
-                type: "list",
-                title: "Energy Saving Opportunities",
-                items: [
-                    "Optimise fan blade angle.",
-                    "Replace splash bars with PVC cellular film fill.",
-                    "Monitor L/G ratio and CW flow rates.",
-                    "Control cooling tower fans based on leaving water temperatures."
-                ]
-            }
-        ],
-        content: []
-    },
-    {
-        id: "chiller",
-        title: "Chiller Performance Measurement",
-        icon: Thermometer,
-        description: "The performance assessment of the chiller plant involves calculation of cooling duty delivered by the system and measurement of power consumed. Specific Power Consumption (kW/TR) and EER are key metrics.",
-        image: "/services/11.png",
-        sections: [
-            {
-                type: "list",
-                title: "Scope of Work",
-                items: [
-                    "Review of present HVAC system.",
-                    "Performance assessment & Estimation of actual tonnage.",
-                    "Evaluation of specific energy consumption (kW/TR).",
-                    "Measurement of Chiller Power Consumption Pattern."
-                ]
-            },
-            {
-                type: "table",
-                title: "Case Study: Chiller Overhaul",
-                headers: ["SN", "Parameter", "Unit", "Value"],
-                rows: [
-                    ["1", "Existing Specific energy consumption", "kW/TR", "0.81"],
-                    ["2", "Suggest Specific energy consumption", "kW/TR", "0.70"],
-                    ["3", "Annual Power Saving", "kWh", "91,693"],
-                    ["4", "Annual Monetary saving", "Rs", "8,77,067"],
-                    ["5", "Payback period", "Month", "8.21"]
-                ]
-            }
-        ],
-        content: []
-    },
-    {
-        id: "lighting",
-        title: "Lighting System",
-        icon: Zap,
-        description: "Lighting power consumption varies between 2 to 10% of total electrical load. Innovation in lighting has given rise to tremendous energy saving opportunities.",
-        image: "/services/12.png",
-        sections: [
-            {
-                type: "image",
-                title: "Lux Meter",
-                image: "/instrument/17%20HTC%20Lux%20meter.jpg",
-                alt: "Lux Meter"
-            },
-            {
-                type: "list",
-                title: "Scope of Work",
-                items: [
-                    "Examination of the lighting system in all areas, measurement of illumination levels.",
-                    "Possibilities to reduce energy use by incorporating energy efficient lighting system.",
-                    "Study of operating electrical parameters like voltage in the lighting circuit."
-                ]
-            }
-        ],
-        content: []
-    },
-    {
-        id: "thermography",
-        title: "Thermography Study",
-        icon: Thermometer,
-        description: "Thermography is used for Predictive maintenance. Many problems begin with an increase in temperature, and the IR camera allows for early detection of potential problems like loose connections or insulation failure.",
-        image: "/services/13.png",
-        sections: [
-            {
-                type: "image",
-                title: "Thermography Camera",
-                image: "/instrument/10Thermography.JPG",
-                alt: "Infrared Thermography Camera"
-            },
-            {
-                type: "list",
-                title: "Scope of Work",
-                items: [
-                    "Predicative Electrical Maintenance of PCC & MCC.",
-                    "Measurement of Electrical Panel Temperature.",
-                    "Identification of Hotspots and corrective action suggestions.",
-                    "Boiler/Steam Line/Furnace Insulation Thermography."
-                ]
-            }
-        ],
-        content: []
-    },
-    {
-        id: "steam-trap",
-        title: "Steam Trap Audit",
-        icon: Droplets,
-        description: "A steam trap is a mechanical valve that separates condensate from steam. Many traps underperform by plugging or sticking. Optimized steam traps can reduce energy costs by 10% to 15%.",
-        image: "/services/14.png",
-        sections: [
-            {
-                type: "image",
-                title: "Ultrasonic Leak Detector",
-                image: "/instrument/4Ultrasonic.png",
-                alt: "Ultrasonic Detector for Steam Traps"
-            },
-            {
-                type: "list",
-                title: "Scope of Work",
-                items: [
-                    "Use thermography/ultrasonic to find plugged or leaking steam traps.",
-                    "Measure and compare pipe temperatures upstream and downstream.",
-                    "Detailed report about efficiency and recommendations."
-                ]
-            }
-        ],
-        content: []
-    },
-    {
-        id: "pumping",
-        title: "Pumping System Study",
-        icon: Activity,
-        description: "All pumps have a characteristic curve describing flow rate at net head. Pump hydraulic power and efficiency are calculated to find optimization opportunities.",
-        image: "/services/15.png",
-        sections: [
-            {
-                type: "image",
-                title: "Ultrasonic Flow Meter",
-                image: "/instrument/14%20Water%20Flow%20Meter%201.jpg",
-                alt: "Ultrasonic Flow Meter for Pump Efficiency"
-            },
-            {
-                type: "list",
-                title: "Scope of Work",
-                items: [
-                    "Checking of Pump efficiency.",
-                    "Checking of Motor efficiency.",
-                    "System resistance curve vs Pump Performance curve.",
-                    "Checking of suction and discharge head.",
-                    "Flow measurement.",
-                    "Calculation of specific energy consumption."
-                ]
-            },
-            {
-                type: "table",
-                title: "Case Study: Pump Replacement",
-                headers: ["SN", "Description", "Pump 235 A (Existing)", "Proposed"],
-                rows: [
-                    ["1", "Efficiency", "37.26 %", "82 %"],
-                    ["2", "Power @ one pump", "42.20 kW", "30.26 kW (Saving)"],
-                    ["3", "Annual Power Saving", "-", "2,39,723 kWh"],
-                    ["4", "Saving in monetary terms", "-", "Rs 14,38,341"],
-                    ["5", "Simple payback period", "-", "2.42 Months"]
-                ]
-            }
-        ],
-        content: []
-    },
-    {
-        id: "fan",
-        title: "Fan Study",
-        icon: Wind,
-        description: "Fans are tested for field performance by measurement of flow, head, temperature, and electrical motor kW input. Air velocity is measured using an anemometer.",
-        image: "/services/16.png",
-        sections: [
-            {
-                type: "image",
-                title: "Anemometer",
-                image: "/instrument/12%20Lutron%20Anemometer.jpg",
-                alt: "Anemometer for Fan Air Flow"
-            },
-            {
-                type: "image",
-                title: "S Type Pitot Tube",
-                image: "/instrument/14%20S%20Type%20Pitot%20Tube.JPG",
-                alt: "Pitot Tube for Static Pressure"
-            },
-            {
-                type: "list",
-                title: "Scope of Work",
-                items: [
-                    "Fans are tested for field performance by measurement of flow, head, temperature on air side and electrical motor kW input.",
-                    "Air velocity is measured by using an anemometer at different points of the suction or discharge duct and average air velocity is calculated.",
-                    "Static and dynamic pressure of the fan is measured by a pitot tube and manometer."
-                ]
-            },
-            {
-                type: "table",
-                title: "Case Study: VFD vs Damper",
-                headers: ["SN", "Parameter", "Unit", "Value"],
-                rows: [
-                    ["1", "Power Consumption", "kW", "96.5"],
-                    ["2", "% of saving Possible", "%", "30.0"],
-                    ["3", "Annual Power Saving", "kWh", "2,08,393"],
-                    ["4", "Annual Monetary saving", "Rs", "16,87,983"],
-                    ["5", "Payback Period", "Month", "Immediate"]
-                ]
-            }
-        ],
-        content: []
-    },
-    {
-        id: "carbon",
-        title: "Carbon Verification Service",
-        icon: Globe,
-        description: "We Provide the Carbon Offset Validation Service to the UCR Project. We have validated numerous projects ranging from Wind, Solar, Biomass to Hydro.",
-        image: "/services/17.png",
-        content: [
-            "Verified Projects include:",
-            "• UCR 177 - Vitthal Refined Sugar Ltd : Biomass Project",
-            "• UCR 306 4.5 MW Bundled Solar Ground Mounted Power Project",
-            "• UCR 265 33 MW Biomass based Grid-connected Project",
-            "• UCR 235 6 MW Bundled Small Scale Hydro Power Project",
-            "• UCR 338 14 MW SHP SÃO FRANCISCO : Hydro Project",
-            "• ...and many more across India and globally."
-        ]
-    },
-    {
-        id: "arc-flash",
-        title: "Electrical Arc Flash Study",
-        icon: AlertTriangle,
-        description: "Comprehensive safety assessment including ETAP Modelling and Short Circuit Studies.",
-        image: "/services/18.png",
-        content: [
-            "• ETAP Modelling",
-            "• Short Circuit Study",
-            "• Relay Coordination Study",
-            "• Arc Flash Study",
-            "• Arc Flash Labels Generation",
-            "• Executive Summary Preparation"
-        ]
-    },
-    {
-        id: "motor",
-        title: "Electrical Motor Efficiency Study",
-        icon: Settings,
-        description: "Analysis of motor loading and losses (Copper, Iron, Friction, Stray). Efficiency calculation allows for cost-benefit analysis of replacement/rewinding.",
-        image: "/services/19.png",
-        sections: [
-            {
-                type: "image",
-                title: "Power Quality Analyzer",
-                image: "/instrument/1alm31.jpg",
-                alt: "Power Analyzer for Motor Efficiency"
-            },
-            {
-                type: "table",
-                title: "Case Study: 180kW Motor",
-                headers: ["Parameter", "Unit", "Value"],
-                rows: [
-                    ["Output", "kW", "180"],
-                    ["Efficiency", "%", "90 (Nameplate) / 75.6 (Calcuated)"],
-                    ["Total Loss", "kW", "58.21"],
-                    ["Input Power", "kW", "238.2"]
-                ]
-            }
-        ],
-        content: []
-    },
-    {
-        id: "meter-calibration",
-        title: "Energy Meter Calibration Service",
-        icon: PieChart,
-        description: "We provide onsite Energy Meter Calibration Service at the plant for Voltage, Current, Power, Power Factor, and Energy Consumption.",
-        image: "/services/20.png",
-        sections: [
-            {
-                type: "image",
-                title: "NanoVIP Power Analyzer",
-                image: "/instrument/2nanovip.JPG",
-                alt: "NanoVIP Analyzer for Calibration"
-            },
-            {
-                type: "list",
-                items: [
-                    "Verification of Voltage, Current, kW, and Energy readings.",
-                    "Accuracy check against calibrated reference standard.",
-                    "Issuance of calibration certificate."
-                ]
-            }
-        ],
-        content: []
-    },
-    {
-        id: "process-heat-mass-balance",
-        title: "Process Heat Mass Balance",
-        icon: Activity,
-        description: "Heat and mass balance is a critical aspect of process engineering, used extensively in the design and analysis of process plants. These calculations ensure that the energy and material inputs and outputs in a system are accurately accounted for, helping to optimise efficiency, safety, and cost-effectiveness in industrial operations.",
-        image: "/services/21.png",
-        sections: [
-            {
-                type: "text",
-                title: "Key Components:",
-                content: []
-            },
-            {
-                type: "list",
-                title: "1. Process Streams",
-                items: [
-                    "These include the various flows of materials (liquids, gases, solids) involved in a process. Each stream is characterised by properties such as temperature, pressure, density, viscosity, and flow rates."
-                ]
-            },
-            {
                 type: "nested-content",
-                title: "2. Balance Equations",
+                title: "Key Components",
                 sections: [
                     {
-                        subtitle: "Energy Balance Equation:",
+                        subtitle: "1. Process Streams",
                         items: [
-                            "Typically used to determine heat transfer rates, specific heat capacities, and temperature changes. For instance, in a heat exchanger, the heat lost by the hot fluid is reduced by an efficiency factor, meaning the heat gained by the cold fluid is less than the heat lost by the hot fluid."
+                            "These include the various flows of materials (liquids, gases, solids) involved in a process. Each stream is characterised by properties such as temperature, pressure, density, viscosity, and flow rates."
                         ]
                     },
                     {
-                        subtitle: "Mass Balance Equation:",
+                        subtitle: "2. Balance Equations",
                         items: [
-                            "Used to ensure that the mass entering a process equals the mass exiting. This is particularly important in processes involving chemical reactions or phase changes."
+                            "Energy Balance Equation: Typically used to determine heat transfer rates, specific heat capacities, and temperature changes. For instance, in a heat exchanger, the heat lost by the hot fluid is reduced by an efficiency factor, meaning the heat gained by the cold fluid is less than the heat lost by the hot fluid.",
+                            "Mass Balance Equation: Used to ensure that the mass entering a process equals the mass exiting. This is particularly important in processes involving chemical reactions or phase changes."
                         ]
                     }
                 ]
@@ -1160,11 +778,695 @@ export const services: Service[] = [
             },
             {
                 type: "text",
-                title: "",
                 content: [
                     "By applying heat and mass balance principles, engineers can ensure processes are both efficient and cost-effective, enhancing overall operational performance. Accurate calculations in both existing and new processes lead to improved safety, reliability, and sustainability in industrial operations."
                 ]
             }
+        ],
+        content: []
+    },
+    {
+        id: "cooling-tower",
+        title: "Cooling Tower Study",
+        icon: Wind,
+        description: "Cooling towers represent largest reuse of water in industrial and commercial applications. Cooling towers offers the means to remove heat from air conditioning systems and industrial processes generating excess heat.\n\nCooling towers are normally designed for maximum process load and worst ambient conditions. Optimizing operation and effective maintenance of cooling towers systems offer facility and process managers significant savings in energy and water consumption. As result saving potential of about 20-25% can be achieved by optimizing excess capacities of pumps and fans catering to under loaded process.",
+        image: "/services/10.png",
+        sections: [
+            {
+                type: "text",
+                content: [
+                    "Most cooling towers develop significant draft. Drift eliminator at the top of tower prevent water from being blown off or sucked out of tower. This type of water loss is called drift loss or windage loss. Makeup water is added to replenish the water lost by evaporation or blow-down.",
+                    "Liquid/Gas (L/G) ratio, of a cooling tower is the ratio between the water and the air mass flow rates. Against design values, seasonal variations require adjustment and tuning of water and air flow rates to get the best cooling tower effectiveness through measures like water box loading changes, blade angle adjustments."
+                ]
+            },
+            {
+                type: "list",
+                title: "Scope of Work",
+                items: [
+                    "Measurement of power parameters for cooling tower fans, water flow rate, air flow rate, dry bulb temperature (DBT) wet bulb temperature (WBT) sump temperature, relative humidity etc.",
+                    "Measurement of Air flow rate of the cooling tower fan",
+                    "Heat Load Calculation of the Cooling Tower",
+                    "Estimation & evaluation of cooling tower performance (range, approach and effectiveness) and comparing it with designed data.",
+                    "Calculations of Evaporation loss of Cooling Tower",
+                    "Blowdown loss and Cycles of Concentration of the Cooling Tower",
+                    "L/G Ratio of Cooling Tower"
+                ]
+            },
+            {
+                type: "nested-content",
+                title: "Case Study",
+                sections: [
+                    {
+                        subtitle: "Energy Conservation Measures : Stop the Hotwell Circulation Pump by Eliminating the Hotwell Section",
+                        items: []
+                    }
+                ]
+            },
+            {
+                type: "list",
+                title: "Observation",
+                items: [
+                    "During the energy Audit, we observed that Hot Press Return Cooling Water pour to the Hotwell Section.",
+                    "After Hotwell section pump Circulate the water to the Cold well Section.",
+                    "During the Energy Audit we observed that Cooling Cycle is 8 min to 9 Min only."
+                ]
+            },
+            {
+                type: "list",
+                title: "Suggestion",
+                items: [
+                    "Stop the Hotwell Circulation Pump.",
+                    "Remove the Hotwell Section and Merge with Cold Well Section.",
+                    "Match the bottom level of Hotwell Section with Coldwell Section."
+                ]
+            },
+            {
+                type: "table",
+                title: "Data",
+                headers: ["SN", "Description", "Unit", "Data"],
+                rows: [
+                    ["1", "Hot Well Circulation Pump 1 Power", "kW", "5.551"],
+                    ["2", "Hot Well Circulation Pump 1 Power", "kW", "5.103"],
+                    ["3", "Hot Well Circulation Pump 1 Power", "kW", "5.056"],
+                    ["4", "Total Power Consumption", "kW", "15.709"],
+                    ["5", "Total Running Day", "Day", "300.00"],
+                    ["6", "Electrical Unit Cost", "Rs/ kWh", "8.30"],
+                    ["7", "Annual Power Saving Possible", "kWh", "113105"],
+                    ["8", "Annual Saving in Monetary Terms", "Rs/-", "938776"],
+                    ["9", "Investment of Merge Hotwell and Cold Well Section", "Rs/-", "100000"],
+                    ["10", "Simple Payback Period", "Month", "1.28"]
+                ]
+            },
+            {
+                type: "image",
+                title: "Figure : Existing Circulation of Water at Cooling Tower",
+                image: "/services/detail10sub1.png",
+                alt: "Existing Circulation of Water at Cooling Tower Diagram"
+            },
+            {
+                type: "image",
+                title: "Figure : Suggested Cooling Tower Water Circulation",
+                image: "/services/detail10sub2.png",
+                alt: "Suggested Cooling Tower Water Circulation Diagram"
+            },
+            {
+                type: "list",
+                title: "Energy Saving Opportunities in Cooling Tower",
+                items: [
+                    "Follow manufacturer's recommended clearances around cooling towers and relocate or modify structures that interfere with the air intake or exhaust.",
+                    "Optimise cooling tower fan blade angle on a seasonal and/or load basis.",
+                    "Correct excessive and/or uneven fan blade tip clearance and poor fan balance.",
+                    "On old counter-flow cooling towers, replace old spray type nozzles with new square spray ABS practically non-clogging nozzles.",
+                    "Replace splash bars with self-extinguishing PVC cellular film fill.",
+                    "Install new nozzles to obtain a more uniform water pattern",
+                    "Periodically clean plugged cooling tower distribution nozzles.",
+                    "Balance flow to cooling tower hot water basins.",
+                    "Cover hot water basins to minimise algae growth that contributes to fouling.",
+                    "Optimise blow down flow rate, as per COC limit.",
+                    "Replace slat type drift eliminators with low pressure drop, self-extinguishing, PVC cellular units.",
+                    "Restrict flows through large loads to design values."
+                ]
+            },
+
+        ],
+        content: []
+    },
+    {
+        id: "chiller",
+        title: "Chiller Performance Measurement",
+        icon: Thermometer,
+        description: "The performance assessment of the chiller plant involves calculation of cooling duty delivered by the system and measurement of power consumed by the unit.\n\nThe Specific Power Consumption (SPC - kW/TR) and Energy Efficiency Ratio (EER) are the effective measures for comparing the electrical energy input to cooling duty delivered by the system.\n\nThe study involves measuring various parameters such as flow rate, temperature and power in the both chilled water and refrigeration side of the chiller system.",
+        image: "/services/11.png",
+        sections: [
+            {
+                type: "nested-content",
+                title: "Refrigeration Effect",
+                sections: [
+                    {
+                        subtitle: "Formula",
+                        items: [
+                            "Refrigeration Effect (TR) = (Flow(Q) × Cp × (Ti – T0)) / 3024"
+                        ]
+                    },
+                    {
+                        subtitle: "Where:",
+                        items: [
+                            "Q = Flow Rate m3/s",
+                            "Cp = Specific Heat kcal/kg deg C",
+                            "Ti = Inlet Temperature (Deg C)",
+                            "T0 = Outlet Temperature (Deg C)"
+                        ]
+                    }
+                ]
+            },
+            {
+                type: "list",
+                title: "Scope of Work",
+                items: [
+                    "Review of present HVAC system like Chillers, central AC, window AC, split AC, package AC, Water Coolers, Cooling Towers, AHUs, Insulation System, Chilled Water Pumps, Condenser Water Pumps and Air Heaters etc.(More than 3 HP)",
+                    "Performance assessment of & Estimation of actual tonnage of HVAC system and comparison of actual parameters with the design values and corrective actions.",
+                    "Evaluation of operating Coefficient of Performance of Precision Air Conditioner. Evaluation of specific energy consumption of precision Air Conditioner. Identification and suggestions for performance improvement and energy saving potential."
+                ]
+            },
+            {
+                type: "nested-content",
+                title: "Case Study",
+                sections: [
+                    {
+                        subtitle: "Energy Conservation Measures",
+                        items: ["Maintain the chiller Specific norms and reduce the chiller consumption by Overhaul of the Existing Chiller"]
+                    }
+                ]
+            },
+            {
+                type: "table",
+                title: "Data",
+                headers: ["SN", "Parameter", "Unit", "Chiller"],
+                rows: [
+                    ["1", "Actual Chiller Capacity Requirement", "TR", "103.34"],
+                    ["2", "Existing Specific energy consumption of screw chiller", "kW/TR", "0.81"],
+                    ["3", "Suggest Specific energy consumption of screw chiller", "kW/TR", "0.70"],
+                    ["4", "Specific Energy Consumption Saving", "kW/TR", "0.11"],
+                    ["5", "Power Saving", "kW", "11.58"],
+                    ["6", "Electrical unit cost", "Rs/kWh", "9.57"],
+                    ["7", "Daily working hour", "hr", "24.00"],
+                    ["8", "Annual Operating Day", "Day", "330.00"],
+                    ["9", "Annual Power Saving", "kWh", "91693"],
+                    ["10", "Annual Monetary saving", "Rs", "877067"],
+                    ["11", "Investment of Overhaul Water Cooled Screw chiller", "Rs", "600000"],
+                    ["12", "Simple Payback period", "Month", "8.21"]
+                ]
+            }
+        ],
+        content: []
+    },
+    {
+        id: "lighting",
+        title: "Lighting System",
+        icon: Zap,
+        description: "Lighting is an essential service in all the industries. The power consumption by the industrial lighting varies between 2 to 10% of the total power depending on the type of industry. Innovation and continuous improvement in the field of lighting, has given rise to tremendous energy saving opportunities in this area.",
+        image: "/services/12.png",
+        sections: [
+            {
+                type: "list",
+                title: "Scope of Work",
+                items: [
+                    "Examination of the lighting system in all the areas, measurement of illumination levels etc. to improve lighting efficiency and optimizing lighting levels.",
+                    "To look possibilities to reduce energy use by incorporating energy efficient lighting system, equipment’s and lay out changes.",
+                    "Study of operating electrical parameters like voltage etc. in the lighting circuit"
+                ]
+            }
+        ],
+        content: []
+    },
+    {
+        id: "thermography",
+        title: "Thermography Study",
+        icon: Thermometer,
+        description: "Thermography Study is use for Predictive type maintenance.\n\nMany problems begin with an increase in temperature, and the IR camera allows for early detection of these potential problems that might otherwise go unnoticed. Thermal imaging allows inspections to be conducted more efficiently, without disrupting any surfaces, equipment, or barriers.",
+        image: "/services/13.png",
+        sections: [
+            {
+                type: "list",
+                title: "Scope of Work",
+                items: [
+                    "Predicative Electrical Maintenance of PCC & MCC.",
+                    "Measurement of Electrical Panel Temperature measurement.",
+                    "Identification of Hotspot of Electrical Panel and suggestion of Corrective action of reduce the temperature of the electrical panel.",
+                    "Working Principle of thermography is Infrared."
+                ]
+            },
+            {
+                type: "list",
+                title: "Type of Thermography Service",
+                items: [
+                    "Electrical Thermography Service",
+                    "Boiler Insulation Thermography",
+                    "Steam Line Insulation Thermography",
+                    "Furnace Insulation Thermography",
+                    "Thermic Fluid Heater and Line Insulation Thermography",
+                    "Chiller line Insulation Thermography"
+                ]
+            },
+            {
+                type: "image-row",
+                images: [
+                    {
+                        title: "Glass Furnace Port Top",
+                        url: "/services/thermography-glass-furnace.png",
+                        alt: "Glass Furnace Port Top Thermography"
+                    },
+                    {
+                        title: "Electrical Panel",
+                        url: "/services/thermography-electrical-panel.png",
+                        alt: "Electrical Panel Thermography"
+                    }
+                ]
+            },
+            {
+                type: "text",
+                content: [
+                    "As physical contact with the system is not required, inspections can be made under full operational conditions resulting in no loss of production or downtime"
+                ]
+            }
+        ],
+        content: []
+    },
+    {
+        id: "steam-trap",
+        title: "Steam Trap Audit",
+        icon: Droplets,
+        description: "A steam trap is a mechanical valve that separates condensate from steam for a return trip to the boiler.\n\nMany steam traps underperform by plugging or sticking, leading to inefficient separation of water from steam.\n\nOptimized steam traps can reduce energy costs by 10% to 15%. In a steam strap study,",
+        image: "/services/14.png",
+        sections: [
+
+            {
+                type: "list",
+                title: "Scope of Work",
+                items: [
+                    "We uses thermography find plugged or leaking steam traps.",
+                    "Using infrared imaging, we measure and compare pipe temperatures upstream and downstream from the traps.",
+                    "The client receives a detailed report about the efficiency of the system with specific recommendations that can immediately reduce utility costs."
+                ]
+            },
+            {
+                type: "image-row",
+                images: [
+                    {
+                        title: "Steam Trap Measurement 1",
+                        url: "/services/steam-trap-example-1.png",
+                        alt: "Steam Trap Thermal Measurement 1"
+                    },
+                    {
+                        title: "Steam Trap Measurement 2",
+                        url: "/services/steam-trap-example-2.png",
+                        alt: "Steam Trap Thermal Measurement 2"
+                    }
+                ]
+            }
+        ],
+        content: []
+    },
+    {
+        id: "pumping",
+        title: "Pumping System Study",
+        icon: Activity,
+        description: "All pumps have a characteristic or performance curve that describes the flow rate produced at net or total head. Pump specifications relating head and flow rate correlate to those found on its characteristic curve.",
+        image: "/services/15.png",
+        sections: [
+            {
+                type: "nested-content",
+                title: "Formulas",
+                sections: [
+                    {
+                        subtitle: "Pump hydraulic power and Pump Efficiency can be calculated by the formula:",
+                        items: [
+                            "Hydraulic Power (kW) = (Flow(Q) * Total Head (Hd – HS) * ρ * g) / 1000",
+                            "Pump Efficiency (η) = Hydraulic Power / (Measured Input Power * Motor Efficiency)"
+
+                        ]
+                    },
+                    {
+                        subtitle: "Where:",
+                        items: [
+                            "Q = Water Flow (m3/s)",
+                            "Hd = Discharges Head (m)",
+                            "Hs = Suction Head (m)",
+                            "ρ = Density (Kg/m3)",
+                            "g = Gravity (m2/s)"
+                        ]
+                    }
+                ]
+            },
+            {
+                type: "list",
+                title: "Scope of Work",
+                items: [
+                    "Measurement and Analysis of Pump operating parameters like power consumption, flow rate, head developed & operational sequence. (Pressure Measurements Tapping Must be available)",
+                    "Comparison of operating efficiency with rated /design efficiency, actual head required vs. operational head.",
+                    "Study of Pump operation/control with respect to variation in operating head/flow due to variation process area requirement to find opportunity for minimizing pumping power.",
+                    "Identification and suggestions for performance improvement and energy saving potential."
+                ]
+            },
+            {
+                type: "nested-content",
+                title: "Case Study",
+                sections: [
+                    {
+                        subtitle: "Overview",
+                        items: [
+                            "Type of Industry: Chemical, Iron & steel, Textile, Plywood, Pharmaceuticals Etc.",
+                            "Application: Cooling Tower Circulation Pump, Water Transfer pump, Chiller Primary & Secondary Pump, Submersible pump, Borewell pump etc.",
+                            "Type of Audit: Water pumping Audit",
+                            "Energy Conservation Measures: C Section Plant Cooling Circulation Pump: Replace Existing P 235 A Pump with New Energy Efficient Pump"
+                        ]
+                    }
+                ]
+            },
+            {
+                type: "table",
+                title: "Data: Pump 235 A",
+                headers: ["SN", "Description", "Unit", "Value"],
+                rows: [
+                    ["1", "Existing Efficiency", "%", "37.26"],
+                    ["2", "Proposed efficiency of pump %", "%", "82"],
+                    ["3", "Proposed Head", "Meter", "30"],
+                    ["4", "Proposed Flow", "m3/hr", "400"],
+                    ["5", "Estimated power @ one pump", "kW", "42.20"],
+                    ["6", "Standard Motor and Pump Power", "kW", "45"],
+                    ["7", "Present norms of pump", "kW/m3", "0.187"],
+                    ["8", "Suggested norms of pump", "kW/m3", "0.105"],
+                    ["9", "Saving in norms", "kW/m3", "0.082"],
+                    ["10", "Saving in kW", "kW", "30.268"],
+                    ["11", "Unit cost Rs", "Rs./kWh", "6.0"],
+                    ["12", "Daily Operation hour", "Hour", "24.000"],
+                    ["13", "Annual operation Day", "Day", "330"],
+                    ["14", "Annual Power Saving", "kWh", "239723.5"],
+                    ["15", "Saving in monetary terms", "Rs.", "1438341.3"],
+                    ["16", "Investment of new Energy Efficient pump", "Rs", "290000"],
+                    ["17", "Simple payback period", "Month", "2.42"]
+                ]
+            },
+            {
+                type: "image",
+                title: "",
+                image: "/services/image.png",
+                alt: "Reduce Your Carbon Footprint"
+            },
+            {
+                type: "text",
+                content: [
+                    "You Can Reduce the Carbon Footprint 215 tCo2 by Implementing above Energy Conservation Measures"
+                ]
+            },
+            {
+                type: "table",
+                title: "Proposed New Pump Design",
+                headers: ["SN", "Description", "Unit", "Pump 235 A"],
+                rows: [
+                    ["1", "Proposed efficiency of pump %", "%", "82"],
+                    ["2", "Proposed Head", "Meter", "30"],
+                    ["3", "Proposed Flow", "m3/hr", "400"],
+                    ["4", "Estimated power @ one pump", "kW", "42.20"],
+                    ["5", "Standard Motor and Pump Power", "kW", "45"]
+                ]
+            },
+        ],
+        content: []
+    },
+    {
+        id: "fan",
+        title: "Fan Study",
+        icon: Wind,
+        description: "The fans are tested for field performance by measurement of flow, head, temperature on the fan side and electrical motor kW input on the motor side. The air velocity was measured by using anemometer. Multiplication of air velocity with the inlet area gives the air flow.",
+        image: "/services/16.png",
+        sections: [
+            {
+                type: "nested-content",
+                title: "Formulas",
+                sections: [
+                    {
+                        subtitle: "Fan Static Efficiency (η) can be calculated by the formula:",
+                        items: [
+                            "Fan Static Efficiency (η) = (Volume (m3/s) * ∆p (Total Pressure) mmWC) / (102 * Power Input to Fan Shaft in kW)"
+                        ]
+                    }
+                ]
+            },
+            {
+                type: "list",
+                title: "Scope of Work",
+                items: [
+                    "Measurement and Analysis of Fan operating parameters like power consumption, flow rate, head developed & operational sequence.",
+                    "Comparison of operating efficiency with rated /design efficiency, actual head required vs. operational head.",
+                    "Identification and suggestions for performance improvement and energy saving potential.",
+                    "Study of Fan operation/control with respect to variation in operating head/flow due to variation process area requirement to find opportunity for minimizing pumping power."
+                ]
+            },
+            {
+                type: "table",
+                title: "Case Study: Energy conservation Measures : VFD Controlling System Instead Of Damper Controlling At D5/3 Plant Mill ID Fan",
+                headers: ["SN", "Parameter", "Unit", "Value"],
+                rows: [
+                    ["1", "Power Consumption of blower", "kW", "96.5"],
+                    ["2", "% of throttling at suction valve", "%", "50.0"],
+                    ["3", "% of saving Possible", "%", "30.0"],
+                    ["4", "Saving power", "kW", "28.9"],
+                    ["5", "Opt. Hr/day", "Hr", "24.0"],
+                    ["6", "Unit cost Rs", "Rs./kWh", "8.10"],
+                    ["7", "Annual operation Day", "Day", "300.0"],
+                    ["8", "Annual Power Saving", "kWh", "208393.0"],
+                    ["9", "Annual Monetary saving", "Rs.", "1687983.5"],
+                    ["10", "Investment", "Rs.", "Nil"],
+                    ["11", "Simple Payback Period", "Month", "Immediate"]
+                ]
+            },
+            {
+                type: "list",
+                title: "Mill D5/3 Blower Trial Data",
+                items: [
+                    "Take trial at D5/3 Mill Blower suction damper 50 % throttling and full open Condition.",
+                    "VFD Already install in the Mill ID Fan.",
+                    "Pressure data show in the below table and figure.",
+                    "Mill Blower power is very with product, Mill frequency & Whizzer Frequency.",
+                    "Energy saving achieved 40 kW per as after 50% throttling remove.",
+                    "Some Pressure drop occur after the full open condition show in the below figure.",
+                    "Mill and Whizzer frequency shown in below table.",
+                    "Vibration in mill is Okay during the trail condition.",
+                    "Circulation flow of the Mill Blower is also same."
+                ]
+            },
+            {
+                type: "table",
+                title: "D5/3 Mill Blower Trial Data",
+                headers: ["SN", "Parameter", "Unit", "Regular Running", "During Trial"],
+                rows: [
+                    ["1", "Damper Position", "%", "50% Close", "100% Open"],
+                    ["2", "Fan Suction Pressure Before Damper", "mmWC", "231.2", "231.2"],
+                    ["3", "Fan Suction Pressure After Damper", "mmWC", "788.800", "286.96"],
+                    ["4", "Fan Discharge Pressure", "mmWC", "43.52", "43.52"],
+                    ["5", "Flow", "m3/hr", "30200.0", "30500"],
+                    ["6", "Power", "kW", "86", "46"],
+                    ["7", "Fan Frequency", "Hz", "48.6", "37"],
+                    ["8", "Whizzer Frequency", "Hz", "21", "21"],
+                    ["9", "Mill Frequency", "Hz", "39", "39"]
+                ]
+            },
+            {
+                type: "image-row",
+                images: [
+                    {
+                        url: "/services/fan-damper-50-throttling.png",
+                        title: "Mill Suction Damper 50% Throttling",
+                        alt: "Mill Suction Damper 50% Throttling Diagram"
+                    },
+                    {
+                        url: "/services/fan-damper-full-open.png",
+                        title: "Mill Suction Damper Full Open",
+                        alt: "Mill Suction Damper Full Open Diagram"
+                    }
+                ]
+            }
+        ],
+        content: []
+    },
+    {
+        id: "carbon",
+        title: "Carbon Verification Service",
+        icon: Globe,
+        description: "We Provide the Carbon Offset Validation Service to the UCR Project. We have validated numerous projects ranging from Wind, Solar, Biomass to Hydro.",
+        image: "/services/17.png",
+        sections: [
+            {
+                type: "image-row",
+                images: [
+                    {
+                        url: "/services/ucr-logo.png",
+                        title: "Universal Carbon Registry",
+                        alt: "UCR Logo"
+                    },
+                    {
+                        url: "/services/reduce-carbon-footprint.png",
+                        title: "Reduce Your Carbon Footprint",
+                        alt: "Reduce Your Carbon Footprint Logo"
+                    }
+                ]
+            },
+            {
+                type: "list",
+                title: "Verified Projects include:",
+                items: [
+                    "1) UCR 177 - Vitthal Refined Sugar Ltd : Biomass Project",
+                    "2) UCR 226 - Hanumantha Rao : Wind Project",
+                    "3) UCR 306 4.5 MW Bundled Solar Ground Mounted Power Project at Vejpur Gujarat : Solar Project",
+                    "4) UCR 265 33 MW Biomass based Grid-connected Biomass Power Project of Ms SMSMPSSKL: Biomass Project",
+                    "5) UCR 274 20 MW Bagasse based Co-generation by Ms Shiraguppi Sugar Works Ltd. Biomass Project",
+                    "6) UCR 235 6 MW Bundled Small Scale Hydro Power Project in Andhra Pradesh: Hydro Project",
+                    "7) UCR 317 42 MW Biomass Based Power Generation at L.H. Sugar Factory Ltd. : Biomass Project",
+                    "8) UCR 299 18 MW Biomass Based Power Generation at GM Sugars and Energy Ltd : Biomass Project",
+                    "9) UCR 303: 10 MW Grid-connected Small Hydro Power Project of M/s Mohite Industries Ltd, Maharashtra by EASPL : Hydro Project",
+                    "10) UCR 322 28.7 MW Bundled Bagasse Based Cogen Plant by M/s Chidanand Basaprabhu Kore Sahakari Sakkare Karkhane Niyamit Chikkodi: Biomass Project",
+                    "11) UCR 334 7.1 MW Captive Power Plant At MS Prakash Sponge Iron & Private Ltd. (PSIPL) : Waste Energy Recovery Project",
+                    "12) UCR 338 :14 MW SHP SÃO FRANCISCO : Hydro Project",
+                    "13) UCR 342: 2 MW Solar Power Plant by Subburaj Spinning Mills Pvt Ltd.: Solar Project",
+                    "14) UCR 344 1.2MW Vetamamidi Mini Hydel Power Project by AP Tribal Power Company Limited :Wind Project",
+                    "15) UCR 358 Dr. Reddy’s Laboratories Limited, at FTO-07 :Thermal Energy Project",
+                    "16) UCR 359 Dr. Reddy’s Laboratories Limited, at FTO-II :Thermal Energy Project",
+                    "17) UCR 375: Gokak Power and Energy Limited :Hydro Project",
+                    "18) UCR 417 : 52.5 MW Bundled Small Hydro Power Project By Atiaia :Hydro Project",
+                    "19) UCR 365 Carbon Verification Report 250 KW Wind Power Plant by eClouds Energy LLP: Wind Project",
+                    "20) UCR 427: 7 MW Ullumkal Small Hydro Power Project at EDCL Power Projects Ltd by EASPL : Hydro Project",
+                    "21) UCR 428: 15 MW Karikayam Small Hydro Power Project at Ayyappa Hydro Power Limited by EASPL: Hydro Project",
+                    "22) UCR 429 6 MW Harangi II Small Hydro Power Project at Energy Development Company Limited by EASPL: Hydro Project",
+                    "23) UCR 431 : 3.0 MW Bundled Small Scale Wind Power Project by Energy Development Company Limited: Wind Project",
+                    "24) UCR 485: 120 MW Sugarcane Bagasse based co-generation Energy SJC BIOENERGIA : Bagasse Project"
+                ]
+            }
+        ],
+        content: []
+    },
+    {
+        id: "arc-flash",
+        title: "Electrical Arc Flash Study",
+        icon: AlertTriangle,
+        description: "Comprehensive safety assessment including ETAP Modelling and Short Circuit Studies.",
+        image: "/services/18.png",
+        sections: [
+            {
+                type: "list",
+                title: "Scope of Work",
+                items: [
+                    "ETAP Modelling",
+                    "Short Circuit Study",
+                    "Relay Coordination Study",
+                    "Arc Flash Study",
+                    "Arc Flash Labels Generation",
+                    "Executive Summary Preparation"
+                ]
+            }
+        ],
+        content: []
+    },
+    {
+        id: "motor",
+        title: "Electrical Motor Efficiency Study",
+        icon: Settings,
+        description: "The motor efficiency can be calculated from the total losses, which are assumed to be the summation of the following losses.",
+        image: "/services/19.png",
+        sections: [
+            {
+                type: "list",
+                title: "Losses considered:",
+                items: [
+                    "Constant losses, Core losses, Friction and Windage losses",
+                    "Stator copper losses",
+                    "Rotor copper losses",
+                    "Stray losses"
+                ]
+            },
+            {
+                type: "text",
+                content: [
+                    "The stray losses are difficult to measure with any accuracy. IEEE Standard 112 gives a complicated method. Which is rarely used on shop floor. IS & IEC standards take fixed value as 0.5% of output. It must be remarked that actual value of stray losses is likely to be more. IEEE – 112 specifies values from 0.9 to 1.8%."
+                ]
+            },
+            // {
+            //     type: "image",
+            //     title: "Power Quality Analyzer",
+            //     image: "/instrument/1alm31.jpg",
+            //     alt: "Power Analyzer for Motor Efficiency"
+            // },
+            {
+                type: "nested-content",
+                title: "Case Study",
+                sections: [
+                    {
+                        subtitle: "Overview",
+                        items: [
+                            "Application: All Induction motor more than 50HP.",
+                            "Type of Audit: Motor Efficiency Study."
+                        ]
+                    }
+                ]
+            },
+            {
+                type: "table",
+                title: "Data: Motor Specifications & No Load Test",
+                headers: ["SN", "Descriptions", "Unit", "Value"],
+                rows: [
+                    ["1", "No of poles", "-", "6"],
+                    ["2", "Winding connection", "-", "DELTA"],
+                    ["3", "Type", "-", "TEFC"],
+                    ["4", "Output", "kW", "180"],
+                    ["5", "Voltage", "Volts", "415"],
+                    ["6", "Full load current, Ifl", "Amp", "311"],
+                    ["7", "Phase current at Full load, Ifl-ph", "Amp", "179.6"],
+                    ["8", "Speed", "rpm", "990"],
+                    ["9", "Frequency", "Hz", "50"],
+                    ["10", "Full load slip", "p.u.", "0.010"],
+                    ["11", "Efficiency", "%", "90"],
+                    ["12", "Insulation", "-", "Class F"],
+                    ["13", "Full load winding temperature", "0C", "85"],
+                    ["--", "No load test", "--", "--"],
+                    ["14", "Line voltage, U", "Volts", "415.67"],
+                    ["15", "Line Current, Inl", "Amp", "118.7"],
+                    ["16", "Phase current, Inl-ph", "Amp", "68.5"],
+                    ["17", "No load power input, Pi-nl", "Watts", "9183"],
+                    ["18", "Stator phase resistance at cold condition", "Ohms", "0.4333"],
+                    ["19", "Stator phase resistance after no load test", "Ohms", "0.4333"],
+                    ["20", "Ambient Temperature, Ta", "0C", "30"],
+                    ["21", "Frequency, f", "Hz", "50"],
+                    ["22", "Winding resistance at full load Rph-fl", "Ohms", "0.5233"],
+                    ["--", "Calculation of losses", "--", "--"],
+                    ["23", "No load power input, Pi-nl", "Watts", "9183.33"],
+                    ["24", "No load stator copper loss at T1 Temp.", "Watts", "6102.1"],
+                    ["25", "Iron, friction and windage loss", "Watts", "3081.23"],
+                    ["26", "Stator full load copper loss", "Watts", "50611.24"],
+                    ["27", "Synchronous speed", "-", "1000.0"],
+                    ["28", "Full load slip", "-", "0.01"],
+                    ["29", "Rotor Input power", "kW", "181.82"],
+                    ["30", "Rotor ohomic loss", "kW", "1.8"],
+                    ["31", "Stray loss 1.5%", "kW", "2.7"],
+                    ["32", "Total loss", "kW", "58.21"],
+                    ["33", "Motor full load input power", "kW", "238.2"],
+                    ["34", "Efficiency", "%", "75.563"]
+                ]
+            }
+        ],
+        content: []
+    },
+    {
+        id: "meter-calibration",
+        title: "Energy Meter Calibration Service",
+        icon: PieChart,
+        description: "We provide the Energy Meter Calibration Service at the plant.",
+        image: "/services/20.png",
+        sections: [
+            {
+                type: "list",
+                title: "Parameter including",
+                items: [
+                    "Voltage (V)",
+                    "Current (A)",
+                    "Power  (kW)",
+                    "Power Factor (PF)",
+                    "Energy Consumption (kWh)"
+                ]
+            },
+            // {
+            //     type: "image",
+            //     title: "NanoVIP Power Analyzer",
+            //     image: "/instrument/2nanovip.JPG",
+            //     alt: "NanoVIP Analyzer for Calibration"
+            // },
+            // {
+            //     type: "list",
+            //     items: [
+            //         "Verification of Voltage, Current, kW, and Energy readings.",
+            //         "Accuracy check against calibrated reference standard.",
+            //         "Issuance of calibration certificate."
+            //     ]
+            // }
         ],
         content: []
     }
