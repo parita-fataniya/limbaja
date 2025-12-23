@@ -1,61 +1,106 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Zap, Factory, Leaf, TrendingUp } from "lucide-react";
+import { motion } from "framer-motion";
+
 
 export default function AboutSection() {
     return (
-        <section className="py-20 bg-white">
-            <div className="container mx-auto px-6">
-                <div className="flex flex-col md:flex-row items-center gap-12">
-
-                    {/* Text Content */}
-                    <div className="w-full md:w-1/2">
-                        <div className="inline-block px-3 py-1 mb-4 border border-blue-100 rounded-full bg-blue-50">
-                            <span className="text-[#3154a5] text-xs font-bold tracking-widest uppercase">Who We Are</span>
-                        </div>
-                        <h2 className="text-3xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight">
-                            Leading Energy <span className="text-[#75b745]">Efficiency</span> Solutions
-                        </h2>
-                        <p className="text-slate-600 mb-6 leading-relaxed text-lg">
-                            Limbaja Energy is a BEE Certified & Govt. Authorized Energy Auditor firm. We specialize in identifying energy wastage and providing actionable solutions to reduce costs and carbon footprint.
-                        </p>
-
-                        <div className="space-y-4 mb-8">
-                            <div className="flex items-start gap-3">
-                                <CheckCircle2 className="text-[#75b745] mt-1 shrink-0 px-0" size={20} />
-                                <span className="text-slate-700">Experienced BEE Certified Energy Auditors</span>
+        <section className="py-24 bg-gradient-to-b from-white to-slate-50">
+            <div className="container mx-auto px-6 max-w-7xl">
+                <div className="flex flex-col lg:flex-row items-start gap-12">
+                    {/* Left Section */}
+                    <div className="w-full lg:w-1/2">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.7, ease: "easeOut" }}
+                        >
+                            <div className="inline-block mb-4">
+                                <span className="text-sm font-bold text-[#0ea5e9] uppercase tracking-[0.2em]">About Us</span>
                             </div>
-                            <div className="flex items-start gap-3">
-                                <CheckCircle2 className="text-[#75b745] mt-1 shrink-0" size={20} />
-                                <span className="text-slate-700">Advanced Power Quality Analyzers & Instruments</span>
-                            </div>
-                            <div className="flex items-start gap-3">
-                                <CheckCircle2 className="text-[#75b745] mt-1 shrink-0" size={20} />
-                                <span className="text-slate-700">Comprehensive audit reports with ROI analysis</span>
-                            </div>
-                        </div>
+                            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight tracking-tight">Who We Are</h2>
+                            <div className="w-20 h-1 bg-[#0ea5e9] rounded-full mb-8"></div>
 
-                        <Link href="/about-us" className="inline-flex items-center gap-2 text-[#3154a5] font-bold hover:gap-3 transition-all">
+                            <div className="space-y-6 text-slate-600 text-base md:text-lg leading-loose tracking-wide text-justify">
+                                <p className="text-justify font-medium">
+                                    With gradually increasing energy costs and depletion of natural resources of fossil fuels, prudent energy efficient usage of Electrical energy and thermal energy. Limbaja Energy is committed to help clients achieve energy savings and provides complete end to end solution from conceptualization, measurement, feasibility analysis and implementation support for energy saving.
+                                </p>
+                                <p className="text-justify">
+                                    We have a very qualified team of certified Energy Auditors and Energy Engineers who have wide experience in various types of industries, processes and facilities. In many industries and facilities, energy generally has the highest potential for cost reduction.
+                                </p>
+                            </div>
+                        </motion.div>
+                        <Link href="/about-us" className="inline-flex items-center gap-2 text-[#3154a5] font-bold hover:gap-3 transition-all pt-6">
                             Read More About Us <ArrowRight size={20} />
                         </Link>
                     </div>
 
-                    {/* Image / Visual - Simple Placeholder for consistency */}
-                    <div className="w-full md:w-1/2">
-                        <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-slate-100">
-                            {/* Placeholder for About Image */}
-                            <div className="absolute inset-0 bg-slate-200 flex items-center justify-center">
-                                <span className="text-slate-400 font-medium">About Us Image</span>
-                            </div>
-                            {/* Styling decoration */}
-                            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#0ea5e9]/10 rounded-full blur-2xl"></div>
-                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#22c55e]/10 rounded-full blur-2xl"></div>
-                        </div>
-                    </div>
+                    {/* Right Section */}
+                    <div className="w-full lg:w-1/2">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+                            className="grid grid-cols-2 gap-6"
+                        >
+                            {/* Energy Optimization */}
+                            <motion.div
+                                whileHover={{ y: -8 }}
+                                transition={{ duration: 0.3 }}
+                                className="bg-white p-8 rounded-xl flex flex-col items-center justify-center text-center aspect-square shadow-md hover:shadow-xl transition-shadow border border-slate-200"
+                            >
+                                <div className="w-16 h-16 bg-[#0ea5e9]/10 rounded-full flex items-center justify-center mb-4">
+                                    <Zap className="text-[#0ea5e9]" size={32} strokeWidth={2.5} />
+                                </div>
+                                <span className="font-semibold text-slate-800 text-sm">Energy Optimization</span>
+                            </motion.div>
 
+                            {/* Industrial Solutions */}
+                            <motion.div
+                                whileHover={{ y: -8 }}
+                                transition={{ duration: 0.3 }}
+                                className="bg-white p-8 rounded-xl flex flex-col items-center justify-center text-center aspect-square shadow-md hover:shadow-xl transition-shadow mt-12 border border-slate-200"
+                            >
+                                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4">
+                                    <Factory className="text-slate-700" size={32} strokeWidth={2.5} />
+                                </div>
+                                <span className="font-semibold text-slate-800 text-sm">Industrial Solutions</span>
+                            </motion.div>
+
+                            {/* Sustainability */}
+                            <motion.div
+                                whileHover={{ y: -8 }}
+                                transition={{ duration: 0.3 }}
+                                className="bg-white p-8 rounded-xl flex flex-col items-center justify-center text-center aspect-square shadow-md hover:shadow-xl transition-shadow -mt-6 border border-slate-200"
+                            >
+                                <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mb-4">
+                                    <Leaf className="text-emerald-600" size={32} strokeWidth={2.5} />
+                                </div>
+                                <span className="font-semibold text-slate-800 text-sm">Sustainable Practices</span>
+                            </motion.div>
+
+                            {/* Years of Excellence */}
+                            <motion.div
+                                whileHover={{ y: -8, scale: 1.02 }}
+                                transition={{ duration: 0.3 }}
+                                className="bg-gradient-to-br from-slate-900 to-slate-800 p-8 rounded-xl flex flex-col items-center justify-center text-center aspect-square shadow-lg hover:shadow-2xl transition-all border border-slate-700 relative overflow-hidden group"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#0ea5e9]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <TrendingUp className="text-[#0ea5e9] mb-3 relative z-10" size={32} strokeWidth={2.5} />
+                                <span className="text-5xl font-bold text-white mb-2 relative z-10">10+</span>
+                                <span className="font-medium text-slate-300 text-xs uppercase tracking-wide relative z-10">
+                                    Years of Excellence
+                                </span>
+                            </motion.div>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </section>
-    );
+    )
 }
+
