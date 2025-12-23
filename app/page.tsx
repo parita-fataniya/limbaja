@@ -3,7 +3,7 @@
 import HeroSection from "@/components/home/HeroSection";
 import AboutSection from "@/components/home/AboutSection";
 import ServiceSlider from "@/components/home/ServiceSlider";
-import InstrumentGrid from "@/components/home/InstrumentGrid";
+import RandomInstruments from "@/components/home/RandomInstruments";
 import ClientTicker from "@/components/home/ClientTicker";
 import HomeContact from "@/components/home/HomeContact";
 
@@ -13,7 +13,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ServiceSlider />
-      <InstrumentGrid />
+      <RandomInstruments />
       <ClientTicker />
       <HomeContact />
     </main>
