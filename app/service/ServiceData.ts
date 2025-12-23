@@ -1106,5 +1106,66 @@ export const services: Service[] = [
             }
         ],
         content: []
+    },
+    {
+        id: "process-heat-mass-balance",
+        title: "Process Heat Mass Balance",
+        icon: Activity,
+        description: "Heat and mass balance is a critical aspect of process engineering, used extensively in the design and analysis of process plants. These calculations ensure that the energy and material inputs and outputs in a system are accurately accounted for, helping to optimise efficiency, safety, and cost-effectiveness in industrial operations.",
+        image: "/services/21.png",
+        sections: [
+            {
+                type: "text",
+                title: "Key Components:",
+                content: []
+            },
+            {
+                type: "list",
+                title: "1. Process Streams",
+                items: [
+                    "These include the various flows of materials (liquids, gases, solids) involved in a process. Each stream is characterised by properties such as temperature, pressure, density, viscosity, and flow rates."
+                ]
+            },
+            {
+                type: "nested-content",
+                title: "2. Balance Equations",
+                sections: [
+                    {
+                        subtitle: "Energy Balance Equation:",
+                        items: [
+                            "Typically used to determine heat transfer rates, specific heat capacities, and temperature changes. For instance, in a heat exchanger, the heat lost by the hot fluid is reduced by an efficiency factor, meaning the heat gained by the cold fluid is less than the heat lost by the hot fluid."
+                        ]
+                    },
+                    {
+                        subtitle: "Mass Balance Equation:",
+                        items: [
+                            "Used to ensure that the mass entering a process equals the mass exiting. This is particularly important in processes involving chemical reactions or phase changes."
+                        ]
+                    }
+                ]
+            },
+            {
+                type: "text",
+                title: "Heat and Mass Balance in Existing Processes",
+                content: [
+                    "In existing industrial processes, heat and mass balance calculations are essential for optimising operational efficiency and troubleshooting. These calculations help identify inefficiencies, energy losses, and areas for improvement. Regular evaluations ensure safety and reliability by detecting deviations from expected performance, allowing for timely maintenance and adjustments."
+                ]
+            },
+            {
+                type: "text",
+                title: "Heat and Mass Balance in New Processes",
+                content: [
+                    "For new processes, heat and mass balance calculations are fundamental during the development phase. They provide insights into expected material and energy flows, guiding the design of equipment and selection of materials. These analyses are crucial for feasibility studies, enabling engineers to evaluate different configurations and technologies to identify the most cost-effective and efficient solutions."
+                ]
+            },
+            {
+                type: "text",
+                title: "",
+                content: [
+                    "By applying heat and mass balance principles, engineers can ensure processes are both efficient and cost-effective, enhancing overall operational performance. Accurate calculations in both existing and new processes lead to improved safety, reliability, and sustainability in industrial operations."
+                ]
+            }
+        ],
+        content: []
     }
 ];
