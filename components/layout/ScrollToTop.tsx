@@ -37,7 +37,7 @@ export function ScrollToTop() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={scrollToTop}
-                    className="fixed bottom-10 right-10 z-[60] w-12 h-12 flex items-center justify-center rounded-full bg-[#0ea5e9] text-white shadow-lg hover:bg-[#0284c7] transition-colors"
+                    className="fixed bottom-28 right-10 z-[60] w-12 h-12 flex items-center justify-center rounded-full bg-[#0ea5e9] text-white shadow-lg hover:bg-[#0284c7] transition-colors"
                     aria-label="Scroll to top"
                 >
                     <ChevronUp className="w-6 h-6" />
