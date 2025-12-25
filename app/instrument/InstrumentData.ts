@@ -10,7 +10,7 @@ export const instruments: Instrument[] = [
     { name: "Inserted type Compressed Air flow meter", make: "CS", image: "/instrument/3Inserted.jpg" },
     { name: "Compressed Air Leak Detector", make: "CS", image: "/instrument/flexim-ultrasonic-compressed-air.png" },
     { name: "Ultra Sonic Compressed Air Flow Meter", make: "Flexim | Emerson", image: "/instrument/flexim-compressed-air-flow-meter.jpg" },
-    { name: "Ultra Sonic Thermic Fluid Heater Flow Meter", make: "Flexim | Emerson (up to 240℃)" },
+    { name: "Ultra Sonic Thermic Fluid Heater Flow Meter", make: "Flexim | Emerson (up to 240℃)", image: "/instrument/flexim-ultrasonic-water-flow-meter.jpg" },
     { name: "Ultra Sonic Steam Flow Meter", make: "Flexim | Emerson (Up to 180 ℃)", image: "/instrument/flexim-steam-flow-meter.jpg" },
     { name: "Ultra sonic Water Flow Meter", make: "TDS 100", image: "/instrument/flexim-ultrasonic-water-flow-meter.jpg" },
     { name: "Flue Gas Analyser", make: "Testo 300", image: "/instrument/testo-300-flue-gas-analyser.jpg" },
