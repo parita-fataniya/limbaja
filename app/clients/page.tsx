@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import fs from "fs";
 import path from "path";
 import ClientGrid from "./ClientGrid";
+
+export const metadata: Metadata = {
+    title: "Our Clients | Limbaja Energy",
+    description: "Trusted by industry leaders. View our prestigious client list and partners who have benefited from our energy efficiency solutions.",
+};
 
 export default function ClientsPage() {
     // Server-side logic to get images
