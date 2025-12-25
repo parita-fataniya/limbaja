@@ -37,8 +37,11 @@ export default function ClientTicker() {
 
     useEffect(() => {
         const shuffled = [...allClients].sort(() => 0.5 - Math.random());
-        setRow1(shuffled.slice(0, 10));
-        setRow2(shuffled.slice(10, 20));
+        // Reduce count for mobile to save memory and CPU
+        const isMobile = window.innerWidth < 768;
+        const count = isMobile ? 6 : 10;
+        setRow1(shuffled.slice(0, count));
+        setRow2(shuffled.slice(count, count * 2));
     }, []);
 
     if (row1.length === 0) return null;
@@ -67,9 +70,9 @@ export default function ClientTicker() {
                 {/* Row 1: Left to Right */}
                 <div className="flex overflow-hidden">
                     <motion.div
-                        className="flex gap-10 whitespace-nowrap"
-                        animate={{ x: [0, -2000] }}
-                        transition={{ repeat: Infinity, ease: "linear", duration: 45 }}
+                        className="flex gap-10 whitespace-nowrap will-change-transform"
+                        animate={{ x: [0, -1000] }}
+                        transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
                     >
                         {[...row1, ...row1, ...row1, ...row1].map((logo, index) => (
                             <div key={index} className="flex items-center justify-center w-32 h-20 lg:w-40 lg:h-22 xl:w-48 xl:h-24 bg-white rounded-xl md:rounded-2xl border border-white/10 hover:border-[#0ea5e9]/30 transition-all group overflow-hidden p-4 lg:p-5 xl:p-6 hover:shadow-xl hover:shadow-[#0ea5e9]/20">
@@ -89,9 +92,9 @@ export default function ClientTicker() {
                 {/* Row 2: Right to Left */}
                 <div className="flex overflow-hidden">
                     <motion.div
-                        className="flex gap-10 whitespace-nowrap"
-                        animate={{ x: [-2000, 0] }}
-                        transition={{ repeat: Infinity, ease: "linear", duration: 50 }}
+                        className="flex gap-10 whitespace-nowrap will-change-transform"
+                        animate={{ x: [-1000, 0] }}
+                        transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
                     >
                         {[...row2, ...row2, ...row2, ...row2].map((logo, index) => (
                             <div key={index} className="flex items-center justify-center w-32 h-20 lg:w-40 lg:h-22 xl:w-48 xl:h-24 bg-white rounded-xl md:rounded-2xl border border-white/10 hover:border-[#0ea5e9]/30 transition-all group overflow-hidden p-4 lg:p-5 xl:p-6 hover:shadow-xl hover:shadow-[#0ea5e9]/20">

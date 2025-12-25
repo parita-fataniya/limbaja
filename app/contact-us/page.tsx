@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import { Phone, Mail, MapPin, Send, User, Building, FileText, HelpCircle } from "lucide-react";
+
+export const metadata: Metadata = {
+    title: "Contact Us | Limbaja Energy",
+    description: "Get in touch with Limbaja Energy for energy audits, consultancy, and sustainable solutions. Reach out via phone, email, or our enquiry form.",
+};
 
 export default function ContactPage() {
     return (
