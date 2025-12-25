@@ -8,22 +8,10 @@ export const metadata: Metadata = {
     description: "Trusted by industry leaders. View our prestigious client list and partners who have benefited from our energy efficiency solutions.",
 };
 
-export default function ClientsPage() {
-    // Server-side logic to get images
-    const activeWorkspacePath = process.env.NEXT_PUBLIC_WORKSPACE_PATH || process.cwd();
-    const clientsDir = path.join(process.cwd(), "public", "clients");
-    let clientImages: string[] = [];
+import { clients } from "@/lib/ClientData";
 
-    try {
-        if (fs.existsSync(clientsDir)) {
-            const files = fs.readdirSync(clientsDir);
-            clientImages = files.filter(file =>
-                /\.(jpg|jpeg|png|gif|webp|svg|jfif)$/i.test(file)
-            ).map(file => `/clients/${file}`);
-        }
-    } catch (error) {
-        console.error("Error reading clients directory:", error);
-    }
+export default function ClientsPage() {
+    const clientImages = clients.map(file => `/clients/${file}`);
 
     return (
         <div className="bg-slate-50 min-h-screen pb-20">
