@@ -33,8 +33,8 @@ const slides = [
     },
     {
         id: 5,
-        image: "/hero-section/hero-5.jpeg",
-        title: "Sustainable Future",
+        image: "/hero-section/hero-save-energy.jpg",
+        title: "Save Energy",
         subtitle: "Leading the way in energy management and environmental stewardship.",
     },
 ];
