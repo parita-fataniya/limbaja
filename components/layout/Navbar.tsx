@@ -28,7 +28,7 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const isActive = (path: string) => pathname.startsWith(path);
+    const isActive = (path: string) => path === "/" ? pathname === "/" : pathname.startsWith(path);
 
     return (
         <header className="fixed w-full z-50 transition-all duration-300">

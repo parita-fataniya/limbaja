@@ -25,7 +25,7 @@ export default function AboutHero() {
                         Driving Energy Efficiency. Powering Sustainable Growth.
                     </h2>
                     <p className="text-lg md:text-xl text-slate-300 leading-loose tracking-wide max-w-3xl mx-auto text-balance">
-                        Limbaja Energy is committed to helping industries reduce energy costs and optimize electrical and thermal energy usage through expert audits and implementation support.
+
                     </p>
                 </motion.div>
             </div>
