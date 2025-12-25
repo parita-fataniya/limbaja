@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import ServiceGrid from "./ServiceGrid";
+
+export const metadata: Metadata = {
+    title: "Our Services | Limbaja Energy",
+    description: "Explore our comprehensive range of energy efficiency services including detailed energy audits, harmonic analysis, compressor audits, and more.",
+};
 
 export default function ServicePage() {
     return (
