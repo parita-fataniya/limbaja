@@ -46,21 +46,12 @@ export default function HeroSection() {
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
-        const startTime = Date.now();
-        const timer = setInterval(() => {
-            const elapsed = Date.now() - startTime;
-            const newProgress = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
-            setProgress(newProgress);
+        const interval = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % slides.length);
+        }, SLIDE_DURATION);
 
-            if (newProgress >= 100) {
-                setCurrent((prev) => (prev + 1) % slides.length);
-                setProgress(0);
-                clearInterval(timer);
-            }
-        }, 30);
-
-        return () => clearInterval(timer);
-    }, [current]);
+        return () => clearInterval(interval);
+    }, []);
 
     const nextSlide = () => {
         setCurrent((prev) => (prev + 1) % slides.length);
@@ -82,7 +73,7 @@ export default function HeroSection() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 will-change-transform"
                 >
                     <Image
                         src={slides[current].image}
@@ -127,11 +118,11 @@ export default function HeroSection() {
                         </p>
 
                         <div className="flex flex-wrap gap-5">
-                            <Link href="/service" className="group relative inline-flex items-center gap-3 bg-[#22c55e] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-[#16a34a] transition-all shadow-xl shadow-[#22c55e]/20">
+                            <Link href="/service" className="group relative inline-flex items-center gap-3 bg-[#22c55e] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-[#16a34a] transition-all shadow-xl shadow-[#22c55e]/20 active:scale-95">
                                 <span>Explore Services</span>
                                 <ArrowRight className="group-hover:translate-x-2 transition-transform" size={18} />
                             </Link>
-                            <Link href="/contact-us" className="group px-8 py-4 bg-white/5 border border-white/20 text-white hover:bg-white hover:text-slate-900 font-bold rounded-xl transition-all backdrop-blur-md uppercase tracking-widest text-sm">
+                            <Link href="/contact-us" className="group px-8 py-4 bg-white/5 border border-white/20 text-white hover:bg-white hover:text-slate-900 font-bold rounded-xl transition-all md:backdrop-blur-md uppercase tracking-widest text-sm active:scale-95">
                                 Get In Touch
                             </Link>
                         </div>
@@ -143,13 +134,13 @@ export default function HeroSection() {
             <div className="absolute right-8 md:right-20 bottom-32 z-30 flex gap-4">
                 <button
                     onClick={prevSlide}
-                    className="group p-4 rounded-full border border-white/20 text-white hover:bg-[#22c55e] hover:border-[#22c55e] transition-all backdrop-blur-sm"
+                    className="group p-4 rounded-full border border-white/20 text-white hover:bg-[#22c55e] hover:border-[#22c55e] transition-all md:backdrop-blur-sm active:scale-90"
                 >
                     <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
                 </button>
                 <button
                     onClick={nextSlide}
-                    className="group p-4 rounded-full border border-white/20 text-white hover:bg-[#22c55e] hover:border-[#22c55e] transition-all backdrop-blur-sm"
+                    className="group p-4 rounded-full border border-white/20 text-white hover:bg-[#22c55e] hover:border-[#22c55e] transition-all md:backdrop-blur-sm active:scale-90"
                 >
                     <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -176,7 +167,9 @@ export default function HeroSection() {
                         {current === index && (
                             <motion.div
                                 className="absolute top-0 left-0 h-full bg-[#22c55e]"
-                                style={{ width: `${progress}%` }}
+                                initial={{ width: "0%" }}
+                                animate={{ width: "100%" }}
+                                transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
                             />
                         )}
 

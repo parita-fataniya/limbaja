@@ -3,6 +3,8 @@ import { Inter } from "next/font/google"; // Changed to Inter for a professional
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 
 const font = Inter({
   subsets: ["latin"],
@@ -80,10 +82,12 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={font.className}>
         <Navbar />
-        <main className="min-h-screen pt-32 md:pt-36">
+        <main className="min-h-screen pt-40 md:pt-36">
           {children}
         </main>
         <Footer />
+        <ScrollToTop />
+        <WhatsAppButton />
       </body>
     </html>
   );

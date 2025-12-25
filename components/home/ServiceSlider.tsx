@@ -17,6 +17,9 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
     const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        // Disable 3D tilt on mobile
+        if (window.innerWidth < 1024) return;
+
         const rect = e.currentTarget.getBoundingClientRect();
         const width = rect.width;
         const height = rect.height;
@@ -48,10 +51,10 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
                 rotateY,
                 transformStyle: "preserve-3d",
             }}
-            className="group relative h-full min-h-[380px] w-full"
+            className="group relative h-full min-h-[380px] w-full will-change-transform"
         >
-            {/* Dark Glossy Background */}
-            <div className="absolute inset-0 rounded-3xl bg-slate-900/40 backdrop-blur-xl border border-white/5 transition-all duration-500 group-hover:bg-slate-900/60 group-hover:border-[#0ea5e9]/30 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]"></div>
+            {/* Dark Glossy Background - backdrop-blur disabled on mobile for performance */}
+            <div className="absolute inset-0 rounded-3xl bg-slate-900/40 md:backdrop-blur-xl border border-white/5 transition-all duration-500 group-hover:bg-slate-900/60 group-hover:border-[#0ea5e9]/30 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]"></div>
 
             {/* Animated Glow on Dark */}
             <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_var(--mouse-x)_var(--mouse-y),rgba(14,165,233,0.15)_0%,transparent_70%)]"
