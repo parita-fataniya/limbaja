@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={font.className}>
         <Navbar />
-        <main className="min-h-screen pt-32 md:pt-36">
+        <main className="min-h-screen pt-40 md:pt-36">
           {children}
         </main>
         <Footer />
