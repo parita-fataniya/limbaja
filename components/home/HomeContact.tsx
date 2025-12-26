@@ -1,6 +1,7 @@
 "use client";
 
-import { Send, Phone, User, Building, HelpCircle, FileText } from "lucide-react";
+import { Phone } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 export default function HomeContact() {
     return (
@@ -23,52 +24,25 @@ export default function HomeContact() {
                                     <span className="font-medium">limbajaenergy@gmail.com</span>
                                 </div>
                             </div>
+
+                            {/* Map */}
+                            <div className="mt-8 rounded-xl overflow-hidden border border-slate-700 h-48 w-full shadow-lg">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.0344143568755!2d69.6520208!3d23.231415100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39511e3e6a560877%3A0x1340d2b65a84581a!2sLIMBAJA%20ENERGY!5e1!3m2!1sen!2sin!4v1766775151033!5m2!1sen!2sin"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                ></iframe>
+                            </div>
                         </div>
                     </div>
 
+
                     <div className="p-10 md:w-3/5">
-                        <form className="space-y-4">
-                            <div>
-                                <label className="text-xs font-bold text-slate-500 uppercase mb-1 block">Company Name</label>
-                                <div className="relative">
-                                    <Building className="absolute left-3 top-2.5 text-slate-400" size={18} />
-                                    <input type="text" className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:outline-none focus:bg-white transition-all font-medium text-slate-700" placeholder="Your Company" />
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label className="text-xs font-bold text-slate-500 uppercase mb-1 block">Email ID</label>
-                                    <input type="email" className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:outline-none focus:bg-white transition-all font-medium text-slate-700" placeholder="name@company.com" />
-                                </div>
-                                <div>
-                                    <label className="text-xs font-bold text-slate-500 uppercase mb-1 block">Contact No</label>
-                                    <input type="tel" className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:outline-none focus:bg-white transition-all font-medium text-slate-700" placeholder="+91..." />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="text-xs font-bold text-slate-500 uppercase mb-1 block">Audit Type</label>
-                                <div className="relative">
-                                    <HelpCircle className="absolute left-3 top-2.5 text-slate-400" size={18} />
-                                    <select className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:outline-none focus:bg-white transition-all font-medium text-slate-700 appearance-none">
-                                        <option value="">Select Requirement</option>
-                                        <option value="energy-audit">Energy Audit</option>
-                                        <option value="thermography">Thermography</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="text-xs font-bold text-slate-500 uppercase mb-1 block">Message</label>
-                                <textarea className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:outline-none focus:bg-white transition-all font-medium text-slate-700 h-24 resize-none" placeholder="How can we help?"></textarea>
-                            </div>
-
-                            <button className="w-full bg-[#0ea5e9] hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20">
-                                <Send size={18} /> Send Enquiry
-                            </button>
-                        </form>
+                        <ContactForm embedded={true} />
                     </div>
                 </div>
             </div>

@@ -3,7 +3,11 @@
 import { useState } from 'react';
 import { Phone, Mail, Building, FileText, HelpCircle, Send, Loader2 } from "lucide-react";
 
-export default function ContactForm() {
+interface ContactFormProps {
+    embedded?: boolean;
+}
+
+export default function ContactForm({ embedded = false }: ContactFormProps) {
     const [formData, setFormData] = useState({
         companyName: '',
         companyMailId: '',
@@ -62,12 +66,18 @@ export default function ContactForm() {
         }
     };
 
+    const containerClasses = embedded
+        ? "w-full"
+        : "bg-white p-8 rounded-2xl shadow-xl border border-slate-100";
+
     return (
-        <div className="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
-            <div className="mb-8">
-                <h2 className="text-2xl font-bold text-slate-800 mb-2">Enquiry Form</h2>
-                <p className="text-slate-500">Fill out the form below and we will get back to you.</p>
-            </div>
+        <div className={containerClasses}>
+            {!embedded && (
+                <div className="mb-8">
+                    <h2 className="text-2xl font-bold text-slate-800 mb-2">Enquiry Form</h2>
+                    <p className="text-slate-500">Fill out the form below and we will get back to you.</p>
+                </div>
+            )}
 
             {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg flex items-center gap-2">
