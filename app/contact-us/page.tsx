@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Phone, Mail, MapPin, Send, User, Building, FileText, HelpCircle } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
     title: "Contact Us | Limbaja Energy",
@@ -72,71 +73,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Enquiry Form */}
-                    <div className="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
-                        <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-slate-800 mb-2">Enquiry Form</h2>
-                            <p className="text-slate-500">Fill out the form below and we will get back to you.</p>
-                        </div>
-
-                        <form className="space-y-5">
-                            <div>
-                                <label className="block text-sm font-semibold text-slate-700 mb-2">Company Name</label>
-                                <div className="relative">
-                                    <Building className="absolute left-4 top-3 text-slate-400" size={20} />
-                                    <input type="text" className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20 focus:outline-none transition-all" placeholder="Enter company name" />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-semibold text-slate-700 mb-2">Company Mail ID</label>
-                                <div className="relative">
-                                    <Mail className="absolute left-4 top-3 text-slate-400" size={20} />
-                                    <input type="email" className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20 focus:outline-none transition-all" placeholder="email@company.com" />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-semibold text-slate-700 mb-2">Contact No.</label>
-                                <div className="relative">
-                                    <Phone className="absolute left-4 top-3 text-slate-400" size={20} />
-                                    <input type="tel" className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20 focus:outline-none transition-all" placeholder="+91 00000 00000" />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-semibold text-slate-700 mb-2">Type of Audit Require</label>
-                                <div className="relative">
-                                    <HelpCircle className="absolute left-4 top-3 text-slate-400" size={20} />
-                                    <select className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20 focus:outline-none transition-all bg-white text-slate-600 appearance-none">
-                                        <option value="">Select Audit Type</option>
-                                        <option value="detailed">Detailed Energy Audit</option>
-                                        <option value="electrical">Electrical Arc Flash Study</option>
-                                        <option value="thermography">Thermography Study</option>
-                                        <option value="flow">Flow Measurement</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-semibold text-slate-700 mb-2">Description</label>
-                                <div className="relative">
-                                    <FileText className="absolute left-4 top-3 text-slate-400" size={20} />
-                                    <textarea className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20 focus:outline-none transition-all h-32 resize-none" placeholder="Describe your requirements..."></textarea>
-                                </div>
-                            </div>
-
-                            <div className="flex gap-4 pt-2">
-                                <button type="submit" className="flex-1 bg-[#0ea5e9] hover:bg-blue-600 text-white font-bold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30">
-                                    <Send size={20} />
-                                    Send
-                                </button>
-                                <button type="reset" className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3.5 rounded-lg transition-all border border-slate-200">
-                                    Reset
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                    <ContactForm />
 
                 </div>
             </div>
