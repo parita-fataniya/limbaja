@@ -6,8 +6,8 @@ export interface Instrument {
 
 export const instruments: Instrument[] = [
     { name: "Power Quality Analyzer", make: "ALM 31", image: "/instrument/1alm31.jpg" },
-    { name: "Three Phase Balance Load Meter", make: "Nano Vip One and Two", image: "/instrument/2nanovip.jpg" },
-    { name: "Inserted type Compressed Air flow meter", make: "CS", image: "/instrument/3inserted.jpg" },
+    { name: "Three Phase Balance Load Meter", make: "Nano Vip One and Two", image: "/instrument/2-nanovip.jpg" },
+    { name: "Inserted type Compressed Air flow meter", make: "CS", image: "/instrument/3-inserted.jpg" },
     { name: "Compressed Air Leak Detector", make: "CS", image: "/instrument/flexim-ultrasonic-compressed-air.png" },
     { name: "Ultra Sonic Compressed Air Flow Meter", make: "Flexim | Emerson", image: "/instrument/flexim-compressed-air-flow-meter.jpg" },
     { name: "Ultra Sonic Thermic Fluid Heater Flow Meter", make: "Flexim | Emerson (up to 240℃)", image: "/instrument/flexim-ultrasonic-water-flow-meter.jpg" },
