@@ -15,19 +15,91 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
         auditType: '',
         description: ''
     });
+    const [errors, setErrors] = useState({
+        companyName: '',
+        companyMailId: '',
+        contactNo: '',
+        auditType: '',
+        description: ''
+    });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+    const validateForm = () => {
+        const newErrors = {
+            companyName: '',
+            companyMailId: '',
+            contactNo: '',
+            auditType: '',
+            description: ''
+        };
+        let isValid = true;
+
+        if (!formData.companyName.trim()) {
+            newErrors.companyName = 'Company Name is required';
+            isValid = false;
+        }
+
+        if (!formData.companyMailId.trim()) {
+            newErrors.companyMailId = 'Email is required';
+            isValid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.companyMailId)) {
+            newErrors.companyMailId = 'Invalid email format';
+            isValid = false;
+        }
+
+        if (!formData.contactNo.trim()) {
+            newErrors.contactNo = 'Contact Number is required';
+            isValid = false;
+        } else if (!/^\d+$/.test(formData.contactNo)) {
+            newErrors.contactNo = 'Contact Number must contain only digits';
+            isValid = false;
+        } else if (formData.contactNo.length > 15) {
+            newErrors.contactNo = 'Phone number must not exceed 15 digits';
+            isValid = false;
+        }
+
+        if (!formData.auditType) {
+            newErrors.auditType = 'Please select an audit type';
+            isValid = false;
+        }
+
+        // Description is optional now
+
+        setErrors(newErrors);
+        return isValid;
+    };
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
+
+        // For contact number, only allow digits
+        if (name === 'contactNo') {
+            if (value && !/^\d*$/.test(value)) {
+                return;
+            }
+        }
+
         setFormData(prev => ({
             ...prev,
             [name]: value
         }));
+        // Clear error when user types
+        if (errors[name as keyof typeof errors]) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: ''
+            }));
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (!validateForm()) {
+            return;
+        }
+
         setIsSubmitting(true);
         setSubmitStatus('idle');
 
@@ -93,7 +165,7 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                 </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                 <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-2">Company Name</label>
                     <div className="relative">
@@ -103,11 +175,16 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                             name="companyName"
                             value={formData.companyName}
                             onChange={handleChange}
-                            required
-                            className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20 focus:outline-none transition-all"
+                            className={`w-full pl-12 pr-4 py-3 border rounded-lg focus:ring-2 focus:outline-none transition-all ${errors.companyName
+                                ? 'border-red-300 focus:border-red-500 focus:ring-red-200'
+                                : 'border-slate-200 focus:border-[#0ea5e9] focus:ring-[#0ea5e9]/20'
+                                }`}
                             placeholder="Enter company name"
                         />
                     </div>
+                    {errors.companyName && (
+                        <p className="mt-1 text-sm text-red-500">{errors.companyName}</p>
+                    )}
                 </div>
 
                 <div>
@@ -119,11 +196,16 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                             name="companyMailId"
                             value={formData.companyMailId}
                             onChange={handleChange}
-                            required
-                            className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20 focus:outline-none transition-all"
+                            className={`w-full pl-12 pr-4 py-3 border rounded-lg focus:ring-2 focus:outline-none transition-all ${errors.companyMailId
+                                ? 'border-red-300 focus:border-red-500 focus:ring-red-200'
+                                : 'border-slate-200 focus:border-[#0ea5e9] focus:ring-[#0ea5e9]/20'
+                                }`}
                             placeholder="email@company.com"
                         />
                     </div>
+                    {errors.companyMailId && (
+                        <p className="mt-1 text-sm text-red-500">{errors.companyMailId}</p>
+                    )}
                 </div>
 
                 <div>
@@ -135,11 +217,16 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                             name="contactNo"
                             value={formData.contactNo}
                             onChange={handleChange}
-                            required
-                            className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20 focus:outline-none transition-all"
+                            className={`w-full pl-12 pr-4 py-3 border rounded-lg focus:ring-2 focus:outline-none transition-all ${errors.contactNo
+                                ? 'border-red-300 focus:border-red-500 focus:ring-red-200'
+                                : 'border-slate-200 focus:border-[#0ea5e9] focus:ring-[#0ea5e9]/20'
+                                }`}
                             placeholder="+91 00000 00000"
                         />
                     </div>
+                    {errors.contactNo && (
+                        <p className="mt-1 text-sm text-red-500">{errors.contactNo}</p>
+                    )}
                 </div>
 
                 <div>
@@ -150,7 +237,10 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                             name="auditType"
                             value={formData.auditType}
                             onChange={handleChange}
-                            className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20 focus:outline-none transition-all bg-white text-slate-600 appearance-none"
+                            className={`w-full pl-12 pr-4 py-3 border rounded-lg focus:ring-2 focus:outline-none transition-all bg-white text-slate-600 appearance-none ${errors.auditType
+                                ? 'border-red-300 focus:border-red-500 focus:ring-red-200'
+                                : 'border-slate-200 focus:border-[#0ea5e9] focus:ring-[#0ea5e9]/20'
+                                }`}
                         >
                             <option value="">Select Audit Type</option>
                             <option value="Detailed Energy Audit">Detailed Energy Audit</option>
@@ -160,20 +250,29 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                             <option value="Other">Other</option>
                         </select>
                     </div>
+                    {errors.auditType && (
+                        <p className="mt-1 text-sm text-red-500">{errors.auditType}</p>
+                    )}
                 </div>
 
                 <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">Description</label>
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">Description <span className="text-slate-400 font-normal">(Optional)</span></label>
                     <div className="relative">
                         <FileText className="absolute left-4 top-3 text-slate-400" size={20} />
                         <textarea
                             name="description"
                             value={formData.description}
                             onChange={handleChange}
-                            className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:border-[#0ea5e9] focus:ring-2 focus:ring-[#0ea5e9]/20 focus:outline-none transition-all h-32 resize-none"
+                            className={`w-full pl-12 pr-4 py-3 border rounded-lg focus:ring-2 focus:outline-none transition-all h-32 resize-none ${errors.description
+                                ? 'border-red-300 focus:border-red-500 focus:ring-red-200'
+                                : 'border-slate-200 focus:border-[#0ea5e9] focus:ring-[#0ea5e9]/20'
+                                }`}
                             placeholder="Describe your requirements..."
                         ></textarea>
                     </div>
+                    {errors.description && (
+                        <p className="mt-1 text-sm text-red-500">{errors.description}</p>
+                    )}
                 </div>
 
                 <div className="flex gap-4 pt-2">
@@ -187,13 +286,23 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                     </button>
                     <button
                         type="button"
-                        onClick={() => setFormData({
-                            companyName: '',
-                            companyMailId: '',
-                            contactNo: '',
-                            auditType: '',
-                            description: ''
-                        })}
+                        onClick={() => {
+                            setFormData({
+                                companyName: '',
+                                companyMailId: '',
+                                contactNo: '',
+                                auditType: '',
+                                description: ''
+                            });
+                            setErrors({
+                                companyName: '',
+                                companyMailId: '',
+                                contactNo: '',
+                                auditType: '',
+                                description: ''
+                            });
+                            setSubmitStatus('idle');
+                        }}
                         className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3.5 rounded-lg transition-all border border-slate-200"
                     >
                         Reset
