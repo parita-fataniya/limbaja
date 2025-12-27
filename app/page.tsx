@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import HeroSection from "@/components/home/HeroSection";
+import StoryHero from "@/components/home/StoryHero";
 import AboutSection from "@/components/home/AboutSection";
 import ServiceSlider from "@/components/home/ServiceSlider";
 import RandomInstruments from "@/components/home/RandomInstruments";
@@ -49,7 +49,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HeroSection />
+      <StoryHero />
       <AboutSection />
       <ServiceSlider />
       <RandomInstruments />

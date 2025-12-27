@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Phone, Mail, Clock, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useHeaderControl } from "@/context/HeaderControlContext";
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -16,6 +17,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+    const { isHeaderHidden } = useHeaderControl();
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
@@ -24,15 +26,18 @@ export default function Navbar() {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 120);
         };
+        handleScroll(); // Check on mount
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const isActive = (path: string) => path === "/" ? pathname === "/" : pathname.startsWith(path);
 
+    // Completely hide header if controlled by StoryHero
+    if (isHeaderHidden) return null;
+
     return (
         <header className="fixed w-full z-50 transition-all duration-600">
-
             {/* Top Bar - Contact Details */}
             <div className={`bg-[#0f172a] text-white transition-all duration-600 overflow-hidden ${isScrolled ? "h-0 opacity-0" : "h-auto py-2 border-b border-white/10"}`}>
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm gap-2">
