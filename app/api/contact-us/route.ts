@@ -15,6 +15,15 @@ export async function POST(request: Request) {
             );
         }
 
+        // Check for required environment variables
+        if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+            console.error('Missing required environment variables for email');
+            return NextResponse.json(
+                { error: 'Server configuration error: Missing email credentials' },
+                { status: 500 }
+            );
+        }
+
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: Number(process.env.SMTP_PORT),
@@ -24,6 +33,18 @@ export async function POST(request: Request) {
                 pass: process.env.SMTP_PASS,
             },
         });
+
+        // Verify connection configuration
+        try {
+            await transporter.verify();
+            console.log('SMTP connection verified');
+        } catch (verifyError) {
+            console.error('SMTP Connection Verification Failed:', verifyError);
+            return NextResponse.json(
+                { error: 'SMTP Connection Failed: ' + (verifyError instanceof Error ? verifyError.message : 'Unknown error') },
+                { status: 500 }
+            );
+        }
 
         // 1. Admin Notification Email Template
         const adminMailOptions = {
@@ -118,7 +139,7 @@ export async function POST(request: Request) {
     } catch (error) {
         console.error('Error sending email:', error);
         return NextResponse.json(
-            { error: 'Failed to send email' },
+            { error: error instanceof Error ? error.message : 'Failed to send email' },
             { status: 500 }
         );
     }
