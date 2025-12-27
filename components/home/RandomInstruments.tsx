@@ -73,17 +73,17 @@ const InstrumentCard = ({ item, index }: { item: Instrument, index: number }) =>
             {/* Content Overlay */}
             <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300" style={{ transform: "translateZ(30px)" }}>
                 <div className="mb-1">
-                    <span className="text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-2 block">
+                    <span className="text-secondary text-[10px] font-black uppercase tracking-[0.3em] mb-2 block">
                         {item.make ? item.make : "Professional Tool"}
                     </span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2 leading-tight tracking-wide group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-2 leading-tight tracking-wide group-hover:text-primary transition-colors">
                     {item.name}
                 </h3>
             </div>
 
             {/* Subtle Glow Ring */}
-            <div className="absolute -inset-1 rounded-2xl border border-white/0 group-hover:border-blue-400/30 transition-colors duration-500"></div>
+            <div className="absolute -inset-1 rounded-2xl border border-white/0 group-hover:border-primary/30 transition-colors duration-500"></div>
         </motion.div>
     );
 };
@@ -102,8 +102,8 @@ export default function RandomInstruments() {
     return (
         <section className="py-32 bg-slate-50 relative overflow-hidden">
             {/* Background Decor */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(14,165,233,0.03)_0%,transparent_50%)]"></div>
-            <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_80%,rgba(14,165,233,0.03)_0%,transparent_50%)]"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(104,163,61,0.03)_0%,transparent_50%)]"></div>
+            <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_80%,rgba(104,163,61,0.03)_0%,transparent_50%)]"></div>
 
             <div className="container mx-auto px-6 max-w-7xl relative z-10">
                 {/* Header */}
@@ -113,12 +113,12 @@ export default function RandomInstruments() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 shadow-xl shadow-slate-900/10 mb-8"
                     >
-                        <Sparkles size={14} className="text-[#0ea5e9]" />
+                        <Sparkles size={14} className="text-primary" />
                         <span className="text-white text-[10px] font-black uppercase tracking-[0.4em]">Advanced Tooling</span>
                     </motion.div>
 
                     <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 tracking-tighter">
-                        Precision <span className="text-[#0ea5e9]">Instruments</span>
+                        Precision <span className="text-primary">Instruments</span>
                     </h2>
 
                     <p className="text-slate-500 max-w-2xl text-lg font-medium leading-relaxed">

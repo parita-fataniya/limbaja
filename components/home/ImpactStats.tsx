@@ -29,7 +29,7 @@ const CountUp = ({ to, prefix = "", suffix = "" }: { to: number; prefix?: string
 
 export const ImpactStats = () => {
     return (
-        <section className="py-16 bg-[#3154a5] text-white">
+        <section className="py-16 bg-primary text-white">
             <div className="container mx-auto px-6">
                 <motion.div
                     className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto"

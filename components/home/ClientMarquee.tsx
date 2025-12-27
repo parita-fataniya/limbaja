@@ -23,9 +23,9 @@ export const ClientMarquee = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    Our <span className="text-[#3154a5]">Clients</span>
+                    Our <span className="text-primary">Clients</span>
                 </motion.h2>
-                <div className="h-1 w-24 bg-[#75b745] mx-auto rounded-full mb-6" />
+                <div className="h-1 w-24 bg-secondary mx-auto rounded-full mb-6" />
                 <p className="text-slate-600 max-w-2xl mx-auto">
                     Trusted to deliver excellence across industries.
                 </p>
@@ -104,7 +104,7 @@ const CarouselTrack = () => {
                     <div
                         key={i}
                         className={`bg-white p-6 rounded-xl shadow-sm border border-slate-100 w-[200px] h-[120px] flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isActive
-                            ? "opacity-100 scale-110 shadow-md border-blue-200 ring-2 ring-blue-100"
+                            ? "opacity-100 scale-110 shadow-md border-green-200 ring-2 ring-green-100"
                             : "opacity-60 scale-95 grayscale"
                             }`}
                     >

@@ -16,10 +16,10 @@ export default function Benefits() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-[#0ea5e9]"
+                        className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-secondary"
                     >
                         <div className="flex items-center gap-4 mb-6">
-                            <div className="p-3 bg-blue-50 rounded-lg text-[#0ea5e9]">
+                            <div className="p-3 bg-blue-50 rounded-lg text-secondary">
                                 <Factory size={32} />
                             </div>
                             <h3 className="text-2xl font-bold text-slate-800">Industry</h3>
@@ -27,7 +27,7 @@ export default function Benefits() {
                         <ul className="space-y-4">
                             {["Reduce Energy Bills", "Increased Competitiveness", "Increased Productivity", "Improved Quality", "Improved Profit"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-slate-600">
-                                    <span className="w-2 h-2 rounded-full bg-[#0ea5e9]"></span>
+                                    <span className="w-2 h-2 rounded-full bg-secondary"></span>
                                     {item}
                                 </li>
                             ))}
@@ -62,10 +62,10 @@ export default function Benefits() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-[#22c55e]"
+                        className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-primary"
                     >
                         <div className="flex items-center gap-4 mb-6">
-                            <div className="p-3 bg-green-50 rounded-lg text-[#22c55e]">
+                            <div className="p-3 bg-green-50 rounded-lg text-primary">
                                 <Globe size={32} />
                             </div>
                             <h3 className="text-2xl font-bold text-slate-800">Globe</h3>
@@ -73,7 +73,7 @@ export default function Benefits() {
                         <ul className="space-y-4">
                             {["Reduced GHG and Other Emissions", "Maintain the Sustainable Environment"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-slate-600">
-                                    <span className="w-2 h-2 rounded-full bg-[#22c55e]"></span>
+                                    <span className="w-2 h-2 rounded-full bg-primary"></span>
                                     {item}
                                 </li>
                             ))}

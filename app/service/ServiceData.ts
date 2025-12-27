@@ -366,14 +366,12 @@ export const services: Service[] = [
         content: []
     },
     {
-
         id: "leakage-audit",
         title: "Compressor Ultrasonic Air Leakage Audit",
         icon: Search,
         description: "We provide the Compressed Air Leakage Audit service and Compressed Flow Audit Service. Have a look!",
         image: "/services/5.png",
         sections: [
-
             {
                 type: "list",
                 title: "Scope of Work",

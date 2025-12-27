@@ -3,6 +3,7 @@ import StoryHero from "@/components/home/StoryHero";
 import AboutSection from "@/components/home/AboutSection";
 import ServiceSlider from "@/components/home/ServiceSlider";
 import RandomInstruments from "@/components/home/RandomInstruments";
+import ProjectSlider from "@/components/home/ProjectSlider";
 import ClientTicker from "@/components/home/ClientTicker";
 import HomeContact from "@/components/home/HomeContact";
 
@@ -53,6 +54,7 @@ export default function Home() {
       <AboutSection />
       <ServiceSlider />
       <RandomInstruments />
+      <ProjectSlider />
       <ClientTicker />
       <HomeContact />
     </main>

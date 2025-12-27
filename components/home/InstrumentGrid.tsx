@@ -16,7 +16,7 @@ export default function InstrumentGrid() {
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-6 text-center mb-12">
-                <h2 className="text-3xl font-bold text-slate-800 mb-4">Our <span className="text-[#22c55e]">Instruments</span></h2>
+                <h2 className="text-3xl font-bold text-slate-800 mb-4">Our <span className="text-primary">Instruments</span></h2>
                 <p className="text-slate-600 max-w-2xl mx-auto">High-precision tools for accurate measurement and analysis.</p>
             </div>
 
@@ -33,14 +33,14 @@ export default function InstrumentGrid() {
                         >
                             {/* This div simulates the image interaction */}
                             <div className="absolute inset-0 flex flex-col items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                                <inst.icon size={48} className="text-slate-300 group-hover:text-[#22c55e] transition-colors duration-300" />
+                                <inst.icon size={48} className="text-slate-300 group-hover:text-primary transition-colors duration-300" />
                             </div>
 
                             {/* Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
 
                             <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                <span className="text-xs font-bold text-[#22c55e] uppercase tracking-wider mb-1 block">{inst.category}</span>
+                                <span className="text-xs font-bold text-primary uppercase tracking-wider mb-1 block">{inst.category}</span>
                                 <h3 className="text-lg md:text-xl font-bold text-white">{inst.name}</h3>
                             </div>
                         </motion.div>

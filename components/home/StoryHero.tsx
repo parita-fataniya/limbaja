@@ -50,6 +50,14 @@ const slides = [
         title: "Save Energy",
         subtitle: "Leading the way in energy management and environmental stewardship.",
     },
+    {
+        id: 6,
+        type: "video",
+        image: "",
+        video: "/limbaja-story.mp4",
+        title: "See Our Impact",
+        subtitle: "Watch our story unfold in action.",
+    },
 ];
 
 export default function StoryHero() {
@@ -126,15 +134,26 @@ export default function StoryHero() {
         }
     };
 
+    // Video Slide Logic: Show Header & Stop Auto Scroll
+    useEffect(() => {
+        if (!isStoryMode) return;
+
+        const currentSlide = slides[current];
+        const isVideoSlide = currentSlide.type === "video" || current === slides.length - 1;
+
+        if (isVideoSlide) {
+            setHeaderHidden(false);
+            stopAutoScroll();
+        } else {
+            setHeaderHidden(true);
+        }
+    }, [current, isStoryMode, setHeaderHidden]);
+
     // Scroll Handler
     useEffect(() => {
         if (!isStoryMode) return;
 
         const handleWheel = (e: WheelEvent) => {
-            // Always stop auto-scroll on interaction
-            stopAutoScroll();
-
-            e.preventDefault();
             if (scrolling.current) return;
 
             if (Math.abs(e.deltaY) < 20) return;
@@ -161,13 +180,10 @@ export default function StoryHero() {
         };
 
         const handleTouchStart = (e: TouchEvent) => {
-            stopAutoScroll();
             touchStart.current = e.touches[0].clientY;
         };
 
         const handleTouchMove = (e: TouchEvent) => {
-            stopAutoScroll();
-
             if (scrolling.current) return;
             e.preventDefault();
 
@@ -196,9 +212,7 @@ export default function StoryHero() {
         };
 
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (["ArrowDown", "ArrowUp", "Space", "PageDown", "PageUp"].includes(e.code)) {
-                stopAutoScroll();
-            }
+            // Remove stopAutoScroll()
         };
 
         window.addEventListener("wheel", handleWheel, { passive: false });
@@ -216,15 +230,15 @@ export default function StoryHero() {
 
     if (!hasLoaded) {
         return (
-            <div className="fixed inset-0 z-[60] bg-slate-950 flex items-center justify-center">
+            <div className="fixed inset-0 z-[60] bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900 animate-gradient-slow flex items-center justify-center">
             </div>
         );
     }
 
     const Wrapper = isStoryMode ? "div" : "section";
     const wrapperClass = isStoryMode
-        ? "fixed inset-0 z-[60] bg-slate-950 text-white"
-        : "relative h-screen w-full overflow-hidden bg-slate-950 text-white";
+        ? "fixed inset-0 z-[60] text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900 bg-[length:400%_400%] animate-gradient-slow"
+        : "relative h-screen w-full overflow-hidden text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900 bg-[length:400%_400%] animate-gradient-slow";
 
     const currentSlide = slides[current];
     const isWelcome = currentSlide.type === "welcome";
@@ -239,7 +253,7 @@ export default function StoryHero() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 1 }}
-                        className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 z-20"
+                        className="absolute inset-0 flex flex-col items-center justify-center bg-transparent z-20"
                     >
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
@@ -267,13 +281,24 @@ export default function StoryHero() {
                         transition={{ duration: 1.2, ease: "easeInOut" }}
                         className="absolute inset-0 w-full h-full"
                     >
-                        <Image
-                            src={currentSlide.image}
-                            alt={currentSlide.title}
-                            fill
-                            className="object-cover"
-                            priority
-                        />
+                        {currentSlide.type === "video" ? (
+                            <video
+                                src={(currentSlide as any).video}
+                                className="object-cover w-full h-full"
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                            />
+                        ) : (
+                            <Image
+                                src={currentSlide.image}
+                                alt={currentSlide.title}
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+                        )}
                         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/50 to-transparent z-10" />
                         <div className="absolute inset-0 bg-black/20 z-10" />
                     </motion.div>
@@ -293,12 +318,7 @@ export default function StoryHero() {
                                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                                 className="max-w-4xl"
                             >
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: "80px" }}
-                                    transition={{ duration: 0.8, delay: 0.4 }}
-                                    className="h-1 bg-[#22c55e] mb-8"
-                                />
+                                <div className="h-1 bg-primary mb-8" />
                                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tighter mix-blend-overlay opacity-90">
                                     {currentSlide.title}
                                 </h1>
@@ -314,7 +334,7 @@ export default function StoryHero() {
                                         transition={{ delay: 0.5 }}
                                         className="flex flex-wrap gap-5 pointer-events-auto"
                                     >
-                                        <Link href="/service" className="group relative inline-flex items-center gap-3 bg-[#22c55e] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-[#16a34a] transition-all shadow-xl shadow-[#22c55e]/20 active:scale-95">
+                                        <Link href="/service" className="group relative inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all shadow-xl shadow-primary/20 active:scale-95">
                                             <span>Explore Services</span>
                                             <ArrowRight className="group-hover:translate-x-2 transition-transform" size={18} />
                                         </Link>
@@ -354,12 +374,10 @@ export default function StoryHero() {
                             <div
                                 key={idx}
                                 onClick={() => {
-                                    // Optional: Allow clicking dots to navigate manually?
-                                    // For now, just indicator, but clicking could also stop autoscroll
-                                    stopAutoScroll();
+                                    // Removed stopAutoScroll(); so clicking dots also keeps auto-scroll alive
                                     setCurrent(idx);
                                 }}
-                                className={`w-1 transition-all duration-500 rounded-full cursor-pointer ${idx === current ? "h-8 bg-[#22c55e]" : "h-2 bg-white/20"}`}
+                                className={`w-1 transition-all duration-500 rounded-full cursor-pointer ${idx === current ? "h-8 bg-primary" : "h-2 bg-white/20"}`}
                             />
                         ))}
                     </div>

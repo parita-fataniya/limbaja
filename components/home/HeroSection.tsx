@@ -103,12 +103,12 @@ export default function HeroSection() {
                             initial={{ width: 0 }}
                             animate={{ width: "80px" }}
                             transition={{ duration: 1, delay: 0.5 }}
-                            className="h-1 bg-[#22c55e] mb-8"
+                            className="h-1 bg-primary mb-8"
                         />
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tighter">
                             {slides[current].title.split(" ").slice(0, -1).join(" ")} <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22c55e] to-[#0ea5e9]">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                                 {slides[current].title.split(" ").slice(-1)}
                             </span>
                         </h1>
@@ -118,7 +118,7 @@ export default function HeroSection() {
                         </p>
 
                         <div className="flex flex-wrap gap-5">
-                            <Link href="/service" className="group relative inline-flex items-center gap-3 bg-[#22c55e] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-[#16a34a] transition-all shadow-xl shadow-[#22c55e]/20 active:scale-95">
+                            <Link href="/service" className="group relative inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all shadow-xl shadow-primary/20 active:scale-95">
                                 <span>Explore Services</span>
                                 <ArrowRight className="group-hover:translate-x-2 transition-transform" size={18} />
                             </Link>
@@ -134,13 +134,13 @@ export default function HeroSection() {
             <div className="absolute right-8 md:right-20 bottom-32 z-30 flex gap-4">
                 <button
                     onClick={prevSlide}
-                    className="group p-4 rounded-full border border-white/20 text-white hover:bg-[#22c55e] hover:border-[#22c55e] transition-all md:backdrop-blur-sm active:scale-90"
+                    className="group p-4 rounded-full border border-white/20 text-white hover:bg-primary hover:border-primary transition-all md:backdrop-blur-sm active:scale-90"
                 >
                     <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
                 </button>
                 <button
                     onClick={nextSlide}
-                    className="group p-4 rounded-full border border-white/20 text-white hover:bg-[#22c55e] hover:border-[#22c55e] transition-all md:backdrop-blur-sm active:scale-90"
+                    className="group p-4 rounded-full border border-white/20 text-white hover:bg-primary hover:border-primary transition-all md:backdrop-blur-sm active:scale-90"
                 >
                     <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -166,7 +166,7 @@ export default function HeroSection() {
                         {/* Active Growing Bar */}
                         {current === index && (
                             <motion.div
-                                className="absolute top-0 left-0 h-full bg-[#22c55e]"
+                                className="absolute top-0 left-0 h-full bg-primary"
                                 initial={{ width: "0%" }}
                                 animate={{ width: "100%" }}
                                 transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
