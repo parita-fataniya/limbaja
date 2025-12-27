@@ -94,7 +94,7 @@ export default function AboutSection() {
                     >
                         <Link
                             href="/about-us"
-                            className="group relative inline-flex items-center gap-4 bg-slate-900 text-white px-12 py-6 rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-black transition-all shadow-2xl hover:shadow-slate-300"
+                            className="group relative inline-flex items-center gap-4 bg-slate-900 text-white px-12 py-6 rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-primary transition-all shadow-2xl hover:shadow-slate-300"
                         >
                             <span>Notre engagement</span>
                             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
