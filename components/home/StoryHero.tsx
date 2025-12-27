@@ -230,15 +230,15 @@ export default function StoryHero() {
 
     if (!hasLoaded) {
         return (
-            <div className="fixed inset-0 z-[60] bg-slate-950 flex items-center justify-center">
+            <div className="fixed inset-0 z-[60] bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900 animate-gradient-slow flex items-center justify-center">
             </div>
         );
     }
 
     const Wrapper = isStoryMode ? "div" : "section";
     const wrapperClass = isStoryMode
-        ? "fixed inset-0 z-[60] bg-slate-950 text-white"
-        : "relative h-screen w-full overflow-hidden bg-slate-950 text-white";
+        ? "fixed inset-0 z-[60] text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900 bg-[length:400%_400%] animate-gradient-slow"
+        : "relative h-screen w-full overflow-hidden text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900 bg-[length:400%_400%] animate-gradient-slow";
 
     const currentSlide = slides[current];
     const isWelcome = currentSlide.type === "welcome";
@@ -253,7 +253,7 @@ export default function StoryHero() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 1 }}
-                        className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 z-20"
+                        className="absolute inset-0 flex flex-col items-center justify-center bg-transparent z-20"
                     >
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
