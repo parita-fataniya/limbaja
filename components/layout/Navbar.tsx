@@ -22,7 +22,7 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            setIsScrolled(window.scrollY > 120);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
@@ -31,10 +31,10 @@ export default function Navbar() {
     const isActive = (path: string) => path === "/" ? pathname === "/" : pathname.startsWith(path);
 
     return (
-        <header className="fixed w-full z-50 transition-all duration-300">
+        <header className="fixed w-full z-50 transition-all duration-600">
 
             {/* Top Bar - Contact Details */}
-            <div className={`bg-[#0f172a] text-white transition-all duration-300 overflow-hidden ${isScrolled ? "h-0 opacity-0" : "h-auto py-2 border-b border-white/10"}`}>
+            <div className={`bg-[#0f172a] text-white transition-all duration-600 overflow-hidden ${isScrolled ? "h-0 opacity-0" : "h-auto py-2 border-b border-white/10"}`}>
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm gap-2">
                     <div className="flex md:hidden items-center gap-4">
                         {/* Mobile View: Contact Info */}
