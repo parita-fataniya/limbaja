@@ -38,7 +38,7 @@ export default function Navbar() {
     if (isHeaderHidden) return null;
 
     return (
-        <header className="fixed w-full z-50 transition-all duration-600">
+        <header className="fixed w-full z-[100] transition-all duration-600">
             {/* Top Bar - Contact Details */}
             <div className={`bg-[#0f172a] text-white transition-all duration-600 overflow-hidden ${isScrolled ? "h-0 opacity-0" : "h-auto py-2 border-b border-white/10"}`}>
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm gap-2">

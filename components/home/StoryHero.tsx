@@ -50,6 +50,14 @@ const slides = [
         title: "Save Energy",
         subtitle: "Leading the way in energy management and environmental stewardship.",
     },
+    {
+        id: 6,
+        type: "video",
+        image: "",
+        video: "/limbaja-story.mp4",
+        title: "See Our Impact",
+        subtitle: "Watch our story unfold in action.",
+    },
 ];
 
 export default function StoryHero() {
@@ -126,15 +134,26 @@ export default function StoryHero() {
         }
     };
 
+    // Video Slide Logic: Show Header & Stop Auto Scroll
+    useEffect(() => {
+        if (!isStoryMode) return;
+
+        const currentSlide = slides[current];
+        const isVideoSlide = currentSlide.type === "video" || current === slides.length - 1;
+
+        if (isVideoSlide) {
+            setHeaderHidden(false);
+            stopAutoScroll();
+        } else {
+            setHeaderHidden(true);
+        }
+    }, [current, isStoryMode, setHeaderHidden]);
+
     // Scroll Handler
     useEffect(() => {
         if (!isStoryMode) return;
 
         const handleWheel = (e: WheelEvent) => {
-            // Always stop auto-scroll on interaction
-            stopAutoScroll();
-
-            e.preventDefault();
             if (scrolling.current) return;
 
             if (Math.abs(e.deltaY) < 20) return;
@@ -161,13 +180,10 @@ export default function StoryHero() {
         };
 
         const handleTouchStart = (e: TouchEvent) => {
-            stopAutoScroll();
             touchStart.current = e.touches[0].clientY;
         };
 
         const handleTouchMove = (e: TouchEvent) => {
-            stopAutoScroll();
-
             if (scrolling.current) return;
             e.preventDefault();
 
@@ -196,9 +212,7 @@ export default function StoryHero() {
         };
 
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (["ArrowDown", "ArrowUp", "Space", "PageDown", "PageUp"].includes(e.code)) {
-                stopAutoScroll();
-            }
+            // Remove stopAutoScroll()
         };
 
         window.addEventListener("wheel", handleWheel, { passive: false });
@@ -267,13 +281,24 @@ export default function StoryHero() {
                         transition={{ duration: 1.2, ease: "easeInOut" }}
                         className="absolute inset-0 w-full h-full"
                     >
-                        <Image
-                            src={currentSlide.image}
-                            alt={currentSlide.title}
-                            fill
-                            className="object-cover"
-                            priority
-                        />
+                        {currentSlide.type === "video" ? (
+                            <video
+                                src={(currentSlide as any).video}
+                                className="object-cover w-full h-full"
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                            />
+                        ) : (
+                            <Image
+                                src={currentSlide.image}
+                                alt={currentSlide.title}
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+                        )}
                         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/50 to-transparent z-10" />
                         <div className="absolute inset-0 bg-black/20 z-10" />
                     </motion.div>
@@ -349,9 +374,7 @@ export default function StoryHero() {
                             <div
                                 key={idx}
                                 onClick={() => {
-                                    // Optional: Allow clicking dots to navigate manually?
-                                    // For now, just indicator, but clicking could also stop autoscroll
-                                    stopAutoScroll();
+                                    // Removed stopAutoScroll(); so clicking dots also keeps auto-scroll alive
                                     setCurrent(idx);
                                 }}
                                 className={`w-1 transition-all duration-500 rounded-full cursor-pointer ${idx === current ? "h-8 bg-primary" : "h-2 bg-white/20"}`}
