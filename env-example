@@ -1,0 +1,9 @@
+# SMTP Configuration
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+# Use your email address
+SMTP_USER=your-email@gmail.com
+# Use an App Password if using Gmail (2FA enabled), otherwise your password
+SMTP_PASS=your-app-password
+# The email address where you want to receive contact form submissions
+CONTACT_EMAIL_TO=limbajaenergy@gmail.com
