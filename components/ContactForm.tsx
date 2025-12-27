@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from 'react';
-import { Phone, Mail, Building, FileText, HelpCircle, Send, Loader2 } from "lucide-react";
+import { Phone, Mail, Building, FileText, HelpCircle, Send, Loader2, ChevronDown } from "lucide-react";
+import { services } from "@/app/service/ServiceData";
 
 interface ContactFormProps {
     embedded?: boolean;
@@ -24,6 +25,7 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [isAuditOpen, setIsAuditOpen] = useState(false);
 
     const validateForm = () => {
         const newErrors = {
@@ -232,23 +234,58 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                 <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-2">Type of Audit Require</label>
                     <div className="relative">
-                        <HelpCircle className="absolute left-4 top-3 text-slate-400" size={20} />
-                        <select
-                            name="auditType"
-                            value={formData.auditType}
-                            onChange={handleChange}
-                            className={`w-full pl-12 pr-4 py-3 border rounded-lg focus:ring-2 focus:outline-none transition-all bg-white text-slate-600 appearance-none ${errors.auditType
+                        <HelpCircle className="absolute left-4 top-3 text-slate-400 z-10" size={20} />
+
+                        <button
+                            type="button"
+                            onClick={() => setIsAuditOpen(!isAuditOpen)}
+                            className={`w-full pl-12 pr-4 py-3 border rounded-lg focus:ring-2 focus:outline-none transition-all text-left flex items-center justify-between bg-white ${errors.auditType
                                 ? 'border-red-300 focus:border-red-500 focus:ring-red-200'
-                                : 'border-slate-200 focus:border-[#0ea5e9] focus:ring-[#0ea5e9]/20'
+                                : 'border-slate-200 focus:border-primary focus:ring-primary/20'
                                 }`}
                         >
-                            <option value="">Select Audit Type</option>
-                            <option value="Detailed Energy Audit">Detailed Energy Audit</option>
-                            <option value="Electrical Arc Flash Study">Electrical Arc Flash Study</option>
-                            <option value="Thermography Study">Thermography Study</option>
-                            <option value="Flow Measurement">Flow Measurement</option>
-                            <option value="Other">Other</option>
-                        </select>
+                            <span className={formData.auditType ? "text-slate-900" : "text-slate-400"}>
+                                {formData.auditType || "Select Audit Type"}
+                            </span>
+                            <ChevronDown size={20} className={`text-slate-400 transition-transform ${isAuditOpen ? "rotate-180" : ""}`} />
+                        </button>
+
+                        {isAuditOpen && (
+                            <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-200 rounded-lg shadow-xl z-50 max-h-48 overflow-y-auto">
+                                <div
+                                    onClick={() => {
+                                        setFormData(prev => ({ ...prev, auditType: "" }));
+                                        setIsAuditOpen(false);
+                                    }}
+                                    className="px-4 py-3 hover:bg-slate-50 cursor-pointer text-slate-400 text-sm border-b border-slate-50"
+                                >
+                                    Select Audit Type
+                                </div>
+                                {services.map((service) => (
+                                    <div
+                                        key={service.id}
+                                        onClick={() => {
+                                            setFormData(prev => ({ ...prev, auditType: service.title }));
+                                            if (errors.auditType) setErrors(prev => ({ ...prev, auditType: '' }));
+                                            setIsAuditOpen(false);
+                                        }}
+                                        className="px-4 py-3 hover:bg-slate-50 cursor-pointer text-slate-700 text-sm border-b border-slate-50 last:border-0 transition-colors"
+                                    >
+                                        {service.title}
+                                    </div>
+                                ))}
+                                <div
+                                    onClick={() => {
+                                        setFormData(prev => ({ ...prev, auditType: "Other" }));
+                                        if (errors.auditType) setErrors(prev => ({ ...prev, auditType: '' }));
+                                        setIsAuditOpen(false);
+                                    }}
+                                    className="px-4 py-3 hover:bg-slate-50 cursor-pointer text-slate-700 text-sm font-medium"
+                                >
+                                    Other
+                                </div>
+                            </div>
+                        )}
                     </div>
                     {errors.auditType && (
                         <p className="mt-1 text-sm text-red-500">{errors.auditType}</p>

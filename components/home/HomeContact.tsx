@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 export default function HomeContact() {
@@ -14,14 +14,41 @@ export default function HomeContact() {
                         <div className="relative z-10">
                             <h3 className="text-2xl font-bold mb-4">Quick Enquiry</h3>
                             <p className="text-slate-400 mb-8">Have a question? Fill the form and we'll get back to you shortly.</p>
-                            <div className="space-y-4">
-                                <div className="flex items-center gap-3">
-                                    <Phone className="text-primary" size={20} />
-                                    <span className="font-medium">+91 97142 53756</span>
+                            <div className="space-y-6">
+                                {/* H.O. Office */}
+                                <div className="flex items-start gap-3">
+                                    <MapPin className="text-primary mt-1 shrink-0" size={20} />
+                                    <div>
+                                        <p className="font-bold text-xs text-slate-400 uppercase tracking-wider mb-1">H.O. Office</p>
+                                        <p className="font-medium leading-snug">Nikol – Ahmedabad 382350 Gujarat</p>
+                                    </div>
                                 </div>
+
+                                {/* Registered Office */}
+                                <div className="flex items-start gap-3">
+                                    <MapPin className="text-secondary mt-1 shrink-0" size={20} />
+                                    <div>
+                                        <p className="font-bold text-xs text-slate-400 uppercase tracking-wider mb-1">Registered Office</p>
+                                        <p className="font-medium leading-snug">Bhuj - Kutch 370001 Gujarat</p>
+                                    </div>
+                                </div>
+
+                                {/* Contact No */}
                                 <div className="flex items-center gap-3">
-                                    <div className="w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center text-secondary text-xs font-bold">@</div>
-                                    <span className="font-medium">limbajaenergy@gmail.com</span>
+                                    <Phone className="text-primary shrink-0" size={20} />
+                                    <div>
+                                        <p className="font-bold text-xs text-slate-400 uppercase tracking-wider mb-1">Contact No.</p>
+                                        <span className="font-medium">+91 97142 53756</span>
+                                    </div>
+                                </div>
+
+                                {/* Email */}
+                                <div className="flex items-center gap-3">
+                                    <div className="w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center text-secondary text-xs font-bold shrink-0">@</div>
+                                    <div>
+                                        <p className="font-bold text-xs text-slate-400 uppercase tracking-wider mb-1">Email</p>
+                                        <span className="font-medium">limbajaenergy@gmail.com</span>
+                                    </div>
                                 </div>
                             </div>
 
