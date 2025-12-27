@@ -1,31 +1,35 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, animate } from "framer-motion";
+import { motion, animate, useInView } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { clients as allClients } from "@/lib/ClientData";
 
 const Counter = ({ value, suffix = "", delay = 0 }: { value: number, suffix?: string, delay?: number }) => {
+    const ref = React.useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-20px" });
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            const controls = animate(0, value, {
-                duration: 2,
-                onUpdate(value) {
-                    setCount(Math.floor(value));
-                },
-                ease: "easeOut"
-            });
-            return () => controls.stop();
-        }, delay * 1000);
-        return () => clearTimeout(timer);
-    }, [value, delay]);
+        if (isInView) {
+            const timer = setTimeout(() => {
+                const controls = animate(0, value, {
+                    duration: 2.5,
+                    onUpdate(val) {
+                        setCount(Math.floor(val));
+                    },
+                    ease: [0.22, 1, 0.36, 1]
+                });
+                return () => controls.stop();
+            }, delay * 1000);
+            return () => clearTimeout(timer);
+        }
+    }, [value, delay, isInView]);
 
     return (
-        <span className="font-black tracking-tighter tabular-nums text-inherit">
+        <span ref={ref} className="font-black tracking-tighter tabular-nums text-inherit">
             {count}{suffix}
         </span>
     );
