@@ -51,7 +51,7 @@ export default function AboutSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-serif text-slate-900 leading-[1.1] mb-8 max-w-3xl"
+                        className="text-5xl md:text-7xl font-bold text-slate-900 leading-[1.1] mb-8 max-w-3xl"
                     >
                         Delivering excellence via strategic energy audit.
                     </motion.h2>
