@@ -15,9 +15,9 @@ export const Clients = () => {
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-800 mb-4">
-                        Our <span className="text-[#3154a5]">Clients</span>
+                        Our <span className="text-primary">Clients</span>
                     </h2>
-                    <div className="h-1 w-24 bg-[#75b745] mx-auto rounded-full" />
+                    <div className="h-1 w-24 bg-secondary mx-auto rounded-full" />
                     <p className="mt-6 text-slate-600 max-w-2xl mx-auto">
                         Trusted by leading industries across sectors for energy auditing and conservation.
                     </p>
@@ -33,7 +33,7 @@ export const Clients = () => {
                 >
                     {/* Scanning Light Effect */}
                     <motion.div
-                        className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#fcc017] to-transparent z-10 opacity-50"
+                        className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent z-10 opacity-50"
                         animate={{
                             top: ["0%", "100%", "0%"],
                             opacity: [0, 1, 0]

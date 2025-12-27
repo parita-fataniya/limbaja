@@ -19,9 +19,9 @@ export default function AboutHero() {
                     className="max-w-4xl mx-auto"
                 >
                     <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
-                        About <span className="text-[#0ea5e9]">Limbaja Energy</span>
+                        About <span className="text-secondary">Limbaja Energy</span>
                     </h1>
-                    <h2 className="text-xl md:text-3xl text-[#22c55e] font-medium mb-8 tracking-wide leading-snug">
+                    <h2 className="text-xl md:text-3xl text-primary font-medium mb-8 tracking-wide leading-snug">
                         Driving Energy Efficiency. Powering Sustainable Growth.
                     </h2>
                     <p className="text-lg md:text-xl text-slate-300 leading-loose tracking-wide max-w-3xl mx-auto text-balance">
