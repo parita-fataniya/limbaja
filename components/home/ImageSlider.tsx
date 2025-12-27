@@ -21,9 +21,9 @@ export const ImageSlider = () => {
                 transition={{ duration: 0.8 }}
             >
                 <h2 className="text-3xl md:text-5xl font-bold text-slate-800">
-                    Welcome To <span className="text-[#75b745]">Limbaja Energy</span>
+                    Welcome To <span className="text-primary">Limbaja Energy</span>
                 </h2>
-                <div className="h-1 w-24 bg-[#fcc017] mx-auto mt-4 rounded-full" />
+                <div className="h-1 w-24 bg-accent mx-auto mt-4 rounded-full" />
             </motion.div>
 
             {/* Infinite Slider */}

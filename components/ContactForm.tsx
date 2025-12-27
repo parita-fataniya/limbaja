@@ -177,7 +177,7 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                             onChange={handleChange}
                             className={`w-full pl-12 pr-4 py-3 border rounded-lg focus:ring-2 focus:outline-none transition-all ${errors.companyName
                                 ? 'border-red-300 focus:border-red-500 focus:ring-red-200'
-                                : 'border-slate-200 focus:border-[#0ea5e9] focus:ring-[#0ea5e9]/20'
+                                : 'border-slate-200 focus:border-primary focus:ring-primary/20'
                                 }`}
                             placeholder="Enter company name"
                         />
@@ -198,7 +198,7 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                             onChange={handleChange}
                             className={`w-full pl-12 pr-4 py-3 border rounded-lg focus:ring-2 focus:outline-none transition-all ${errors.companyMailId
                                 ? 'border-red-300 focus:border-red-500 focus:ring-red-200'
-                                : 'border-slate-200 focus:border-[#0ea5e9] focus:ring-[#0ea5e9]/20'
+                                : 'border-slate-200 focus:border-primary focus:ring-primary/20'
                                 }`}
                             placeholder="email@company.com"
                         />
@@ -219,7 +219,7 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                             onChange={handleChange}
                             className={`w-full pl-12 pr-4 py-3 border rounded-lg focus:ring-2 focus:outline-none transition-all ${errors.contactNo
                                 ? 'border-red-300 focus:border-red-500 focus:ring-red-200'
-                                : 'border-slate-200 focus:border-[#0ea5e9] focus:ring-[#0ea5e9]/20'
+                                : 'border-slate-200 focus:border-primary focus:ring-primary/20'
                                 }`}
                             placeholder="+91 00000 00000"
                         />
@@ -279,7 +279,7 @@ export default function ContactForm({ embedded = false }: ContactFormProps) {
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="flex-1 bg-[#0ea5e9] hover:bg-blue-600 text-white font-bold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 disabled:opacity-70 disabled:cursor-not-allowed"
+                        className="flex-1 bg-primary hover:brightness-110 text-white font-bold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/30 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                         {isSubmitting ? <Loader2 className="animate-spin" size={20} /> : <Send size={20} />}
                         {isSubmitting ? 'Sending...' : 'Send'}

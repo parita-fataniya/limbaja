@@ -10,7 +10,7 @@ export default function Expertise() {
 
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Our Expertise</h2>
-                    <div className="w-20 h-1 bg-[#22c55e] mx-auto rounded-full"></div>
+                    <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -30,7 +30,7 @@ export default function Expertise() {
                                 transition={{ delay: index * 0.1 }}
                                 className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100"
                             >
-                                <CheckCircle2 className="text-[#0ea5e9] shrink-0 mt-1" size={24} />
+                                <CheckCircle2 className="text-secondary shrink-0 mt-1" size={24} />
                                 <span className="text-slate-700 font-medium text-lg">{item}</span>
                             </motion.div>
                         ))}
@@ -46,7 +46,7 @@ export default function Expertise() {
                             <Lightbulb size={120} />
                         </div>
                         <div className="relative z-10">
-                            <h3 className="text-2xl font-bold mb-6 text-[#22c55e]">Why It Matters</h3>
+                            <h3 className="text-2xl font-bold mb-6 text-primary">Why It Matters</h3>
                             <p className="text-lg leading-relaxed font-light text-balance">
                                 "Conservation and efficient utilization of energy resources like Pumping, Compressor, Boiler, Heat Exchanger and process study play a vital role in boosting the profitability of an industry."
                             </p>

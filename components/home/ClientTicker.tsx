@@ -49,7 +49,7 @@ export default function ClientTicker() {
     return (
         <section className="py-24 bg-slate-950 overflow-hidden relative">
             {/* Background elements */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_10%_10%,rgba(14,165,233,0.05)_0%,transparent_50%)]" />
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_10%_10%,rgba(104,163,61,0.05)_0%,transparent_50%)]" />
 
             <div className="container mx-auto px-6 text-center mb-16 relative z-10">
                 <motion.div
@@ -57,13 +57,13 @@ export default function ClientTicker() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6"
                 >
-                    <Star size={14} className="text-[#0ea5e9]" fill="currentColor" />
+                    <Star size={14} className="text-secondary" fill="currentColor" />
                     <span className="text-white text-[10px] font-black uppercase tracking-[0.4em]">Global Network</span>
                 </motion.div>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tighter">
-                    Trusted By <span className="text-[#0ea5e9]">Industry Leaders</span>
+                    Trusted By <span className="text-primary">Industry Leaders</span>
                 </h2>
-                <div className="w-24 h-1.5 bg-[#0ea5e9]/20 rounded-full mx-auto" />
+                <div className="w-24 h-1.5 bg-primary/20 rounded-full mx-auto" />
             </div>
 
             <div className="flex flex-col gap-10 mb-24 relative z-10">
@@ -75,7 +75,7 @@ export default function ClientTicker() {
                         transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
                     >
                         {[...row1, ...row1, ...row1, ...row1].map((logo, index) => (
-                            <div key={index} className="flex items-center justify-center w-32 h-20 lg:w-40 lg:h-22 xl:w-48 xl:h-24 bg-white rounded-xl md:rounded-2xl border border-white/10 hover:border-[#0ea5e9]/30 transition-all group overflow-hidden p-4 lg:p-5 xl:p-6 hover:shadow-xl hover:shadow-[#0ea5e9]/20">
+                            <div key={index} className="flex items-center justify-center w-32 h-20 lg:w-40 lg:h-22 xl:w-48 xl:h-24 bg-white rounded-xl md:rounded-2xl border border-white/10 hover:border-primary/30 transition-all group overflow-hidden p-4 lg:p-5 xl:p-6 hover:shadow-xl hover:shadow-primary/20">
                                 <div className="relative w-full h-full transition-all duration-500 transform group-hover:scale-110">
                                     <Image
                                         src={`/clients/${logo}`}
@@ -97,7 +97,7 @@ export default function ClientTicker() {
                         transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
                     >
                         {[...row2, ...row2, ...row2, ...row2].map((logo, index) => (
-                            <div key={index} className="flex items-center justify-center w-32 h-20 lg:w-40 lg:h-22 xl:w-48 xl:h-24 bg-white rounded-xl md:rounded-2xl border border-white/10 hover:border-[#0ea5e9]/30 transition-all group overflow-hidden p-4 lg:p-5 xl:p-6 hover:shadow-xl hover:shadow-[#0ea5e9]/20">
+                            <div key={index} className="flex items-center justify-center w-32 h-20 lg:w-40 lg:h-22 xl:w-48 xl:h-24 bg-white rounded-xl md:rounded-2xl border border-white/10 hover:border-primary/30 transition-all group overflow-hidden p-4 lg:p-5 xl:p-6 hover:shadow-xl hover:shadow-primary/20">
                                 <div className="relative w-full h-full transition-all duration-500 transform group-hover:scale-110">
                                     <Image
                                         src={`/clients/${logo}`}
@@ -119,12 +119,12 @@ export default function ClientTicker() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="py-12 px-4 rounded-[2.5rem] bg-white/5 border border-white/10 text-center group hover:bg-[#0ea5e9] hover:border-[#0ea5e9] transition-all duration-500 shadow-2xl"
+                        className="py-12 px-4 rounded-[2.5rem] bg-white/5 border border-white/10 text-center group hover:bg-primary hover:border-primary transition-all duration-500 shadow-2xl"
                     >
                         <div className="text-4xl lg:text-5xl xl:text-7xl font-black text-white mb-4 flex justify-center tracking-tighter">
                             <Counter value={500} suffix="+" />
                         </div>
-                        <p className="text-[#0ea5e9] group-hover:text-white font-black uppercase tracking-widest text-[10px] md:text-xs transition-colors">Projects Completed</p>
+                        <p className="text-secondary group-hover:text-white font-black uppercase tracking-widest text-[10px] md:text-xs transition-colors">Projects Completed</p>
                     </motion.div>
 
                     {/* Average Savings */}
@@ -133,12 +133,12 @@ export default function ClientTicker() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="py-12 px-4 rounded-[2.5rem] bg-white/5 border border-white/10 text-center group hover:bg-[#0ea5e9] hover:border-[#0ea5e9] transition-all duration-500 shadow-2xl"
+                        className="py-12 px-4 rounded-[2.5rem] bg-white/5 border border-white/10 text-center group hover:bg-primary hover:border-primary transition-all duration-500 shadow-2xl"
                     >
                         <div className="text-4xl lg:text-5xl xl:text-7xl font-black text-white mb-4 flex justify-center tracking-tighter">
                             <Counter value={30} suffix="%" />
                         </div>
-                        <p className="text-[#0ea5e9] group-hover:text-white font-black uppercase tracking-widest text-[10px] md:text-xs transition-colors">Average Savings</p>
+                        <p className="text-secondary group-hover:text-white font-black uppercase tracking-widest text-[10px] md:text-xs transition-colors">Average Savings</p>
                     </motion.div>
 
                     {/* Client Satisfaction */}
@@ -147,12 +147,12 @@ export default function ClientTicker() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="py-12 px-4 rounded-[2.5rem] bg-white/5 border border-white/10 text-center group hover:bg-[#0ea5e9] hover:border-[#0ea5e9] transition-all duration-500 shadow-2xl"
+                        className="py-12 px-4 rounded-[2.5rem] bg-white/5 border border-white/10 text-center group hover:bg-primary hover:border-primary transition-all duration-500 shadow-2xl"
                     >
                         <div className="text-4xl lg:text-5xl xl:text-7xl font-black text-white mb-4 flex justify-center tracking-tighter">
                             <Counter value={100} suffix="%" />
                         </div>
-                        <p className="text-[#0ea5e9] group-hover:text-white font-black uppercase tracking-widest text-[10px] md:text-xs transition-colors">Client Satisfaction</p>
+                        <p className="text-secondary group-hover:text-white font-black uppercase tracking-widest text-[10px] md:text-xs transition-colors">Client Satisfaction</p>
                     </motion.div>
 
                     {/* Expert Support */}
@@ -161,12 +161,12 @@ export default function ClientTicker() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
-                        className="py-12 px-4 rounded-[2.5rem] bg-white/5 border border-white/10 text-center group hover:bg-[#0ea5e9] hover:border-[#0ea5e9] transition-all duration-500 shadow-2xl"
+                        className="py-12 px-4 rounded-[2.5rem] bg-white/5 border border-white/10 text-center group hover:bg-primary hover:border-primary transition-all duration-500 shadow-2xl"
                     >
                         <div className="text-4xl lg:text-5xl xl:text-7xl font-black text-white mb-4 flex justify-center tracking-tighter">
                             <span className="font-black text-white tracking-tighter">24/7</span>
                         </div>
-                        <p className="text-[#0ea5e9] group-hover:text-white font-black uppercase tracking-widest text-[10px] md:text-xs transition-colors">Expert Support</p>
+                        <p className="text-secondary group-hover:text-white font-black uppercase tracking-widest text-[10px] md:text-xs transition-colors">Expert Support</p>
                     </motion.div>
                 </div>
 

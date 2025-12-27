@@ -293,12 +293,7 @@ export default function StoryHero() {
                                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                                 className="max-w-4xl"
                             >
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: "80px" }}
-                                    transition={{ duration: 0.8, delay: 0.4 }}
-                                    className="h-1 bg-[#22c55e] mb-8"
-                                />
+                                <div className="h-1 bg-primary mb-8" />
                                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tighter mix-blend-overlay opacity-90">
                                     {currentSlide.title}
                                 </h1>
@@ -314,7 +309,7 @@ export default function StoryHero() {
                                         transition={{ delay: 0.5 }}
                                         className="flex flex-wrap gap-5 pointer-events-auto"
                                     >
-                                        <Link href="/service" className="group relative inline-flex items-center gap-3 bg-[#22c55e] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-[#16a34a] transition-all shadow-xl shadow-[#22c55e]/20 active:scale-95">
+                                        <Link href="/service" className="group relative inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all shadow-xl shadow-primary/20 active:scale-95">
                                             <span>Explore Services</span>
                                             <ArrowRight className="group-hover:translate-x-2 transition-transform" size={18} />
                                         </Link>
@@ -359,7 +354,7 @@ export default function StoryHero() {
                                     stopAutoScroll();
                                     setCurrent(idx);
                                 }}
-                                className={`w-1 transition-all duration-500 rounded-full cursor-pointer ${idx === current ? "h-8 bg-[#22c55e]" : "h-2 bg-white/20"}`}
+                                className={`w-1 transition-all duration-500 rounded-full cursor-pointer ${idx === current ? "h-8 bg-primary" : "h-2 bg-white/20"}`}
                             />
                         ))}
                     </div>

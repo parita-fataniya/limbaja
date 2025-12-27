@@ -54,31 +54,31 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
             className="group relative h-full min-h-[380px] w-full will-change-transform"
         >
             {/* Dark Glossy Background - backdrop-blur disabled on mobile for performance */}
-            <div className="absolute inset-0 rounded-3xl bg-slate-900/40 md:backdrop-blur-xl border border-white/5 transition-all duration-500 group-hover:bg-slate-900/60 group-hover:border-[#0ea5e9]/30 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]"></div>
+            <div className="absolute inset-0 rounded-3xl bg-slate-900/40 md:backdrop-blur-xl border border-white/5 transition-all duration-500 group-hover:bg-slate-900/60 group-hover:border-primary/30 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]"></div>
 
             {/* Animated Glow on Dark */}
-            <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_var(--mouse-x)_var(--mouse-y),rgba(14,165,233,0.15)_0%,transparent_70%)]"
+            <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_var(--mouse-x)_var(--mouse-y),rgba(104,163,61,0.15)_0%,transparent_70%)]"
                 style={{ "--mouse-x": "50%", "--mouse-y": "50%" } as React.CSSProperties}></div>
 
             <div className="relative h-full p-8 flex flex-col items-start" style={{ transform: "translateZ(50px)" }}>
                 {/* Icon Section */}
                 <div className="mb-8 relative">
-                    <div className="absolute inset-0 bg-[#0ea5e9] blur-2xl opacity-0 group-hover:opacity-40 transition-all duration-500 rounded-full scale-150"></div>
-                    <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9] group-hover:text-white transition-all duration-500 shadow-lg relative z-10">
+                    <div className="absolute inset-0 bg-primary blur-2xl opacity-0 group-hover:opacity-40 transition-all duration-500 rounded-full scale-150"></div>
+                    <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-lg relative z-10">
                         <service.icon size={32} strokeWidth={1.5} />
                     </div>
                 </div>
 
                 {/* Content Section */}
-                <span className="text-[10px] font-black text-[#0ea5e9] uppercase tracking-[0.3em] mb-4 opacity-70 group-hover:opacity-100 transition-opacity">Expertise {index + 1}</span>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#0ea5e9] transition-colors leading-tight">{service.title}</h3>
+                <span className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-4 opacity-70 group-hover:opacity-100 transition-opacity">Expertise {index + 1}</span>
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors leading-tight">{service.title}</h3>
                 <p className="text-slate-400 mb-8 text-sm leading-relaxed line-clamp-3 group-hover:text-slate-300 transition-colors">{service.description}</p>
 
                 {/* Footer Section */}
                 <div className="mt-auto w-full flex items-center justify-between">
                     <Link
                         href={`/service#${service.id}`}
-                        className="inline-flex items-center gap-2 text-sm font-bold text-white/70 hover:text-[#0ea5e9] transition-all group/link"
+                        className="inline-flex items-center gap-2 text-sm font-bold text-white/70 hover:text-primary transition-all group/link"
                     >
                         Learn More
                         <span className="group-hover/link:translate-x-1.5 transition-transform duration-300">
@@ -88,7 +88,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
                 </div>
 
                 {/* Large Background Icon Accent */}
-                <div className="absolute -bottom-8 -right-8 text-white/[0.03] group-hover:text-[#0ea5e9]/[0.05] transition-colors -z-10 select-none">
+                <div className="absolute -bottom-8 -right-8 text-white/[0.03] group-hover:text-primary/[0.05] transition-colors -z-10 select-none">
                     <service.icon size={160} strokeWidth={0.5} />
                 </div>
             </div>
@@ -102,7 +102,7 @@ export default function ServiceSlider() {
     return (
         <section className="py-24 bg-[#020617] overflow-hidden relative">
             {/* Background Decorations */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(14,165,233,0.1)_0%,transparent_50%)]"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(104,163,61,0.1)_0%,transparent_50%)]"></div>
 
             <div className="container mx-auto px-6 max-w-7xl relative z-10">
                 {/* Simplified Header */}
@@ -110,11 +110,11 @@ export default function ServiceSlider() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        className="w-12 h-1 bg-[#0ea5e9] rounded-full mb-8 shadow-[0_0_20px_rgba(14,165,233,0.5)]"
+                        className="w-12 h-1 bg-primary rounded-full mb-8 shadow-[0_0_20px_rgba(104,163,61,0.5)]"
                     ></motion.div>
 
                     <h2 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">
-                        Our Modern <span className="text-[#0ea5e9] drop-shadow-[0_0_15px_rgba(14,165,233,0.3)]">Services</span>
+                        Our Modern <span className="text-primary drop-shadow-[0_0_15px_rgba(104,163,61,0.3)]">Services</span>
                     </h2>
 
                     <p className="text-slate-400 max-w-2xl text-lg md:text-xl font-medium leading-relaxed">
@@ -136,7 +136,7 @@ export default function ServiceSlider() {
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="relative overflow-hidden px-10 py-5 rounded-full bg-[#0ea5e9] text-white font-black text-lg tracking-widest uppercase flex items-center gap-4 shadow-[0_10px_40px_rgba(14,165,233,0.3)] transition-all group-hover:shadow-[0_15px_60px_rgba(14,165,233,0.5)] group-hover:bg-white group-hover:text-[#0ea5e9]"
+                            className="relative overflow-hidden px-10 py-5 rounded-full bg-primary text-white font-black text-lg tracking-widest uppercase flex items-center gap-4 shadow-[0_10px_40px_rgba(104,163,61,0.3)] transition-all group-hover:shadow-[0_15px_60px_rgba(104,163,61,0.5)] group-hover:bg-white group-hover:text-primary"
                         >
                             <span className="relative z-10">View All Services</span>
                             <MoveRight className="relative z-10 group-hover:translate-x-3 transition-transform duration-500" size={24} />
@@ -145,17 +145,17 @@ export default function ServiceSlider() {
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
 
                             {/* Floating Sparkles */}
-                            <Sparkles className="absolute top-2 right-4 text-white/30 group-hover:text-[#0ea5e9]/30 transition-colors" size={20} />
+                            <Sparkles className="absolute top-2 right-4 text-white/30 group-hover:text-primary/30 transition-colors" size={20} />
                         </motion.div>
 
                         {/* Outer Glow Ring */}
-                        <div className="absolute -inset-1 rounded-full bg-[#0ea5e9] opacity-30 blur-xl group-hover:opacity-60 transition-opacity animate-pulse"></div>
+                        <div className="absolute -inset-1 rounded-full bg-primary opacity-30 blur-xl group-hover:opacity-60 transition-opacity animate-pulse"></div>
                     </Link>
                 </div>
             </div>
 
             {/* Background Orbs */}
-            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-[#0ea5e9]/10 rounded-full blur-[120px] -z-10"></div>
+            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -z-10"></div>
             <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[100px] -z-10"></div>
         </section>
     );

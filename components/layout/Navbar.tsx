@@ -43,14 +43,14 @@ export default function Navbar() {
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm gap-2">
                     <div className="flex md:hidden items-center gap-4">
                         {/* Mobile View: Contact Info */}
-                        <a href="tel:+919274421388" className="flex items-center gap-2 hover:text-[#22c55e] transition-colors"><Phone size={14} /> +91 97142 53756</a>
+                        <a href="tel:+919274421388" className="flex items-center gap-2 hover:text-primary transition-colors"><Phone size={14} /> +91 97142 53756</a>
                     </div>
                     <div className="hidden md:flex items-center gap-6">
-                        <a href="mailto:limbajaenergy@gmail.com" className="flex items-center gap-2 hover:text-[#22c55e] transition-colors">
+                        <a href="mailto:limbajaenergy@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
                             <Mail size={14} />
                             <span>limbajaenergy@gmail.com</span>
                         </a>
-                        <a href="tel:+919274421388" className="flex items-center gap-2 hover:text-[#22c55e] transition-colors">
+                        <a href="tel:+919274421388" className="flex items-center gap-2 hover:text-primary transition-colors">
                             <Phone size={14} />
                             <span>+91 97142 53756</span>
                         </a>
@@ -75,8 +75,8 @@ export default function Navbar() {
                                 key={link.name}
                                 href={link.href}
                                 className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${isActive(link.href)
-                                    ? "bg-[#0ea5e9]/10 text-[#0ea5e9]"
-                                    : "text-slate-600 hover:text-[#0ea5e9] hover:bg-slate-50"
+                                    ? "bg-primary/10 text-primary"
+                                    : "text-slate-600 hover:text-primary hover:bg-slate-50"
                                     }`}
                             >
                                 {link.name}
@@ -111,7 +111,7 @@ export default function Navbar() {
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
                                     className={`px-4 py-3 rounded-lg font-medium transition-colors ${isActive(link.href)
-                                        ? "bg-[#0ea5e9]/10 text-[#0ea5e9]"
+                                        ? "bg-primary/10 text-primary"
                                         : "text-slate-600 hover:bg-slate-50"
                                         }`}
                                 >

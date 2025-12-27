@@ -14,7 +14,7 @@ const InfoCard = ({ icon: Icon, title, desc, index }: { icon: any, title: string
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="group p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500"
         >
-            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#0ea5e9] mb-4 shadow-sm group-hover:bg-[#0ea5e9] group-hover:text-white transition-all duration-500">
+            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary mb-4 shadow-sm group-hover:bg-primary group-hover:text-white transition-all duration-500">
                 <Icon size={24} strokeWidth={2} />
             </div>
             <h4 className="text-lg font-bold text-slate-900 mb-2">{title}</h4>
@@ -62,12 +62,12 @@ export default function AboutSection() {
                                     viewport={{ once: true }}
                                     className="h-full p-8 rounded-3xl bg-slate-900 flex flex-col items-center justify-center text-center shadow-2xl relative overflow-hidden group"
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-[#0ea5e9]/20 to-transparent"></div>
-                                    <TrendingUp className="text-[#0ea5e9] mb-4 relative z-10 group-hover:scale-110 transition-transform duration-500" size={32} />
+                                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
+                                    <TrendingUp className="text-secondary mb-4 relative z-10 group-hover:scale-110 transition-transform duration-500" size={32} />
                                     <span className="text-5xl font-black text-white mb-1 relative z-10 leading-none">10+</span>
                                     <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-400 relative z-10">Years of Impact</p>
 
-                                    <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-[#0ea5e9]/10 blur-xl rounded-full"></div>
+                                    <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-primary/10 blur-xl rounded-full"></div>
                                 </motion.div>
                             </div>
                         </div>
@@ -82,15 +82,15 @@ export default function AboutSection() {
                             transition={{ duration: 0.7 }}
                         >
                             <div className="flex items-center gap-4 mb-6">
-                                <span className="h-px w-10 bg-[#0ea5e9] rounded-full"></span>
-                                <span className="text-[#0ea5e9] font-black text-[12px] uppercase tracking-[0.5em]">Who We Are</span>
+                                <span className="h-px w-10 bg-primary rounded-full"></span>
+                                <span className="text-primary font-black text-[12px] uppercase tracking-[0.5em]">Who We Are</span>
                             </div>
 
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">
-                                Delivering Excellence via <span className="text-[#0ea5e9] relative">
+                                Delivering Excellence via <span className="text-primary relative">
                                     Strategic
                                     <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 100 8" preserveAspectRatio="none">
-                                        <path d="M0 7C30 7 70 2 100 2" stroke="#0ea5e9" strokeWidth="4" fill="transparent" strokeLinecap="round" opacity="0.2" />
+                                        <path d="M0 7C30 7 70 2 100 2" stroke="currentColor" strokeWidth="4" fill="transparent" strokeLinecap="round" opacity="0.2" />
                                     </svg>
                                 </span> Energy Audit.
                             </h2>
@@ -124,14 +124,14 @@ export default function AboutSection() {
                             </div>
 
                             <div className="flex flex-wrap gap-8 items-center pt-2">
-                                <Link href="/about-us" className="group relative inline-flex items-center gap-4 bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-[#0ea5e9] transition-all shadow-xl hover:shadow-[#0ea5e9]/20">
+                                <Link href="/about-us" className="group relative inline-flex items-center gap-4 bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-primary transition-all shadow-xl hover:shadow-primary/20">
                                     <span>Learn More</span>
                                     <ArrowRight className="group-hover:translate-x-2 transition-transform duration-500" size={18} />
                                 </Link>
 
                                 <div className="flex items-center gap-4 py-3 border-b-2 border-slate-50">
-                                    <div className="w-10 h-10 bg-[#0ea5e9]/10 rounded-full flex items-center justify-center">
-                                        <ShieldCheck className="text-[#0ea5e9]" size={22} />
+                                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <ShieldCheck className="text-primary" size={22} />
                                     </div>
                                     <div className="flex flex-col">
                                         <span className="text-slate-900 text-[10px] font-black uppercase tracking-widest">Certified Team</span>

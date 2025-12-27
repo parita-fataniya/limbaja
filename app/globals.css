@@ -7,16 +7,16 @@
   --foreground: #0f172a;
 
   /* Brand Colors extracted from Logo */
-  --primary: #3154a5;
-  /* Limbaja Blue */
+  --primary: #68A33D;
+  /* Limbaja Green */
   --primary-foreground: #ffffff;
 
-  --secondary: #75b745;
-  /* Energy Green */
+  --secondary: #305196;
+  /* Limbaja Blue */
   --secondary-foreground: #ffffff;
 
-  --accent: #fcc017;
-  /* Sun Yellow */
+  --accent: #F8B133;
+  /* Energy Yellow */
   --accent-foreground: #0f172a;
 
   --muted: #f1f5f9;
