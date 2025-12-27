@@ -1,149 +1,114 @@
-"use client";
+"use client"
+import Link from "next/link"
+import { ArrowRight, ShieldCheck } from "lucide-react"
+import { motion } from "framer-motion"
 
-import React from "react";
-import Link from "next/link";
-import { ArrowRight, Zap, Factory, Leaf, TrendingUp, ShieldCheck } from "lucide-react";
-import { motion } from "framer-motion";
-
-const InfoCard = ({ icon: Icon, title, desc, index }: { icon: any, title: string, desc: string, index: number }) => {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500"
-        >
-            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary mb-4 shadow-sm group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                <Icon size={24} strokeWidth={2} />
-            </div>
-            <h4 className="text-lg font-bold text-slate-900 mb-2">{title}</h4>
-            <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
-        </motion.div>
-    );
-};
+const BentoCard = ({
+    number,
+    title,
+    desc,
+    className = "",
+}: {
+    number: string
+    title: string
+    desc: string
+    className?: string
+}) => (
+    <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className={`p-10 bg-white border border-black/5 rounded-[2.5rem] flex flex-col justify-between hover:shadow-2xl hover:shadow-black/5 transition-all duration-700 ${className}`}
+    >
+        <span className="text-6xl font-serif text-black/5 leading-none mb-8">{number}</span>
+        <div>
+            <h4 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">{title}</h4>
+            <p className="text-slate-500 leading-relaxed text-sm">{desc}</p>
+        </div>
+    </motion.div>
+)
 
 export default function AboutSection() {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
-            {/* Subtle Professional Background Decor */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50/30 -skew-x-6 translate-x-1/4 -z-10 border-l border-slate-100"></div>
+        <section className="py-32 bg-background relative">
+            <div className="container mx-auto px-6 max-w-7xl">
+                <div className="flex flex-col items-center text-center mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="flex items-center gap-3 mb-6"
+                    >
+                        <span className="h-px w-8 bg-black/20"></span>
+                        <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-slate-400">
+                            Our Strategic Approach
+                        </span>
+                        <span className="h-px w-8 bg-black/20"></span>
+                    </motion.div>
 
-            <div className="container mx-auto px-6 max-w-7xl relative z-10">
-                <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-5xl md:text-7xl font-serif text-slate-900 leading-[1.1] mb-8 max-w-3xl"
+                    >
+                        Delivering excellence via strategic energy audit.
+                    </motion.h2>
 
-                    {/* Left Column: Visual Grid of Features */}
-                    <div className="w-full lg:w-5/12 order-2 lg:order-1">
-                        <div className="grid grid-cols-2 gap-4">
-                            <InfoCard
-                                icon={Zap}
-                                title="Optimization"
-                                desc="Maximizing electrical and thermal efficiency across all systems."
-                                index={0}
-                            />
-                            <div className="pt-8">
-                                <InfoCard
-                                    icon={Factory}
-                                    title="Industrial"
-                                    desc="Deep expertise in diverse industrial processes and large facilities."
-                                    index={1}
-                                />
-                            </div>
-                            <InfoCard
-                                icon={Leaf}
-                                title="Sustainability"
-                                desc="Reducing footprint while increasing operational yields and savings."
-                                index={2}
-                            />
-                            <div className="pt-8">
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    className="h-full p-8 rounded-3xl bg-slate-900 flex flex-col items-center justify-center text-center shadow-2xl relative overflow-hidden group"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
-                                    <TrendingUp className="text-secondary mb-4 relative z-10 group-hover:scale-110 transition-transform duration-500" size={32} />
-                                    <span className="text-5xl font-black text-white mb-1 relative z-10 leading-none">10+</span>
-                                    <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-400 relative z-10">Years of Impact</p>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="text-lg text-slate-500 max-w-2xl leading-relaxed"
+                    >
+                        Limbaja Energy is committed to helping clients achieve energy savings through precision measurement and
+                        expert analysis. Prudent energy usage has become a critical business imperative.
+                    </motion.p>
+                </div>
 
-                                    <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-primary/10 blur-xl rounded-full"></div>
-                                </motion.div>
-                            </div>
-                        </div>
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                    <BentoCard
+                        number="01"
+                        title="Optimization"
+                        desc="Maximizing electrical and thermal efficiency across all systems to reduce operational overhead."
+                    />
+                    <BentoCard
+                        number="02"
+                        title="Industrial"
+                        desc="Deep expertise in diverse industrial processes and large facilities with certified engineering protocols."
+                    />
+                    <BentoCard
+                        number="03"
+                        title="Sustainability"
+                        desc="Reducing environmental footprint while increasing operational yields and long-term financial savings."
+                    />
+                </div>
 
-                    {/* Right Column: Narrative Corporate Content */}
-                    <div className="w-full lg:w-7/12 order-1 lg:order-2">
-                        <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.7 }}
+                <div className="flex flex-col items-center gap-10">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                    >
+                        <Link
+                            href="/about-us"
+                            className="group relative inline-flex items-center gap-4 bg-slate-900 text-white px-12 py-6 rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-black transition-all shadow-2xl hover:shadow-slate-300"
                         >
-                            <div className="flex items-center gap-4 mb-6">
-                                <span className="h-px w-10 bg-primary rounded-full"></span>
-                                <span className="text-primary font-black text-[12px] uppercase tracking-[0.5em]">Who We Are</span>
-                            </div>
+                            <span>Notre engagement</span>
+                            <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
+                        </Link>
+                    </motion.div>
 
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tight">
-                                Delivering Excellence via <span className="text-primary relative">
-                                    Strategic
-                                    <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 100 8" preserveAspectRatio="none">
-                                        <path d="M0 7C30 7 70 2 100 2" stroke="currentColor" strokeWidth="4" fill="transparent" strokeLinecap="round" opacity="0.2" />
-                                    </svg>
-                                </span> Energy Audit.
-                            </h2>
-
-                            <div className="space-y-6 text-slate-600 text-lg leading-relaxed mb-12 border-l-4 border-slate-100 pl-8">
-                                <motion.p
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: 0.2 }}
-                                    className="font-bold text-slate-800 text-xl italic leading-snug"
-                                >
-                                    "Limbaja Energy is committed to helping clients achieve energy savings through precision measurement and expert analysis."
-                                </motion.p>
-                                <motion.p
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: 0.4 }}
-                                >
-                                    As energy costs rise and natural resources diminish, prudent energy usage has become a critical business imperative. We provide complete end-to-end solutions—from conceptualization and measurement to feasibility analysis and implementation support for energy saving.
-                                </motion.p>
-                                <motion.p
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: 0.5 }}
-                                >
-                                    Our qualified team of certified Energy Auditors and Engineers has extensive experience across various industries and facilities, identifying where energy cost reduction potential is highest.
-                                </motion.p>
-                            </div>
-
-                            <div className="flex flex-wrap gap-8 items-center pt-2">
-                                <Link href="/about-us" className="group relative inline-flex items-center gap-4 bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-primary transition-all shadow-xl hover:shadow-primary/20">
-                                    <span>Learn More</span>
-                                    <ArrowRight className="group-hover:translate-x-2 transition-transform duration-500" size={18} />
-                                </Link>
-
-                                <div className="flex items-center gap-4 py-3 border-b-2 border-slate-50">
-                                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                                        <ShieldCheck className="text-primary" size={22} />
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-slate-900 text-[10px] font-black uppercase tracking-widest">Certified Team</span>
-                                        <span className="text-slate-400 text-[9px] uppercase font-bold tracking-wider">Expert Auditing Auditors</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
+                    <div className="flex items-center gap-3 px-6 py-3 bg-white/50 backdrop-blur-sm rounded-full border border-black/5">
+                        <ShieldCheck className="text-slate-400" size={18} />
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                            Certified Energy Auditors & Engineers
+                        </span>
                     </div>
-
                 </div>
             </div>
         </section>
-    );
+    )
 }
