@@ -1,0 +1,269 @@
+"use client";
+
+import { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useHeaderControl } from "@/context/HeaderControlContext";
+import { ChevronDown, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+const slides = [
+    {
+        id: 1,
+        image: "/hero-section/hero-1.jpeg",
+        title: "Precision Energy Auditing",
+        subtitle: "Unlocking efficiency through detailed analysis and state-of-the-art measurement.",
+    },
+    {
+        id: 2,
+        image: "/hero-section/hero-2.jpeg",
+        title: "Industrial Performance",
+        subtitle: "Optimizing large-scale industrial plants with sustainable energy solutions.",
+    },
+    {
+        id: 3,
+        image: "/hero-section/hero-3.jpeg",
+        title: "Advanced Conservation",
+        subtitle: "Reducing carbon footprints while maximizing operational cost savings.",
+    },
+    {
+        id: 4,
+        image: "/hero-section/hero-4.jpeg",
+        title: "Expert Measurement",
+        subtitle: "High-precision diagnostic tools for accurate energy performance indicators.",
+    },
+    {
+        id: 5,
+        image: "/hero-section/hero-save-energy.jpg",
+        title: "Save Energy",
+        subtitle: "Leading the way in energy management and environmental stewardship.",
+    },
+];
+
+export default function StoryHero() {
+    const { setHeaderHidden } = useHeaderControl();
+    const [current, setCurrent] = useState(0);
+    const [isStoryMode, setIsStoryMode] = useState(false); // Default false to avoid flash, corrected in Effect
+    const [hasLoaded, setHasLoaded] = useState(false);
+
+    const containerRef = useRef<HTMLDivElement>(null);
+    const scrolling = useRef(false);
+    const touchStart = useRef(0);
+
+    // Initial Check
+    useEffect(() => {
+        const seen = sessionStorage.getItem("limbaja_story_seen");
+        if (seen) {
+            setIsStoryMode(false);
+            setCurrent(slides.length - 1);
+            setHeaderHidden(false);
+        } else {
+            setIsStoryMode(true);
+            setCurrent(0);
+            setHeaderHidden(true);
+            // Lock body
+            document.body.style.overflow = "hidden";
+        }
+        setHasLoaded(true);
+
+        // Cleanup function for unmount
+        return () => {
+            document.body.style.overflow = "";
+            setHeaderHidden(false);
+        };
+    }, [setHeaderHidden]);
+
+    const completeStory = useCallback(() => {
+        sessionStorage.setItem("limbaja_story_seen", "true");
+        setIsStoryMode(false);
+        document.body.style.overflow = "";
+        setHeaderHidden(false);
+        // Ensure we end on the last slide
+        setCurrent(slides.length - 1);
+    }, [setHeaderHidden]);
+
+    // Scroll Handler
+    useEffect(() => {
+        if (!isStoryMode) return;
+
+        const handleWheel = (e: WheelEvent) => {
+            e.preventDefault();
+            if (scrolling.current) return;
+
+            // Threshold for trigger
+            if (Math.abs(e.deltaY) < 20) return;
+
+            scrolling.current = true;
+
+            if (e.deltaY > 0) {
+                // Scroll Down
+                if (current < slides.length - 1) {
+                    setCurrent((prev) => prev + 1);
+                    setTimeout(() => scrolling.current = false, 1000);
+                } else {
+                    // Last slide, finish
+                    completeStory();
+                    // No timeout needed as we switch mode
+                }
+            } else {
+                // Scroll Up
+                if (current > 0) {
+                    setCurrent((prev) => prev - 1);
+                    setTimeout(() => scrolling.current = false, 1000);
+                } else {
+                    scrolling.current = false;
+                }
+            }
+        };
+
+        // Touch Handlers for Mobile
+        const handleTouchStart = (e: TouchEvent) => {
+            touchStart.current = e.touches[0].clientY;
+        };
+
+        const handleTouchMove = (e: TouchEvent) => {
+            if (scrolling.current) return;
+            e.preventDefault(); // Prevent standard scroll
+
+            const touchY = e.touches[0].clientY;
+            const diff = touchStart.current - touchY;
+
+            if (Math.abs(diff) < 50) return; // Sensitivity
+
+            scrolling.current = true;
+
+            if (diff > 0) { // Swipe Up (Scroll Down)
+                if (current < slides.length - 1) {
+                    setCurrent((prev) => prev + 1);
+                    setTimeout(() => scrolling.current = false, 1000);
+                } else {
+                    completeStory();
+                }
+            } else { // Swipe Down (Scroll Up)
+                if (current > 0) {
+                    setCurrent((prev) => prev - 1);
+                    setTimeout(() => scrolling.current = false, 1000);
+                } else {
+                    scrolling.current = false;
+                }
+            }
+        };
+
+        window.addEventListener("wheel", handleWheel, { passive: false });
+        window.addEventListener("touchstart", handleTouchStart, { passive: false });
+        window.addEventListener("touchmove", handleTouchMove, { passive: false });
+
+        return () => {
+            window.removeEventListener("wheel", handleWheel);
+            window.removeEventListener("touchstart", handleTouchStart);
+            window.removeEventListener("touchmove", handleTouchMove);
+        };
+    }, [isStoryMode, current, completeStory]);
+
+    if (!hasLoaded) {
+        return (
+            <div className="fixed inset-0 z-[60] bg-slate-950 flex items-center justify-center">
+                {/* Initial black screen to prevent header flash before logic runs */}
+            </div>
+        );
+    }
+
+    // If story mode, we fixed position. If static, relative.
+    const Wrapper = isStoryMode ? "div" : "section";
+    const wrapperClass = isStoryMode
+        ? "fixed inset-0 z-[60] bg-slate-950 text-white"
+        : "relative h-screen w-full overflow-hidden bg-slate-950 text-white";
+
+    return (
+        <Wrapper className={wrapperClass} ref={containerRef}>
+            <AnimatePresence mode="popLayout">
+                <motion.div
+                    key={current}
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }} // Simple fade out
+                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full"
+                >
+                    <Image
+                        src={slides[current].image}
+                        alt={slides[current].title}
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                    {/* Overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/50 to-transparent z-10" />
+                    <div className="absolute inset-0 bg-black/20 z-10" />
+                </motion.div>
+            </AnimatePresence>
+
+            {/* Content info */}
+            <div className="absolute inset-0 z-20 flex flex-col items-start justify-center px-8 md:px-20 lg:px-32 pointer-events-none">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={current}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }} // Slight delay for cinematic feel
+                        className="max-w-4xl"
+                    >
+                        <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: "80px" }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="h-1 bg-[#22c55e] mb-8"
+                        />
+                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tighter mix-blend-overlay opacity-90">
+                            {slides[current].title}
+                        </h1>
+                        <p className="text-lg md:text-xl text-slate-200 max-w-xl mb-10 font-medium leading-relaxed drop-shadow-md">
+                            {slides[current].subtitle}
+                        </p>
+
+                        {/* Final Slide CTA - Only shown on last slide */}
+                        {current === slides.length - 1 && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5 }}
+                                className="flex flex-wrap gap-5 pointer-events-auto"
+                            >
+                                <Link href="/service" className="group relative inline-flex items-center gap-3 bg-[#22c55e] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-[#16a34a] transition-all shadow-xl shadow-[#22c55e]/20 active:scale-95">
+                                    <span>Explore Services</span>
+                                    <ArrowRight className="group-hover:translate-x-2 transition-transform" size={18} />
+                                </Link>
+                                <Link href="/contact-us" className="group px-8 py-4 bg-white/5 border border-white/20 text-white hover:bg-white hover:text-slate-900 font-bold rounded-xl transition-all md:backdrop-blur-md uppercase tracking-widest text-sm active:scale-95">
+                                    Get In Touch
+                                </Link>
+                            </motion.div>
+                        )}
+                    </motion.div>
+                </AnimatePresence>
+            </div>
+
+            {/* Progress / Scroll Indicator */}
+            {isStoryMode && (
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2">
+                    <span className="text-xs uppercase tracking-[0.2em] text-white/50">Scroll</span>
+                    <motion.div
+                        animate={{ y: [0, 5, 0] }}
+                        transition={{ repeat: Infinity, duration: 2 }}
+                    >
+                        <ChevronDown className="text-white/50" />
+                    </motion.div>
+                </div>
+            )}
+
+            {/* Story Progress Dots */}
+            {isStoryMode && (
+                <div className="absolute right-8 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4">
+                    {slides.map((_, idx) => (
+                        <div key={idx} className={`w-1 transition-all duration-500 rounded-full ${idx === current ? "h-8 bg-[#22c55e]" : "h-2 bg-white/20"}`} />
+                    ))}
+                </div>
+            )}
+        </Wrapper>
+    );
+}

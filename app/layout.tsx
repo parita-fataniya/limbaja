@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { HeaderControlProvider } from "@/context/HeaderControlContext";
 
 const font = Inter({
   subsets: ["latin"],
@@ -20,10 +21,10 @@ export const metadata: Metadata = {
   },
   description: "End-to-end energy efficiency solutions. Energy audit, consultancy, and implementation support for sustainable industrial operations.",
   keywords: [
-    "Energy Audit", 
-    "Energy Efficiency", 
-    "Sustainable Energy", 
-    "Industrial Energy Solutions", 
+    "Energy Audit",
+    "Energy Efficiency",
+    "Sustainable Energy",
+    "Industrial Energy Solutions",
     "Limbaja Energy",
     "Power Quality Audit",
     "Thermography",
@@ -81,13 +82,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={font.className}>
-        <Navbar />
-        <main className="min-h-screen pt-40 md:pt-36">
-          {children}
-        </main>
-        <Footer />
-        <ScrollToTop />
-        <WhatsAppButton />
+        <HeaderControlProvider>
+          <Navbar />
+          <main className="min-h-screen pt-40 md:pt-36">
+            {children}
+          </main>
+          <Footer />
+          <ScrollToTop />
+          <WhatsAppButton />
+        </HeaderControlProvider>
       </body>
     </html>
   );
