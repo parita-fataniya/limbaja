@@ -7,14 +7,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Project Images from public/projects
 const projects = [
-    { id: 1, src: "/projects/project1.jpg", title: "Industrial Efficiency Project" },
-    { id: 2, src: "/projects/project2.jpg", title: "Thermal Optimization" },
-    { id: 3, src: "/projects/project3.jpg", title: "Energy Audit Execution" },
-    { id: 4, src: "/projects/project4.JPG", title: "Power Quality Analysis" },
-    { id: 5, src: "/projects/project5.JPG", title: "Sustainable Integration" },
-    { id: 6, src: "/projects/project6.JPG", title: "Large Scale Implementation" },
+    { id: 1, src: "/projects/p-1.png", title: "Industrial Efficiency Project" },
+    { id: 2, src: "/projects/p-2.png", title: "Thermal Optimization" },
+    { id: 3, src: "/projects/p-3.png", title: "Energy Audit Execution" },
+    { id: 4, src: "/projects/p-4.png", title: "Power Quality Analysis" },
+    { id: 5, src: "/projects/p-5.png", title: "Sustainable Integration" },
+    { id: 6, src: "/projects/p-6.png", title: "Large Scale Implementation" },
     // { id: 7, src: "/projects/project7.jpg", title: "Site Inspection" }, // Skipping small/low-res if any, or include all
-    { id: 8, src: "/projects/project8.jpg", title: "Advanced Monitoring" },
+    { id: 8, src: "/projects/p-8.png", title: "Advanced Monitoring" },
 ];
 
 export default function ProjectSlider() {
