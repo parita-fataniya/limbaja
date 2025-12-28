@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter, ArrowRight } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { motion, Variants } from "framer-motion";
 
 export function Footer() {
     const pathname = usePathname();
@@ -14,6 +15,15 @@ export function Footer() {
         return pathname.startsWith(path);
     };
 
+    const textVariants: Variants = {
+        hidden: { opacity: 0, y: 10 },
+        visible: (i: number) => ({
+            opacity: 1,
+            y: 0,
+            transition: { delay: i * 0.05, duration: 0.5, ease: "easeOut" }
+        })
+    };
+
     return (
         <footer className="bg-[#1e293b] text-white pt-16 pb-8 border-t-4 border-[#305196]">
             <div className="container mx-auto px-6">
@@ -21,14 +31,49 @@ export function Footer() {
 
                     {/* Column 1: About */}
                     <div>
-                        <h3 className="text-xl font-bold mb-6 text-white border-b-2 border-[#68A33D] inline-block pb-2">Limbaja Energy</h3>
+                        <div className="mb-6 inline-block">
+                            {/* Animated Logo Container */}
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="relative pb-2"
+                            >
+                                <div className="flex items-baseline gap-1 overflow-hidden">
+                                    <h3 className="text-3xl font-extrabold tracking-tight text-white flex">
+                                        {"Limbaja".split("").map((char, i) => (
+                                            <motion.span custom={i} variants={textVariants} key={i}>
+                                                {char}
+                                            </motion.span>
+                                        ))}
+                                    </h3>
+                                    <motion.span
+                                        initial={{ opacity: 0, x: -10 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.5, duration: 0.5 }}
+                                        className="text-lg font-light text-[#F8B133]"
+                                    >
+                                        Energy
+                                    </motion.span>
+                                </div>
+                                {/* Animated Underline */}
+                                <motion.div
+                                    initial={{ scaleX: 0 }}
+                                    whileInView={{ scaleX: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.2, duration: 0.8, ease: "circOut" }}
+                                    className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#305196] via-[#68A33D] to-[#F8B133] origin-left rounded-full"
+                                />
+                            </motion.div>
+                        </div>
+
                         <p className="text-slate-300 mb-6 leading-relaxed text-sm">
                             Limbaja Energy is committed to help clients achieve energy savings and provides complete end-to-end solutions for energy conservation and efficiency.
                         </p>
                         <div className="flex gap-4">
-                            <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors"><Facebook size={18} /></a>
-                            <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors"><Linkedin size={18} /></a>
-                            <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors"><Twitter size={18} /></a>
+                            <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors hover:-translate-y-1 duration-300"><Facebook size={18} /></a>
+                            <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors hover:-translate-y-1 duration-300"><Linkedin size={18} /></a>
+                            <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors hover:-translate-y-1 duration-300"><Twitter size={18} /></a>
                         </div>
                     </div>
 
