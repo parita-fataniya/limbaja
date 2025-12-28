@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter, ArrowRight } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export function Footer() {
     const pathname = usePathname();
@@ -15,7 +15,7 @@ export function Footer() {
         return pathname.startsWith(path);
     };
 
-    const textVariants = {
+    const textVariants: Variants = {
         hidden: { opacity: 0, y: 10 },
         visible: (i: number) => ({
             opacity: 1,
