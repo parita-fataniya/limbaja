@@ -370,7 +370,7 @@ export const services: Service[] = [
         title: "Compressor Ultrasonic Air Leakage Audit",
         icon: Search,
         description: "We provide the Compressed Air Leakage Audit service and Compressed Flow Audit Service. Have a look!",
-        image: "/services/5.png",
+        image: "/services/8.png",
         sections: [
             {
                 type: "list",
@@ -638,7 +638,7 @@ export const services: Service[] = [
         title: "Flow Measurement",
         icon: Droplets,
         description: "Accurate flow measurements are critical to the calculation of Utility or process control applications.\n\nFlow Measurement is also useful for monitoring & troubleshooting internal processes at various points.\n\nmeasures the flow of virtually any fluid, be it liquid, gas or steam, regardless of the flow direction (bi-directional) and over an extremely wide measuring range. Due to its practical advantages, external flow measurement with clamp-on ultrasonic transducers has become a standard measuring technique in a broad range of industries and applications.\n\nThis flowmeter can be installed in just minutes without needing to shut down, thus avoiding costly downtime. This ultrasonic technology works with gases at high or low pressure in pipes made of metal and most other materials.",
-        image: "/services/8.png",
+        image: "/services/5.png",
         sections: [
             {
                 type: "text",
