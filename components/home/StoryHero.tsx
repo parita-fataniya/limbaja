@@ -115,7 +115,7 @@ export default function StoryHero() {
         }
 
         autoScrollTimer.current = setTimeout(() => {
-            if (current < slides.length - 1) {
+            if (current < slides.length - 2) {
                 setCurrent(prev => prev + 1);
             } else {
                 completeStory();
@@ -162,7 +162,7 @@ export default function StoryHero() {
 
             if (e.deltaY > 0) {
                 // Scroll Down
-                if (current < slides.length - 1) {
+                if (current < slides.length - 2) {
                     setCurrent((prev) => prev + 1);
                     setTimeout(() => scrolling.current = false, 1000);
                 } else {
@@ -195,7 +195,7 @@ export default function StoryHero() {
             scrolling.current = true;
 
             if (diff > 0) { // Swipe Up (Scroll Down)
-                if (current < slides.length - 1) {
+                if (current < slides.length - 2) {
                     setCurrent((prev) => prev + 1);
                     setTimeout(() => scrolling.current = false, 1000);
                 } else {
@@ -238,7 +238,7 @@ export default function StoryHero() {
     const currentSlide = slides[current];
     const isWelcome = currentSlide.type === "welcome";
 
-    const Wrapper = isStoryMode ? "div" : "section";
+    const Wrapper = "section";
     const wrapperClass = isStoryMode
         ? `fixed inset-0 z-[60] bg-[length:400%_400%] animate-gradient-slow transition-colors duration-1000 ${isWelcome ? 'text-slate-900 bg-white' : 'text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900'}`
         : "relative h-screen w-full overflow-hidden text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900 bg-[length:400%_400%] animate-gradient-slow";
