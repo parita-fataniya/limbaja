@@ -282,12 +282,12 @@ export default function StoryHero() {
                         </div>
 
                         {/* Content */}
-                        <div className="relative z-10 flex flex-col items-center text-center px-4">
+                        <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-5xl mx-auto">
                             <motion.h1
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-                                className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 mb-6"
+                                className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-slate-900 mb-4 md:mb-6 leading-tight pb-2"
                             >
                                 Welcome to <br className="md:hidden" />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#68A33D] to-[#305196]">
@@ -299,12 +299,12 @@ export default function StoryHero() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                                className="flex items-center gap-3 text-lg md:text-2xl font-medium text-slate-600 mb-8 uppercase tracking-widest"
+                                className="flex flex-wrap justify-center items-center gap-2 md:gap-3 text-sm md:text-xl lg:text-2xl font-medium text-slate-600 mb-8 md:mb-12 uppercase tracking-widest px-2"
                             >
                                 <span className="text-[#68A33D]">Energy</span>
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#F8B133]" />
+                                <span className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-[#F8B133]" />
                                 <span className="text-[#305196]">Efficiency</span>
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#F8B133]" />
+                                <span className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-[#F8B133]" />
                                 <span className="text-slate-700">Excellence</span>
                             </motion.div>
                         </div>
