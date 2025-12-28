@@ -235,13 +235,13 @@ export default function StoryHero() {
         );
     }
 
-    const Wrapper = isStoryMode ? "div" : "section";
-    const wrapperClass = isStoryMode
-        ? "fixed inset-0 z-[60] text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900 bg-[length:400%_400%] animate-gradient-slow"
-        : "relative h-screen w-full overflow-hidden text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900 bg-[length:400%_400%] animate-gradient-slow";
-
     const currentSlide = slides[current];
     const isWelcome = currentSlide.type === "welcome";
+
+    const Wrapper = isStoryMode ? "div" : "section";
+    const wrapperClass = isStoryMode
+        ? `fixed inset-0 z-[60] bg-[length:400%_400%] animate-gradient-slow transition-colors duration-1000 ${isWelcome ? 'text-slate-900 bg-white' : 'text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900'}`
+        : "relative h-screen w-full overflow-hidden text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900 bg-[length:400%_400%] animate-gradient-slow";
 
     return (
         <Wrapper className={wrapperClass} ref={containerRef}>
@@ -253,24 +253,61 @@ export default function StoryHero() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 1 }}
-                        className="absolute inset-0 flex flex-col items-center justify-center bg-transparent z-20"
+                        className="absolute inset-0 flex flex-col items-center justify-center z-20 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/50"
                     >
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2, duration: 0.8 }}
-                            className="text-4xl md:text-6xl font-bold text-white mb-4 text-center px-4"
-                        >
-                            {currentSlide.title}
-                        </motion.h1>
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 0.6 }}
-                            transition={{ delay: 0.6, duration: 0.8 }}
-                            className="text-lg md:text-xl text-slate-400 uppercase tracking-widest text-center"
-                        >
-                            {currentSlide.subtitle}
-                        </motion.p>
+                        {/* Background Abstract Shapes */}
+                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 0.6, scale: 1, x: [0, 30, 0], y: [0, -20, 0] }}
+                                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -top-[10%] -left-[10%] w-[60vw] h-[60vw] bg-[#68A33D]/10 rounded-full blur-3xl"
+                            />
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 0.5, scale: 1.1, x: [0, -40, 0], y: [0, 30, 0] }}
+                                transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] bg-[#305196]/10 rounded-full blur-3xl"
+                            />
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 0.4, rotate: [0, 20, 0] }}
+                                transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute bottom-[-10%] left-[20%] w-[40vw] h-[40vw] bg-[#F8B133]/10 rounded-full blur-3xl"
+                            />
+                            <svg className="absolute inset-0 w-full h-full opacity-[0.03]" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M0 100 Q 50 0 100 100" stroke="currentColor" fill="transparent" strokeWidth="0.5" />
+                                <path d="M0 50 Q 50 100 100 50" stroke="currentColor" fill="transparent" strokeWidth="0.5" />
+                            </svg>
+                        </div>
+
+                        {/* Content */}
+                        <div className="relative z-10 flex flex-col items-center text-center px-4">
+                            <motion.h1
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+                                className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 mb-6"
+                            >
+                                Welcome to <br className="md:hidden" />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#68A33D] to-[#305196]">
+                                    Limbaja Energy
+                                </span>
+                            </motion.h1>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                                className="flex items-center gap-3 text-lg md:text-2xl font-medium text-slate-600 mb-8 uppercase tracking-widest"
+                            >
+                                <span className="text-[#68A33D]">Energy</span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#F8B133]" />
+                                <span className="text-[#305196]">Efficiency</span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#F8B133]" />
+                                <span className="text-slate-700">Excellence</span>
+                            </motion.div>
+                        </div>
                     </motion.div>
                 ) : (
                     <motion.div
@@ -353,14 +390,14 @@ export default function StoryHero() {
             {
                 isStoryMode && (
                     <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2">
-                        <span className="text-xs uppercase tracking-[0.2em] text-white/50">
+                        <span className={`text-xs uppercase tracking-[0.2em] ${isWelcome ? "text-slate-500" : "text-white/50"}`}>
                             {isAutoScrolling ? "Auto" : "Scroll"}
                         </span>
                         <motion.div
                             animate={{ y: [0, 5, 0] }}
                             transition={{ repeat: Infinity, duration: 2 }}
                         >
-                            <ChevronDown className="text-white/50" />
+                            <ChevronDown className={isWelcome ? "text-slate-500" : "text-white/50"} />
                         </motion.div>
                     </div>
                 )
@@ -377,7 +414,9 @@ export default function StoryHero() {
                                     // Removed stopAutoScroll(); so clicking dots also keeps auto-scroll alive
                                     setCurrent(idx);
                                 }}
-                                className={`w-1 transition-all duration-500 rounded-full cursor-pointer ${idx === current ? "h-8 bg-primary" : "h-2 bg-white/20"}`}
+                                className={`w-1 transition-all duration-500 rounded-full cursor-pointer ${idx === current
+                                    ? "h-8 bg-primary"
+                                    : isWelcome ? "h-2 bg-slate-400/30 hover:bg-slate-400/50" : "h-2 bg-white/20"}`}
                             />
                         ))}
                     </div>
