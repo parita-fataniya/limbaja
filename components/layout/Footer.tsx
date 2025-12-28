@@ -92,11 +92,11 @@ export function Footer() {
                                     <Link
                                         href={link.href}
                                         className={`flex items-center gap-2 text-sm transition-all ${isActive(link.href)
-                                            ? "text-[#305196] pl-2 font-bold"
+                                            ? "text-[#F8B133] pl-2 font-bold"
                                             : "text-slate-300 hover:text-[#305196] hover:pl-2"
                                             }`}
                                     >
-                                        <ArrowRight size={14} className={isActive(link.href) ? "text-[#305196]" : "text-[#68A33D]"} /> {link.name}
+                                        <ArrowRight size={14} className={isActive(link.href) ? "text-[#F8B133]" : "text-[#68A33D]"} /> {link.name}
                                     </Link>
                                 </li>
                             ))}
