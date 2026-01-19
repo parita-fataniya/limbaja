@@ -20,6 +20,7 @@ const navLinks = [
 export default function Navbar() {
     const { isHeaderHidden } = useHeaderControl();
     const [isOpen, setIsOpen] = useState(false);
+    const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
 
@@ -154,24 +155,42 @@ export default function Navbar() {
                             {navLinks.map((link) => (
                                 link.name === "Our Services" ? (
                                     <div key={link.name} className="flex flex-col">
-                                        <div className="px-4 py-3 font-medium text-slate-800 border-b border-slate-50">Our Services</div>
-                                        <div className="grid grid-cols-1 gap-2 pl-4 pr-2 pb-2 bg-slate-50/50">
-                                            {services.map(service => (
-                                                <Link
-                                                    key={service.id}
-                                                    href={`/service/${service.id}`}
-                                                    onClick={() => setIsOpen(false)}
-                                                    className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 transition-colors"
+                                        <button
+                                            onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                                            className="flex items-center justify-between px-4 py-3 rounded-lg font-medium text-slate-800 hover:bg-slate-50 transition-colors bg-slate-50/50"
+                                        >
+                                            Our Services
+                                            <ChevronDown size={16} className={`transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                                        </button>
+
+                                        <AnimatePresence>
+                                            {isMobileServicesOpen && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    className="overflow-hidden"
                                                 >
-                                                    <img
-                                                        src={service.image}
-                                                        alt={service.title}
-                                                        className="w-8 h-8 object-cover rounded-md"
-                                                    />
-                                                    <span className="text-sm text-slate-600 font-medium">{service.title}</span>
-                                                </Link>
-                                            ))}
-                                        </div>
+                                                    <div className="grid grid-cols-1 gap-2 pl-4 pr-2 py-2 bg-slate-50/30 max-h-64 overflow-y-auto border-t border-slate-100">
+                                                        {services.map(service => (
+                                                            <Link
+                                                                key={service.id}
+                                                                href={`/service/${service.id}`}
+                                                                onClick={() => setIsOpen(false)}
+                                                                className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 transition-colors"
+                                                            >
+                                                                <img
+                                                                    src={service.image}
+                                                                    alt={service.title}
+                                                                    className="w-8 h-8 object-cover rounded-md shrink-0"
+                                                                />
+                                                                <span className="text-sm text-slate-600 font-medium">{service.title}</span>
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
                                     </div>
                                 ) : (
                                     <Link

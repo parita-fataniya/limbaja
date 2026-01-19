@@ -40,13 +40,13 @@ export const ImpactStats = () => {
                 >
                     <div className="text-center">
                         <div className="text-4xl md:text-5xl font-bold mb-2 tracking-tight text-white">
-                            <CountUp to={500} suffix="+" />
+                            <CountUp to={150} suffix="+" />
                         </div>
                         <div className="text-sm md:text-base text-white/80 uppercase tracking-wider font-medium">Projects Completed</div>
                     </div>
                     <div className="text-center">
                         <div className="text-4xl md:text-5xl font-bold mb-2 tracking-tight text-white">
-                            <CountUp to={30} suffix="%" />
+                            <CountUp to={5} suffix="%" />
                         </div>
                         <div className="text-sm md:text-base text-white/80 uppercase tracking-wider font-medium">Average Savings</div>
                     </div>
