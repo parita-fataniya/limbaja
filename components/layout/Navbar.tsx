@@ -87,26 +87,28 @@ export default function Navbar() {
                                         </Link>
 
                                         {/* Dropdown Menu */}
-                                        <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 p-2">
-                                            <div className="flex flex-col gap-1">
-                                                {services.slice(0, 3).map((service) => (
+                                        <div className="absolute top-full -left-[550px] mt-2 w-[900px] bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 p-6">
+                                            <div className="grid grid-cols-4 gap-4">
+                                                {services.map((service) => (
                                                     <Link
                                                         key={service.id}
                                                         href={`/service/${service.id}`}
-                                                        className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors group/item"
+                                                        className="flex items-start gap-3 p-2 rounded-lg hover:bg-slate-50 transition-colors group/item"
                                                     >
-                                                        <div className="font-bold text-slate-800 text-sm group-hover/item:text-primary transition-colors">{service.title}</div>
-                                                        <div className="text-xs text-slate-500 line-clamp-1 mt-0.5">{service.description}</div>
+                                                        <div className="mt-1 shrink-0">
+                                                            <img
+                                                                src={service.image}
+                                                                alt={service.title}
+                                                                className="w-10 h-10 object-cover rounded-md group-hover/item:scale-105 transition-transform"
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <div className="font-bold text-slate-800 text-xs group-hover/item:text-primary transition-colors leading-tight">{service.title}</div>
+                                                            <div className="text-[10px] text-slate-500 line-clamp-2 mt-0.5 leading-snug">{service.description}</div>
+                                                        </div>
                                                     </Link>
                                                 ))}
-                                                <div className="h-px bg-slate-100 my-1"></div>
-                                                <Link
-                                                    href="/service"
-                                                    className="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-primary/5 text-primary text-sm font-bold transition-colors group/item"
-                                                >
-                                                    <span>View All Services</span>
-                                                    <MoveRight size={16} className="group-hover/item:translate-x-1 transition-transform" />
-                                                </Link>
+                                                {/* End of Grid */}
                                             </div>
                                         </div>
                                     </div>
