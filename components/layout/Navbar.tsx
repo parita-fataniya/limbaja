@@ -44,14 +44,14 @@ export default function Navbar() {
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm gap-2">
                     <div className="flex md:hidden items-center gap-4">
                         {/* Mobile View: Contact Info */}
-                        <a href="tel:+919274421388" className="flex items-center gap-2 hover:text-primary transition-colors"><Phone size={14} /> +91 97142 53756</a>
+                        <a href="tel:+9197142 53756" className="flex items-center gap-2 hover:text-primary transition-colors"><Phone size={14} /> +91 97142 53756</a>
                     </div>
                     <div className="hidden md:flex items-center gap-6">
                         <a href="mailto:limbajaenergy@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
                             <Mail size={14} />
                             <span>limbajaenergy@gmail.com</span>
                         </a>
-                        <a href="tel:+919274421388" className="flex items-center gap-2 hover:text-primary transition-colors">
+                        <a href="tel:+9197142 53756" className="flex items-center gap-2 hover:text-primary transition-colors">
                             <Phone size={14} />
                             <span>+91 97142 53756</span>
                         </a>
@@ -152,17 +152,40 @@ export default function Navbar() {
                     >
                         <div className="container mx-auto px-6 py-4 flex flex-col gap-2">
                             {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className={`px-4 py-3 rounded-lg font-medium transition-colors ${isActive(link.href)
-                                        ? "bg-primary/10 text-primary"
-                                        : "text-slate-600 hover:bg-slate-50"
-                                        }`}
-                                >
-                                    {link.name}
-                                </Link>
+                                link.name === "Our Services" ? (
+                                    <div key={link.name} className="flex flex-col">
+                                        <div className="px-4 py-3 font-medium text-slate-800 border-b border-slate-50">Our Services</div>
+                                        <div className="grid grid-cols-1 gap-2 pl-4 pr-2 pb-2 bg-slate-50/50">
+                                            {services.map(service => (
+                                                <Link
+                                                    key={service.id}
+                                                    href={`/service/${service.id}`}
+                                                    onClick={() => setIsOpen(false)}
+                                                    className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 transition-colors"
+                                                >
+                                                    <img
+                                                        src={service.image}
+                                                        alt={service.title}
+                                                        className="w-8 h-8 object-cover rounded-md"
+                                                    />
+                                                    <span className="text-sm text-slate-600 font-medium">{service.title}</span>
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className={`px-4 py-3 rounded-lg font-medium transition-colors ${isActive(link.href)
+                                            ? "bg-primary/10 text-primary"
+                                            : "text-slate-600 hover:bg-slate-50"
+                                            }`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                )
                             ))}
                         </div>
                     </motion.div>
