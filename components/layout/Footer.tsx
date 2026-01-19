@@ -104,10 +104,11 @@ export function Footer() {
                     <div>
                         <h3 className="text-xl font-bold mb-6 text-white border-b-2 border-[#F8B133] inline-block pb-2">Our Services</h3>
                         <ul className="space-y-3 text-sm text-slate-300">
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Energy Audit</li>
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Power Quality Audit</li>
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Thermography</li>
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Electrical Safety Audit</li>
+                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Detailed Energy Audit </li>
+                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Compressor Air Flow Audit </li>
+                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Power Plant Audit </li>
+                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Thermography </li>
+                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Flow Measurements </li>
                         </ul>
                     </div>
 
