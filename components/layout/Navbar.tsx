@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, Mail, Clock, Menu, X, ChevronDown, MoveRight } from "lucide-react";
+import { Phone, Mail, Clock, Menu, X, ChevronDown, MoveRight, Store } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useHeaderControl } from "@/context/HeaderControlContext";
 import { services } from "@/app/service/ServiceData";
@@ -55,6 +55,10 @@ export default function Navbar() {
                         <a href="tel:+9197142 53756" className="flex items-center gap-2 hover:text-primary transition-colors">
                             <Phone size={14} />
                             <span>+91 97142 53756</span>
+                        </a>
+                        <a href="https://www.indiamart.com/limbaja-energy/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+                            <Store size={14} />
+                            <span>IndiaMart</span>
                         </a>
                     </div>
                 </div>

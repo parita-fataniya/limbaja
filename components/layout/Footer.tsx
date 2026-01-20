@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter, ArrowRight, Store } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { motion, Variants } from "framer-motion";
 
@@ -71,6 +71,7 @@ export function Footer() {
                             <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors hover:-translate-y-1 duration-300"><Facebook size={18} /></a>
                             <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors hover:-translate-y-1 duration-300"><Linkedin size={18} /></a>
                             <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors hover:-translate-y-1 duration-300"><Twitter size={18} /></a>
+                            <a href="https://www.indiamart.com/limbaja-energy/" target="_blank" rel="noopener noreferrer" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors hover:-translate-y-1 duration-300" title="IndiaMart Profile"><Store size={18} /></a>
                         </div>
                     </div>
 
