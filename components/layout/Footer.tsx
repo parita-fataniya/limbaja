@@ -138,7 +138,36 @@ export function Footer() {
 
                 </div>
 
-                <div className="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400 text-sm">
+                {/* Big Footer Text */}
+                <div className="py-20 flex justify-center items-center select-none overflow-hidden w-full px-4">
+                    <h1 className="text-[10vw] font-black leading-none tracking-tighter flex flex-wrap justify-center gap-4 md:gap-12">
+                        {/* LIMBAJA */}
+                        <span className="flex">
+                            {"LIMBAJA".split("").map((char, i) => (
+                                <span
+                                    key={`l-${i}`}
+                                    className="relative inline-block text-transparent [-webkit-text-stroke:1px_theme('colors.slate.600')] hover:text-[#68A33D] hover:[-webkit-text-stroke:0px] hover:drop-shadow-[0_0_30px_rgba(104,163,61,0.6)] transition-all duration-300 cursor-pointer hover:scale-110 transform"
+                                >
+                                    {char}
+                                </span>
+                            ))}
+                        </span>
+
+                        {/* ENERGY */}
+                        <span className="flex">
+                            {"ENERGY".split("").map((char, i) => (
+                                <span
+                                    key={`e-${i}`}
+                                    className="relative inline-block text-transparent [-webkit-text-stroke:1px_theme('colors.slate.600')] hover:text-[#68A33D] hover:[-webkit-text-stroke:0px] hover:drop-shadow-[0_0_30px_rgba(104,163,61,0.6)] transition-all duration-300 cursor-pointer hover:scale-110 transform"
+                                >
+                                    {char}
+                                </span>
+                            ))}
+                        </span>
+                    </h1>
+                </div>
+
+                <div className="border-t border-slate-700 mt-0 pt-8 text-center text-slate-400 text-sm">
                     <p>&copy; {new Date().getFullYear()} Limbaja Energy. All Rights Reserved.</p>
                 </div>
             </div>
