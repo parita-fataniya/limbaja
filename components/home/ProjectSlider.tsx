@@ -7,14 +7,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Project Images from public/projects
 const projects = [
-    { id: 1, src: "/projects/p-1.jpg", title: "Industrial Efficiency Project" },
-    { id: 2, src: "/projects/p-2.jpg", title: "Thermal Optimization" },
-    { id: 3, src: "/projects/p-3.jpg", title: "Energy Audit Execution" },
-    { id: 4, src: "/projects/p-4.jpg", title: "Power Quality Analysis" },
-    { id: 5, src: "/projects/p-5.jpg", title: "Sustainable Integration" },
-    { id: 6, src: "/projects/p-6.jpg", title: "Large Scale Implementation" },
-    // { id: 7, src: "/projects/project7.jpg", title: "Site Inspection" }, // Skipping small/low-res if any, or include all
-    { id: 8, src: "/projects/p-8.jpg", title: "Advanced Monitoring" },
+    { id: 1, src: "/projects/our1.png", title: "Site Overview" },
+    { id: 2, src: "/projects/our2.png", title: "Team Inspection" },
+    { id: 3, src: "/projects/service3.png", title: "Harmonic Analysis Execution" },
+    { id: 4, src: "/projects/service4.png", title: "Compressor Audit In-Action" },
 ];
 
 export default function ProjectSlider() {
