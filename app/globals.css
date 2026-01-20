@@ -46,3 +46,14 @@ body {
     @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-slate-700/30;
   }
 }
+@keyframes glitter {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-glitter {
+  background-size: 200% auto;
+  animation: glitter 3s linear infinite;
+}
+

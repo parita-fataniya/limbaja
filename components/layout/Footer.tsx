@@ -146,7 +146,7 @@ export function Footer() {
                             {"LIMBAJA".split("").map((char, i) => (
                                 <span
                                     key={`l-${i}`}
-                                    className="relative inline-block text-transparent [-webkit-text-stroke:1px_theme('colors.slate.600')] hover:text-[#68A33D] hover:[-webkit-text-stroke:0px] hover:drop-shadow-[0_0_30px_rgba(104,163,61,0.6)] transition-all duration-300 cursor-pointer hover:scale-110 transform"
+                                    className="relative inline-block text-transparent [-webkit-text-stroke:1px_theme('colors.slate.600')] hover:[-webkit-text-stroke:0px] hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#68A33D] hover:via-white hover:to-[#68A33D] hover:animate-glitter hover:drop-shadow-[0_0_30px_rgba(104,163,61,0.8)] transition-all duration-300 cursor-pointer hover:scale-110 transform"
                                 >
                                     {char}
                                 </span>
@@ -158,7 +158,7 @@ export function Footer() {
                             {"ENERGY".split("").map((char, i) => (
                                 <span
                                     key={`e-${i}`}
-                                    className="relative inline-block text-transparent [-webkit-text-stroke:1px_theme('colors.slate.600')] hover:text-[#68A33D] hover:[-webkit-text-stroke:0px] hover:drop-shadow-[0_0_30px_rgba(104,163,61,0.6)] transition-all duration-300 cursor-pointer hover:scale-110 transform"
+                                    className="relative inline-block text-transparent [-webkit-text-stroke:1px_theme('colors.slate.600')] hover:[-webkit-text-stroke:0px] hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#68A33D] hover:via-white hover:to-[#68A33D] hover:animate-glitter hover:drop-shadow-[0_0_30px_rgba(104,163,61,0.8)] transition-all duration-300 cursor-pointer hover:scale-110 transform"
                                 >
                                     {char}
                                 </span>
