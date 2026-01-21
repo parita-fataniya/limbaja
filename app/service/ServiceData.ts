@@ -18,6 +18,7 @@ export interface Section {
     headers?: string[];
     rows?: string[][];
     sections?: { subtitle: string; items?: string[]; image?: string }[];
+    grid?: boolean;
 }
 
 export interface Service {
@@ -595,6 +596,7 @@ export const services: Service[] = [
             {
                 type: "nested-content",
                 title: "Type of Flow Measuring Service Provide",
+                grid: true,
                 sections: [
                     {
                         subtitle: "Steam Flow Measurement",

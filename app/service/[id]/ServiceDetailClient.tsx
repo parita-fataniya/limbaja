@@ -321,7 +321,7 @@ export default function ServiceDetailClient({ id }: { id: string }) {
 
                                         {/* NESTED CONTENT TYPE */}
                                         {section.type === "nested-content" && (
-                                            <div className="space-y-10">
+                                            <div className={section.grid ? "grid grid-cols-1 md:grid-cols-2 gap-6" : "space-y-10"}>
                                                 {section.sections.map((sub: any, i: number) => (
                                                     <motion.div
                                                         key={i}
