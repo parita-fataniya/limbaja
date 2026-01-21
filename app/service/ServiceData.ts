@@ -227,34 +227,22 @@ export const services: Service[] = [
                 ]
             },
             {
-                type: "table",
+                type: "image",
                 title: "Total Harmonic Distortion at Transformer",
-                headers: ["SN", "Location", "V1 (%)", "V2 (%)", "V3 (%)", "I1 (%)", "I2 (%)", "I3 (%)"],
-                rows: [
-                    ["1", "Main Incomer Average", "4.47", "4.61", "4.61", "11.83", "13.44", "13.36"],
-                    ["2", "Main Incomer Minimum", "3.90", "4.10", "4.10", "9.70", "10.60", "10.90"],
-                    ["3", "Main Incomer Maximum", "5.20", "5.40", "5.40", "20.70", "23.00", "23.60"]
-                ]
+                image: "/services/transformer.png",
+                alt: "Total Harmonic Distortion at Transformer"
             },
             {
-                type: "table",
+                type: "image",
                 title: "Individual Harmonic Distortion in Voltage",
-                headers: ["SN", "Location", "3rd (%)", "5th (%)", "7th (%)", "9th (%)", "11th (%)", "13th (%)"],
-                rows: [
-                    ["1", "Main Incomer Average", "0.31", "4.06", "1.54", "0.14", "0.68", "0.92"],
-                    ["2", "Main Incomer Minimum", "0.1", "3.5", "1", "0", "0", "0.3"],
-                    ["3", "Main Incomer Maximum", "0.5", "4.8", "2.4", "0.4", "1.2", "1.4"]
-                ]
+                image: "/services/indivi.png",
+                alt: "Individual Harmonic Distortion in Voltage"
             },
             {
-                type: "table",
+                type: "image",
                 title: "Individual Harmonic Distortion in Current",
-                headers: ["SN", "Location", "3rd (%)", "5th (%)", "7th (%)", "9th (%)", "11th (%)", "13th (%)"],
-                rows: [
-                    ["1", "Main Incomer Average", "1.65", "10.12", "4.94", "0.75", "3.59", "3.52"],
-                    ["2", "Main Incomer Minimum", "0.6", "7.7", "3.5", "0.2", "2.1", "1.6"],
-                    ["3", "Main Incomer Maximum", "3.9", "19.6", "11.2", "2.2", "6.4", "5.6"]
-                ]
+                image: "/services/harmonic-current.png",
+                alt: "Individual Harmonic Distortion in Current"
             },
             {
                 type: "image",
