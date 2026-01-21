@@ -397,16 +397,9 @@ export const services: Service[] = [
                 ]
             },
             {
-                type: "table",
-                title: "Calculation",
-                headers: ["SN", "Parameter", "Unit", "Value"],
-                rows: [
-                    ["1", "Air leakage from valve", "CFM", "12"],
-                    ["2", "Wastage of Power Due to Air leakage", "kW", "2.16"],
-                    ["3", "Daily Power Wastage", "kWh", "51.84"],
-                    ["4", "Annual Power Waste", "kWh", "18,921.6"],
-                    ["5", "Excess Power Consumption Cost due to Air leakage", "Rs", "1,60,834"]
-                ]
+                type: "image",
+                image: "/services/calculation.png",
+                alt: "Calculation Table"
             },
             {
                 type: "text",
