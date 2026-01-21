@@ -3,13 +3,47 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-    title: "Contact Us | Limbaja Energy",
-    description: "Get in touch with Limbaja Energy for energy audits, consultancy, and sustainable solutions. Reach out via phone, email, or our enquiry form.",
+    title: "Contact Us | Energy Audit Enquiry | Limbaja Energy",
+    description: "Get in touch with Limbaja Energy for professional energy audits, harmonic analysis, and efficiency consultancy in India. Reach out via phone, email, or our online form.",
+    keywords: ["Contact Limbaja Energy", "Energy Audit Enquiry India", "Professional Energy Consultant", "Ahmedabad Energy Audit Office"],
+    alternates: {
+        canonical: 'https://www.limbajaenergy.com/contact-us',
+    },
+    openGraph: {
+        title: "Contact Limbaja Energy | Expert Energy Solutions",
+        description: "Reach out to us for expert energy audits and sustainability consultancy.",
+        url: 'https://www.limbajaenergy.com/contact-us',
+        images: [{ url: '/OG_Image.png', width: 1200, height: 630, alt: 'Contact Limbaja Energy' }],
+    },
 };
 
 export default function ContactPage() {
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://www.limbajaenergy.com'
+            },
+            {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Contact Us',
+                'item': 'https://www.limbajaenergy.com/contact-us'
+            }
+        ]
+    };
+
     return (
         <div className="bg-white min-h-screen pb-20">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
             {/* Page Header */}
             <div className="bg-slate-900 text-white py-20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-secondary/10"></div>
