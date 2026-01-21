@@ -479,24 +479,11 @@ export const services: Service[] = [
                     },
                     {
                         subtitle: "Effectiveness of Air Pre heater & Ingress identification (PTC 4.3)",
-                        items: [
-                            "Gas Side Efficiency (GSE)",
-                            "Pre heater Air Side Efficiency (ASE)",
-                            "Pre heater Primary Air Side Efficiency (PASE)",
-                            "Overall efficiency",
-                            "APH Air Leakage Calculation",
-                            "Flue gas O2 CO CO2 and Air temperature shall be measure using portable gas analyzer which shall be in scope of Limbaja Energy",
-                            "All required parameter and data shall be measured/Calculate by Limbaja Energy"
-                        ]
+                        image: "/services/preheater.png"
                     },
                     {
                         subtitle: "Turbine (ASME PTC 6 -2004)",
-                        items: [
-                            "Turbine Cylinder Efficiency",
-                            "Pressure Survey",
-                            "Performance of turbine gland sealing system",
-                            "HMBD Diagram provided by company scope."
-                        ]
+                        image: "/services/turbin.png"
                     },
                     {
                         subtitle: "HP – LP Feed Water heater (ASME PTC 12.1)",
