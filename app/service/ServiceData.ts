@@ -67,17 +67,10 @@ export const services: Service[] = [
                 ]
             },
             {
-                type: "key-value",
+                type: "image",
                 title: "Essential Elements of Energy Auditing",
-                items: [
-                    { key: "Recording", value: "Measuring and recording energy consumption" },
-                    { key: "Analyzing", value: "Correlating energy consumption to a measured output, such as production quantity" },
-                    { key: "Comparing", value: "Comparing energy consumption to an appropriate standard or benchmark" },
-                    { key: "Setting Targets", value: "Setting targets to reduce or control energy consumption" },
-                    { key: "Monitoring", value: "Comparing energy consumption to the set target on a regular basis" },
-                    { key: "Reporting", value: "Reporting the results including any variances from the targets which have been set" },
-                    { key: "Controlling", value: "Implementing management measures to correct any variances, which may have occurred." }
-                ]
+                image: "/services/energyAudit.png",
+                alt: "Essential Elements of Energy Auditing Diagram"
             },
             {
                 type: "nested-content",
