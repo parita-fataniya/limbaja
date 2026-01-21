@@ -8,10 +8,26 @@ import ClientTicker from "@/components/home/ClientTicker";
 import HomeContact from "@/components/home/HomeContact";
 
 export const metadata: Metadata = {
-  title: "Limbaja Energy | Leading Energy Audit & Efficiency Experts",
-  description: "Transform your industrial energy efficiency with Limbaja Energy. Certified energy auditors providing comprehensive power quality audits, steam engineering, and sustainable energy solutions.",
+  title: "Limbaja Energy | Leading Energy Audit & Efficiency Experts in India",
+  description: "Transform industrial efficiency with Limbaja Energy. Certified energy auditors providing comprehensive power quality audits, steam engineering, and sustainable energy solutions globally.",
+  keywords: ["Certified Energy Auditor India", "Industrial Energy Efficiency", "Power Quality Audit Ahmedabad", "Steam Engineering Solutions", "Limbaja Energy Services"],
   alternates: {
     canonical: 'https://www.limbajaenergy.com',
+  },
+  openGraph: {
+    title: "Limbaja Energy | Leading Energy Audit & Efficiency Experts",
+    description: "Transform your industrial energy efficiency with Limbaja Energy. Certified energy auditors providing comprehensive solutions.",
+    url: 'https://www.limbajaenergy.com',
+    siteName: 'Limbaja Energy',
+    images: [{ url: '/OG_Image.png', width: 1200, height: 630, alt: 'Limbaja Energy Home' }],
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Limbaja Energy | Energy Audit Experts",
+    description: "Certified energy auditors providing comprehensive sustainable energy solutions.",
+    images: ['/OG_Image.png'],
   },
 };
 
@@ -20,19 +36,22 @@ export default function Home() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Limbaja Energy',
+    alternateName: 'Limbaja Energy Solutions',
     url: 'https://www.limbajaenergy.com',
-    logo: 'https://www.limbajaenergy.com/logo.png', // Assuming logo exists or will exist
+    logo: 'https://www.limbajaenergy.com/logo.png',
+    description: 'Limbaja Energy is a leading provider of energy audit and efficiency solutions for industrial operations.',
     sameAs: [
-      'https://www.facebook.com/limbajaenergy', // Add actual links if known, or placeholders
+      'https://www.facebook.com/limbajaenergy',
       'https://www.instagram.com/limbajaenergy',
-      'https://www.linkedin.com/company/limbaja-energy'
+      'https://www.linkedin.com/company/limbaja-energy',
+      'https://www.indiamart.com/limbaja-energy/'
     ],
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+91 97142 53756',
       contactType: 'customer service',
       areaServed: 'IN',
-      availableLanguage: 'en'
+      availableLanguage: ['en', 'hi', 'gu']
     },
     address: {
       '@type': 'PostalAddress',
@@ -43,6 +62,7 @@ export default function Home() {
       addressCountry: 'IN'
     }
   }
+
 
   return (
     <main className="min-h-screen">

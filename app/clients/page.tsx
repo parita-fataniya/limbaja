@@ -4,17 +4,52 @@ import path from "path";
 import ClientGrid from "./ClientGrid";
 
 export const metadata: Metadata = {
-    title: "Our Clients | Limbaja Energy",
-    description: "Trusted by industry leaders. View our prestigious client list and partners who have benefited from our energy efficiency solutions.",
+    title: "Our Clients | Trusted by Industry Leaders | Limbaja Energy",
+    description: "Trusted by top industry leaders in India and globally. View our prestigious client list who have achieved energy efficiency with our expert audits.",
+    keywords: ["Limbaja Energy Clients", "Industrial Partners India", "Energy Efficiency Projects", "Trusted Energy Auditors"],
+    alternates: {
+        canonical: 'https://www.limbajaenergy.com/clients',
+    },
+    openGraph: {
+        title: "Our Clients | Limbaja Energy",
+        description: "Partnering with industry leaders for sustainable energy excellence.",
+        url: 'https://www.limbajaenergy.com/clients',
+        images: [{ url: '/OG_Image.png', width: 1200, height: 630, alt: 'Limbaja Energy Clients' }],
+    },
 };
 
 import { clients } from "@/lib/ClientData";
 
 export default function ClientsPage() {
-    const clientImages = clients.map(file => `/clients/${file}`);
+    const clientImages = clients.map((file: string) => `/clients/${file}`);
+
+
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://www.limbajaenergy.com'
+            },
+            {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Clients',
+                'item': 'https://www.limbajaenergy.com/clients'
+            }
+        ]
+    };
 
     return (
         <div className="bg-slate-50 min-h-screen pb-20">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
             {/* Page Header */}
             <div className="bg-slate-900 text-white py-24 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-primary/20"></div>

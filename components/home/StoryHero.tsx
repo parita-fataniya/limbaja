@@ -19,28 +19,28 @@ const slides = [
         id: 1,
         type: "story",
         image: "/hero-section/hero-1.jpeg",
-        title: "Precision Energy Auditing",
+        title: "Precision Energy Auditing Services",
         subtitle: "Unlocking efficiency through detailed analysis and state-of-the-art measurement.",
     },
     {
         id: 2,
         type: "story",
         image: "/hero-section/hero-2.jpeg",
-        title: "Industrial Performance",
+        title: "Industrial Plant Performance Optimization",
         subtitle: "Optimizing large-scale industrial plants with sustainable energy solutions.",
     },
     {
         id: 3,
         type: "story",
         image: "/hero-section/hero-3.jpeg",
-        title: "Advanced Conservation",
+        title: "Advanced Energy Conservation Solutions",
         subtitle: "Reducing carbon footprints while maximizing operational cost savings.",
     },
     {
         id: 4,
         type: "story",
         image: "/hero-section/hero-4.jpeg",
-        title: "Expert Measurement",
+        title: "Expert Energy Measurement Tools",
         subtitle: "High-precision diagnostic tools for accurate energy performance indicators.",
     },
     {
@@ -115,7 +115,7 @@ export default function StoryHero() {
         }
 
         autoScrollTimer.current = setTimeout(() => {
-            if (current < slides.length - 1) {
+            if (current < slides.length - 2) {
                 setCurrent(prev => prev + 1);
             } else {
                 completeStory();
@@ -162,7 +162,7 @@ export default function StoryHero() {
 
             if (e.deltaY > 0) {
                 // Scroll Down
-                if (current < slides.length - 1) {
+                if (current < slides.length - 2) {
                     setCurrent((prev) => prev + 1);
                     setTimeout(() => scrolling.current = false, 1000);
                 } else {
@@ -195,7 +195,7 @@ export default function StoryHero() {
             scrolling.current = true;
 
             if (diff > 0) { // Swipe Up (Scroll Down)
-                if (current < slides.length - 1) {
+                if (current < slides.length - 2) {
                     setCurrent((prev) => prev + 1);
                     setTimeout(() => scrolling.current = false, 1000);
                 } else {
@@ -238,7 +238,7 @@ export default function StoryHero() {
     const currentSlide = slides[current];
     const isWelcome = currentSlide.type === "welcome";
 
-    const Wrapper = isStoryMode ? "div" : "section";
+    const Wrapper = "section";
     const wrapperClass = isStoryMode
         ? `fixed inset-0 z-[60] bg-[length:400%_400%] animate-gradient-slow transition-colors duration-1000 ${isWelcome ? 'text-slate-900 bg-white' : 'text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900'}`
         : "relative h-screen w-full overflow-hidden text-white bg-gradient-to-br from-slate-900 via-[#0f3433] to-slate-900 bg-[length:400%_400%] animate-gradient-slow";
@@ -282,12 +282,12 @@ export default function StoryHero() {
                         </div>
 
                         {/* Content */}
-                        <div className="relative z-10 flex flex-col items-center text-center px-4">
+                        <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-5xl mx-auto">
                             <motion.h1
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-                                className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 mb-6"
+                                className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-slate-900 mb-4 md:mb-6 leading-tight pb-2"
                             >
                                 Welcome to <br className="md:hidden" />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#68A33D] to-[#305196]">
@@ -299,12 +299,12 @@ export default function StoryHero() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                                className="flex items-center gap-3 text-lg md:text-2xl font-medium text-slate-600 mb-8 uppercase tracking-widest"
+                                className="flex flex-wrap justify-center items-center gap-2 md:gap-3 text-sm md:text-xl lg:text-2xl font-medium text-slate-600 mb-8 md:mb-12 uppercase tracking-widest px-2"
                             >
                                 <span className="text-[#68A33D]">Energy</span>
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#F8B133]" />
+                                <span className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-[#F8B133]" />
                                 <span className="text-[#305196]">Efficiency</span>
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#F8B133]" />
+                                <span className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-[#F8B133]" />
                                 <span className="text-slate-700">Excellence</span>
                             </motion.div>
                         </div>
