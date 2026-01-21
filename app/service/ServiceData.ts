@@ -699,23 +699,10 @@ export const services: Service[] = [
         image: "/services/9.png",
         sections: [
             {
-                type: "nested-content",
+                type: "image",
                 title: "Key Components",
-                sections: [
-                    {
-                        subtitle: "1. Process Streams",
-                        items: [
-                            "These include the various flows of materials (liquids, gases, solids) involved in a process. Each stream is characterised by properties such as temperature, pressure, density, viscosity, and flow rates."
-                        ]
-                    },
-                    {
-                        subtitle: "2. Balance Equations",
-                        items: [
-                            "Energy Balance Equation: Typically used to determine heat transfer rates, specific heat capacities, and temperature changes. For instance, in a heat exchanger, the heat lost by the hot fluid is reduced by an efficiency factor, meaning the heat gained by the cold fluid is less than the heat lost by the hot fluid.",
-                            "Mass Balance Equation: Used to ensure that the mass entering a process equals the mass exiting. This is particularly important in processes involving chemical reactions or phase changes."
-                        ]
-                    }
-                ]
+                image: "/services/process-strem.png",
+                alt: "Process Streams and Balance Equations Diagram"
             },
             {
                 type: "text",
