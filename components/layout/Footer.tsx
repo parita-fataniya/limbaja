@@ -140,7 +140,8 @@ export function Footer() {
 
                 {/* Big Footer Text */}
                 <div className="py-20 flex justify-center items-center select-none overflow-hidden w-full px-4">
-                    <h1 className="text-[10vw] font-black leading-none tracking-tighter flex flex-wrap justify-center gap-4 md:gap-12">
+                    <h2 className="text-[10vw] font-black leading-none tracking-tighter flex flex-wrap justify-center gap-4 md:gap-12">
+
                         {/* LIMBAJA */}
                         <span className="flex">
                             {"LIMBAJA".split("").map((char, i) => (
@@ -164,8 +165,9 @@ export function Footer() {
                                 </span>
                             ))}
                         </span>
-                    </h1>
+                    </h2>
                 </div>
+
 
                 <div className="border-t border-slate-700 mt-0 pt-8 text-center text-slate-400 text-sm">
                     <p>&copy; {new Date().getFullYear()} Limbaja Energy. All Rights Reserved.</p>

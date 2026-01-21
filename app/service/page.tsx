@@ -2,13 +2,47 @@ import type { Metadata } from 'next';
 import ServiceGrid from "./ServiceGrid";
 
 export const metadata: Metadata = {
-    title: "Our Services | Limbaja Energy",
-    description: "Explore our comprehensive range of energy efficiency services including detailed energy audits, harmonic analysis, compressor audits, and more.",
+    title: "Our Services | Energy Audit & Efficiency Solutions | Limbaja Energy",
+    description: "Explore our comprehensive range of energy efficiency services including BEE-certified energy audits, harmonic analysis, power quality diagnostics, and industrial energy conservation.",
+    keywords: ["Energy Audit Services", "Harmonic Analysis India", "Compressor Flow Audit", "Industrial Energy Management", "Steam Engineering Services"],
+    alternates: {
+        canonical: 'https://www.limbajaenergy.com/service',
+    },
+    openGraph: {
+        title: "Energy Efficiency Services | Limbaja Energy",
+        description: "Expert audits and solutions tailored for industrial energy excellence.",
+        url: 'https://www.limbajaenergy.com/service',
+        images: [{ url: '/OG_Image.png', width: 1200, height: 630, alt: 'Limbaja Energy Services' }],
+    },
 };
 
 export default function ServicePage() {
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://www.limbajaenergy.com'
+            },
+            {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Services',
+                'item': 'https://www.limbajaenergy.com/service'
+            }
+        ]
+    };
+
     return (
         <div className="bg-slate-50 min-h-screen pb-20 font-sans">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
             {/* Page Header - Matching Instrument Tabs Style */}
             <div className="bg-slate-900 py-20 relative overflow-hidden text-center">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
