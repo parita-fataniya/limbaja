@@ -17,7 +17,7 @@ export interface Section {
     alt?: string;
     headers?: string[];
     rows?: string[][];
-    sections?: { subtitle: string; items: string[]; image?: string }[];
+    sections?: { subtitle: string; items?: string[]; image?: string }[];
 }
 
 export interface Service {
@@ -475,17 +475,7 @@ export const services: Service[] = [
                 sections: [
                     {
                         subtitle: "Objective: Determine major loss Covered Are:",
-                        items: [
-                            "Heat Loss Due to dry flue gas losses",
-                            "Heat Loss due to moisture in fuel",
-                            "Heat loss due to moisture in air",
-                            "Heat loss due to hydrogen in fuel",
-                            "Heat loss due to un-burnt carbon in fly ash and bottom ash",
-                            "Heat loss due to radiation based on ABMA Curve",
-                            "Unaccounted losses",
-                            "All required parameter measurement and flue gas measurement shall be carried out by your entity using portable gas analyzer across APH for O2, CO and other instruments.",
-                            "Coal Analysis report and other report"
-                        ]
+                        image: "/services/heat-loss.png"
                     },
                     {
                         subtitle: "Effectiveness of Air Pre heater & Ingress identification (PTC 4.3)",

@@ -335,14 +335,16 @@ export default function ServiceDetailClient({ id }: { id: string }) {
                                                             <span className="w-1.5 h-8 bg-[var(--secondary)] rounded-full"></span>
                                                             {sub.subtitle}
                                                         </h4>
-                                                        <ul className="space-y-4 pl-2 mb-8">
-                                                            {sub.items.map((item: string, j: number) => (
-                                                                <li key={j} className="flex items-start gap-4 text-slate-600 group">
-                                                                    <span className="mt-2.5 w-2 h-2 rounded-full bg-slate-300 group-hover:bg-[var(--secondary)] transition-colors flex-shrink-0"></span>
-                                                                    <span className="leading-relaxed group-hover:text-slate-900 transition-colors text-lg">{item}</span>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
+                                                        {sub.items && (
+                                                            <ul className="space-y-4 pl-2 mb-8">
+                                                                {sub.items.map((item: string, j: number) => (
+                                                                    <li key={j} className="flex items-start gap-4 text-slate-600 group">
+                                                                        <span className="mt-2.5 w-2 h-2 rounded-full bg-slate-300 group-hover:bg-[var(--secondary)] transition-colors flex-shrink-0"></span>
+                                                                        <span className="leading-relaxed group-hover:text-slate-900 transition-colors text-lg">{item}</span>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        )}
                                                         {sub.image && (
                                                             <div className="mt-6 rounded-2xl overflow-hidden shadow-inner border border-slate-100">
                                                                 <Image
