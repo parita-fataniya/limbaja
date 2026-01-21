@@ -300,15 +300,9 @@ export const services: Service[] = [
                 ]
             },
             {
-                type: "table",
-                title: "Compressor Performance Measurement",
-                headers: ["S N", "Compressor", "Pressure (Bar)", "Actual CFM", "KW/CFM", "Rated CFM", "Volumetric efficiency"],
-                rows: [
-                    ["1", "Compressor 4", "6.9", "109.9", "0.298", "174.0", "63.15"],
-                    ["2", "Compressor 5", "6.5", "166.3", "0.214", "174.0", "95.58"],
-                    ["3", "Compressor 6", "6.4", "138.8", "0.221", "174.0", "79.77"],
-                    ["4", "Compressor 3", "6.3", "59.9", "0.389", "115.0", "52.06"]
-                ]
+                type: "image",
+                image: "/services/compressorPerforance.png",
+                alt: "Compressor Performance Measurement"
             },
             {
                 type: "list",
