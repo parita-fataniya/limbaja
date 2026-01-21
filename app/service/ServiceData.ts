@@ -18,6 +18,7 @@ export interface Section {
     headers?: string[];
     rows?: string[][];
     sections?: { subtitle: string; items?: string[]; image?: string }[];
+    grid?: boolean;
 }
 
 export interface Service {
@@ -595,6 +596,7 @@ export const services: Service[] = [
             {
                 type: "nested-content",
                 title: "Type of Flow Measuring Service Provide",
+                grid: true,
                 sections: [
                     {
                         subtitle: "Steam Flow Measurement",
@@ -700,11 +702,21 @@ export const services: Service[] = [
                 ]
             },
             {
+                type: "image",
+                image: "/services/process-heat-1.png",
+                alt: "Process Heat Diagram 1"
+            },
+            {
                 type: "text",
                 title: "Heat and Mass Balance in New Processes",
                 content: [
                     "For new processes, heat and mass balance calculations are fundamental during the development phase. They provide insights into expected material and energy flows, guiding the design of equipment and selection of materials. These analyses are crucial for feasibility studies, enabling engineers to evaluate different configurations and technologies to identify the most cost-effective and efficient solutions."
                 ]
+            },
+            {
+                type: "image",
+                image: "/services/process-heat-2.png",
+                alt: "Process Heat Diagram 2"
             },
             {
                 type: "text",
