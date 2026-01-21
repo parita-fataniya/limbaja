@@ -105,11 +105,31 @@ export function Footer() {
                     <div>
                         <h3 className="text-xl font-bold mb-6 text-white border-b-2 border-[#F8B133] inline-block pb-2">Our Services</h3>
                         <ul className="space-y-3 text-sm text-slate-300">
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Detailed Energy Audit </li>
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Compressor Air Flow Audit </li>
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Power Plant Audit </li>
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Thermography </li>
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Flow Measurements </li>
+                            <li>
+                                <Link href="/service/detailed-energy-audit" className="flex items-start gap-2 hover:text-[#F8B133] transition-colors group">
+                                    <ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px] group-hover:translate-x-1 transition-transform" /> Detailed Energy Audit
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/service/compressor-audit" className="flex items-start gap-2 hover:text-[#F8B133] transition-colors group">
+                                    <ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px] group-hover:translate-x-1 transition-transform" /> Compressor Air Flow Audit
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/service/power-plant-audit" className="flex items-start gap-2 hover:text-[#F8B133] transition-colors group">
+                                    <ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px] group-hover:translate-x-1 transition-transform" /> Power Plant Audit
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/service/thermography" className="flex items-start gap-2 hover:text-[#F8B133] transition-colors group">
+                                    <ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px] group-hover:translate-x-1 transition-transform" /> Thermography
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/service/flow-measurement" className="flex items-start gap-2 hover:text-[#F8B133] transition-colors group">
+                                    <ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px] group-hover:translate-x-1 transition-transform" /> Flow Measurements
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
