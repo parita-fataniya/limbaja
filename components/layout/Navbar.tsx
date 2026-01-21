@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, Mail, Clock, Menu, X, ChevronDown, MoveRight } from "lucide-react";
+import { Phone, Mail, Clock, Menu, X, ChevronDown, MoveRight, Store } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useHeaderControl } from "@/context/HeaderControlContext";
 import { services } from "@/app/service/ServiceData";
@@ -20,6 +20,7 @@ const navLinks = [
 export default function Navbar() {
     const { isHeaderHidden } = useHeaderControl();
     const [isOpen, setIsOpen] = useState(false);
+    const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
 
@@ -44,16 +45,20 @@ export default function Navbar() {
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm gap-2">
                     <div className="flex md:hidden items-center gap-4">
                         {/* Mobile View: Contact Info */}
-                        <a href="tel:+919274421388" className="flex items-center gap-2 hover:text-primary transition-colors"><Phone size={14} /> +91 97142 53756</a>
+                        <a href="tel:+9197142 53756" className="flex items-center gap-2 hover:text-primary transition-colors"><Phone size={14} /> +91 97142 53756</a>
                     </div>
                     <div className="hidden md:flex items-center gap-6">
                         <a href="mailto:limbajaenergy@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
                             <Mail size={14} />
                             <span>limbajaenergy@gmail.com</span>
                         </a>
-                        <a href="tel:+919274421388" className="flex items-center gap-2 hover:text-primary transition-colors">
+                        <a href="tel:+9197142 53756" className="flex items-center gap-2 hover:text-primary transition-colors">
                             <Phone size={14} />
                             <span>+91 97142 53756</span>
+                        </a>
+                        <a href="https://www.indiamart.com/limbaja-energy/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+                            <Store size={14} />
+                            <span>IndiaMart</span>
                         </a>
                     </div>
                 </div>
@@ -87,26 +92,28 @@ export default function Navbar() {
                                         </Link>
 
                                         {/* Dropdown Menu */}
-                                        <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 p-2">
-                                            <div className="flex flex-col gap-1">
-                                                {services.slice(0, 3).map((service) => (
+                                        <div className="absolute top-full -left-[550px] mt-2 w-[900px] bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 p-6">
+                                            <div className="grid grid-cols-4 gap-4">
+                                                {services.map((service) => (
                                                     <Link
                                                         key={service.id}
                                                         href={`/service/${service.id}`}
-                                                        className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors group/item"
+                                                        className="flex items-start gap-3 p-2 rounded-lg hover:bg-slate-50 transition-colors group/item"
                                                     >
-                                                        <div className="font-bold text-slate-800 text-sm group-hover/item:text-primary transition-colors">{service.title}</div>
-                                                        <div className="text-xs text-slate-500 line-clamp-1 mt-0.5">{service.description}</div>
+                                                        <div className="mt-1 shrink-0">
+                                                            <img
+                                                                src={service.image}
+                                                                alt={service.title}
+                                                                className="w-10 h-10 object-cover rounded-md group-hover/item:scale-105 transition-transform"
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <div className="font-bold text-slate-800 text-xs group-hover/item:text-primary transition-colors leading-tight">{service.title}</div>
+                                                            <div className="text-[10px] text-slate-500 line-clamp-2 mt-0.5 leading-snug">{service.description}</div>
+                                                        </div>
                                                     </Link>
                                                 ))}
-                                                <div className="h-px bg-slate-100 my-1"></div>
-                                                <Link
-                                                    href="/service"
-                                                    className="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-primary/5 text-primary text-sm font-bold transition-colors group/item"
-                                                >
-                                                    <span>View All Services</span>
-                                                    <MoveRight size={16} className="group-hover/item:translate-x-1 transition-transform" />
-                                                </Link>
+                                                {/* End of Grid */}
                                             </div>
                                         </div>
                                     </div>
@@ -150,17 +157,58 @@ export default function Navbar() {
                     >
                         <div className="container mx-auto px-6 py-4 flex flex-col gap-2">
                             {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className={`px-4 py-3 rounded-lg font-medium transition-colors ${isActive(link.href)
-                                        ? "bg-primary/10 text-primary"
-                                        : "text-slate-600 hover:bg-slate-50"
-                                        }`}
-                                >
-                                    {link.name}
-                                </Link>
+                                link.name === "Our Services" ? (
+                                    <div key={link.name} className="flex flex-col">
+                                        <button
+                                            onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                                            className="flex items-center justify-between px-4 py-3 rounded-lg font-medium text-slate-800 hover:bg-slate-50 transition-colors bg-slate-50/50"
+                                        >
+                                            Our Services
+                                            <ChevronDown size={16} className={`transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                                        </button>
+
+                                        <AnimatePresence>
+                                            {isMobileServicesOpen && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="grid grid-cols-1 gap-2 pl-4 pr-2 py-2 bg-slate-50/30 max-h-64 overflow-y-auto border-t border-slate-100">
+                                                        {services.map(service => (
+                                                            <Link
+                                                                key={service.id}
+                                                                href={`/service/${service.id}`}
+                                                                onClick={() => setIsOpen(false)}
+                                                                className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 transition-colors"
+                                                            >
+                                                                <img
+                                                                    src={service.image}
+                                                                    alt={service.title}
+                                                                    className="w-8 h-8 object-cover rounded-md shrink-0"
+                                                                />
+                                                                <span className="text-sm text-slate-600 font-medium">{service.title}</span>
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                ) : (
+                                    <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className={`px-4 py-3 rounded-lg font-medium transition-colors ${isActive(link.href)
+                                            ? "bg-primary/10 text-primary"
+                                            : "text-slate-600 hover:bg-slate-50"
+                                            }`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                )
                             ))}
                         </div>
                     </motion.div>

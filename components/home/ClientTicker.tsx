@@ -124,7 +124,7 @@ export default function ClientTicker() {
                         className="py-12 px-4 rounded-[2.5rem] bg-white border border-slate-300 text-center group hover:bg-primary hover:border-primary transition-all duration-500 shadow-lg hover:shadow-2xl"
                     >
                         <div className="text-4xl lg:text-5xl xl:text-7xl font-black text-slate-900 group-hover:text-white mb-4 flex justify-center tracking-tighter transition-colors">
-                            <Counter value={500} suffix="+" />
+                            <Counter value={150} suffix="+" />
                         </div>
                         <p className="text-slate-500 group-hover:text-white font-black uppercase tracking-widest text-[10px] md:text-xs transition-colors">Projects Completed</p>
                     </motion.div>
@@ -138,7 +138,7 @@ export default function ClientTicker() {
                         className="py-12 px-4 rounded-[2.5rem] bg-white border border-slate-300 text-center group hover:bg-primary hover:border-primary transition-all duration-500 shadow-lg hover:shadow-2xl"
                     >
                         <div className="text-4xl lg:text-5xl xl:text-7xl font-black text-slate-900 group-hover:text-white mb-4 flex justify-center tracking-tighter transition-colors">
-                            <Counter value={30} suffix="%" />
+                            <Counter value={5} suffix="%" />
                         </div>
                         <p className="text-slate-500 group-hover:text-white font-black uppercase tracking-widest text-[10px] md:text-xs transition-colors">Average Savings</p>
                     </motion.div>

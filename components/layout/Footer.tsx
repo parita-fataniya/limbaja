@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter, ArrowRight, Store } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { motion, Variants } from "framer-motion";
 
@@ -9,10 +9,7 @@ export function Footer() {
     const pathname = usePathname();
 
     const isActive = (path: string) => {
-        if (path === "/") {
-            return pathname === "/";
-        }
-        return pathname.startsWith(path);
+        return pathname === path;
     };
 
     const textVariants: Variants = {
@@ -74,6 +71,7 @@ export function Footer() {
                             <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors hover:-translate-y-1 duration-300"><Facebook size={18} /></a>
                             <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors hover:-translate-y-1 duration-300"><Linkedin size={18} /></a>
                             <a href="#" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors hover:-translate-y-1 duration-300"><Twitter size={18} /></a>
+                            <a href="https://www.indiamart.com/limbaja-energy/" target="_blank" rel="noopener noreferrer" className="bg-slate-700 p-2 rounded hover:bg-[#68A33D] transition-colors hover:-translate-y-1 duration-300" title="IndiaMart Profile"><Store size={18} /></a>
                         </div>
                     </div>
 
@@ -107,10 +105,11 @@ export function Footer() {
                     <div>
                         <h3 className="text-xl font-bold mb-6 text-white border-b-2 border-[#F8B133] inline-block pb-2">Our Services</h3>
                         <ul className="space-y-3 text-sm text-slate-300">
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Energy Audit</li>
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Power Quality Audit</li>
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Thermography</li>
-                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Electrical Safety Audit</li>
+                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Detailed Energy Audit </li>
+                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Compressor Air Flow Audit </li>
+                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Power Plant Audit </li>
+                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Thermography </li>
+                            <li className="flex items-start gap-2"><ArrowRight size={14} className="mt-1 text-[#F8B133] min-w-[14px]" /> Flow Measurements </li>
                         </ul>
                     </div>
 
@@ -139,7 +138,36 @@ export function Footer() {
 
                 </div>
 
-                <div className="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400 text-sm">
+                {/* Big Footer Text */}
+                <div className="py-20 flex justify-center items-center select-none overflow-hidden w-full px-4">
+                    <h1 className="text-[10vw] font-black leading-none tracking-tighter flex flex-wrap justify-center gap-4 md:gap-12">
+                        {/* LIMBAJA */}
+                        <span className="flex">
+                            {"LIMBAJA".split("").map((char, i) => (
+                                <span
+                                    key={`l-${i}`}
+                                    className="relative inline-block text-transparent [-webkit-text-stroke:1px_theme('colors.slate.600')] hover:[-webkit-text-stroke:0px] hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#68A33D] hover:via-white hover:to-[#68A33D] hover:animate-glitter hover:drop-shadow-[0_0_30px_rgba(104,163,61,0.8)] transition-all duration-300 cursor-pointer hover:scale-110 transform"
+                                >
+                                    {char}
+                                </span>
+                            ))}
+                        </span>
+
+                        {/* ENERGY */}
+                        <span className="flex">
+                            {"ENERGY".split("").map((char, i) => (
+                                <span
+                                    key={`e-${i}`}
+                                    className="relative inline-block text-transparent [-webkit-text-stroke:1px_theme('colors.slate.600')] hover:[-webkit-text-stroke:0px] hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#68A33D] hover:via-white hover:to-[#68A33D] hover:animate-glitter hover:drop-shadow-[0_0_30px_rgba(104,163,61,0.8)] transition-all duration-300 cursor-pointer hover:scale-110 transform"
+                                >
+                                    {char}
+                                </span>
+                            ))}
+                        </span>
+                    </h1>
+                </div>
+
+                <div className="border-t border-slate-700 mt-0 pt-8 text-center text-slate-400 text-sm">
                     <p>&copy; {new Date().getFullYear()} Limbaja Energy. All Rights Reserved.</p>
                 </div>
             </div>
