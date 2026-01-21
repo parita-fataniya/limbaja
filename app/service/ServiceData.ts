@@ -17,7 +17,7 @@ export interface Section {
     alt?: string;
     headers?: string[];
     rows?: string[][];
-    sections?: { subtitle: string; items: string[]; image?: string }[];
+    sections?: { subtitle: string; items?: string[]; image?: string }[];
 }
 
 export interface Service {
@@ -67,17 +67,10 @@ export const services: Service[] = [
                 ]
             },
             {
-                type: "key-value",
+                type: "image",
                 title: "Essential Elements of Energy Auditing",
-                items: [
-                    { key: "Recording", value: "Measuring and recording energy consumption" },
-                    { key: "Analyzing", value: "Correlating energy consumption to a measured output, such as production quantity" },
-                    { key: "Comparing", value: "Comparing energy consumption to an appropriate standard or benchmark" },
-                    { key: "Setting Targets", value: "Setting targets to reduce or control energy consumption" },
-                    { key: "Monitoring", value: "Comparing energy consumption to the set target on a regular basis" },
-                    { key: "Reporting", value: "Reporting the results including any variances from the targets which have been set" },
-                    { key: "Controlling", value: "Implementing management measures to correct any variances, which may have occurred." }
-                ]
+                image: "/services/energyAudit.png",
+                alt: "Essential Elements of Energy Auditing Diagram"
             },
             {
                 type: "nested-content",
@@ -234,34 +227,22 @@ export const services: Service[] = [
                 ]
             },
             {
-                type: "table",
+                type: "image",
                 title: "Total Harmonic Distortion at Transformer",
-                headers: ["SN", "Location", "V1 (%)", "V2 (%)", "V3 (%)", "I1 (%)", "I2 (%)", "I3 (%)"],
-                rows: [
-                    ["1", "Main Incomer Average", "4.47", "4.61", "4.61", "11.83", "13.44", "13.36"],
-                    ["2", "Main Incomer Minimum", "3.90", "4.10", "4.10", "9.70", "10.60", "10.90"],
-                    ["3", "Main Incomer Maximum", "5.20", "5.40", "5.40", "20.70", "23.00", "23.60"]
-                ]
+                image: "/services/transformer.png",
+                alt: "Total Harmonic Distortion at Transformer"
             },
             {
-                type: "table",
+                type: "image",
                 title: "Individual Harmonic Distortion in Voltage",
-                headers: ["SN", "Location", "3rd (%)", "5th (%)", "7th (%)", "9th (%)", "11th (%)", "13th (%)"],
-                rows: [
-                    ["1", "Main Incomer Average", "0.31", "4.06", "1.54", "0.14", "0.68", "0.92"],
-                    ["2", "Main Incomer Minimum", "0.1", "3.5", "1", "0", "0", "0.3"],
-                    ["3", "Main Incomer Maximum", "0.5", "4.8", "2.4", "0.4", "1.2", "1.4"]
-                ]
+                image: "/services/indivi.png",
+                alt: "Individual Harmonic Distortion in Voltage"
             },
             {
-                type: "table",
+                type: "image",
                 title: "Individual Harmonic Distortion in Current",
-                headers: ["SN", "Location", "3rd (%)", "5th (%)", "7th (%)", "9th (%)", "11th (%)", "13th (%)"],
-                rows: [
-                    ["1", "Main Incomer Average", "1.65", "10.12", "4.94", "0.75", "3.59", "3.52"],
-                    ["2", "Main Incomer Minimum", "0.6", "7.7", "3.5", "0.2", "2.1", "1.6"],
-                    ["3", "Main Incomer Maximum", "3.9", "19.6", "11.2", "2.2", "6.4", "5.6"]
-                ]
+                image: "/services/harmonic-current.png",
+                alt: "Individual Harmonic Distortion in Current"
             },
             {
                 type: "image",
@@ -307,15 +288,9 @@ export const services: Service[] = [
                 ]
             },
             {
-                type: "table",
-                title: "Compressor Performance Measurement",
-                headers: ["S N", "Compressor", "Pressure (Bar)", "Actual CFM", "KW/CFM", "Rated CFM", "Volumetric efficiency"],
-                rows: [
-                    ["1", "Compressor 4", "6.9", "109.9", "0.298", "174.0", "63.15"],
-                    ["2", "Compressor 5", "6.5", "166.3", "0.214", "174.0", "95.58"],
-                    ["3", "Compressor 6", "6.4", "138.8", "0.221", "174.0", "79.77"],
-                    ["4", "Compressor 3", "6.3", "59.9", "0.389", "115.0", "52.06"]
-                ]
+                type: "image",
+                image: "/services/compressorPerforance.png",
+                alt: "Compressor Performance Measurement"
             },
             {
                 type: "list",
@@ -410,16 +385,9 @@ export const services: Service[] = [
                 ]
             },
             {
-                type: "table",
-                title: "Calculation",
-                headers: ["SN", "Parameter", "Unit", "Value"],
-                rows: [
-                    ["1", "Air leakage from valve", "CFM", "12"],
-                    ["2", "Wastage of Power Due to Air leakage", "kW", "2.16"],
-                    ["3", "Daily Power Wastage", "kWh", "51.84"],
-                    ["4", "Annual Power Waste", "kWh", "18,921.6"],
-                    ["5", "Excess Power Consumption Cost due to Air leakage", "Rs", "1,60,834"]
-                ]
+                type: "image",
+                image: "/services/calculation.png",
+                alt: "Calculation Table"
             },
             {
                 type: "text",
@@ -495,38 +463,15 @@ export const services: Service[] = [
                 sections: [
                     {
                         subtitle: "Objective: Determine major loss Covered Are:",
-                        items: [
-                            "Heat Loss Due to dry flue gas losses",
-                            "Heat Loss due to moisture in fuel",
-                            "Heat loss due to moisture in air",
-                            "Heat loss due to hydrogen in fuel",
-                            "Heat loss due to un-burnt carbon in fly ash and bottom ash",
-                            "Heat loss due to radiation based on ABMA Curve",
-                            "Unaccounted losses",
-                            "All required parameter measurement and flue gas measurement shall be carried out by your entity using portable gas analyzer across APH for O2, CO and other instruments.",
-                            "Coal Analysis report and other report"
-                        ]
+                        image: "/services/heat-loss.png"
                     },
                     {
                         subtitle: "Effectiveness of Air Pre heater & Ingress identification (PTC 4.3)",
-                        items: [
-                            "Gas Side Efficiency (GSE)",
-                            "Pre heater Air Side Efficiency (ASE)",
-                            "Pre heater Primary Air Side Efficiency (PASE)",
-                            "Overall efficiency",
-                            "APH Air Leakage Calculation",
-                            "Flue gas O2 CO CO2 and Air temperature shall be measure using portable gas analyzer which shall be in scope of Limbaja Energy",
-                            "All required parameter and data shall be measured/Calculate by Limbaja Energy"
-                        ]
+                        image: "/services/preheater.png"
                     },
                     {
                         subtitle: "Turbine (ASME PTC 6 -2004)",
-                        items: [
-                            "Turbine Cylinder Efficiency",
-                            "Pressure Survey",
-                            "Performance of turbine gland sealing system",
-                            "HMBD Diagram provided by company scope."
-                        ]
+                        image: "/services/turbin.png"
                     },
                     {
                         subtitle: "HP – LP Feed Water heater (ASME PTC 12.1)",
@@ -742,23 +687,10 @@ export const services: Service[] = [
         image: "/services/9.png",
         sections: [
             {
-                type: "nested-content",
+                type: "image",
                 title: "Key Components",
-                sections: [
-                    {
-                        subtitle: "1. Process Streams",
-                        items: [
-                            "These include the various flows of materials (liquids, gases, solids) involved in a process. Each stream is characterised by properties such as temperature, pressure, density, viscosity, and flow rates."
-                        ]
-                    },
-                    {
-                        subtitle: "2. Balance Equations",
-                        items: [
-                            "Energy Balance Equation: Typically used to determine heat transfer rates, specific heat capacities, and temperature changes. For instance, in a heat exchanger, the heat lost by the hot fluid is reduced by an efficiency factor, meaning the heat gained by the cold fluid is less than the heat lost by the hot fluid.",
-                            "Mass Balance Equation: Used to ensure that the mass entering a process equals the mass exiting. This is particularly important in processes involving chemical reactions or phase changes."
-                        ]
-                    }
-                ]
+                image: "/services/process-strem.png",
+                alt: "Process Streams and Balance Equations Diagram"
             },
             {
                 type: "text",
