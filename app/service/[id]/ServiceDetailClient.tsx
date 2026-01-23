@@ -118,13 +118,15 @@ export default function ServiceDetailClient({ id }: { id: string }) {
                                         viewport={{ once: true, margin: "-50px" }}
                                     >
                                         {section.title && (
-                                            <AnimatedSectionHeader title={section.title} className="mb-8" />
+                                            <div className="max-w-4xl mx-auto">
+                                                <AnimatedSectionHeader title={section.title} className="mb-8" />
+                                            </div>
                                         )}
 
                                         {/* IMAGE TYPE */}
                                         {section.type === "image" && (
-                                            <div className="w-full max-w-4xl mx-auto my-8 group">
-                                                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+                                            <div className={`w-full ${section.variant === 'logo' ? 'max-w-[200px]' : 'max-w-4xl'} mx-auto my-8 group`}>
+                                                <div className={`relative w-full ${section.variant === 'logo' ? 'aspect-square' : 'aspect-video'} rounded-2xl overflow-hidden shadow-lg border border-slate-100`}>
                                                     <Image
                                                         src={section.image}
                                                         alt={section.alt || section.title || "Service Image"}
@@ -151,7 +153,7 @@ export default function ServiceDetailClient({ id }: { id: string }) {
                                                         transition={{ delay: i * 0.2 }}
                                                         className="flex flex-col items-center group"
                                                     >
-                                                        <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 shadow-md hover:shadow-xl transition-all duration-500">
+                                                        <div className={`relative w-full ${img.variant === 'logo' ? 'aspect-square max-w-[200px] mx-auto' : 'aspect-video'} rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 shadow-md hover:shadow-xl transition-all duration-500`}>
                                                             <Image
                                                                 src={img.url}
                                                                 alt={img.alt || img.title || "Service Image"}
@@ -171,7 +173,7 @@ export default function ServiceDetailClient({ id }: { id: string }) {
 
                                         {/* TEXT TYPE */}
                                         {section.type === "text" && (
-                                            <div className="space-y-6 max-w-4xl">
+                                            <div className="space-y-6 max-w-4xl mx-auto">
                                                 {section.content.map((text: string, i: number) => (
                                                     <p key={i} className="text-slate-600 leading-8 text-lg">
                                                         {text}
