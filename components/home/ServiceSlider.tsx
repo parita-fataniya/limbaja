@@ -88,7 +88,7 @@ export default function ServiceSlider() {
                         </motion.div>
 
                         <h2 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
-                            Advanced Energy <br />
+                            Advanced <span className="text-primary">Energy</span> <br />
                             <span className="text-primary relative inline-block">
                                 Auditing
                                 <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 100 8" preserveAspectRatio="none">

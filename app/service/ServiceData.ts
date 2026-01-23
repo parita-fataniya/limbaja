@@ -9,11 +9,12 @@ export interface SubTab {
 
 export interface Section {
     type: "text" | "list" | "image" | "table" | "nested-content" | "key-value" | "image-row";
+    variant?: 'logo';
     title?: string;
     content?: string[];
     items?: string[] | { key: string; value: string }[];
     image?: string;
-    images?: { url: string; title: string; alt: string }[];
+    images?: { url: string; title: string; alt: string; variant?: 'logo' }[];
     alt?: string;
     headers?: string[];
     rows?: string[][];
@@ -52,19 +53,6 @@ export const services: Service[] = [
                     "Statutory Energy Audit as per the Chief Electrical Inspector",
                     "Energy Audit as per the ISO 50001",
                     "Energy Audit as per the Responsible Care (RC) certification Compliance in Chemical Industry"
-                ]
-            },
-            {
-                type: "image",
-                title: "Which Parameter Monitoring in Energy Audit?",
-                image: "/services/detail1sub1.jpeg",
-                alt: "Parameter Monitoring Diagram"
-            },
-            {
-                type: "list",
-                title: "Parameters Monitored",
-                items: [
-                    "Water", "Electricity", "Coal", "Air Compressor", "Fan & Blower", "Cooling Tower", "Pumping system", "Chiller Auxiliary", "Boiler Auxiliary"
                 ]
             },
             {
@@ -801,13 +789,13 @@ export const services: Service[] = [
             },
             {
                 type: "image",
-                title: "Figure : Existing Circulation of Water at Cooling Tower",
+                title: "Existing Circulation of Water at Cooling Tower",
                 image: "/services/detail10sub1.png",
                 alt: "Existing Circulation of Water at Cooling Tower Diagram"
             },
             {
                 type: "image",
-                title: "Figure : Suggested Cooling Tower Water Circulation",
+                title: "Suggested Cooling Tower Water Circulation",
                 image: "/services/detail10sub2.png",
                 alt: "Suggested Cooling Tower Water Circulation Diagram"
             },
@@ -882,7 +870,7 @@ export const services: Service[] = [
             },
             {
                 type: "table",
-                title: "Data",
+                title: "Calculation",
                 headers: ["SN", "Parameter", "Unit", "Chiller"],
                 rows: [
                     ["1", "Actual Chiller Capacity Requirement", "TR", "103.34"],
@@ -1067,7 +1055,6 @@ export const services: Service[] = [
             },
             {
                 type: "table",
-                title: "Data: Pump 235 A",
                 headers: ["SN", "Description", "Unit", "Value"],
                 rows: [
                     ["1", "Existing Efficiency", "%", "37.26"],
@@ -1091,6 +1078,7 @@ export const services: Service[] = [
             },
             {
                 type: "image",
+                variant: 'logo',
                 title: "",
                 image: "/services/image.png",
                 alt: "Reduce Your Carbon Footprint"
@@ -1230,7 +1218,8 @@ export const services: Service[] = [
                     {
                         url: "/services/reduce-carbon-footprint.png",
                         title: "Reduce Your Carbon Footprint",
-                        alt: "Reduce Your Carbon Footprint Logo"
+                        alt: "Reduce Your Carbon Footprint Logo",
+                        variant: 'logo'
                     }
                 ]
             },
@@ -1333,7 +1322,7 @@ export const services: Service[] = [
             },
             {
                 type: "table",
-                title: "Data: Motor Specifications & No Load Test",
+                title: "Motor Efficiency Calculation",
                 headers: ["SN", "Descriptions", "Unit", "Value"],
                 rows: [
                     ["1", "No of poles", "-", "6"],
