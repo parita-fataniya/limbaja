@@ -1135,7 +1135,7 @@ export const services: Service[] = [
             },
             {
                 type: "table",
-                title: "Case Study: Energy conservation Measures : VFD Controlling System Instead Of Damper Controlling At D5/3 Plant Mill ID Fan",
+                title: "Case Study: Energy conservation Measures : VFD Controlling System Instead Of Damper Controlling At Plant Mill ID Fan",
                 headers: ["SN", "Parameter", "Unit", "Value"],
                 rows: [
                     ["1", "Power Consumption of blower", "kW", "96.5"],
@@ -1153,9 +1153,9 @@ export const services: Service[] = [
             },
             {
                 type: "list",
-                title: "Mill D5/3 Blower Trial Data",
+                title: "Mill Blower Trial Data",
                 items: [
-                    "Take trial at D5/3 Mill Blower suction damper 50 % throttling and full open Condition.",
+                    "Take trial at Mill Blower suction damper 50 % throttling and full open Condition.",
                     "VFD Already install in the Mill ID Fan.",
                     "Pressure data show in the below table and figure.",
                     "Mill Blower power is very with product, Mill frequency & Whizzer Frequency.",
@@ -1168,7 +1168,7 @@ export const services: Service[] = [
             },
             {
                 type: "table",
-                title: "D5/3 Mill Blower Trial Data",
+                title: "Mill Blower Trial Data",
                 headers: ["SN", "Parameter", "Unit", "Regular Running", "During Trial"],
                 rows: [
                     ["1", "Damper Position", "%", "50% Close", "100% Open"],
