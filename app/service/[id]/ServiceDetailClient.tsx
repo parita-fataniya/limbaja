@@ -171,6 +171,29 @@ export default function ServiceDetailClient({ id }: { id: string }) {
                                             </div>
                                         )}
 
+                                        {/* CONTENT-IMAGE TYPE */}
+                                        {section.type === "content-image" && section.image && (
+                                            <div className={`flex flex-col md:flex-row gap-8 items-center my-12 ${section.imageSide === 'left' ? 'md:flex-row-reverse' : ''}`}>
+                                                <div className="flex-1 space-y-6">
+                                                    {section.content?.map((text: string, i: number) => (
+                                                        <p key={i} className="text-slate-600 leading-8 text-lg">
+                                                            {text}
+                                                        </p>
+                                                    ))}
+                                                </div>
+                                                <div className="flex-1 w-full">
+                                                    <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-lg border border-slate-100 group">
+                                                        <Image
+                                                            src={section.image}
+                                                            alt={section.alt || section.title || "Service Content Image"}
+                                                            fill
+                                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+
                                         {/* TEXT TYPE */}
                                         {section.type === "text" && (
                                             <div className="space-y-6 max-w-4xl ">
