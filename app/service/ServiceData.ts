@@ -8,7 +8,7 @@ export interface SubTab {
 }
 
 export interface Section {
-    type: "text" | "list" | "image" | "table" | "nested-content" | "key-value" | "image-row" | "content-image";
+    type: "text" | "list" | "image" | "table" | "nested-content" | "key-value" | "image-row";
     variant?: 'logo';
     title?: string;
     content?: string[];
@@ -20,7 +20,6 @@ export interface Section {
     rows?: string[][];
     sections?: { subtitle: string; items?: string[]; image?: string }[];
     grid?: boolean;
-    imageSide?: 'left' | 'right';
 }
 
 export interface Service {
@@ -496,9 +495,35 @@ export const services: Service[] = [
                     }
                 ]
             },
+            // {
+            //     type: "table",
+            //     title: "Energy Conservation Measure : Use LP Heater Steam Line for Heating the Boiler Feed Water and Increase the Turbine Power",
+            //     headers: ["SN", "Parameter", "Unit", "Value"],
+            //     rows: [
+            //         ["1", "Power Generation Per day Without LP Heater Running", "MWD", "347.86"],
+            //         ["2", "Power Generation Per day With LP Heater Running", "MWD", "351.05"],
+            //         ["3", "Power Saving Per day", "MWD", "3.20"],
+            //         ["4", "Annual Operation Hours", "Day", "300.00"],
+            //         ["5", "Annual Power Saving", "MW", "959.11"],
+            //         ["6", "Electricity Unit Cost", "Rs/kWh", "4.35"],
+            //         ["7", "Annual Saving in Monetary Terms", "Rs/-", "41,72,422"],
+            //         ["8", "Investment", "Rs/-", "5,00,000"],
+            //         ["9", "Simple Payback Period", "Month", "1.44"]
+            //     ]
+            // },
+            {
+                type: "nested-content",
+                sections: [
+                    {
+                        subtitle: "Overview",
+                        items: [
+                            "Energy Conservation Measure : Use LP Heater Steam Line for Heating the Boiler Feed Water and Increase the Turbine Power.",]
+                    }
+                ]
+            },
             {
                 type: "table",
-                title: "Energy Conservation Measure : Use LP Heater Steam Line for Heating the Boiler Feed Water and Increase the Turbine Power",
+                title: "Case Study",
                 headers: ["SN", "Parameter", "Unit", "Value"],
                 rows: [
                     ["1", "Power Generation Per day Without LP Heater Running", "MWD", "347.86"],
@@ -512,9 +537,44 @@ export const services: Service[] = [
                     ["9", "Simple Payback Period", "Month", "1.44"]
                 ]
             },
+            // {
+            //     type: "table",
+            //     title: "Comparison of LP Heater Steam Line Off Condition and On Condition",
+            //     headers: ["SN", "Parameter", "Unit", "LP Heater Steam Line Not Working Condition", "LP Heater Steam line Working Condition"],
+            //     rows: [
+            //         ["1", "Extraction 1st stage flow Turbine Inlet", "TPD", "1397", "1397"],
+            //         ["2", "Extraction 1st stage flow Turbine Outlet", "TPD", "44.88", "0"],
+            //         ["3", "Extraction 2nd stage flow Turbine Outlet", "", "0", "57.6"],
+            //         ["4", "Condensing Stage flow", "TPD", "1352.12", "1339.4"],
+            //         ["5", "Extraction 1st stage Enthalpy inlet", "kcal/kg", "805.4", "805.4"],
+            //         ["6", "Extraction 1st stage Enthalpy outlet", "kcal/kg", "717.010", "717.01"],
+            //         ["7", "Extraction 2nd stage Enthalpy inlet", "kcal/kg", "0", "717.01"],
+            //         ["8", "Extraction 2nd stage Enthalpy outlet", "kcal/kg", "0.000", "633.13"],
+            //         ["9", "Extraction Condensing stage Enthalpy inlet", "kcal/kg", "717.01", "633.13"],
+            //         ["10", "Extraction Condensing stage Enthalpy outlet", "kcal/kg", "570.000", "570"],
+            //         ["11", "Extraction 1st stage Power Generation", "MWD", "143.5", "0"],
+            //         ["12", "Extraction 2nd Stage Power Generation", "MWD", "0.0", "279.84"],
+            //         ["13", "Extraction Condensing Stage Power Generation", "MWD", "231.13", "98.32"],
+            //         ["14", "Total Power Generation", "MWD", "374.72", "378.16"],
+            //         ["15", "Turbine Generator Efficiency", "%", "96", "96"],
+            //         ["16", "Gear Box Efficiency", "%", "97", "97"],
+            //         ["17", "Calculated Power Output Power Generation", "MWD", "347.86", "351.05"],
+            //         ["18", "More Power Generation", "MWD", "", "3.20"]
+            //     ]
+            // },
+            {
+                type: "nested-content",
+                sections: [
+                    {
+                        subtitle: "Overview",
+                        items: [
+                            "Comparison of LP Heater Steam Line Off Condition and On Condition.",]
+                    }
+                ]
+            },
             {
                 type: "table",
-                title: "Comparison of LP Heater Steam Line Off Condition and On Condition",
+                title: "Case Study",
                 headers: ["SN", "Parameter", "Unit", "LP Heater Steam Line Not Working Condition", "LP Heater Steam line Working Condition"],
                 rows: [
                     ["1", "Extraction 1st stage flow Turbine Inlet", "TPD", "1397", "1397"],
@@ -536,7 +596,7 @@ export const services: Service[] = [
                     ["17", "Calculated Power Output Power Generation", "MWD", "347.86", "351.05"],
                     ["18", "More Power Generation", "MWD", "", "3.20"]
                 ]
-            }
+            },
         ],
         content: []
     },
@@ -684,24 +744,28 @@ export const services: Service[] = [
                 alt: "Process Streams and Balance Equations Diagram"
             },
             {
-                type: "content-image",
+                type: "text",
                 title: "Heat and Mass Balance in Existing Processes",
                 content: [
                     "In existing industrial processes, heat and mass balance calculations are essential for optimising operational efficiency and troubleshooting. These calculations help identify inefficiencies, energy losses, and areas for improvement. Regular evaluations ensure safety and reliability by detecting deviations from expected performance, allowing for timely maintenance and adjustments."
-                ],
-                image: "/services/process-heat-1.png",
-                alt: "Process Heat Diagram 1",
-                imageSide: "right"
+                ]
             },
             {
-                type: "content-image",
+                type: "image",
+                image: "/services/process-heat-1.png",
+                alt: "Process Heat Diagram 1"
+            },
+            {
+                type: "text",
                 title: "Heat and Mass Balance in New Processes",
                 content: [
                     "For new processes, heat and mass balance calculations are fundamental during the development phase. They provide insights into expected material and energy flows, guiding the design of equipment and selection of materials. These analyses are crucial for feasibility studies, enabling engineers to evaluate different configurations and technologies to identify the most cost-effective and efficient solutions."
-                ],
+                ]
+            },
+            {
+                type: "image",
                 image: "/services/process-heat-2.png",
-                alt: "Process Heat Diagram 2",
-                imageSide: "left"
+                alt: "Process Heat Diagram 2"
             },
             {
                 type: "text",
@@ -1037,7 +1101,6 @@ export const services: Service[] = [
             },
             {
                 type: "nested-content",
-                title: "Case Study",
                 sections: [
                     {
                         subtitle: "Overview",
@@ -1052,6 +1115,7 @@ export const services: Service[] = [
             },
             {
                 type: "table",
+                title: "Case Study",
                 headers: ["SN", "Description", "Unit", "Value"],
                 rows: [
                     ["1", "Existing Efficiency", "%", "37.26"],
