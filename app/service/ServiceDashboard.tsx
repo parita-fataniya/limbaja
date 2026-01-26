@@ -6,6 +6,7 @@ import Image from "next/image";
 import { services } from "./ServiceData";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
+// default Function 
 export default function ServiceDashboard() {
     const [activeId, setActiveId] = useState(services[0].id);
     const [activeSubTab, setActiveSubTab] = useState(0);
@@ -140,8 +141,8 @@ export default function ServiceDashboard() {
                                                     key={tab.id}
                                                     onClick={() => setActiveSubTab(index)}
                                                     className={`px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-all ${activeSubTab === index
-                                                            ? "bg-secondary text-white shadow-lg shadow-secondary/25"
-                                                            : "bg-slate-50 text-slate-500 hover:bg-slate-100"
+                                                        ? "bg-secondary text-white shadow-lg shadow-secondary/25"
+                                                        : "bg-slate-50 text-slate-500 hover:bg-slate-100"
                                                         }`}
                                                 >
                                                     {tab.label}
