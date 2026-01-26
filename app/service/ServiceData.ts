@@ -8,7 +8,7 @@ export interface SubTab {
 }
 
 export interface Section {
-    type: "text" | "list" | "image" | "table" | "nested-content" | "key-value" | "image-row";
+    type: "text" | "list" | "image" | "table" | "nested-content" | "key-value" | "image-row" | "content-image";
     variant?: 'logo';
     title?: string;
     content?: string[];
@@ -20,6 +20,7 @@ export interface Section {
     rows?: string[][];
     sections?: { subtitle: string; items?: string[]; image?: string }[];
     grid?: boolean;
+    imageSide?: 'left' | 'right';
 }
 
 export interface Service {
@@ -744,28 +745,24 @@ export const services: Service[] = [
                 alt: "Process Streams and Balance Equations Diagram"
             },
             {
-                type: "text",
+                type: "content-image",
                 title: "Heat and Mass Balance in Existing Processes",
                 content: [
                     "In existing industrial processes, heat and mass balance calculations are essential for optimising operational efficiency and troubleshooting. These calculations help identify inefficiencies, energy losses, and areas for improvement. Regular evaluations ensure safety and reliability by detecting deviations from expected performance, allowing for timely maintenance and adjustments."
-                ]
-            },
-            {
-                type: "image",
+                ],
                 image: "/services/process-heat-1.png",
-                alt: "Process Heat Diagram 1"
+                alt: "Process Heat Diagram 1",
+                imageSide: "right"
             },
             {
-                type: "text",
+                type: "content-image",
                 title: "Heat and Mass Balance in New Processes",
                 content: [
                     "For new processes, heat and mass balance calculations are fundamental during the development phase. They provide insights into expected material and energy flows, guiding the design of equipment and selection of materials. These analyses are crucial for feasibility studies, enabling engineers to evaluate different configurations and technologies to identify the most cost-effective and efficient solutions."
-                ]
-            },
-            {
-                type: "image",
+                ],
                 image: "/services/process-heat-2.png",
-                alt: "Process Heat Diagram 2"
+                alt: "Process Heat Diagram 2",
+                imageSide: "left"
             },
             {
                 type: "text",
