@@ -118,7 +118,7 @@ export default function ServiceDetailClient({ id }: { id: string }) {
                                         viewport={{ once: true, margin: "-50px" }}
                                     >
                                         {section.title && (
-                                            <div className="max-w-4xl mx-auto">
+                                            <div className="max-w-4xl">
                                                 <AnimatedSectionHeader title={section.title} className="mb-8" />
                                             </div>
                                         )}
