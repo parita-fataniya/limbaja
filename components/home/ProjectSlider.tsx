@@ -21,19 +21,22 @@ export default function ProjectSlider() {
         enter: (direction: number) => ({
             x: direction > 0 ? 1000 : -1000,
             opacity: 0,
-            scale: 0.95,
+            scale: 0.9,
+            rotateY: direction > 0 ? 15 : -15,
         }),
         center: {
             zIndex: 1,
             x: 0,
             opacity: 1,
             scale: 1,
+            rotateY: 0,
         },
         exit: (direction: number) => ({
             zIndex: 0,
             x: direction < 0 ? 1000 : -1000,
             opacity: 0,
-            scale: 0.95,
+            scale: 0.9,
+            rotateY: direction < 0 ? 15 : -15,
         }),
     };
 
@@ -51,7 +54,7 @@ export default function ProjectSlider() {
     useEffect(() => {
         const timer = setInterval(() => {
             paginate(1);
-        }, 5000);
+        }, 3000);
         return () => clearInterval(timer);
     }, [current]);
 
@@ -107,8 +110,10 @@ export default function ProjectSlider() {
                             animate="center"
                             exit="exit"
                             transition={{
-                                x: { type: "spring", stiffness: 300, damping: 30 },
-                                opacity: { duration: 0.2 }
+                                x: { type: "tween", duration: 0.5, ease: "easeInOut" },
+                                opacity: { duration: 0.4 },
+                                scale: { duration: 0.5, ease: "easeInOut" },
+                                rotateY: { duration: 0.5, ease: "easeInOut" }
                             }}
                             drag="x"
                             dragConstraints={{ left: 0, right: 0 }}
