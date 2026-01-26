@@ -173,7 +173,7 @@ export default function ServiceDetailClient({ id }: { id: string }) {
 
                                         {/* TEXT TYPE */}
                                         {section.type === "text" && (
-                                            <div className="space-y-6 max-w-4xl mx-auto">
+                                            <div className="space-y-6 max-w-4xl ">
                                                 {section.content.map((text: string, i: number) => (
                                                     <p key={i} className="text-slate-600 leading-8 text-lg">
                                                         {text}

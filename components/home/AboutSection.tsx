@@ -84,7 +84,7 @@ export default function AboutSection() {
                         transition={{ delay: 0.1 }}
                         className="text-5xl md:text-7xl font-bold text-slate-900 leading-[1.1] mb-8 max-w-3xl"
                     >
-                        Delivering excellence via strategic <span className="whitespace-nowrap">energy audit.</span>
+                        Delivering Excellence Via Strategic <span className="whitespace-nowrap">Energy Audit.</span>
                     </motion.h2>
 
                     <motion.p
