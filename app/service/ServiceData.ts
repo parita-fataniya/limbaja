@@ -41,7 +41,7 @@ export const services: Service[] = [
         title: "Detailed Energy Audit",
         icon: FileText,
         description: "Energy Audit is defined as “the verification, monitoring and analysis of use of energy including submission of technical report containing recommendations for improving energy efficiency with cost benefit analysis and an action plan to reduce energy consumption”.\n\nIt builds on the principle \"you can't manage what you don't measure\". It essentially combines the principles of energy use and statistics.",
-        image: "/services/1.png",
+        image: "/services/1.webp",
         sections: [
             {
                 type: "list",
@@ -59,7 +59,7 @@ export const services: Service[] = [
             {
                 type: "image",
                 title: "Essential Elements of Energy Auditing",
-                image: "/services/energyAudit.png",
+                image: "/services/energyAudit.webp",
                 alt: "Essential Elements of Energy Auditing Diagram"
             },
             {
@@ -121,7 +121,7 @@ export const services: Service[] = [
         title: "Energy Conservation",
         icon: Zap,
         description: "Energy conservation is the effort made to reduce the consumption of energy by using less of an energy service. This can be achieved either by using energy more efficiently (using less energy for a constant service) or by reducing the amount of service used (for example, by driving less).",
-        image: "/services/2.png",
+        image: "/services/2.webp",
         sections: [
             {
                 type: "text",
@@ -158,12 +158,12 @@ export const services: Service[] = [
         title: "Harmonic Analysis",
         icon: Activity,
         description: "Harmonic analysis is a technique used to study and analyze the harmonic components in a periodic waveform or signal. The main use of harmonic analysis in electrical engineering is to examine the existence and properties of harmonics in electrical power systems.\n\nHarmonic voltage or current waveform frequencies are integer multiples of the fundamental frequency. However, due to non-linear loads, such as power electronics, variable speed drives, and certain types of lighting, harmonic currents and voltages can be introduced into the system.",
-        image: "/services/3.png",
+        image: "/services/3.webp",
         sections: [
             {
                 type: "image",
                 title: "Harmonic analysis",
-                image: "/services/detail3sub1.jpeg",
+                image: "/services/detail3sub1.webp",
                 alt: "Harmonic analysis"
             },
             {
@@ -212,36 +212,36 @@ export const services: Service[] = [
                         items: [
                             "Install the Active filter In the plant for reduce the harmonic."
                         ],
-                        image: "/services/detail3sub2.jpeg"
+                        image: "/services/detail3sub2.webp"
                     }
                 ]
             },
             {
                 type: "image",
                 title: "Total Harmonic Distortion at Transformer",
-                image: "/services/transformer.png",
+                image: "/services/transformer.webp",
                 alt: "Total Harmonic Distortion at Transformer"
             },
             {
                 type: "image",
                 title: "Individual Harmonic Distortion in Voltage",
-                image: "/services/indivi.png",
+                image: "/services/indivi.webp",
                 alt: "Individual Harmonic Distortion in Voltage"
             },
             {
                 type: "image",
                 title: "Individual Harmonic Distortion in Current",
-                image: "/services/harmonic-current.png",
+                image: "/services/harmonic-current.webp",
                 alt: "Individual Harmonic Distortion in Current"
             },
             {
                 type: "image",
-                image: "/services/detail3sub3.jpeg",
+                image: "/services/detail3sub3.webp",
                 alt: "Harmonic Analysis Detail 3"
             },
             {
                 type: "image",
-                image: "/services/detail3sub4.jpeg",
+                image: "/services/detail3sub4.webp",
                 alt: "Harmonic Analysis Detail 4"
             }
         ],
@@ -252,7 +252,7 @@ export const services: Service[] = [
         title: "Compressor Air Flow Audit",
         icon: Wind,
         description: "A compressed air audit effectively identifies inefficiencies, reduces energy costs, and improves system performance. Many industrial air compressors operate inefficiently due to leaks, artificial demand, and incorrect air pressure requirements, unnecessarily increasing cost per kWh.",
-        image: "/services/4.png",
+        image: "/services/4.webp",
         sections: [
 
             {
@@ -279,7 +279,7 @@ export const services: Service[] = [
             },
             {
                 type: "image",
-                image: "/services/compressorPerforance.png",
+                image: "/services/compressorPerforance.webp",
                 alt: "Compressor Performance Measurement"
             },
             {
@@ -299,7 +299,7 @@ export const services: Service[] = [
             },
             {
                 type: "image",
-                image: "/services/detail6sub1.jpeg",
+                image: "/services/detail6sub1.webp",
                 alt: "Compressed Air Generation Side Analysis"
             },
             {
@@ -309,7 +309,7 @@ export const services: Service[] = [
             },
             {
                 type: "image",
-                image: "/services/detail6sub2.jpeg",
+                image: "/services/detail6sub2.webp",
                 alt: "Generation and Power Consumption Cycle"
             },
             {
@@ -319,12 +319,12 @@ export const services: Service[] = [
             },
             {
                 type: "image",
-                image: "/services/detail6sub3.jpeg",
+                image: "/services/detail6sub3.webp",
                 alt: "Distribution Side Measurement"
             },
             {
                 type: "image",
-                image: "/services/detail6sub4.jpeg",
+                image: "/services/detail6sub4.webp",
                 alt: "Additional Measurement Detail"
             }
         ],
@@ -335,7 +335,7 @@ export const services: Service[] = [
         title: "Compressor Ultrasonic Air Leakage Audit",
         icon: Search,
         description: "We provide the Compressed Air Leakage Audit service and Compressed Flow Audit Service. Have a look!",
-        image: "/services/8.png",
+        image: "/services/8.webp",
         sections: [
             {
                 type: "list",
@@ -376,7 +376,7 @@ export const services: Service[] = [
             },
             {
                 type: "image",
-                image: "/services/calculation.png",
+                image: "/services/calculation.webp",
                 alt: "Calculation Table"
             },
             {
@@ -412,7 +412,7 @@ export const services: Service[] = [
         title: "Power Plant Audit",
         icon: Settings,
         description: "Performance testing of Captive, Cogen, Waste Heat Recovery, and Gas Power Plants in accordance with respective ASME PTC Codes.",
-        image: "/services/6.png",
+        image: "/services/6.webp",
         sections: [
             {
                 type: "list",
@@ -453,15 +453,15 @@ export const services: Service[] = [
                 sections: [
                     {
                         subtitle: "Objective: Determine major loss Covered Are:",
-                        image: "/services/heat-loss.png"
+                        image: "/services/heat-loss.webp"
                     },
                     {
                         subtitle: "Effectiveness of Air Pre heater & Ingress identification (PTC 4.3)",
-                        image: "/services/preheater.png"
+                        image: "/services/preheater.webp"
                     },
                     {
                         subtitle: "Turbine (ASME PTC 6 -2004)",
-                        image: "/services/turbin.png"
+                        image: "/services/turbin.webp"
                     },
                     {
                         subtitle: "HP – LP Feed Water heater (ASME PTC 12.1)",
@@ -606,7 +606,7 @@ export const services: Service[] = [
         title: "Boiler & Furnace Study",
         icon: Thermometer,
         description: "Studies are undertaken to determine efficiencies of generation, distribution & Utilisation of thermal energies. Boiler efficiency tests are carried out to determine steam generation to fuel ratio.",
-        image: "/services/7.png",
+        image: "/services/7.webp",
         sections: [
             {
                 type: "list",
@@ -634,7 +634,7 @@ export const services: Service[] = [
         title: "Flow Measurement",
         icon: Droplets,
         description: "Accurate flow measurements are critical to the calculation of Utility or process control applications.\n\nFlow Measurement is also useful for monitoring & troubleshooting internal processes at various points.\n\nmeasures the flow of virtually any fluid, be it liquid, gas or steam, regardless of the flow direction (bi-directional) and over an extremely wide measuring range. Due to its practical advantages, external flow measurement with clamp-on ultrasonic transducers has become a standard measuring technique in a broad range of industries and applications.\n\nThis flowmeter can be installed in just minutes without needing to shut down, thus avoiding costly downtime. This ultrasonic technology works with gases at high or low pressure in pipes made of metal and most other materials.",
-        image: "/services/5.png",
+        image: "/services/5.webp",
         sections: [
             {
                 type: "text",
@@ -736,12 +736,12 @@ export const services: Service[] = [
         title: "Process Heat Mass Balance",
         icon: Activity,
         description: "Heat and mass balance is a critical aspect of process engineering, used extensively in the design and analysis of process plants. These calculations ensure that the energy and material inputs and outputs in a system are accurately accounted for, helping to optimise efficiency, safety, and cost-effectiveness in industrial operations.",
-        image: "/services/9.png",
+        image: "/services/9.webp",
         sections: [
             {
                 type: "image",
                 title: "Key Components",
-                image: "/services/process-strem.png",
+                image: "/services/process-strem.webp",
                 alt: "Process Streams and Balance Equations Diagram"
             },
             {
@@ -750,7 +750,7 @@ export const services: Service[] = [
                 content: [
                     "In existing industrial processes, heat and mass balance calculations are essential for optimising operational efficiency and troubleshooting. These calculations help identify inefficiencies, energy losses, and areas for improvement. Regular evaluations ensure safety and reliability by detecting deviations from expected performance, allowing for timely maintenance and adjustments."
                 ],
-                image: "/services/process-heat-1.png",
+                image: "/services/process-heat-1.webp",
                 alt: "Process Heat Diagram 1",
                 imageSide: "right"
             },
@@ -760,7 +760,7 @@ export const services: Service[] = [
                 content: [
                     "For new processes, heat and mass balance calculations are fundamental during the development phase. They provide insights into expected material and energy flows, guiding the design of equipment and selection of materials. These analyses are crucial for feasibility studies, enabling engineers to evaluate different configurations and technologies to identify the most cost-effective and efficient solutions."
                 ],
-                image: "/services/process-heat-2.png",
+                image: "/services/process-heat-2.webp",
                 alt: "Process Heat Diagram 2",
                 imageSide: "left"
             },
@@ -778,7 +778,7 @@ export const services: Service[] = [
         title: "Cooling Tower Study",
         icon: Wind,
         description: "Cooling towers represent largest reuse of water in industrial and commercial applications. Cooling towers offers the means to remove heat from air conditioning systems and industrial processes generating excess heat.\n\nCooling towers are normally designed for maximum process load and worst ambient conditions. Optimizing operation and effective maintenance of cooling towers systems offer facility and process managers significant savings in energy and water consumption. As result saving potential of about 20-25% can be achieved by optimizing excess capacities of pumps and fans catering to under loaded process.",
-        image: "/services/10.png",
+        image: "/services/10.webp",
         sections: [
             {
                 type: "text",
@@ -848,13 +848,13 @@ export const services: Service[] = [
             {
                 type: "image",
                 title: "Existing Circulation of Water at Cooling Tower",
-                image: "/services/detail10sub1.png",
+                image: "/services/detail10sub1.webp",
                 alt: "Existing Circulation of Water at Cooling Tower Diagram"
             },
             {
                 type: "image",
                 title: "Suggested Cooling Tower Water Circulation",
-                image: "/services/detail10sub2.png",
+                image: "/services/detail10sub2.webp",
                 alt: "Suggested Cooling Tower Water Circulation Diagram"
             },
             {
@@ -884,7 +884,7 @@ export const services: Service[] = [
         title: "Chiller Performance Measurement",
         icon: Thermometer,
         description: "The performance assessment of the chiller plant involves calculation of cooling duty delivered by the system and measurement of power consumed by the unit.\n\nThe Specific Power Consumption (SPC - kW/TR) and Energy Efficiency Ratio (EER) are the effective measures for comparing the electrical energy input to cooling duty delivered by the system.\n\nThe study involves measuring various parameters such as flow rate, temperature and power in the both chilled water and refrigeration side of the chiller system.",
-        image: "/services/11.png",
+        image: "/services/11.webp",
         sections: [
             {
                 type: "nested-content",
@@ -953,7 +953,7 @@ export const services: Service[] = [
         title: "Lighting System",
         icon: Zap,
         description: "Lighting is an essential service in all the industries. The power consumption by the industrial lighting varies between 2 to 10% of the total power depending on the type of industry. Innovation and continuous improvement in the field of lighting, has given rise to tremendous energy saving opportunities in this area.",
-        image: "/services/12.png",
+        image: "/services/12.webp",
         sections: [
             {
                 type: "list",
@@ -972,7 +972,7 @@ export const services: Service[] = [
         title: "Thermography Study",
         icon: Thermometer,
         description: "Thermography Study is use for Predictive type maintenance.\n\nMany problems begin with an increase in temperature, and the IR camera allows for early detection of these potential problems that might otherwise go unnoticed. Thermal imaging allows inspections to be conducted more efficiently, without disrupting any surfaces, equipment, or barriers.",
-        image: "/services/13.png",
+        image: "/services/13.webp",
         sections: [
             {
                 type: "list",
@@ -1001,12 +1001,12 @@ export const services: Service[] = [
                 images: [
                     {
                         title: "Glass Furnace Port Top",
-                        url: "/services/thermography-glass-furnace.png",
+                        url: "/services/thermography-glass-furnace.webp",
                         alt: "Glass Furnace Port Top Thermography"
                     },
                     {
                         title: "Electrical Panel",
-                        url: "/services/thermography-electrical-panel.png",
+                        url: "/services/thermography-electrical-panel.webp",
                         alt: "Electrical Panel Thermography"
                     }
                 ]
@@ -1025,7 +1025,7 @@ export const services: Service[] = [
         title: "Steam Trap Audit",
         icon: Droplets,
         description: "A steam trap is a mechanical valve that separates condensate from steam for a return trip to the boiler.\n\nMany steam traps underperform by plugging or sticking, leading to inefficient separation of water from steam.\n\nOptimized steam traps can reduce energy costs by 10% to 15%. In a steam strap study,",
-        image: "/services/14.png",
+        image: "/services/14.webp",
         sections: [
 
             {
@@ -1042,12 +1042,12 @@ export const services: Service[] = [
                 images: [
                     {
                         title: "Steam Trap Measurement 1",
-                        url: "/services/steam-trap-example-1.png",
+                        url: "/services/steam-trap-example-1.webp",
                         alt: "Steam Trap Thermal Measurement 1"
                     },
                     {
                         title: "Steam Trap Measurement 2",
-                        url: "/services/steam-trap-example-2.png",
+                        url: "/services/steam-trap-example-2.webp",
                         alt: "Steam Trap Thermal Measurement 2"
                     }
                 ]
@@ -1060,7 +1060,7 @@ export const services: Service[] = [
         title: "Pumping System Study",
         icon: Activity,
         description: "All pumps have a characteristic or performance curve that describes the flow rate produced at net or total head. Pump specifications relating head and flow rate correlate to those found on its characteristic curve.",
-        image: "/services/15.png",
+        image: "/services/15.webp",
         sections: [
             {
                 type: "nested-content",
@@ -1138,7 +1138,7 @@ export const services: Service[] = [
                 type: "image",
                 variant: 'logo',
                 title: "",
-                image: "/services/image.png",
+                image: "/services/image.webp",
                 alt: "Reduce Your Carbon Footprint"
             },
             {
@@ -1167,7 +1167,7 @@ export const services: Service[] = [
         title: "Fan Study",
         icon: Wind,
         description: "The fans are tested for field performance by measurement of flow, head, temperature on the fan side and electrical motor kW input on the motor side. The air velocity was measured by using anemometer. Multiplication of air velocity with the inlet area gives the air flow.",
-        image: "/services/16.png",
+        image: "/services/16.webp",
         sections: [
             {
                 type: "nested-content",
@@ -1244,12 +1244,12 @@ export const services: Service[] = [
                 type: "image-row",
                 images: [
                     {
-                        url: "/services/fan-damper-50-throttling.png",
+                        url: "/services/fan-damper-50-throttling.webp",
                         title: "Mill Suction Damper 50% Throttling",
                         alt: "Mill Suction Damper 50% Throttling Diagram"
                     },
                     {
-                        url: "/services/fan-damper-full-open.png",
+                        url: "/services/fan-damper-full-open.webp",
                         title: "Mill Suction Damper Full Open",
                         alt: "Mill Suction Damper Full Open Diagram"
                     }
@@ -1263,18 +1263,18 @@ export const services: Service[] = [
         title: "Carbon Verification Service",
         icon: Globe,
         description: "We Provide the Carbon Offset Validation Service to the UCR Project. We have validated numerous projects ranging from Wind, Solar, Biomass to Hydro.",
-        image: "/services/17.png",
+        image: "/services/17.webp",
         sections: [
             {
                 type: "image-row",
                 images: [
                     {
-                        url: "/services/ucr-logo.png",
+                        url: "/services/ucr-logo.webp",
                         title: "Universal Carbon Registry",
                         alt: "UCR Logo"
                     },
                     {
-                        url: "/services/reduce-carbon-footprint.png",
+                        url: "/services/reduce-carbon-footprint.webp",
                         title: "Reduce Your Carbon Footprint",
                         alt: "Reduce Your Carbon Footprint Logo",
                         variant: 'logo'
@@ -1319,7 +1319,7 @@ export const services: Service[] = [
         title: "Electrical Arc Flash Study",
         icon: AlertTriangle,
         description: "Comprehensive safety assessment including ETAP Modelling and Short Circuit Studies.",
-        image: "/services/18.png",
+        image: "/services/18.webp",
         sections: [
             {
                 type: "list",
@@ -1341,7 +1341,7 @@ export const services: Service[] = [
         title: "Electrical Motor Efficiency Study",
         icon: Settings,
         description: "The motor efficiency can be calculated from the total losses, which are assumed to be the summation of the following losses.",
-        image: "/services/19.png",
+        image: "/services/19.webp",
         sections: [
             {
                 type: "list",
@@ -1362,7 +1362,7 @@ export const services: Service[] = [
             // {
             //     type: "image",
             //     title: "Power Quality Analyzer",
-            //     image: "/instrument/1alm31.jpg",
+            //     image: "/instrument/1alm31.webp",
             //     alt: "Power Analyzer for Motor Efficiency"
             // },
             {
@@ -1429,7 +1429,7 @@ export const services: Service[] = [
         title: "Energy Meter Calibration Service",
         icon: PieChart,
         description: "We provide the Energy Meter Calibration Service at the plant.",
-        image: "/services/20.png",
+        image: "/services/20.webp",
         sections: [
             {
                 type: "list",
@@ -1445,7 +1445,7 @@ export const services: Service[] = [
             // {
             //     type: "image",
             //     title: "NanoVIP Power Analyzer",
-            //     image: "/instrument/2nanovip.JPG",
+            //     image: "/instrument/2nanovip.webp",
             //     alt: "NanoVIP Analyzer for Calibration"
             // },
             // {
