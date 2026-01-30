@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const images = [
-    "/slider/image1.jpg",
-    "/slider/image2.jpg",
-    "/slider/image3.jpg",
-    "/slider/image4.jpg",
+    "/slider/image1.webp",
+    "/slider/image2.webp",
+    "/slider/image3.webp",
+    "/slider/image4.webp",
 ];
 
 export const ImageSlider = () => {

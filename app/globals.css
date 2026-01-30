@@ -51,6 +51,8 @@ body {
     @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-slate-700/30;
   }
 }
+
+/* Performance Optimizations */
 @keyframes glitter {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -60,4 +62,42 @@ body {
 .animate-glitter {
   background-size: 200% auto;
   animation: glitter 3s linear infinite;
+  /* Force GPU acceleration */
+  transform: translateZ(0);
+  will-change: background-position;
 }
+
+/* GPU-accelerated animations */
+* {
+  /* Prevent layout shifts */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize animated elements */
+[class*="animate-"],
+[class*="transition-"] {
+  /* Force GPU acceleration for all animated elements */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize images for performance */
+img {
+  /* Prevent layout shifts */
+  content-visibility: auto;
+}
+
+/* Optimize framer-motion animations */
+[data-framer-component-type] {
+  /* Force GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+/* Contain layout for better performance */
+section {
+  contain: layout style paint;
+}
+

@@ -103,17 +103,17 @@ export default function AboutSection() {
                     <BentoCard
                         title="Optimization"
                         desc="Maximizing electrical and thermal efficiency across all systems to reduce operational overhead."
-                        image="/about/optimization.png"
+                        image="/about/optimization.webp"
                     />
                     <BentoCard
                         title="Industrial"
                         desc="Deep expertise in diverse industrial processes and large facilities with certified engineering protocols."
-                        image="/about/industrial.png"
+                        image="/about/industrial.webp"
                     />
                     <BentoCard
                         title="Sustainability"
                         desc="Reducing environmental footprint while increasing operational yields and long-term financial savings."
-                        image="/about/sustainability.png"
+                        image="/about/sustainability.webp"
                     />
                 </div>
 

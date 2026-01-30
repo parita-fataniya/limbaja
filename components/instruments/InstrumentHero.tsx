@@ -9,7 +9,7 @@ export default function InstrumentHero() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/hero-section/hero-1.jpeg"
+                    src="/hero-section/hero-1.webp"
                     alt="Instruments Background"
                     fill
                     className="object-cover opacity-40"

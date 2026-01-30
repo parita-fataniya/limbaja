@@ -7,10 +7,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Project Images from public/projects
 const projects = [
-    { id: 1, src: "/projects/our1.png", title: "Site Overview" },
-    { id: 2, src: "/projects/our2.png", title: "Team Inspection" },
-    { id: 3, src: "/projects/service3.png", title: "Compressor Audit In-Action" },
-    { id: 4, src: "/projects/service4.png", title: "Harmonic Analysis Execution" },
+    { id: 1, src: "/projects/our1.webp", title: "Site Overview" },
+    { id: 2, src: "/projects/our2.webp", title: "Team Inspection" },
+    { id: 3, src: "/projects/service3.webp", title: "Compressor Audit In-Action" },
+    { id: 4, src: "/projects/service4.webp", title: "Harmonic Analysis Execution" },
 ];
 
 export default function ProjectSlider() {

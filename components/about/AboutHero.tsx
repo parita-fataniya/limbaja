@@ -6,7 +6,7 @@ export default function AboutHero() {
     return (
         <section className="relative h-[60vh] min-h-[400px] w-full flex items-center justify-center overflow-hidden bg-slate-900">
             {/* Background - using a placeholder pattern or gradient for now */}
-            <div className="absolute inset-0 bg-[url('/hero-section/hero-1.jpeg')] bg-cover bg-center opacity-30 blur-sm"></div>
+            <div className="absolute inset-0 bg-[url('/hero-section/hero-1.webp')] bg-cover bg-center opacity-30 blur-sm"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/70 to-slate-900/90"></div>
             {/* Grid Pattern Overlay */}
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
