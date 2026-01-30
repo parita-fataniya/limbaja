@@ -5,12 +5,12 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const clients = [
-    { name: "Ashapura Group", logo: "/clients/logo_ashapura.png" },
-    { name: "Indian Oil", logo: "/clients/logo_indianoil.png" },
-    { name: "Jindal Saw", logo: "/clients/logo_jindal.png" },
-    { name: "Max Speciality Films", logo: "/clients/logo_max.png" },
-    { name: "Murugappa Group", logo: "/clients/logo_murugappa.png" },
-    { name: "OCCL", logo: "/clients/logo_occl.png" },
+    { name: "Ashapura Group", logo: "/clients/logo_ashapura.webp" },
+    { name: "Indian Oil", logo: "/clients/logo_indianoil.webp" },
+    { name: "Jindal Saw", logo: "/clients/logo_jindal.webp" },
+    { name: "Max Speciality Films", logo: "/clients/logo_max.webp" },
+    { name: "Murugappa Group", logo: "/clients/logo_murugappa.webp" },
+    { name: "OCCL", logo: "/clients/logo_occl.webp" },
 ];
 
 export const ClientMarquee = () => {
