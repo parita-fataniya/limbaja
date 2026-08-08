@@ -3,17 +3,28 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-    title: "Contact Us | Energy Audit Enquiry | Limbaja Energy",
-    description: "Get in touch with Limbaja Energy for professional energy audits, harmonic analysis, and efficiency consultancy in India. Reach out via phone, email, or our online form.",
-    keywords: ["Contact Limbaja Energy", "Energy Audit Enquiry India", "Professional Energy Consultant", "Ahmedabad Energy Audit Office"],
+    title: "Contact Energy Audit Company in Gujarat | Limbaja Energy",
+    description: "Contact Limbaja Energy, a trusted Energy Audit Company in Gujarat, to book energy audit services. Connect with our expert energy auditors and consultants for industrial energy audits, energy efficiency solutions, and customized energy management services.",
+    keywords: [
+        "Contact Energy Audit Company in Gujarat",
+        "Energy Auditor Near Me in Gujarat",
+        "Energy Consultant in Gujarat",
+        "Industrial Energy Consultant Gujarat",
+        "Book Energy Audit in Gujarat",
+        "Energy Audit Company Contact Gujarat",
+        "Energy Audit Consultant India",
+        "Industrial Energy Consultant India",
+        "Energy Efficiency Consultant India",
+        "Request Energy Audit Services"
+    ],
     alternates: {
         canonical: 'https://www.limbajaenergy.com/contact-us',
     },
     openGraph: {
-        title: "Contact Limbaja Energy | Expert Energy Solutions",
-        description: "Reach out to us for expert energy audits and sustainability consultancy.",
+        title: "Contact Energy Audit Company in Gujarat | Limbaja Energy",
+        description: "Connect with expert energy auditors and consultants for industrial energy audits and efficiency solutions.",
         url: 'https://www.limbajaenergy.com/contact-us',
-        images: [{ url: '/OG_Image.png', width: 1200, height: 630, alt: 'Contact Limbaja Energy' }],
+        images: [{ url: '/OG_Image.png', width: 1200, height: 630, alt: 'Contact Limbaja Energy - Energy Audit Company in Gujarat' }],
     },
 };
 

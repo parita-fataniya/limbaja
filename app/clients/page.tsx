@@ -4,17 +4,28 @@ import path from "path";
 import ClientGrid from "./ClientGrid";
 
 export const metadata: Metadata = {
-    title: "Our Clients | Trusted by Industry Leaders | Limbaja Energy",
-    description: "Trusted by top industry leaders in India and globally. View our prestigious client list who have achieved energy efficiency with our expert audits.",
-    keywords: ["Limbaja Energy Clients", "Industrial Partners India", "Energy Efficiency Projects", "Trusted Energy Auditors"],
+    title: "Our Clients | Trusted Energy Audit Company in Gujarat",
+    description: "Explore Limbaja Energy's portfolio of successful projects and valued clients. As a trusted Energy Audit Company in Gujarat, we deliver industrial energy audits, energy management solutions, and efficiency improvements for businesses across Gujarat and India.",
+    keywords: [
+        "Trusted Energy Audit Company in Gujarat",
+        "Industrial Energy Audit Clients Gujarat",
+        "Energy Audit Projects in Gujarat",
+        "Energy Audit Company for Industries Gujarat",
+        "Industrial Energy Consultant Gujarat",
+        "Energy Audit Company India",
+        "Industrial Energy Audit Services India",
+        "Energy Management Consultant India",
+        "Energy Efficiency Consultant India",
+        "Industrial Energy Solutions Provider"
+    ],
     alternates: {
         canonical: 'https://www.limbajaenergy.com/clients',
     },
     openGraph: {
-        title: "Our Clients | Limbaja Energy",
-        description: "Partnering with industry leaders for sustainable energy excellence.",
+        title: "Our Clients | Trusted Energy Audit Company in Gujarat",
+        description: "Explore Limbaja Energy's portfolio of successful projects and valued clients across Gujarat and India.",
         url: 'https://www.limbajaenergy.com/clients',
-        images: [{ url: '/OG_Image.png', width: 1200, height: 630, alt: 'Limbaja Energy Clients' }],
+        images: [{ url: '/OG_Image.png', width: 1200, height: 630, alt: 'Our Clients - Limbaja Energy' }],
     },
 };
 

@@ -26,7 +26,7 @@ const BentoCard = ({
         <div className="absolute inset-0 h-full w-full">
             <Image
                 src={image}
-                alt={title}
+                alt={`${title} - Industrial Energy Efficiency Services in Gujarat`}
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
             />

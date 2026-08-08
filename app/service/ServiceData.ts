@@ -29,6 +29,9 @@ export interface Service {
     icon: LucideIcon;
     description: string;
     image: string;
+    metaTitle?: string;
+    metaDescription?: string;
+    metaKeywords?: string[];
     sections?: Section[];
     content?: string[];
     hasSubTabs?: boolean;
@@ -42,6 +45,20 @@ export const services: Service[] = [
         icon: FileText,
         description: "Energy Audit is defined as “the verification, monitoring and analysis of use of energy including submission of technical report containing recommendations for improving energy efficiency with cost benefit analysis and an action plan to reduce energy consumption”.\n\nIt builds on the principle \"you can't manage what you don't measure\". It essentially combines the principles of energy use and statistics.",
         image: "/services/1.webp",
+        metaTitle: "Detailed Energy Audit Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy provides Detailed Energy Audit Services in Gujarat for factories and industries. Our expert energy auditors deliver electrical energy audits, energy conservation audits, and energy-efficiency solutions to reduce costs and optimise industrial performance.",
+        metaKeywords: [
+            "Detailed Energy Audit Services in Gujarat",
+            "Industrial Energy Audit Services in Gujarat",
+            "Energy Audit Company in Gujarat",
+            "Energy Auditor in Gujarat",
+            "Electrical Energy Audit Services in Gujarat",
+            "Factory Energy Audit Services in Gujarat",
+            "Manufacturing Energy Audit Gujarat",
+            "Energy Efficiency Audit Services",
+            "Energy Conservation Audit Services",
+            "Industrial Energy Audit Services"
+        ],
         sections: [
             {
                 type: "list",
@@ -60,7 +77,7 @@ export const services: Service[] = [
                 type: "image",
                 title: "Essential Elements of Energy Auditing",
                 image: "/services/energyAudit.webp",
-                alt: "Essential Elements of Energy Auditing Diagram"
+                alt: "Essential Elements of Energy Auditing Diagram - Limbaja Energy Audit"
             },
             {
                 type: "nested-content",
@@ -122,6 +139,20 @@ export const services: Service[] = [
         icon: Zap,
         description: "Energy conservation is the effort made to reduce the consumption of energy by using less of an energy service. This can be achieved either by using energy more efficiently (using less energy for a constant service) or by reducing the amount of service used (for example, by driving less).",
         image: "/services/2.webp",
+        metaTitle: "Energy Conservation Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy offers Energy Conservation Services in Gujarat, providing industrial energy-saving solutions, energy efficiency consulting, energy management services, and industrial energy optimization to reduce costs, improve performance, and support sustainable operations.",
+        metaKeywords: [
+            "Energy Conservation Services in Gujarat",
+            "Energy Conservation Consultant Gujarat",
+            "Industrial Energy Conservation Services Gujarat",
+            "Energy Saving Solutions in Gujarat",
+            "Energy Efficiency Consultant Gujarat",
+            "Energy Conservation Services",
+            "Industrial Energy Saving Solutions",
+            "Energy Efficiency Solutions",
+            "Energy Management Services",
+            "Industrial Energy Optimization Services"
+        ],
         sections: [
             {
                 type: "text",
@@ -159,12 +190,26 @@ export const services: Service[] = [
         icon: Activity,
         description: "Harmonic analysis is a technique used to study and analyze the harmonic components in a periodic waveform or signal. The main use of harmonic analysis in electrical engineering is to examine the existence and properties of harmonics in electrical power systems.\n\nHarmonic voltage or current waveform frequencies are integer multiples of the fundamental frequency. However, due to non-linear loads, such as power electronics, variable speed drives, and certain types of lighting, harmonic currents and voltages can be introduced into the system.",
         image: "/services/3.webp",
+        metaTitle: "Harmonic Analysis Services in Gujarat | Power Quality Experts",
+        metaDescription: "Limbaja Energy offers Harmonic Analysis Services in Gujarat, including power quality analysis, electrical harmonic studies, harmonic distortion analysis, power quality audits, and harmonic mitigation solutions to improve electrical system reliability and efficiency.",
+        metaKeywords: [
+            "Harmonic Analysis Services in Gujarat",
+            "Power Harmonic Analysis Gujarat",
+            "Electrical Harmonic Study Gujarat",
+            "Harmonic Distortion Analysis Services Gujarat",
+            "Power Quality Analysis Services in Gujarat",
+            "Harmonic Analysis Services India",
+            "Harmonic Study Services",
+            "Power Quality Audit Services",
+            "Electrical Power Quality Analysis",
+            "Harmonic Mitigation Solutions"
+        ],
         sections: [
             {
                 type: "image",
                 title: "Harmonic analysis",
                 image: "/services/detail3sub1.webp",
-                alt: "Harmonic analysis"
+                alt: "Harmonic Analysis Power Quality Inspection - Limbaja Energy"
             },
             {
                 type: "list",
@@ -220,29 +265,29 @@ export const services: Service[] = [
                 type: "image",
                 title: "Total Harmonic Distortion at Transformer",
                 image: "/services/transformer.webp",
-                alt: "Total Harmonic Distortion at Transformer"
+                alt: "Total Harmonic Distortion at Transformer Diagram"
             },
             {
                 type: "image",
                 title: "Individual Harmonic Distortion in Voltage",
                 image: "/services/indivi.webp",
-                alt: "Individual Harmonic Distortion in Voltage"
+                alt: "Individual Harmonic Distortion in Voltage Graph"
             },
             {
                 type: "image",
                 title: "Individual Harmonic Distortion in Current",
                 image: "/services/harmonic-current.webp",
-                alt: "Individual Harmonic Distortion in Current"
+                alt: "Individual Harmonic Distortion in Current Graph"
             },
             {
                 type: "image",
                 image: "/services/detail3sub3.webp",
-                alt: "Harmonic Analysis Detail 3"
+                alt: "Harmonic Analysis Measurement Spectrum 1"
             },
             {
                 type: "image",
                 image: "/services/detail3sub4.webp",
-                alt: "Harmonic Analysis Detail 4"
+                alt: "Harmonic Analysis Measurement Spectrum 2"
             }
         ],
         content: []
@@ -253,6 +298,20 @@ export const services: Service[] = [
         icon: Wind,
         description: "A compressed air audit effectively identifies inefficiencies, reduces energy costs, and improves system performance. Many industrial air compressors operate inefficiently due to leaks, artificial demand, and incorrect air pressure requirements, unnecessarily increasing cost per kWh.",
         image: "/services/4.webp",
+        metaTitle: "Compressor Audit Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy offers Compressor Audit Services in Gujarat, including compressed air energy audits, compressor efficiency assessments, performance analysis, and compressed air system optimization to reduce energy costs, improve reliability, and maximize industrial efficiency.",
+        metaKeywords: [
+            "Compressor Audit Services in Gujarat",
+            "Compressed Air Audit Services Gujarat",
+            "Compressor Efficiency Assessment Gujarat",
+            "Industrial Compressor Audit Gujarat",
+            "Compressed Air System Optimization Gujarat",
+            "Compressor Audit Services India",
+            "Compressed Air Energy Audit",
+            "Compressor Performance Analysis Services",
+            "Industrial Compressed Air Audit",
+            "Compressed Air Energy Saving Solutions"
+        ],
         sections: [
 
             {
@@ -336,6 +395,20 @@ export const services: Service[] = [
         icon: Search,
         description: "We provide the Compressed Air Leakage Audit service and Compressed Flow Audit Service. Have a look!",
         image: "/services/8.webp",
+        metaTitle: "Compressed Air Leakage Audit Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy offers Compressed Air Leakage Audit Services in Gujarat to identify air leaks, improve compressor efficiency, reduce energy loss, and lower operating costs. Our industrial compressor audit and leakage detection services help maximize system performance.",
+        metaKeywords: [
+            "Compressed Air Leakage Audit Services in Gujarat",
+            "Air Leakage Audit Services in Gujarat",
+            "Compressed Air Audit Services in Gujarat",
+            "Compressor Leakage Audit Gujarat",
+            "Compressor Air Leakage Detection Services",
+            "Industrial Air Leakage Audit Services",
+            "Compressed Air System Audit",
+            "Energy Saving Audit for Compressors",
+            "Industrial Compressor Audit Services",
+            "Leakage Audit Services"
+        ],
         sections: [
             {
                 type: "list",
@@ -413,6 +486,20 @@ export const services: Service[] = [
         icon: Settings,
         description: "Performance testing of Captive, Cogen, Waste Heat Recovery, and Gas Power Plants in accordance with respective ASME PTC Codes.",
         image: "/services/6.webp",
+        metaTitle: "Power Plant Audit Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy provides Power Plant Audit Services in Gujarat, including thermal power plant energy audits, efficiency assessments, power generation audits, and performance optimization solutions to improve reliability, reduce energy losses, and enhance plant efficiency.",
+        metaKeywords: [
+            "Power Plant Audit Services in Gujarat",
+            "Power Plant Energy Audit Gujarat",
+            "Thermal Power Plant Audit Services Gujarat",
+            "Industrial Power Plant Audit Services Gujarat",
+            "Power Generation Audit Services Gujarat",
+            "Power Plant Audit Services India",
+            "Thermal Power Plant Energy Audit",
+            "Power Plant Efficiency Audit Services",
+            "Energy Audit for Power Plants",
+            "Power Plant Performance Assessment Services"
+        ],
         sections: [
             {
                 type: "list",
@@ -607,6 +694,20 @@ export const services: Service[] = [
         icon: Thermometer,
         description: "Studies are undertaken to determine efficiencies of generation, distribution & Utilisation of thermal energies. Boiler efficiency tests are carried out to determine steam generation to fuel ratio.",
         image: "/services/7.webp",
+        metaTitle: "Boiler and Furnace Audit Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy provides Boiler and Furnace Audit Services in Gujarat, including boiler efficiency audits, furnace energy audits, combustion efficiency analysis, and thermal efficiency assessments to reduce fuel consumption, improve performance, and enhance industrial energy efficiency.",
+        metaKeywords: [
+            "Boiler and Furnace Audit Services in Gujarat",
+            "Boiler Efficiency Audit Gujarat",
+            "Furnace Energy Audit Services Gujarat",
+            "Industrial Boiler Audit Services Gujarat",
+            "Combustion Efficiency Analysis Gujarat",
+            "Boiler and Furnace Audit Services India",
+            "Boiler Efficiency Improvement Services",
+            "Furnace Efficiency Assessment Services",
+            "Industrial Boiler Energy Audit",
+            "Thermal Efficiency Audit Services"
+        ],
         sections: [
             {
                 type: "list",
@@ -635,6 +736,20 @@ export const services: Service[] = [
         icon: Droplets,
         description: "Accurate flow measurements are critical to the calculation of Utility or process control applications.\n\nFlow Measurement is also useful for monitoring & troubleshooting internal processes at various points.\n\nmeasures the flow of virtually any fluid, be it liquid, gas or steam, regardless of the flow direction (bi-directional) and over an extremely wide measuring range. Due to its practical advantages, external flow measurement with clamp-on ultrasonic transducers has become a standard measuring technique in a broad range of industries and applications.\n\nThis flowmeter can be installed in just minutes without needing to shut down, thus avoiding costly downtime. This ultrasonic technology works with gases at high or low pressure in pipes made of metal and most other materials.",
         image: "/services/5.webp",
+        metaTitle: "Flow Measurement Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy provides Flow Measurement Services in Gujarat, including industrial flow measurement, flow meter testing, flow measurement audits, process flow analysis, and flow meter calibration to improve accuracy, optimize processes, and enhance industrial efficiency.",
+        metaKeywords: [
+            "Flow Measurement Services in Gujarat",
+            "Industrial Flow Measurement Services Gujarat",
+            "Flow Meter Testing Services Gujarat",
+            "Flow Measurement Audit Services Gujarat",
+            "Process Flow Measurement Services Gujarat",
+            "Flow Measurement Services India",
+            "Industrial Flow Measurement Services",
+            "Flow Meter Calibration Services",
+            "Process Flow Analysis Services",
+            "Flow Monitoring Solutions for Industries"
+        ],
         sections: [
             {
                 type: "text",
@@ -737,6 +852,20 @@ export const services: Service[] = [
         icon: Activity,
         description: "Heat and mass balance is a critical aspect of process engineering, used extensively in the design and analysis of process plants. These calculations ensure that the energy and material inputs and outputs in a system are accurately accounted for, helping to optimise efficiency, safety, and cost-effectiveness in industrial operations.",
         image: "/services/9.webp",
+        metaTitle: "Process Heat Optimization Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy provides Process Heat Optimization Services in Gujarat, including process heat audits, thermal energy audits, furnace and boiler efficiency audits, waste heat recovery, and industrial thermal efficiency solutions to reduce energy costs and improve productivity.",
+        metaKeywords: [
+            "Process Heat Optimization Services in Gujarat",
+            "Process Heat Audit Services in Gujarat",
+            "Industrial Process Heat Solutions Gujarat",
+            "Thermal Energy Audit Services in Gujarat",
+            "Process Heating Efficiency Services",
+            "Industrial Heat Recovery Solutions",
+            "Furnace Energy Audit Services",
+            "Boiler Efficiency Audit Services",
+            "Waste Heat Recovery Services",
+            "Industrial Thermal Efficiency Solutions"
+        ],
         sections: [
             {
                 type: "image",
@@ -779,6 +908,20 @@ export const services: Service[] = [
         icon: Wind,
         description: "Cooling towers represent largest reuse of water in industrial and commercial applications. Cooling towers offers the means to remove heat from air conditioning systems and industrial processes generating excess heat.\n\nCooling towers are normally designed for maximum process load and worst ambient conditions. Optimizing operation and effective maintenance of cooling towers systems offer facility and process managers significant savings in energy and water consumption. As result saving potential of about 20-25% can be achieved by optimizing excess capacities of pumps and fans catering to under loaded process.",
         image: "/services/10.webp",
+        metaTitle: "Cooling Tower Audit Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy offers Cooling Tower Audit Services in Gujarat, including performance assessments, efficiency audits, energy-saving solutions, and industrial cooling tower optimization to improve cooling efficiency, reduce energy consumption, and lower operating costs.",
+        metaKeywords: [
+            "Cooling Tower Audit Services in Gujarat",
+            "Cooling Tower Performance Assessment Gujarat",
+            "Cooling Tower Efficiency Audit Gujarat",
+            "Industrial Cooling Tower Audit Services Gujarat",
+            "Cooling Tower Energy Audit Gujarat",
+            "Cooling Tower Audit Services India",
+            "Cooling Tower Performance Assessment Services",
+            "Cooling Tower Efficiency Improvement Services",
+            "Industrial Cooling Tower Optimization",
+            "Cooling Tower Energy Saving Solutions"
+        ],
         sections: [
             {
                 type: "text",
@@ -885,6 +1028,20 @@ export const services: Service[] = [
         icon: Thermometer,
         description: "The performance assessment of the chiller plant involves calculation of cooling duty delivered by the system and measurement of power consumed by the unit.\n\nThe Specific Power Consumption (SPC - kW/TR) and Energy Efficiency Ratio (EER) are the effective measures for comparing the electrical energy input to cooling duty delivered by the system.\n\nThe study involves measuring various parameters such as flow rate, temperature and power in the both chilled water and refrigeration side of the chiller system.",
         image: "/services/11.webp",
+        metaTitle: "Chiller Audit Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy offers Chiller Audit Services in Gujarat, including chiller performance assessments, energy audits, HVAC energy audits, and industrial chiller optimization to improve efficiency, reduce energy consumption, and lower operating costs.",
+        metaKeywords: [
+            "Chiller Audit Services in Gujarat",
+            "Chiller Performance Assessment Gujarat",
+            "Chiller Energy Audit Services Gujarat",
+            "Industrial Chiller Optimization Services Gujarat",
+            "Chiller Efficiency Improvement Gujarat",
+            "Chiller Audit Services India",
+            "Chiller Performance Assessment Services",
+            "Chiller Energy Saving Solutions",
+            "HVAC Energy Audit Services",
+            "Industrial Chiller Efficiency Services"
+        ],
         sections: [
             {
                 type: "nested-content",
@@ -954,6 +1111,20 @@ export const services: Service[] = [
         icon: Zap,
         description: "Lighting is an essential service in all the industries. The power consumption by the industrial lighting varies between 2 to 10% of the total power depending on the type of industry. Innovation and continuous improvement in the field of lighting, has given rise to tremendous energy saving opportunities in this area.",
         image: "/services/12.webp",
+        metaTitle: "Lighting Energy Audit Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy offers Lighting Energy Audit Services in Gujarat, including industrial lighting audits, LED lighting assessments, lighting efficiency improvement, and energy-saving solutions to reduce electricity consumption, enhance illumination, and optimize industrial lighting systems.",
+        metaKeywords: [
+            "Lighting Energy Audit Services in Gujarat",
+            "Industrial Lighting Audit Gujarat",
+            "Lighting Efficiency Assessment Gujarat",
+            "LED Lighting Audit Services Gujarat",
+            "Energy Efficient Lighting Solutions Gujarat",
+            "Lighting Energy Audit Services India",
+            "Industrial Lighting Optimization Services",
+            "Lighting Efficiency Improvement Services",
+            "LED Energy Saving Solutions for Industries",
+            "Industrial Lighting Energy Management"
+        ],
         sections: [
             {
                 type: "list",
@@ -973,6 +1144,20 @@ export const services: Service[] = [
         icon: Thermometer,
         description: "Thermography Study is use for Predictive type maintenance.\n\nMany problems begin with an increase in temperature, and the IR camera allows for early detection of these potential problems that might otherwise go unnoticed. Thermal imaging allows inspections to be conducted more efficiently, without disrupting any surfaces, equipment, or barriers.",
         image: "/services/13.webp",
+        metaTitle: "Thermography Services in Gujarat | Electrical Thermal Inspection",
+        metaDescription: "Limbaja Energy offers Thermography Services in Gujarat, including infrared thermography, electrical thermal scanning, thermal imaging inspections, and electrical panel thermography to detect faults early, improve safety, and support preventive maintenance.",
+        metaKeywords: [
+            "Thermography Services in Gujarat",
+            "Infrared Thermography Services in Gujarat",
+            "Electrical Thermography Inspection Gujarat",
+            "Thermal Imaging Inspection Services Gujarat",
+            "Industrial Thermography Services Gujarat",
+            "Electrical Thermal Scanning Services",
+            "Infrared Inspection Services",
+            "Thermal Imaging Inspection Services",
+            "Preventive Maintenance Thermography",
+            "Electrical Panel Thermography Services"
+        ],
         sections: [
             {
                 type: "list",
@@ -1026,6 +1211,20 @@ export const services: Service[] = [
         icon: Droplets,
         description: "A steam trap is a mechanical valve that separates condensate from steam for a return trip to the boiler.\n\nMany steam traps underperform by plugging or sticking, leading to inefficient separation of water from steam.\n\nOptimized steam traps can reduce energy costs by 10% to 15%. In a steam strap study,",
         image: "/services/14.webp",
+        metaTitle: "Steam Trap Audit Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy provides Steam Trap Audit Services in Gujarat, including steam trap testing, inspection, steam system energy audits, and efficiency assessments to reduce steam losses, improve system performance, and achieve significant energy savings.",
+        metaKeywords: [
+            "Steam Trap Audit Services in Gujarat",
+            "Steam Trap Survey Services Gujarat",
+            "Steam Trap Testing Services Gujarat",
+            "Industrial Steam Trap Audit Gujarat",
+            "Steam System Audit Services Gujarat",
+            "Steam Trap Audit Services India",
+            "Steam Trap Inspection Services",
+            "Steam System Energy Audit",
+            "Steam Efficiency Audit Services",
+            "Steam Energy Saving Solutions"
+        ],
         sections: [
 
             {
@@ -1043,12 +1242,12 @@ export const services: Service[] = [
                     {
                         title: "Steam Trap Measurement 1",
                         url: "/services/steam-trap-example-1.webp",
-                        alt: "Steam Trap Thermal Measurement 1"
+                        alt: "Steam Trap Thermal Measurement & Temperature Testing 1"
                     },
                     {
                         title: "Steam Trap Measurement 2",
                         url: "/services/steam-trap-example-2.webp",
-                        alt: "Steam Trap Thermal Measurement 2"
+                        alt: "Steam Trap Thermal Measurement & Temperature Testing 2"
                     }
                 ]
             }
@@ -1061,6 +1260,20 @@ export const services: Service[] = [
         icon: Activity,
         description: "All pumps have a characteristic or performance curve that describes the flow rate produced at net or total head. Pump specifications relating head and flow rate correlate to those found on its characteristic curve.",
         image: "/services/15.webp",
+        metaTitle: "Pump Audit Services in Gujarat | Pumping System Energy Audit",
+        metaDescription: "Limbaja Energy provides Pump Audit Services in Gujarat, including pumping system energy audits, pump efficiency assessments, industrial pump optimization, and energy-saving solutions to improve system performance, reduce power consumption, and lower operating costs.",
+        metaKeywords: [
+            "Pump Audit Services in Gujarat",
+            "Pumping System Audit Services Gujarat",
+            "Pump Efficiency Assessment Gujarat",
+            "Industrial Pump Energy Audit Gujarat",
+            "Pump Optimization Services Gujarat",
+            "Pump Audit Services India",
+            "Pumping System Energy Audit",
+            "Pump Efficiency Improvement Services",
+            "Industrial Pump Performance Assessment",
+            "Pump Energy Saving Solutions"
+        ],
         sections: [
             {
                 type: "nested-content",
@@ -1168,6 +1381,20 @@ export const services: Service[] = [
         icon: Wind,
         description: "The fans are tested for field performance by measurement of flow, head, temperature on the fan side and electrical motor kW input on the motor side. The air velocity was measured by using anemometer. Multiplication of air velocity with the inlet area gives the air flow.",
         image: "/services/16.webp",
+        metaTitle: "Industrial Fan Audit Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy provides Industrial Fan Audit Services in Gujarat, including fan efficiency assessments, energy audits, performance analysis, ventilation system audits, and fan optimization solutions to reduce energy consumption, improve airflow, and enhance operational efficiency.",
+        metaKeywords: [
+            "Industrial Fan Audit Services in Gujarat",
+            "Fan Efficiency Assessment Gujarat",
+            "Industrial Fan Energy Audit Gujarat",
+            "Fan Performance Analysis Services Gujarat",
+            "Industrial Ventilation Audit Services Gujarat",
+            "Fan Audit Services India",
+            "Industrial Fan Energy Audit Services",
+            "Fan Efficiency Improvement Services",
+            "Industrial Fan Optimization Services",
+            "Ventilation System Energy Audit"
+        ],
         sections: [
             {
                 type: "nested-content",
@@ -1264,6 +1491,20 @@ export const services: Service[] = [
         icon: Globe,
         description: "We Provide the Carbon Offset Validation Service to the UCR Project. We have validated numerous projects ranging from Wind, Solar, Biomass to Hydro.",
         image: "/services/17.webp",
+        metaTitle: "Carbon Footprint Assessment Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy provides Carbon Footprint Assessment Services in Gujarat, including carbon emission assessment, carbon accounting, verification, ESG consulting, sustainability consulting, and carbon neutrality solutions to help businesses reduce emissions and achieve sustainability goals.",
+        metaKeywords: [
+            "Carbon Footprint Assessment Services in Gujarat",
+            "Carbon Footprint Consultant Gujarat",
+            "Carbon Emission Assessment Services Gujarat",
+            "Carbon Verification Services in Gujarat",
+            "Carbon Management Consultant Gujarat",
+            "Carbon Footprint Assessment Services",
+            "Carbon Accounting Services",
+            "ESG Consulting Services India",
+            "Sustainability Consulting Services",
+            "Carbon Neutrality Consulting Services"
+        ],
         sections: [
             {
                 type: "image-row",
@@ -1271,12 +1512,12 @@ export const services: Service[] = [
                     {
                         url: "/services/ucr-logo.webp",
                         title: "Universal Carbon Registry",
-                        alt: "UCR Logo"
+                        alt: "Universal Carbon Registry (UCR) Certification Logo"
                     },
                     {
                         url: "/services/reduce-carbon-footprint.webp",
                         title: "Reduce Your Carbon Footprint",
-                        alt: "Reduce Your Carbon Footprint Logo",
+                        alt: "Reduce Your Carbon Footprint Industrial Sustainability Logo",
                         variant: 'logo'
                     }
                 ]
@@ -1320,6 +1561,20 @@ export const services: Service[] = [
         icon: AlertTriangle,
         description: "Comprehensive safety assessment including ETAP Modelling and Short Circuit Studies.",
         image: "/services/18.webp",
+        metaTitle: "Arc Flash Study Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy provides Arc Flash Study Services in Gujarat, including arc flash risk assessment, hazard analysis, electrical system safety assessments, and electrical safety audit services to improve workplace safety, ensure compliance, and protect critical electrical systems.",
+        metaKeywords: [
+            "Arc Flash Study Services in Gujarat",
+            "Arc Flash Risk Assessment Gujarat",
+            "Electrical Arc Flash Analysis Gujarat",
+            "Arc Flash Hazard Study Gujarat",
+            "Arc Flash Safety Assessment Services Gujarat",
+            "Arc Flash Study Services India",
+            "Arc Flash Analysis Services",
+            "Electrical Safety Audit Services",
+            "Arc Flash Hazard Analysis",
+            "Electrical System Safety Assessment"
+        ],
         sections: [
             {
                 type: "list",
@@ -1342,6 +1597,20 @@ export const services: Service[] = [
         icon: Settings,
         description: "The motor efficiency can be calculated from the total losses, which are assumed to be the summation of the following losses.",
         image: "/services/19.webp",
+        metaTitle: "Motor Audit Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy provides Motor Audit Services in Gujarat, including motor efficiency assessments, electric motor energy audits, performance analysis, and energy-efficient motor solutions to improve reliability, reduce power consumption, and optimize industrial operations.",
+        metaKeywords: [
+            "Motor Audit Services in Gujarat",
+            "Motor Efficiency Assessment Gujarat",
+            "Electric Motor Energy Audit Gujarat",
+            "Industrial Motor Audit Services Gujarat",
+            "Motor Performance Analysis Gujarat",
+            "Motor Audit Services India",
+            "Motor Energy Audit Services",
+            "Electric Motor Efficiency Testing",
+            "Industrial Motor Performance Assessment",
+            "Energy Efficient Motor Solutions"
+        ],
         sections: [
             {
                 type: "list",
@@ -1359,12 +1628,6 @@ export const services: Service[] = [
                     "The stray losses are difficult to measure with any accuracy. IEEE Standard 112 gives a complicated method. Which is rarely used on shop floor. IS & IEC standards take fixed value as 0.5% of output. It must be remarked that actual value of stray losses is likely to be more. IEEE – 112 specifies values from 0.9 to 1.8%."
                 ]
             },
-            // {
-            //     type: "image",
-            //     title: "Power Quality Analyzer",
-            //     image: "/instrument/1alm31.webp",
-            //     alt: "Power Analyzer for Motor Efficiency"
-            // },
             {
                 type: "nested-content",
                 title: "Case Study",
@@ -1430,6 +1693,20 @@ export const services: Service[] = [
         icon: PieChart,
         description: "We provide the Energy Meter Calibration Service at the plant.",
         image: "/services/20.webp",
+        metaTitle: "Energy Meter Calibration Services in Gujarat | Limbaja Energy",
+        metaDescription: "Limbaja Energy provides Energy Meter Calibration Services in Gujarat, including electrical meter calibration, power meter testing, and industrial instrument calibration to ensure accurate energy measurement and reliable plant performance.",
+        metaKeywords: [
+            "Energy Meter Calibration Services in Gujarat",
+            "Electrical Meter Calibration Services Gujarat",
+            "Power Meter Calibration Gujarat",
+            "Industrial Meter Calibration Services Gujarat",
+            "Energy Meter Testing and Calibration Gujarat",
+            "Energy Meter Calibration Services India",
+            "Electrical Instrument Calibration Services",
+            "Power Analyzer Calibration Services",
+            "Industrial Instrument Calibration Services",
+            "Electrical Testing and Calibration Services"
+        ],
         sections: [
             {
                 type: "list",
@@ -1441,21 +1718,7 @@ export const services: Service[] = [
                     "Power Factor (PF)",
                     "Energy Consumption (kWh)"
                 ]
-            },
-            // {
-            //     type: "image",
-            //     title: "NanoVIP Power Analyzer",
-            //     image: "/instrument/2nanovip.webp",
-            //     alt: "NanoVIP Analyzer for Calibration"
-            // },
-            // {
-            //     type: "list",
-            //     items: [
-            //         "Verification of Voltage, Current, kW, and Energy readings.",
-            //         "Accuracy check against calibrated reference standard.",
-            //         "Issuance of calibration certificate."
-            //     ]
-            // }
+            }
         ],
         content: []
     }

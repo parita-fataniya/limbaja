@@ -17,18 +17,20 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
         };
     }
 
-    const title = `${service.title} | Energy Efficiency Services | Limbaja Energy`;
-    const description = service.description.slice(0, 160) + '...';
+    const title = service.metaTitle || `${service.title} | Energy Efficiency Services | Limbaja Energy`;
+    const description = service.metaDescription || (service.description.slice(0, 160) + '...');
+    const keywords = service.metaKeywords || [];
 
     return {
         title,
         description,
+        keywords,
         alternates: {
             canonical: `https://www.limbajaenergy.com/service/${params.id}`,
         },
         openGraph: {
             title,
-            description: service.description.slice(0, 200),
+            description,
             url: `https://www.limbajaenergy.com/service/${params.id}`,
             images: [{ url: service.image, width: 1200, height: 630, alt: service.title }],
             type: 'article',

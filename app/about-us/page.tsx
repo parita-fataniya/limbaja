@@ -9,17 +9,26 @@ import Benefits from "@/components/about/Benefits";
 import { Vision, AboutCTA } from "@/components/about/AboutBottom";
 
 export const metadata: Metadata = {
-    title: "About Us | Certified Energy Experts | Limbaja Energy",
-    description: "Learn about Limbaja Energy, our mission to drive industrial sustainability, and our team of BEE-certified energy experts providing global energy solutions.",
-    keywords: ["Limbaja Energy Mission", "Certified Energy Experts India", "Sustainable Energy Team", "Energy Consultancy Ahmedabad"],
+    title: "About Limbaja Energy | Trusted Energy Audit Company in Gujarat",
+    description: "Learn about Limbaja Energy, a trusted Energy Audit Company in Gujarat with certified energy auditors offering industrial energy consulting, energy management solutions, and expert audit services to improve efficiency, reduce costs, and support sustainable business growth.",
+    keywords: [
+        "Energy Audit Company in Gujarat",
+        "Certified Energy Auditor Gujarat",
+        "Energy Consultant in Gujarat",
+        "Industrial Energy Consultants Gujarat",
+        "BEE Certified Energy Auditor Gujarat",
+        "Authorized Energy Auditor Gujarat",
+        "Energy Management Consultant Gujarat",
+        "Industrial Energy Experts Gujarat"
+    ],
     alternates: {
         canonical: 'https://www.limbajaenergy.com/about-us',
     },
     openGraph: {
-        title: "About Limbaja Energy | Sustainable Energy Solutions",
-        description: "Driving efficiency and excellence in industrial energy management.",
+        title: "About Limbaja Energy | Trusted Energy Audit Company in Gujarat",
+        description: "Learn about Limbaja Energy, a trusted Energy Audit Company in Gujarat with certified energy auditors offering industrial energy consulting.",
         url: 'https://www.limbajaenergy.com/about-us',
-        images: [{ url: '/OG_Image.png', width: 1200, height: 630, alt: 'About Limbaja Energy' }],
+        images: [{ url: '/OG_Image.png', width: 1200, height: 630, alt: 'About Limbaja Energy - Trusted Energy Audit Company in Gujarat' }],
     },
 };
 
