@@ -24,10 +24,10 @@ export default function WhoWeAre() {
 
                             <div className="space-y-6 text-slate-600 text-base md:text-lg leading-loose tracking-wide text-justify">
                                 <p className="text-justify font-medium">
-                                    With gradually increasing energy costs and depletion of natural resources of fossil fuels, prudent energy efficient usage of Electrical energy and thermal energy. Limbaja Energy is committed to help clients achieve energy savings and provides complete end to end solution from conceptualization, measurement, feasibility analysis and implementation support for energy saving.
+                                    With rising energy costs and the growing need for sustainable resource management, improving electrical and thermal energy efficiency has become a key priority for industries. Limbaja Energy is a trusted Energy Audit Company in Gujarat, serving clients across Gujarat and India with end-to-end energy management solutions. From conceptualization and precision measurement to feasibility analysis, implementation support, and performance optimization, we help organizations achieve measurable energy savings and long-term operational excellence.
                                 </p>
                                 <p className="text-justify">
-                                    We have a very qualified team of certified Energy Auditors and Energy Engineers who have wide experience in various types of industries, processes and facilities. In many industries and facilities, energy generally has the highest potential for cost reduction.
+                                    Our team of Certified Energy Auditors and experienced Energy Engineers brings extensive expertise across diverse industries, manufacturing processes, and commercial facilities. As a reliable Energy Consultant in Gujarat and BEE Certified Energy Auditor, we provide comprehensive industrial energy audit services that identify energy-saving opportunities, reduce operating costs, improve equipment performance, and enhance overall plant efficiency. Our commitment to innovation, technical excellence, and sustainable energy management has made us a preferred partner for businesses seeking reliable energy audit and consulting services in Gujarat and across India.
                                 </p>
                             </div>
                         </motion.div>

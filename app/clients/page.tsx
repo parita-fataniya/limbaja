@@ -74,8 +74,8 @@ export default function ClientsPage() {
                         Our Clients
                     </h1>
                     <div className="h-1.5 w-24 bg-gradient-to-r from-secondary to-primary mx-auto rounded-full"></div>
-                    <p className="mt-8 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                        We are proud to partner with industry leaders, delivering excellence and innovation in every project.
+                    <p className="mt-8 text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                        We are proud to partner with leading industries across Gujarat and India, delivering reliable energy audit, energy management, and efficiency solutions with excellence and innovation. As a trusted Energy Audit Company in Gujarat, we have successfully completed Industrial Energy Audit Services for a wide range of manufacturing and commercial clients. Our commitment to quality, technical expertise, and customer satisfaction has made us a preferred Industrial Energy Consultant, helping businesses improve energy efficiency, reduce operating costs, and achieve sustainable growth.
                     </p>
                 </div>
             </div>

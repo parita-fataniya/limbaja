@@ -92,10 +92,9 @@ export default function AboutSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-lg text-slate-500 max-w-2xl leading-relaxed"
+                        className="text-[#4A5568] leading-relaxed mb-6 font-normal max-w-2xl"
                     >
-                        Limbaja Energy is committed to helping clients achieve energy savings through precision measurement and
-                        expert analysis. Prudent energy usage has become a critical business imperative.
+                        Limbaja Energy is a trusted Energy Audit Company in Gujarat serving industries across Gujarat and India. We help businesses reduce energy costs through precision measurement, expert analysis, and innovative energy efficiency solutions. Our experienced Energy Auditors provide industrial energy audit services, power quality analysis, electrical energy audits, electrical safety audits, and thermography services to identify energy-saving opportunities, improve operational performance, and support sustainable growth.
                     </motion.p>
                 </div>
 
